@@ -1,0 +1,4 @@
+/*
+ this file is just here so that the
+ testcase can generate a hash for it
+*/

@@ -1,0 +1,295 @@
+{
+	"moduleIDs": [
+		"getting_started_module",
+		"wp_theme_portal_85",
+		"wp_dynamicContentSpots_85",
+		"wp_toolbar_host_view",
+		"wp_portlet_css",
+		"wp_client_ext",
+		"wp_status_bar",
+		"wp_theme_menus",
+		"wp_theme_skin_region",
+		"wp_high_contrast",
+		"wp_layout_windowstates",
+		"wp_portal",
+		"wp_tagging_rating_light",
+		"wp_analytics_aggregator",
+		"wp_oob_sample_styles",
+		"wp_ic4_wai_resources",
+		"wp_worklight_ext",
+		"wp_liveobject_framework",
+		"dojo",
+		"wp_sametime_proxy",
+		"wp_draft_page_ribbon",
+		"wp_wcm_async"
+	],
+	"deferredModuleIDs": [
+		"wp_theme_portal_edit_85",
+		"wp_toolbar_host_edit",
+		"wp_analytics_tags",
+		"wp_contextmenu_live_object",
+		"wp_content_targeting_cam",
+		"wcm_inplaceEdit",
+		"wp_skin_cam"
+	],
+	"titles": [
+		{
+			"value":"المحتويات الأساسية مع Dojo",
+			"lang":"ar"
+		},
+		{
+			"value":"Contingut bàsic amb Dojo",
+			"lang":"ca"
+		},
+		{
+			"value":"Základní obsah se sadou nástrojů Dojo",
+			"lang":"cs"
+		},
+		{
+			"value":"Basisindhold med Dojo",
+			"lang":"da"
+		},
+		{
+			"value":"Basisinhalt mit Dojo",
+			"lang":"de"
+		},
+		{
+			"value":"Βασικό περιεχόμενο με Dojo",
+			"lang":"el"
+		},
+		{
+			"value":"Basic Content with Dojo",
+			"lang":"en"
+		},
+		{
+			"value":"Contenido básico con Dojo",
+			"lang":"es"
+		},
+		{
+			"value":"Perussisältö Dojon kanssa",
+			"lang":"fi"
+		},
+		{
+			"value":"Contenu de base avec Dojo",
+			"lang":"fr"
+		},
+		{
+			"value":"תוכן בסיסי עם Dojo",
+			"lang":"he"
+		},
+		{
+			"value":"Osnovni sadržaj s Dojom",
+			"lang":"hr"
+		},
+		{
+			"value":"Alap tartalom Dojo-val",
+			"lang":"hu"
+		},
+		{
+			"value":"Contenuto di base con Dojo",
+			"lang":"it"
+		},
+		{
+			"value":"Dojo を使用した基本コンテンツ",
+			"lang":"ja"
+		},
+		{
+			"value":"Basic Content with Dojo",
+			"lang":"kk"
+		},
+		{
+			"value":"기본 컨텐츠(Dojo 포함)",
+			"lang":"ko"
+		},
+		{
+			"value":"Standaardcontent met Dojo",
+			"lang":"nl"
+		},
+		{
+			"value":"Grunnleggende innhold med Dojo",
+			"lang":"no"
+		},
+		{
+			"value":"Treść podstawowa z technologią Dojo",
+			"lang":"pl"
+		},
+		{
+			"value":"Conteúdo básico com o Dojo",
+			"lang":"pt"
+		},
+		{
+			"value":"Conteúdo Básico com Dojo",
+			"lang":"pt_BR"
+		},
+		{
+			"value":"Conţinut de bază cu Dojo",
+			"lang":"ro"
+		},
+		{
+			"value":"Базовые материалы - Dojo",
+			"lang":"ru"
+		},
+		{
+			"value":"Základný obsah s Dojo",
+			"lang":"sk"
+		},
+		{
+			"value":"Osnovna vsebina z orodji Dojo",
+			"lang":"sl"
+		},
+		{
+			"value":"Basinnehåll med Dojo",
+			"lang":"sv"
+		},
+		{
+			"value":"เนื้อหาพื้นฐานด้วย Dojo",
+			"lang":"th"
+		},
+		{
+			"value":"Dojo İle Temel İçerik",
+			"lang":"tr"
+		},
+		{
+			"value":"Базові матеріали із Dojo",
+			"lang":"uk"
+		},
+		{
+			"value":"Dojo 的基本内容",
+			"lang":"zh"
+		},
+		{
+			"value":"使用 Dojo 的基本內容",
+			"lang":"zh_TW"
+		}
+	],
+	"descriptions": [
+		{
+			"value":"يحتوي ملف المواصفات هذا على كل شيء مطلوب لمشاهدة وتحرير المحتويات بالاضافة الى الامكانيات مثل التعليم بشارة والتقييم، التمثيل البياني للبيانات الاجتماعية وبطاقة الشخص. ملف المواصفات هذا يتضمن dojo.",
+			"lang":"ar"
+		},
+		{
+			"value":"Aquest perfil conté tot el necessari per visualitzar i editar el contingut així com funcions com ara l'Etiquetatge i classificació, la Targeta de persona i la Representació social. Aquest perfil inclou dojo.",
+			"lang":"ca"
+		},
+		{
+			"value":"Tento profil obsahuje vše, co je nezbytné k zobrazení a úpravě obsahu, stejně jako takové schopnosti, jako např. použití značek a hodnocení, karta osoby a vykreslení dat ze sociálních sítí. Tento profil zahrnuje sadu nástrojů dojo.",
+			"lang":"cs"
+		},
+		{
+			"value":"Denne profil indeholder alt, der kræves til fremvisning og redigering af indhold foruden muligheder for emneordsangivelse og vurdering, personkort og social gengivelse. Profilen indeholder Dojo.",
+			"lang":"da"
+		},
+		{
+			"value":"Dieses Profil enthält alle Elemente, die für die Anzeige und Bearbeitung von Inhalten erforderlich sind, sowie Funktionen wie Tagging und Bewertung, Personenkarte und gemeinschaftliche Darstellung. Dieses Profil umfasst Dojo.  ",
+			"lang":"de"
+		},
+		{
+			"value":"Αυτό το προφίλ περιέχει όλα τα απαραίτητα αντικείμενα για την προβολή και την τροποποίηση περιεχομένου, καθώς και για δυνατότητες όπως η προσθήκη προσδιοριστικών και αξιολογήσεων, κάρτα χρήστη και η εμφάνιση περιεχομένου κοινωνικής δικτύωσης. Αυτό το προφίλ περιλαμβάνει dojo.",
+			"lang":"el"
+		},
+		{
+			"value":"This profile contains everything required for viewing and editing content as well as capabilities such as tagging&rating, person card and social rendering. This profile includes dojo.",
+			"lang":"en"
+		},
+		{
+			"value":"Este perfil contiene todo lo necesario para visualizar y editar el contenido, así como funciones como Codificación y valoración, Tarjeta personal y Representación social. Este perfil incluye dojo.",
+			"lang":"es"
+		},
+		{
+			"value":"Tämä profiili sisältää kaiken, mitä tarvitaan sisällön tarkasteluun ja muokkaukseen sekä tunnisteiden lisäykseen, arviointiin, henkilökortteihin ja sosiaaliseen hahmonnukseen. Tämä profiili sisältää dojo-ominaisuuksia.",
+			"lang":"fi"
+		},
+		{
+			"value":"Ce profil contient tous les éléments requis pour l'affichage et l'édition de contenu ainsi que des capacités telles que l'étiquetage et l'évaluation, carte personnelle et rendu social. Ce profil inclut Dojo.",
+			"lang":"fr"
+		},
+		{
+			"value":"פרופיל זה כולל את כל מה שנחוץ להצגה ולעריכה של תוכן, וכן יכולות כגון תיוג ודירוג, כרטיס אדם והצגה חברתית. פרופיל זה כולל את dojo.‏",
+			"lang":"he"
+		},
+		{
+			"value":"Ovaj profil sadrži sve što je potrebno za pregled i uređivanje sadržaja i mogućnosti poput označavanja i ocjenjivanja, karticu osobe i društveno prikazivanje. Ovaj profil uključuje dojo.",
+			"lang":"hr"
+		},
+		{
+			"value":"Ez a profil tartalmaz mindent, ami szükséges a tartalom megjelenítéséhez és szerkesztéséhez, valamint olyan képességeket, mint a címkézés és az értékelés, a személyes kártya és a közösségi előállítás. A profil dojo-t tartalmaz.",
+			"lang":"hu"
+		},
+		{
+			"value":"Questo profilo contiene tutto ciò che serve per visualizzare e modificare il contenuto, oltre alle capability come tag&valutazione, scheda persona e rendering sociale. Questo profilo include dojo.",
+			"lang":"it"
+		},
+		{
+			"value":"このプロファイルには、タグ付けと評価、ユーザー・カード、ソーシャル・レンダリングなどの機能のほか、コンテンツの表示および編集に必要なあらゆるものが含まれます。 このプロファイルには Dojo が含まれています。",
+			"lang":"ja"
+		},
+		{
+			"value":"Бұл профайл tagging&rating, жеке кәртішке және әлеуметтік шығару сияқты мүмкіндіктерді қамтитын көрініс пен өңдеу үшін талап етілетін кез келгенін қамтиды. Бұл профайл dojo элементін қамтиды.",
+			"lang":"kk"
+		},
+		{
+			"value":"이 프로파일에는 태그 지정 및 등급 지정, 개인 카드, 소셜 렌더링 등의 기능 및 컨텐츠를 보고 편집하는 데 필요한 사항이 모두 포함되어 있습니다. 이 프로파일에는 Dojo가 포함됩니다.",
+			"lang":"ko"
+		},
+		{
+			"value":"Dit profiel bevat alles wat nodig is voor het bekijken en bewerken van content en daarnaast functionaliteit zoals tagging & beoordeling, persoonskaarten en social rendering. Dit profiel bevat dojo.",
+			"lang":"nl"
+		},
+		{
+			"value":"Denne profilen inneholder alt som er nødvendig for å vise og redigere innhold, og funksjonalitet som merking og vurdering, personkort og sosial gjengivelse. Denne profilen inkluderer dojo.",
+			"lang":"no"
+		},
+		{
+			"value":"Ten profil zawiera wszystkie elementy wymagane do wyświetlania i edytowania treści oraz możliwości, takie jak oznaczanie i ocenianie, wizytówki i wyświetlanie społecznościowe. Ten profil zawiera technologię Dojo.",
+			"lang":"pl"
+		},
+		{
+			"value":"Este perfil contém todos os itens requeridos para visualizar e editar conteúdo, bem como capacidade como atribuição de etiquetas e avaliação, cartão de pessoa e apresentação social. Este perfil inclui o dojo.",
+			"lang":"pt"
+		},
+		{
+			"value":"Este perfil contém tudo que é necessário para visualizar e editar conteúdo, bem como capacidades de identificação e classificação, cartão pessoal e renderização social. Esse perfil inclui dojo.",
+			"lang":"pt_BR"
+		},
+		{
+			"value":"Acest profil conţine tot ce este necesar pentru vizualizarea şi editarea conţinutului, precum şi capabilităţi cum ar fi marcarea prin tag şi evaluarea, cardul de persoană şi randarea socială. Acest profil inlude dojo.",
+			"lang":"ro"
+		},
+		{
+			"value":"Этот профайл содержит все необходимое для просмотра и редактирования материалов, а также различные функции, например, функции тегов и рейтинга, личной карточки и социального вывода. В состав этого профайла входит dojo.",
+			"lang":"ru"
+		},
+		{
+			"value":"Tento profil obsahuje všetko potrebné na prezeranie a úpravu obsahu, ako aj schopnosti, ako napríklad značkovanie a hodnotenie, karty osoby a sociálne renderovanie. Tento profil zahŕňa dojo.",
+			"lang":"sk"
+		},
+		{
+			"value":"Ta profil vsebuje vse potrebno za ogledovanje in urejanje vsebine, kot tudi zmožnosti, kot so označevanje in ocenjevanje, osebne vizitke ter družabno upodabljanje. Ta profil vključuje komplet orodij Dojo.",
+			"lang":"sl"
+		},
+		{
+			"value":"Profil med det som krävs för att öppna och redigera innehåll samt funktioner för märkning, gradering, personkort och rendering av sociala objekt. Innehåller Dojo.",
+			"lang":"sv"
+		},
+		{
+			"value":"โปรไฟล์นี้มีทุกสิ่งที่จำเป็นสำหรับการดูและแก้ไขเนื้อหาพร้อมกับความสามารถอื่นๆ เช่น การแท็ก&การลงคะแนน, นามบัตรและการแสดงผลทางสังคม โปรไฟล์นี้มี dojo",
+			"lang":"th"
+		},
+		{
+			"value":"Bu profil, içerik görüntülemek ve düzenlemek için gereken tüm araçların yanı sıra, etiketleme, değerleme, kişi kartı ve sosyal görsel gerçekleştirme gibi yetenekleri de içerir. Bu profil Dojo'yu içerir.",
+			"lang":"tr"
+		},
+		{
+			"value":"Цей профайл містить усе необхідне для перегляду й редагування матеріалів, а також додаткові функції, наприклад, призначення тегів та рейтингу, особисті карти та вивід матеріалів у соціальних мережах. Цей профайл включає Dojo.",
+			"lang":"uk"
+		},
+		{
+			"value":"此概要文件包含查看和编辑内容以及诸如标记和评分、人员卡和社交呈现所需的一切内容。此概要文件包含 Dojo。",
+			"lang":"zh"
+		},
+		{
+			"value":"此設定檔包含檢視及編輯內容所需的所有內容，以及標記與評比、人員卡和社交呈現之類的功能。此設定檔併入 dojo。",
+			"lang":"zh_TW"
+		}
+	]
+}

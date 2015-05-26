@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+'use strict';
+
+process.title = 'dxsync';
+
+var dxsync = require( "../lib/main" ),
+	basedir = process.cwd();
+
+dxsync.runCLI( basedir );

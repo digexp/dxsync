@@ -1,0 +1,930 @@
+{
+	"modules": [
+		{
+			"id":"wp_theme_portal_85",
+			"prereqs": [
+				{
+					"id":"wp_client_main"
+				},
+				{
+					"id":"wp_client_ext"
+				},
+				{
+					"id":"wp_custom_page_style"
+				},
+				{
+					"id":"wp_high_contrast"
+				},
+				{
+					"id":"wp_searchbar"
+				}
+			],
+			"contributions": [
+				{
+					"type":"head",
+					"sub-contributions": [
+						{
+							"type":"js",
+							"uris": [
+								{
+									"value":"/js/head.js"
+								},
+								{
+									"value":"/js/mobilenav.js",
+									"deviceClass":"smartphone"
+								},
+								{
+									"value":"/js/mobilenav.js.uncompressed.js",
+									"deviceClass":"smartphone",
+									"type":"debug"
+								},
+								{
+									"value":"/js/mobilenav.js",
+									"deviceClass":"tablet"
+								},
+								{
+									"value":"/js/mobilenav.js.uncompressed.js",
+									"deviceClass":"tablet",
+									"type":"debug"
+								}
+							]
+						},
+						{
+							"type":"css",
+							"uris": [
+								{
+									"value":"/css/master.css"
+								},
+								{
+									"value":"/css/master.css.uncompressed.css",
+									"type":"debug"
+								},
+								{
+									"value":"/css/masterRTL.css",
+									"type":"rtl"
+								},
+								{
+									"value":"/css/masterRTL.css.uncompressed.css",
+									"type":"rtl,debug"
+								},
+								{
+									"value":"/css/master_smartphone.css",
+									"deviceClass":"smartphone"
+								},
+								{
+									"value":"/css/master_smartphone.css.uncompressed.css",
+									"deviceClass":"smartphone",
+									"type":"debug"
+								},
+								{
+									"value":"/css/master_smartphoneRTL.css",
+									"deviceClass":"smartphone",
+									"type":"rtl"
+								},
+								{
+									"value":"/css/master_smartphoneRTL.css.uncompressed.css",
+									"deviceClass":"smartphone",
+									"type":"rtl,debug"
+								},
+								{
+									"value":"/css/master_tablet.css",
+									"deviceClass":"tablet"
+								},
+								{
+									"value":"/css/master_tablet.css.uncompressed.css",
+									"deviceClass":"tablet",
+									"type":"debug"
+								},
+								{
+									"value":"/css/master_tabletRTL.css",
+									"deviceClass":"tablet",
+									"type":"rtl"
+								},
+								{
+									"value":"/css/master_tabletRTL.css.uncompressed.css",
+									"deviceClass":"tablet",
+									"type":"rtl,debug"
+								}
+							]
+						}
+					]
+				}
+			],
+			"titles": [
+				{
+					"value":"الأساسي (النسق الرئيسي 8.5)",
+					"lang":"ar"
+				},
+				{
+					"value":"Principal (Tema 8.5)",
+					"lang":"ca"
+				},
+				{
+					"value":"Hlavní (motiv 8.5)",
+					"lang":"cs"
+				},
+				{
+					"value":"Overordnet (8.5-tema)",
+					"lang":"da"
+				},
+				{
+					"value":"Hauptmenü (8.5-Motiv)",
+					"lang":"de"
+				},
+				{
+					"value":"Κύριο (Θέμα 8.5)",
+					"lang":"el"
+				},
+				{
+					"value":"Main (8.5 Theme)",
+					"lang":"en"
+				},
+				{
+					"value":"Principal (Tema 8.5)",
+					"lang":"es"
+				},
+				{
+					"value":"Pääobjekti (8.5-teema)",
+					"lang":"fi"
+				},
+				{
+					"value":"Principal (thème 8.5)",
+					"lang":"fr"
+				},
+				{
+					"value":"דואר (ערכה 8.5)",
+					"lang":"he"
+				},
+				{
+					"value":"Glavno (8.5 tema)",
+					"lang":"hr"
+				},
+				{
+					"value":"Fő (8.5 téma)",
+					"lang":"hu"
+				},
+				{
+					"value":"Principale (tema 8.5)",
+					"lang":"it"
+				},
+				{
+					"value":"メイン (8.5 テーマ)",
+					"lang":"ja"
+				},
+				{
+					"value":"Негізгі (8.5 Тақырып)",
+					"lang":"kk"
+				},
+				{
+					"value":"기본(8.5 테마)",
+					"lang":"ko"
+				},
+				{
+					"value":"Hoofd (8.5-thema)",
+					"lang":"nl"
+				},
+				{
+					"value":"Main (8.5 Theme)",
+					"lang":"no"
+				},
+				{
+					"value":"Główny (kompozycja w wersji 8.5)",
+					"lang":"pl"
+				},
+				{
+					"value":"Principal (Tema 8.5)",
+					"lang":"pt"
+				},
+				{
+					"value":"Principal (8,5 Theme)",
+					"lang":"pt_BR"
+				},
+				{
+					"value":"Principal (Tema 8.5)",
+					"lang":"ro"
+				},
+				{
+					"value":"Основной модуль (тема 8.5)",
+					"lang":"ru"
+				},
+				{
+					"value":"Hlavná (téma 8.5)",
+					"lang":"sk"
+				},
+				{
+					"value":"Glavno (tema 8.5)",
+					"lang":"sl"
+				},
+				{
+					"value":"Main (8.5 Theme)",
+					"lang":"sv"
+				},
+				{
+					"value":"Main (8.5 Theme)",
+					"lang":"th"
+				},
+				{
+					"value":"Ana (8.5 Teması)",
+					"lang":"tr"
+				},
+				{
+					"value":"Головна (тема 8.5)",
+					"lang":"uk"
+				},
+				{
+					"value":"主要（8.5 主题）",
+					"lang":"zh"
+				},
+				{
+					"value":"主要（8.5 佈景主題）",
+					"lang":"zh_TW"
+				}
+			],
+			"descriptions": [
+				{
+					"value":"يقدم المصادر الخاصة بالنسق الرئيسي مثل أنماط CSS وملفات javascript الأساسية.",
+					"lang":"ar"
+				},
+				{
+					"value":"Proporciona recursos específics de tema com ara estils css i fitxers core javascript.",
+					"lang":"ca"
+				},
+				{
+					"value":"Poskytuje prostředky specifické pro motiv, jako např. styly CSS a základní soubory se skriptem JavaScript.",
+					"lang":"cs"
+				},
+				{
+					"value":"Leverer temaspecifikke ressourcer som f.eks. CSS-typografier og JavaScript-kernefiler.",
+					"lang":"da"
+				},
+				{
+					"value":"Stellt motivspezifische Ressourcen wie CSS-Stile und JavaScript-Kerndateien zur Verfügung.",
+					"lang":"de"
+				},
+				{
+					"value":"Παρέχει πόρους για το θέμα, όπως στυλ CSS και βασικά αρχεία Javascript.",
+					"lang":"el"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles and core javascript files.",
+					"lang":"en"
+				},
+				{
+					"value":"Proporciona recursos específicos del tema, como por ejemplo estilos css y archivos javascript principales.",
+					"lang":"es"
+				},
+				{
+					"value":"Tarjoaa teemakohtaiset resurssit, kuten CSS-tyylitiedostot ja core javascript -tiedostot.",
+					"lang":"fi"
+				},
+				{
+					"value":"Fournit des ressources spécifiques de thème telles que des styles CSS et des fichiers JavaScript de base.",
+					"lang":"fr"
+				},
+				{
+					"value":"מספק משאבים ספציפיים לערכה כגון סגנונות css וקובצי ליבה של javascript.‏",
+					"lang":"he"
+				},
+				{
+					"value":"Pruža resurse specifične za temu, kao što su css stilovi i glavne javascript datoteke.",
+					"lang":"hr"
+				},
+				{
+					"value":"Biztosítja a témaspecifikus erőforrásokat, például a CSS stílusokat és a törzs JavaScript fájlokat.",
+					"lang":"hu"
+				},
+				{
+					"value":"Fornisce risorse specifiche di tema come ad esempio stili css e file javascript.",
+					"lang":"it"
+				},
+				{
+					"value":"テーマ固有のリソース (CSS スタイルやコア Javascript ファイルなど) を提供します。",
+					"lang":"ja"
+				},
+				{
+					"value":"Сss мәнерлер және қабатты javascript файлдар ретінде тақырыптың арнайы ресурстарын қамтамасыз етеді.",
+					"lang":"kk"
+				},
+				{
+					"value":"CSS 스타일 및 코어 Javascript 파일과 같은 테마 자원을 제공합니다.",
+					"lang":"ko"
+				},
+				{
+					"value":"Biedt themaspecifieke resources, zoals CSS-stijlen en JavaScript-kernbestanden.",
+					"lang":"nl"
+				},
+				{
+					"value":"Leverer temaspesifikke ressurser som CSS-stiler og JavaScript-kjernefiler.",
+					"lang":"no"
+				},
+				{
+					"value":"Udostępnia zasoby specyficzne dla kompozycji, takie jak style CSS i podstawowe pliki JavaScript.",
+					"lang":"pl"
+				},
+				{
+					"value":"Fornece recursos específicos de tema como, por exemplo, estilos css e ficheiros javascript centrais.",
+					"lang":"pt"
+				},
+				{
+					"value":"Fornece tema específico de recursos como estilos css e javascript arquivos de núcleo.",
+					"lang":"pt_BR"
+				},
+				{
+					"value":"Furnizează resursele specifice temei cum ar fi stilurile css şi fişierle javascript nucleu.",
+					"lang":"ro"
+				},
+				{
+					"value":"Предоставляет ресурсы для тем, такие как стили css и базовые файлы javascript.",
+					"lang":"ru"
+				},
+				{
+					"value":"Poskytuje prostriedky špecifické pre tému, ako sú štýly css a základné súbory javascript.",
+					"lang":"sk"
+				},
+				{
+					"value":"Ponuja vire, specifične za določeno temo, kot so slogi CSS in jedrne datoteke JavaScript.",
+					"lang":"sl"
+				},
+				{
+					"value":"Tillhandahåller temaspecifika resurser, t.ex. CSS-format och JavaScript-kärnfiler.",
+					"lang":"sv"
+				},
+				{
+					"value":"จัดให้มีรีซอร์สเฉพาะธีมเช่น สไตล์ css และไฟล์ javascript หลัก",
+					"lang":"th"
+				},
+				{
+					"value":"CSS biçemleri ve çekirdek javascript dosyaları gibi, temaya özel kaynakları sağlar.",
+					"lang":"tr"
+				},
+				{
+					"value":"Надає ресурси для окремої теми, наприклад стилі css і файли javascript ядра.",
+					"lang":"uk"
+				},
+				{
+					"value":"提供特定于主题的资源（例如，CSS 样式和核心 javascript 文件）。",
+					"lang":"zh"
+				},
+				{
+					"value":"提供佈景主題特定的資源（例如 CSS 樣式和核心 javascript 檔案）。",
+					"lang":"zh_TW"
+				}
+			]
+		},
+		{
+			"id":"wp_theme_menus",
+			"prereqs": [
+				{
+					"id":"wp_simple_contextmenu_main"
+				}
+			],
+			"titles": [
+				{
+					"value":"دعم القائمة السياقية (النسق الرئيسي 8.5)",
+					"lang":"ar"
+				},
+				{
+					"value":"Suport de menú contextual (tema 8.5)",
+					"lang":"ca"
+				},
+				{
+					"value":"Podpora kontextových nabídek (motiv 8.5)",
+					"lang":"cs"
+				},
+				{
+					"value":"Understøttelse af kontekstmenu (8.5-tema)",
+					"lang":"da"
+				},
+				{
+					"value":"Unterstützung von Kontextmenüs (8.5-Motiv)",
+					"lang":"de"
+				},
+				{
+					"value":"Υποστήριξη μενού περιβάλλοντος (Θέμα 8.5)",
+					"lang":"el"
+				},
+				{
+					"value":"Context Menu Support (8.5 Theme)",
+					"lang":"en"
+				},
+				{
+					"value":"Soporte de menú contextual (Tema 8.5)",
+					"lang":"es"
+				},
+				{
+					"value":"Pikavalikkotuki (8.5 teema)",
+					"lang":"fi"
+				},
+				{
+					"value":"Support des menus contextuels (thème 8.5)",
+					"lang":"fr"
+				},
+				{
+					"value":"תמיכת תפריט הקשר (ערכה 8.5)",
+					"lang":"he"
+				},
+				{
+					"value":"Podrška za kontekstni izbornik (8.5 tema)",
+					"lang":"hr"
+				},
+				{
+					"value":"Előugró menü támogatás (8.5 téma)",
+					"lang":"hu"
+				},
+				{
+					"value":"Supporto menu contesto (tema 8.5)",
+					"lang":"it"
+				},
+				{
+					"value":"コンテキスト・メニュー・サポート (8.5 テーマ)",
+					"lang":"ja"
+				},
+				{
+					"value":"Context Menu Support (8.5 Тақырып)",
+					"lang":"kk"
+				},
+				{
+					"value":"컨텍스트 메뉴 지원(8.5 테마)",
+					"lang":"ko"
+				},
+				{
+					"value":"Ondersteuning voor contextmenu (8.5-thema)",
+					"lang":"nl"
+				},
+				{
+					"value":"Context Menu Support (8.5 Theme)",
+					"lang":"no"
+				},
+				{
+					"value":"Obsługa menu kontekstowego (kompozycja w wersji 8.5)",
+					"lang":"pl"
+				},
+				{
+					"value":"Suporte de menu contextual (Tema 8.5)",
+					"lang":"pt"
+				},
+				{
+					"value":"Menu de Contexto Suporte (8,5 Theme)",
+					"lang":"pt_BR"
+				},
+				{
+					"value":"Suport meniu context (Tema 8.5)",
+					"lang":"ro"
+				},
+				{
+					"value":"Поддержка контекстного меню (тема 8.5)",
+					"lang":"ru"
+				},
+				{
+					"value":"Podpora kontextovej ponuky (téma 8.5)",
+					"lang":"sk"
+				},
+				{
+					"value":"Podpora za kontekstni meni (tema 8.5)",
+					"lang":"sl"
+				},
+				{
+					"value":"Context Menu Support (8.5 Theme)",
+					"lang":"sv"
+				},
+				{
+					"value":"การสนับสนุนเมนูบริบท (8.5 Theme)",
+					"lang":"th"
+				},
+				{
+					"value":"Bağlam Menüsü Desteği (8.5 Teması)",
+					"lang":"tr"
+				},
+				{
+					"value":"Підтримка контекстного меню (тема 8.5)",
+					"lang":"uk"
+				},
+				{
+					"value":"上下文菜单支持（8.5 主题）",
+					"lang":"zh"
+				},
+				{
+					"value":"快速功能表支援（8.5 佈景主題）",
+					"lang":"zh_TW"
+				}
+			],
+			"descriptions": [
+				{
+					"value":"تقدم وحدة البرامج هذه دعم للقوائم السياقية.",
+					"lang":"ar"
+				},
+				{
+					"value":"Aquest mòdul proporciona suport per als menús contextuals.",
+					"lang":"ca"
+				},
+				{
+					"value":"Tento modul poskytuje podporu pro kontextové nabídky.",
+					"lang":"cs"
+				},
+				{
+					"value":"Dette modul leverer understøttelse af kontekstmenuer.",
+					"lang":"da"
+				},
+				{
+					"value":"Dieses Modul stellt die Unterstützung von Kontextmenüs bereit.",
+					"lang":"de"
+				},
+				{
+					"value":"Αυτή η λειτουργική μονάδα παρέχει υποστήριξη για μενού περιβάλλοντος.",
+					"lang":"el"
+				},
+				{
+					"value":"This module provides support for context menus.",
+					"lang":"en"
+				},
+				{
+					"value":"Este módulo proporciona soporte para los menús contextuales.",
+					"lang":"es"
+				},
+				{
+					"value":"Tämä moduuli tarjoaa tuen pikavalikoille.",
+					"lang":"fi"
+				},
+				{
+					"value":"Ce module fournit une prise en charge des menus contextuels.",
+					"lang":"fr"
+				},
+				{
+					"value":"מודול זה מספק תמיכה עבור תפריטי הקשר.",
+					"lang":"he"
+				},
+				{
+					"value":"Ovaj modul pruža podršku za kontekstne izbornike.",
+					"lang":"hr"
+				},
+				{
+					"value":"Ez a modul előugró menü támogatást biztosít.",
+					"lang":"hu"
+				},
+				{
+					"value":"Questo modulo fornisce supporto per i menu contesto.",
+					"lang":"it"
+				},
+				{
+					"value":"このモジュールは、コンテキスト・メニューのサポートを提供します。",
+					"lang":"ja"
+				},
+				{
+					"value":"Бұл модуль қолдауды мазмұн мәзірлері үшін қамтамасыз етеді.",
+					"lang":"kk"
+				},
+				{
+					"value":"이 모듈은 컨텍스트 메뉴를 지원합니다.",
+					"lang":"ko"
+				},
+				{
+					"value":"Deze module biedt ondersteuning voor contextmenu's.",
+					"lang":"nl"
+				},
+				{
+					"value":"Denne modulen gir støtte for hurtigmenyer.",
+					"lang":"no"
+				},
+				{
+					"value":"Ten moduł udostępnia wsparcie dla menu kontekstowych.",
+					"lang":"pl"
+				},
+				{
+					"value":"Este módulo fornece suporte para menus contextuais.",
+					"lang":"pt"
+				},
+				{
+					"value":"Este módulo fornece suporte para menus de contexto.",
+					"lang":"pt_BR"
+				},
+				{
+					"value":"Acest modul furnizează suport pentru meniurile context.",
+					"lang":"ro"
+				},
+				{
+					"value":"Этот модуль обеспечивает поддержку контекстных меню.",
+					"lang":"ru"
+				},
+				{
+					"value":"Tento modul poskytuje podporu pre kontextové ponuky.",
+					"lang":"sk"
+				},
+				{
+					"value":"Ta modul ponuja podporo za kontekstne menije.",
+					"lang":"sl"
+				},
+				{
+					"value":"Modulen ger snabbmenyfunktioner.",
+					"lang":"sv"
+				},
+				{
+					"value":"โมดูลนี้มีการสนับสนุนสำหรับเมนูบริบท",
+					"lang":"th"
+				},
+				{
+					"value":"Bu modül, bağlam menüleri için destek sağlar.",
+					"lang":"tr"
+				},
+				{
+					"value":"Забезпечує підтримку контекстних меню.",
+					"lang":"uk"
+				},
+				{
+					"value":"此模块提供了上下文菜单支持。",
+					"lang":"zh"
+				},
+				{
+					"value":"此模組提供快速功能表支援。",
+					"lang":"zh_TW"
+				}
+			]
+		},
+		{
+			"id":"wp_theme_skin_region",
+			"prereqs": [
+				{
+					"id":"wp_client_main"
+				}
+			],
+			"contributions": [
+				{
+					"type":"config",
+					"sub-contributions": [
+						{
+							"type":"js",
+							"uris": [
+								{
+									"value":"/js/skinRegion.js"
+								},
+								{
+									"value":"/js/skinRegion.js.uncompressed.js",
+									"type":"debug"
+								}
+							]
+						}
+					]
+				}
+			],
+			"titles": [
+				{
+					"value":"دعم امكانية التوصل للأشكال العامة (النسق الرئيسي 8.5)",
+					"lang":"ar"
+				},
+				{
+					"value":"Suport d'accessibilitat per a aparences (tema 8.5)",
+					"lang":"ca"
+				},
+				{
+					"value":"Podpora usnadnění přístupu pro vzhledy (motiv 8.5)",
+					"lang":"cs"
+				},
+				{
+					"value":"Understøttelse af handicapvenlighed for udseender (8.5-tema)",
+					"lang":"da"
+				},
+				{
+					"value":"Unterstützung der barrierefreien Bedienung für Oberflächen (8.5-Motiv)",
+					"lang":"de"
+				},
+				{
+					"value":"Υποστήριξη διευκόλυνσης πρόσβασης για μοτίβα (Θέμα 8.5)",
+					"lang":"el"
+				},
+				{
+					"value":"Accessibility Support for Skins (8.5 Theme)",
+					"lang":"en"
+				},
+				{
+					"value":"Soporte de accesibilidad para Skins (Tema 8.5)",
+					"lang":"es"
+				},
+				{
+					"value":"Ulkoasujen helppokäyttötuki (8.5 teema)",
+					"lang":"fi"
+				},
+				{
+					"value":"Support de l'accessibilité pour les habillages (thème 8.5)",
+					"lang":"fr"
+				},
+				{
+					"value":"תמיכת נגישות עבור מעטפות (ערכה 8.5)",
+					"lang":"he"
+				},
+				{
+					"value":"Podrška za dostupnost skinova (8.5 tema)",
+					"lang":"hr"
+				},
+				{
+					"value":"Kisegítő lehetőségek támogatása felszínekhez (8.5 téma)",
+					"lang":"hu"
+				},
+				{
+					"value":"Supporto di accessibilità per gli skin (tema 8.5)",
+					"lang":"it"
+				},
+				{
+					"value":"スキンのアクセシビリティー・サポート (8.5 テーマ)",
+					"lang":"ja"
+				},
+				{
+					"value":"Мұқабалар үшін Accessibility Support қызметі (8.5 Тақырып)",
+					"lang":"kk"
+				},
+				{
+					"value":"스킨의 내게 필요한 옵션 지원(8.5 테마)",
+					"lang":"ko"
+				},
+				{
+					"value":"Toegankelijkheidsondersteuning voor uiterlijken (8.5-thema)",
+					"lang":"nl"
+				},
+				{
+					"value":"Accessibility Support for Skins (8.5 Theme)",
+					"lang":"no"
+				},
+				{
+					"value":"Obsługa ułatwień dostępu dla skór (kompozycja w wersji 8.5)",
+					"lang":"pl"
+				},
+				{
+					"value":"Suporte de acessibilidade para máscaras (Tema 8.5)",
+					"lang":"pt"
+				},
+				{
+					"value":"Suporte de Acessibilidade para Aparências (8,5 Theme)",
+					"lang":"pt_BR"
+				},
+				{
+					"value":"Suport accesibilitate pentru skin-uri (Tema 8.5)",
+					"lang":"ro"
+				},
+				{
+					"value":"Поддержка специальных возможностей для оболочек (тема 8.5)",
+					"lang":"ru"
+				},
+				{
+					"value":"Podpora zjednodušenia ovládania pre vzhľady (téma 8.5)",
+					"lang":"sk"
+				},
+				{
+					"value":"Podpora za pripomočke za ljudi s posebnimi potrebami za preobleke (tema 8.5)",
+					"lang":"sl"
+				},
+				{
+					"value":"Accessibility Support for Skins (8.5 Theme)",
+					"lang":"sv"
+				},
+				{
+					"value":"การสนับสนุนความสามารถในการเข้าถึงสำหรับสกิน (8.5 Theme)",
+					"lang":"th"
+				},
+				{
+					"value":"Dışyüzler İçin Erişilirlik Desteği (8.5 Teması)",
+					"lang":"tr"
+				},
+				{
+					"value":"Підтримка спеціальних можливостей для оболонок (тема 8.5)",
+					"lang":"uk"
+				},
+				{
+					"value":"外表的辅助功能选项支持（8.5 主题）",
+					"lang":"zh"
+				},
+				{
+					"value":"佈景主題的協助工具支援（8.5 佈景主題）",
+					"lang":"zh_TW"
+				}
+			],
+			"descriptions": [
+				{
+					"value":"تقدم وحدة البرامج هذه دعم امكانية التوصل للأشكال العامة. يتم اضافة وظيفة منطقة WAI-ARIA الى الشكل العام. يقدم هذا نقطة توصل اضافية للتقنيات المساعدة.",
+					"lang":"ar"
+				},
+				{
+					"value":"Aquest mòdul proporciona suport d'accessibilitat per a aparences. El rol de regió WAI-ARIA s'afegeix a l'aparença. Això proporciona un punt d'accés addicional per a tecnologies d'assistència.",
+					"lang":"ca"
+				},
+				{
+					"value":"Tento modul poskytuje podporu usnadnění přístupu pro vzhledy. Do vzhledu je přidána role oblasti WAI-ARIA. Tím je zajištěn další přístupový bod pro podpůrné technologie.",
+					"lang":"cs"
+				},
+				{
+					"value":"Dette modul leverer understøttelse af handicapvenlighed for udseender. WAI-ARIA-områderollen tilføjes til udseendet. Dette giver et ekstra adgangspunkt for hjælpeteknologier.",
+					"lang":"da"
+				},
+				{
+					"value":"Dieses Modul stellt die Unterstützung der barrierefreien Bedienung für Oberflächen bereit. Die Rolle der WAI-ARIA-Region wird der Oberfläche hinzugefügt. Dadurch steht ein zusätzlicher Zugriffspunkt für Hilfstechnologien zur Verfügung.",
+					"lang":"de"
+				},
+				{
+					"value":"Αυτή η λειτουργική μονάδα παρέχει υποστήριξη λειτουργιών διευκόλυνσης πρόσβασης για μοτίβα. Ο ρόλος περιοχής WAI-ARIA προστίθεται στο μοτίβο. Αυτό παρέχει ένα πρόσθετο σημείο πρόσβασης για τεχνολογίες υποβοήθησης.",
+					"lang":"el"
+				},
+				{
+					"value":"This module provides accessibility support for skins. The WAI-ARIA region role is added to the skin. This provides an additional access point for assistive technologies.",
+					"lang":"en"
+				},
+				{
+					"value":"Este módulo proporciona soporte de accesibilidad para skins. El rol de la región WAI-ARIA se añade al skin. Esto proporciona un punto de acceso adicional para tecnologías de asistencia.",
+					"lang":"es"
+				},
+				{
+					"value":"Tämä moduuli tarjoaa helppokäyttötuen ulkoasuille. Ulkoasuun lisätään WAI-ARIA-aluerooli. Se tarjoaa lisäkäyttöoikeuksia helppokäyttötoiminnoille.",
+					"lang":"fi"
+				},
+				{
+					"value":"Ce module fournit la prise en charge de l'accessibilité pour les habillages. Le rôle de région Wai-Aria est ajouté à l'habillage. Cela fournit un point d'accès supplémentaire pour les technologies d'assistance.",
+					"lang":"fr"
+				},
+				{
+					"value":"מודול זה מספק תמיכת נגישות עבור מעטפות. תפקיד האזור WAI-ARIA נוסף למעטפת. הדבר מספק נקודת גישה נוספת עבור טכנולוגיות סיוע.",
+					"lang":"he"
+				},
+				{
+					"value":"Ovaj modul pruža podršku za dostupnost skinova. Skinu se dodaje uloga regije WAI-ARIA. Ovo stvara dodatnu točku pristupa za pomoćne tehnologije.",
+					"lang":"hr"
+				},
+				{
+					"value":"Ez a modul biztosítja a kisegítő lehetőségek támogatását a felszínekhez. A felszínhez hozzá van adva a WAI-ARIA régió szerep. Ez további hozzáférési pontot biztosít a kisegítő technológiák számára.",
+					"lang":"hu"
+				},
+				{
+					"value":"Questo modulo fornisce supporto di accessibilità per gli skin. Il ruolo della regione WAI-ARIA viene aggiunto allo skin. Ciò fornisce un ulteriore punto di accesso per le tecnologie di assistenza.",
+					"lang":"it"
+				},
+				{
+					"value":"このモジュールは、スキンのアクセシビリティー・サポートを提供します。スキンには WAI-ARIA のリージョン・ロールが追加されています。これにより、支援技術のアクセス・ポイントが追加で提供されます。",
+					"lang":"ja"
+				},
+				{
+					"value":"Бұл модуль қолдауды мұқабалар үшін қол жетімділікті қамтамасыз етеді.  WAI-ARIA аймақ рөлі мұқабаға қосылды                                                                                                                                                                                                                                                                     Бұл көмекші тенологиялар үшін қосымша қатынас нүктесімен қаматасыз етеді.",
+					"lang":"kk"
+				},
+				{
+					"value":"이 모듈은 스킨의 내게 필요한 옵션을 지원합니다. WAI-ARIA 지역 역할이 스킨에 추가됩니다. 이 역할은 보조 기술의 추가 액세스 포인트를 제공합니다.",
+					"lang":"ko"
+				},
+				{
+					"value":"Deze module biedt toegankelijkheidsondersteuning voor uiterlijken. De WAI-ARIA-gebiedsrol wordt toegevoegd aan het uiterlijk. Dit verschaft een aanvullend toegangspunt voor hulptechnologie.",
+					"lang":"nl"
+				},
+				{
+					"value":"Denne modulen gir tilgjengelighetsstøtte for skall. WAI-ARIA-regionrollen blir lagt til i skallet. Dette gir et ekstra tilgangspunkt for hjelpeteknologier.",
+					"lang":"no"
+				},
+				{
+					"value":"Ten moduł udostępnia obsługę ułatwień dostępu dla skór. Rola regionu WAI-ARIA jest dodawana do skóry. W ten sposób udostępniany jest dodatkowy punkt dostępu dla technik wspomagających.",
+					"lang":"pl"
+				},
+				{
+					"value":"Este módulo fornece suporte de acessibilidade para máscaras. A função de região WAI-ARIA é adicionada à máscara. Faculta um ponto de acesso adicional para tecnologias de assistência.",
+					"lang":"pt"
+				},
+				{
+					"value":"Este módulo fornece suporte de acessibilidade para aparências. A função da região WAI-ARIA está incluído na pele. Isso fornece um ponto de acesso adicionais para tecnologias assistidas.",
+					"lang":"pt_BR"
+				},
+				{
+					"value":"Acest modul furnizează suport accesibilitate pentru skin-uri. Rolul regiunii WAI-ARIA este adăugat la skin. Aceasta furnizează un punct de acces suplimentar pentru tehnologiile de asistare.",
+					"lang":"ro"
+				},
+				{
+					"value":"Этот модуль обеспечивает поддержку специальных возможностей для оболочек. В оболочку добавляется роль области WAI-ARIA. Предоставляется дополнительная точка доступа для вспомогательных технологий.",
+					"lang":"ru"
+				},
+				{
+					"value":"Tento modul poskytuje podporu zjednodušenia ovládania pre vzhľady. Do vzhľadu sa pridalo pravidlo regiónu WAI-ARIA. Toto poskytuje ďalší prístupový bod pre pomocné technológie.",
+					"lang":"sk"
+				},
+				{
+					"value":"Ta modul ponuja podporo za pripomočke za ljudi s posebnimi potrebami za prebleke. Preobleki doda področno vlogo WAI-ARIA. To zagotovi dodatno dostopno točko za programe za pomoč.",
+					"lang":"sl"
+				},
+				{
+					"value":"Modulen ger hjälpmedelsfunktioner för skal. WAI-ARIA-regionrollen läggs till i skalet. Det ger en ytterligare anslutningspunkt för hjälpmedelstekniker.",
+					"lang":"sv"
+				},
+				{
+					"value":"โมดูลนี้มีการสนับสนุนความสามารถในการเข้าถึงสำหรับสกิน บทบาทส่วน WAI-ARIA ทั้งหมดถูกเพิ่มในสกิน โมดูลนี้มีจุดเข้าถึงเพิ่มเติมสำหรับเทคโนโลยีการให้ความช่วยเหลือ",
+					"lang":"th"
+				},
+				{
+					"value":"Bu modül, dışyüzler için erişilirlik desteği sağlar. Dışyüze WAI-ARIA bölgesi rolü eklenmiştir. Böylece, yardımcı teknolojiler için ek bir erişim noktası sağlanmış olur.",
+					"lang":"tr"
+				},
+				{
+					"value":"Забезпечує підтримку спеціальних можливостей для оболонок. До оболонки додається роль області WAI-ARIA. При цьому створюється додаткова точка доступу для допоміжних технологій.",
+					"lang":"uk"
+				},
+				{
+					"value":"此模块提供了外观的辅助功能选项支持。将 WAI-ARIA 区域角色添加到外表中。这提供了辅助技术的附加访问点。",
+					"lang":"zh"
+				},
+				{
+					"value":"此模組提供外觀的協助工具支援。將 WAI-ARIA 區域角色新增至外觀。這可提供輔助技術的其他存取點。",
+					"lang":"zh_TW"
+				}
+			]
+		}
+	]
+}

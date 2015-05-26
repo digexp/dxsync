@@ -1,0 +1,291 @@
+{
+	"modules": [
+		{
+			"id":"wp_theme_portal_edit_85",
+			"prereqs": [
+				{
+					"id":"wp_theme_portal_85"
+				}
+			],
+			"contributions": [
+				{
+					"type":"head",
+					"sub-contributions": [
+						{
+							"type":"css",
+							"uris": [
+								{
+									"value":"/css/default/default_edit.css"
+								},
+								{
+									"value":"/css/default/default_edit.css.uncompressed.css",
+									"type":"debug"
+								}
+							]
+						}
+					]
+				}
+			],
+			"titles": [
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"ar"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"ca"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"cs"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"da"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"de"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"el"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"en"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"es"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"fi"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"fr"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"he"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"hr"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"hu"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"it"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"ja"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"kk"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"ko"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"nl"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"no"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"pl"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"pt"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"pt_BR"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"ro"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"ru"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"sk"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"sl"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"sv"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"th"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"tr"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"uk"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"zh"
+				},
+				{
+					"value":"Main (8.5 Theme) in edit mode",
+					"lang":"zh_TW"
+				}
+			],
+			"descriptions": [
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"ar"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"ca"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"cs"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"da"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"de"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"el"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"en"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"es"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"fi"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"fr"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"he"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"hr"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"hu"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"it"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"ja"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"kk"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"ko"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"nl"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"no"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"pl"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"pt"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"pt_BR"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"ro"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"ru"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"sk"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"sl"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"sv"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"th"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"tr"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"uk"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"zh"
+				},
+				{
+					"value":"Provides theme specific resources such as css styles in edit mode.",
+					"lang":"zh_TW"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,43 @@
+Test considerations
+*******************
+
+1. Execute usecases offline, then start sync tool
+2. Execute usecases while watching
+3. Execute usecases with different modes (2way, push, pull)
+4. Execute usecases on different platforms
+
+Usecases:
+1. File Synchronization
+1.1. Local file and remote file exist
+1.1.1. Change file locally only (causes an upload; skipped with pull)
+1.1.2. Change file remotely only (causes a download, skipped with push)
+1.1.3. Change file remotely and locally (causes a merge conflict; in push mode it simply uploads) - SHOULD ADD PULL
+1.1.4. Change file remotely and locally (same content, should not cause a conflict)
+1.2. Local file does not exist and remote file exists
+1.2.1. Delete file locally, no change remotely (causes delete file remotely; skipped with pull)
+1.2.2. Delete file locally, changed remotely (causes merge conflict; in push mode it simply deletes remotely) - SHOULD ADD PULL
+1.3. Local file exist and remote file does not exists
+1.3.1. Delete file remotely, no change locally (causes delete file locally; skipped with push)
+1.3.2. Delete file remotely, changed locally (causes merge conflict; in push mode it simply uploads) - SHOULD ADD PULL
+
+2. File Handling
+2.1. New file (uploads file)
+2.2. Deleted file (deletes file or 1.)
+2.3. Updated file (see 1.)
+2.4. Renamed file (renames remote file)
+
+3. Directory Handling
+3.1. New directory (creates directory remotely)
+3.2. Deleted directory (deletes remote directory; NOTE: if individual files are updated within the hierarchy they are deleted)
+3.3. Renamed directory (renames remote directory)
+
+4. Resolve Merge conflicts
+4.1. Resolve with local file
+4.2. Resolve with remote file
+4.3. Resolve through delete
+
+5. TBD
+
+More testcases to be written
+****************************
+

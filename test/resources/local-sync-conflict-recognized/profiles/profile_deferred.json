@@ -1,0 +1,292 @@
+LOCAL UPDATE
+{
+	"moduleIDs": [
+		"getting_started_module",
+		"wp_theme_portal_85",
+		"wp_dynamicContentSpots_85",
+		"wp_toolbar_host_view",
+		"wp_portlet_css",
+		"wp_client_ext",
+		"wp_status_bar",
+		"wp_theme_menus",
+		"wp_theme_skin_region",
+		"wp_high_contrast",
+		"wp_layout_windowstates",
+		"wp_portal",
+		"wp_analytics_aggregator",
+		"wp_oob_sample_styles",
+		"wp_ic4_wai_resources",
+		"wp_worklight_ext",
+		"wp_sametime_proxy",
+		"wp_draft_page_ribbon"
+	],
+	"deferredModuleIDs": [
+		"wp_theme_portal_edit_85",
+		"wp_toolbar_host_edit",
+		"wp_analytics_tags",
+		"wp_contextmenu_live_object",
+		"wp_content_targeting_cam",
+		"wcm_inplaceEdit",
+		"wp_skin_cam"
+	],
+	"titles": [
+		{
+			"value":"مؤجل",
+			"lang":"ar"
+		},
+		{
+			"value":"Diferit",
+			"lang":"ca"
+		},
+		{
+			"value":"Odložený",
+			"lang":"cs"
+		},
+		{
+			"value":"Udskudt",
+			"lang":"da"
+		},
+		{
+			"value":"Verzögert",
+			"lang":"de"
+		},
+		{
+			"value":"Αναβολής φόρτωσης",
+			"lang":"el"
+		},
+		{
+			"value":"Deferred",
+			"lang":"en"
+		},
+		{
+			"value":"Aplazado",
+			"lang":"es"
+		},
+		{
+			"value":"Lykätty",
+			"lang":"fi"
+		},
+		{
+			"value":"Différé",
+			"lang":"fr"
+		},
+		{
+			"value":"מושהה",
+			"lang":"he"
+		},
+		{
+			"value":"Odgođeno",
+			"lang":"hr"
+		},
+		{
+			"value":"Késleltetett",
+			"lang":"hu"
+		},
+		{
+			"value":"Differito",
+			"lang":"it"
+		},
+		{
+			"value":"据え置き",
+			"lang":"ja"
+		},
+		{
+			"value":"Кейінге қалдырылды",
+			"lang":"kk"
+		},
+		{
+			"value":"지연됨",
+			"lang":"ko"
+		},
+		{
+			"value":"Uitgesteld",
+			"lang":"nl"
+		},
+		{
+			"value":"Utsatt",
+			"lang":"no"
+		},
+		{
+			"value":"Odroczone",
+			"lang":"pl"
+		},
+		{
+			"value":"Diferido",
+			"lang":"pt"
+		},
+		{
+			"value":"Adiado",
+			"lang":"pt_BR"
+		},
+		{
+			"value":"Amânat",
+			"lang":"ro"
+		},
+		{
+			"value":"Отложенный",
+			"lang":"ru"
+		},
+		{
+			"value":"Oneskorené",
+			"lang":"sk"
+		},
+		{
+			"value":"Odloženo",
+			"lang":"sl"
+		},
+		{
+			"value":"Senarelagd",
+			"lang":"sv"
+		},
+		{
+			"value":"ยืดเวลา",
+			"lang":"th"
+		},
+		{
+			"value":"Ertelemeli",
+			"lang":"tr"
+		},
+		{
+			"value":"Відкладено",
+			"lang":"uk"
+		},
+		{
+			"value":"推迟",
+			"lang":"zh"
+		},
+		{
+			"value":"延遲",
+			"lang":"zh_TW"
+		}
+	],
+	"descriptions": [
+		{
+			"value":"ملف المواصفات هذا يحتوي على مجموعة كاملة من وحدات البرامج للنسق الرئيسي، لكن يتم تأجيل تحميل معظم وحدات البرامج هذه الا اذا كانت مطلوبة بالفعل.  يقوم ملف المواصفات هذا بتوازن الوظائف والأداء.",
+			"lang":"ar"
+		},
+		{
+			"value":"Aquest perfil té el conjunt complet de mòduls per al tema, però ajorna la càrrega de la major part d'aquests mòduls tret que siguin realment necessaris.  Aquest perfil equilibra la funció i el rendiment.",
+			"lang":"ca"
+		},
+		{
+			"value":"Tento profil má úplnou sadu modulů pro motiv, ale odkládá načítání většiny těchto modulů, dokud nejsou skutečně zapotřebí. Tento profil vyvažuje funkčnost a výkonnost.",
+			"lang":"cs"
+		},
+		{
+			"value":"Denne profil har et fuldt sæt moduler til temaet, men indlæsningen af de fleste moduler udskydes, indtil de rent faktisk skal anvendes. Denne profil afbalancerer funktion og ydeevne.",
+			"lang":"da"
+		},
+		{
+			"value":"Dieses Profil enthält die vollständige Gruppe von Modulen für das Motiv, verzögert aber das Laden der meisten dieser Module, bis diese tatsächlich benötigt werden. Dieses Profil gleicht Funktion und Leistung aus.",
+			"lang":"de"
+		},
+		{
+			"value":"Αυτό το προφίλ περιέχει το πλήρες σύνολο λειτουργικών μονάδων για το θέμα, αλλά αναβάλλει τη φόρτωση των περισσότερων μέχρι να χρειαστεί να χρησιμοποιηθούν.  Αυτό το προφίλ εξισορροπεί τη λειτουργικότητα με την απόδοση.",
+			"lang":"el"
+		},
+		{
+			"value":"This profile has the full set of modules for the theme, but defers loading most of these modules unless actually needed.  This profile balances function and performance.",
+			"lang":"en"
+		},
+		{
+			"value":"Este perfil tiene un conjunto completo de módulos para el tema, pero aplaza la carga de la mayoría de estos módulos a no ser que sea necesario.  Este perfil equilibra función y rendimiento.",
+			"lang":"es"
+		},
+		{
+			"value":"Tässä profiilissa on täysi teeman moduulijoukko, mutta profiili lykkää useimpien kyseisten moduulien latausta, kunnes niitä tarvitaan.  Profiili tasapainottaa toiminnallisuutta ja suorituskykyä.",
+			"lang":"fi"
+		},
+		{
+			"value":"Ce profil contient l'ensemble complet de modules pour le thème mais diffère le chargement de la plupart de ces modules sauf s'ils sont requis.  Il équilibre la fonctionnalité et les performances.",
+			"lang":"fr"
+		},
+		{
+			"value":"פרופיל זה כולל מערך שלם של מודולים עבור הערכה, אבל משהה את הטעינה של רוב המודולים אלא אם הם נחוצים בפועל.  פרופיל זה מאזן פונקציונליות וביצועים.",
+			"lang":"he"
+		},
+		{
+			"value":"Ovaj profil ima puni skup modula za temu, ali odgađa učitavanje većine tih modula dok nisu stvarno potrebni.  Ovaj profil uravnotežuje funkcionalnost i performanse.",
+			"lang":"hr"
+		},
+		{
+			"value":"Ez a profil a modul témáinak teljes készletét tartalmazza, de a modulok legtöbbjének betöltését addig késlelteti, amíg azokra ténylegesen szükség nem lesz.  A profil egyensúlyt teremt funkció és teljesítmény között.",
+			"lang":"hu"
+		},
+		{
+			"value":"Questo profilo ha l'intero insieme di moduli per il tema ma rimanda il caricamento della maggior parte di questi moduli se non sono effettivamente necessari.  Questo profilo bilancia funzioni e prestazioni.",
+			"lang":"it"
+		},
+		{
+			"value":"このプロファイルにはテーマに関するすべてのモジュールのセットがありますが、実際に必要にならない限り、それらのほとんどのモジュールのロードを据え置きます。  このプロファイルは機能とパフォーマンスのバランスを取ります。",
+			"lang":"ja"
+		},
+		{
+			"value":"Бұл профайлда тақырыптың толық модульдерінің жиынтығы бар, бірақ шыныменде қажетті модульдердің көпшілігін жүктеуді кейінге қалдырады.  Бұл профайл функция және көрсетілімді тең дәрежеде ұстайды.",
+			"lang":"kk"
+		},
+		{
+			"value":"이 프로파일에는 테마의 전체 모듈 세트가 있지만 이러한 모듈이 실제로 필요하지 않는 한 이러한 모듈 대부분의 로드를 지연합니다.  이 프로파일은 기능과 성능의 균형을 맞춥니다.",
+			"lang":"ko"
+		},
+		{
+			"value":"Dit profiel heeft de volledige set modules voor het thema maar stelt het laden van de meeste modules uit totdat deze feitelijk nodig zijn.  Dit profiel zorgt voor een balans tussen functies en performance.",
+			"lang":"nl"
+		},
+		{
+			"value":"Denne profilen har et fullstendig sett med moduler for temaet, men utsetter innlasting av de fleste av disse modulene med mindre de faktisk er nødvendige.  Denne profilen balanserer funksjon og ytelse.",
+			"lang":"no"
+		},
+		{
+			"value":"Ten profil zawiera pełny zestaw modułów kompozycji, ale ładowanie większości z nich jest odroczone do momentu, w którym będą rzeczywiście potrzebne. Ten profil zapewnia równowagę między funkcjonalnością a wydajnością.",
+			"lang":"pl"
+		},
+		{
+			"value":"Este perfil tem um conjunto completo de módulos para o tema, mas difere o carregamento da maioria destes módulos, excepto se for realmente necessário.  Este perfil equilibra a função e o desempenho.",
+			"lang":"pt"
+		},
+		{
+			"value":"Esse perfil possui o conjunto completo de módulos para o tema, mas adia o carregamento da maioria desses módulos, a menos que seja realmente necessário.  Esse perfil equilibra função e desempenho.",
+			"lang":"pt_BR"
+		},
+		{
+			"value":"Acest profil are setul complet de module pentru temă, dar amână încărcarea majorităţii acestor module în afară de cazul în care este necesar.  Acest profil echilibrează funcţia şi performanţa.",
+			"lang":"ro"
+		},
+		{
+			"value":"Этот профайл содержит полный набор модулей, но их загрузка отложена, пока в них не возникнет фактической потребности.  Такой профайл является сбалансированным между функциональностью и производительностью.",
+			"lang":"ru"
+		},
+		{
+			"value":"Tento profil má úplnú množinu modulov pre tému, ale odkladá načítanie väčšiny týchto modulov, kým nebudú skutočne potrebné.  Tento profil vyvažuje funkčnosť a výkon.",
+			"lang":"sk"
+		},
+		{
+			"value":"Ta profil vsebuje celoten nabor modulov za temo, vendar nalaganje večine teh modulov odloži, dokler jih dejansko ne potrebuje.  Ta profil uravnoteži funkcijo in zmogljivost.",
+			"lang":"sl"
+		},
+		{
+			"value":"Profil med en full moduluppsättning men de flesta moduler läses inte in förrän de faktiskt behövs.  Profilen balanserar funktion och prestanda.",
+			"lang":"sv"
+		},
+		{
+			"value":"โปรไฟล์นี้มีชุดที่สมบูรณ์ของโมดูลสำหรับธีม แต่ควรยืดเวลาการโหลดโมดูลส่วนใหญ่เหล่านี้ยกเว้นว่าจำเป็นจริงๆ  โปรไฟล์นี้จะปรับสมดุลระหว่างฟังก์ชันและประสิทธิภาพการทำงาน",
+			"lang":"th"
+		},
+		{
+			"value":"Bu profil, temayla ilgili tüm modül kümesini içerir; ancak, gerçekten gerekmedikçe bunların çoğunun yüklenmesini erteler.  Bu profil işlev ile performansı dengeler.",
+			"lang":"tr"
+		},
+		{
+			"value":"Цей профайл містить повний набір модулів для теми, але більшість з них завантажуються лише на вимогу.  Такий профайл забезпечує баланс між функціональністю та продуктивністю.",
+			"lang":"uk"
+		},
+		{
+			"value":"此概要文件具有主题的完整模块集，但如果并非真正需要，那么将推迟装入这些模块中的绝大多数模块。此概要文件将均衡功能和性能。",
+			"lang":"zh"
+		},
+		{
+			"value":"這個設定檔包含佈景主題的完整模組集，但是延遲載入這其中的大部分模組，除非實際需要。這個設定檔可平衡功能與效能。",
+			"lang":"zh_TW"
+		}
+	]
+}

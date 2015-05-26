@@ -1,0 +1,3422 @@
+Static Theme Resources Overview (English)
+*******************************
+
+This main theme folder within WebDAV is where static resources for your theme are provided
+to the Portal server and resource aggregator framework. 
+
+The main page definition of your theme starts with the theme template file, theme.html, in this 
+folder. This theme template contains the main HTML markup that the Portal server will serve up 
+for your theme's pages, including the familiar DOCTYPE, html, head and body tags. Within the
+theme template, there are then various dynamic content spots which the Portal server processes,
+typically through .jsp's, and replaces with dynamically-calculated static markup for the finally 
+rendering page. 
+
+At the top of the head is the required <link rel="dynamic-content" href="co:head"> dynamic content
+spot which is where the resource aggregator framework processes all of the head contributions of the
+modules in use, such as .css and .js files, and combines them into a single resource request for
+optimal performance. So, in order to participate in this optimal performance, you should not
+link your own resources, such as .css and .js files, in the theme template using link tags directly
+in the head, but, rather, you should load your own resources through modules. See the modules and
+contributions summaries below for more information on modules. 
+
+At the bottom of the body is the required <link rel="dynamic-content" href="co:config"> dynamic 
+content spot which is where the resource aggregator framework processes all of the config 
+contributions of the modules in use, such as .js and .html files, and again combines them for
+optimal performance. Here again, you should load your own resources through modules. See the modules and
+contributions summaries below for more information on modules.
+
+Throughout the rest of the theme template are other dynamic content spots that point to .jsp's. You
+can add your own dynamic content spots where you want to make your own theme customizations. And
+you can of course also remove or entirely replace certain dynamic content spots if you need different
+functionality for your theme.
+
+The theme template has national language support by default, meaning there are actually multiple translated
+versions of the file in the 'nls' folder. The main theme.html file is actually not used by the Portal server 
+other than to branch off to the version of the file in the 'nls' folder that has the locale that matches the
+client's locale. So, when making a change to the theme template, be sure to make the initial change in the
+version of the file in the 'nls' folder that matches the locale you are working in, such as in the 
+nls\theme_en.html file. Then make subsequent changes to the other language files for the languages you need
+to support, and skip the languages you do not need to support. If you do not need multiple language support at
+all and only need one language, then the national language support can be turned off by removing the locale
+links (the <!--START LOCALE LINKS--><!--END LOCALE LINKS--> block) in the head of the main theme.html file,
+in which case the Portal server will not use the files in the 'nls' folder and will instead simply use the
+one main theme.html file.
+
+There is one default theme template, theme.html, for all pages of a theme, but the default can be overridden
+for certain pages so that a different theme template can be used. Two other example theme templates that
+come with Portal are theme_sidenav.html, which has the primary page navigation down the side rather than
+across the top of the page, and Plain.html, which is the simplest theme template you can use as a starting
+point and that can also be useful in certain situations such as embedding a single portlet on a page within
+an iframe. You can copy, rename and modify these theme template files and create as many as you need. You
+then say which theme template is in use on a certain page by setting the 
+com.ibm.portal.theme.template.file.name.html or com.ibm.portal.theme.inherited.template.file.name.html page 
+property in Page Properties. Use the first property for setting the theme template for just that one and only
+one page, or use the second property for setting the theme template for that page and all of its descendant
+pages. You can also set these properties via xmlaccess by exporting the xml for the page, adding a value for 
+the com.ibm.portal.theme.template.file.name.html or com.ibm.portal.theme.inherited.template.file.name.html 
+parameter near the other page parameters, such as:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+or
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+and re-importing the page.
+
+
++ modules
+
+The easiest way to create your own modules, referred to as simple modules, for linking your own resource
+files is in the 'modules' folder. Within that folder is one folder per module - create your own folder for 
+your own module. There is also one default 'getting_started_module' to get you started. You can simply add 
+your resource files, such as .css and .js files, into the getting_started_module to get started quickly, 
+or use the getting_started_module as an example to see how to create your own similar module folders.
+
+Simple modules are scoped to your one theme. If you want to use some of these same modules in different themes,
+you have to copy these simple module folders from one theme to the other.
+
+For further instructions on simple modules read the readme.txt file within the 'modules' folder.
+
+
++ contributions
+
+The second-easiest way to create your own modules, referred to as theme modules, for linking your own 
+resource files is in the 'contributions' folder. Within that folder is one .json file per module or set of
+modules - create your own .json file for your own module or set of modules. You can copy, rename and
+modify one of the existing .json files in order to see and learn the .json syntax that is required.
+
+Theme modules are scoped to your one theme. If you want to use some of these same modules in different themes,
+you have to copy these module definition .json files from one theme to the other.
+
+For further instructions on theme modules read the readme.txt file within the 'contributions' folder.
+
+(The third way to create your own modules, referred to as global modules, is via plugin.xml files within
+the 'WEB-INF' folder within web application repositories (.war's). This way involves the most work, so you would 
+not do it unless you have good reason, such as for a module that is reused across multiple themes and you 
+don't want to duplicate the module definition in each of the themes. Global modules, as the name implies,
+are scoped across all themes.)
+
+
++ profiles
+
+Once you have your modules defined, you turn them on and off using profiles in the 'profiles' folder.
+Within that folder is one .json file per profile - create your own .json file for your own profile. You
+can copy, rename and modify one of the existing .json files in order to see and learn the .json syntax that
+is required. Turn your or any module on by adding it into the profile's list of modules. Turn your or any
+module off by removing it from the profile's list of modules.
+
+For further instructions on theme profiles read the readme.txt file within the 'profiles' folder.
+
+
++ layout-templates
+
+Each page is assigned a layout template, such as 3 Column Equal, 2 Column Right, etc. These layout
+templates are defined in the 'layout-templates' folder, with one subfolder per layout. You can create
+your own custom layouts by creating a new subfolder and a layout.html file within the subfolder.
+
+For further instructions on layout templates read the readme.txt file within the 'layout-templates' folder.
+
+
+
+مقدمة لمصادر النسق الرئيسي الثابت (العربية)
+*********************************
+
+تعد حافظة النسق الرئيسي التي توجد في WebDAV المكان الذي يتم اتاحة المصادر الثابتة للنسق الرئيسي الخاص بك لوحدة خدمة Portal واطار عمل أداة تجميع المصادر. 
+
+يبدأ تعريف الصفحة الرئيسية للنسق الرئيسي الخاص بك بملف قالب نسق رئيسي، theme.html، في هذه الحافظة. يحتوي قالب النسق الرئيسي هذا على علامات تكويد HTML الأساسية التي ستقوم وحدة خدمة Portal بتقديمها لصفحات النسق الرئيسي الخاص بك، متضمنا شارات تعليم DOCTYPE، html، head، body. في قالب النسق الرئيسي، توجد نقاط محتويات ديناميكية متعددة تقوم وحدة خدمة Portal بتشغيلها، من خلال .jsp، واستبدالها بواسطة علامات تكويد ثابتة يتم احتسابها ديناميكيا للصفحة التي يتم تحويلها بيانيا في النهاية.  
+
+بأعلى شارة التعليم head توجد نقطة المحتويات الديناميكية <link rel="dynamic-content" href="co:head"> المطلوبة حيث يقوم اطار عمل أداة تجميع المصادر بتشغيل كل مشاركات شارة التعليم head لوحدات البرامج التي يتم استخدامها، مثل ملفات .css، .js، ودمجهم في طلب مصدر واحد للأداء الأمثل.  لذلك، للمشاركة في هذا الأداء الأمثل، لا يجب أن تقوم بتوصيل المصادر الخاصة بك، مثل ملفات .css، .js، في قالب النسق الرئيسي باستخدام شارات التوصيل مباشرة في شارة التعليم head، لكن يجب أن تقوم بتحميل المصادر الخاصة بك بوحدات البرامج. أنظر ملخصات وحدات البرامج والمشاركات بأسفل للحصول على مزيد من المعلومات عن وحدات البرامج.  
+
+بأسفل النص توجد نقطة المحتويات الديناميكية <link rel="dynamic-content" href="co:config"> المطلوبة حيث يقوم اطار عمل أداة تجميع المصادر بتشغيل كل مشاركات  config لوحدات البرامج التي يتم استخدامها، مثل ملفات .js، .html،  ودمجهم مرة أخرى للأداء الأمثل.  هنا مرة أخرى، يجب أن تقوم بتحميل المصادر الخاصة بك من خلال وحدات البرامج. أنظر ملخصات وحدات البرامج والمشاركات بأسفل للحصول على مزيد من المعلومات عن وحدات البرامج.
+
+تعد باقي قوالب النسق الرئيسي نقاط محتويات ديناميكية تشير الى .jsp. يمكنك اضافة نقاط المحتويات الديناميكية الخاصة بك حيث تريد اجراء تهيئة النسق الرئيسي الخاص بك. كما يمكنك ازالة أو استبدال نقاط محتويات ديناميكية بالكامل اذا كانت تريد وظيفة مختلفة للنسق الرئيسي الخاص بك.  
+
+يكون لقالب النسق الرئيسي دعم لغة قومية افتراضيا، مما يعني وجود نسخ مترجمة متعددة من الملف في الحافظة 'nls'. لا يتم استخدام ملف theme.html الأساسي بواسطة وحدة خدمة Portal الا لتفرع النسخة للملف في الحافظة 'nls' التي تحتوي على محددات لغة تطابق محددات لغة الوحدة التابعة.  لذلك، عند اجراء تغيير بقالب النسق الرئيسي، برجاء التأكد من اجراء التغيير المبدئي في نسخة الملف في الحافظة 'nls' التي تطابق محددات اللغة التي تعمل بها، مثل المحدد في الملف nls\theme_en.html. عندئذ قم باجراء التغييرات التالية لملفات اللغة الأخرى للغات التي تريد دعمها، وتخطي اللغات التي لا تريد دعمها. اذا كنت لا تريد دعم لغات متعددة على الاطلاق وتريد لغة واحدة فقط، عندئذ يمكن ايقاف تشغيل دعم اللغة القومية من خلال ازالة وصلات محددات اللغة (الكتلة <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) في شارة التعليم head لملف theme.html الرئيسي، في هذه الحالة لن تقوم وحدة خدمة Portal باستخدام الملفات في الحافظة 'nls' وسيتم استخدام ملف  theme.html الرئيسي بدلا من ذلك. 
+
+يوجد قالب نسق رئيسي مفترض واحد، theme.html، لكل الصفحات للنسق الرئيسي، لكن يمكن احلال المفترض لصفحات معينة بحيث يمكن استخدام قالب نسق رئيسي مختلف.  كما يوجد قالبين نموذجين للنسق الرئيسي يتم اتاحتهم مع Portal وهم theme_sidenav.html، الذي يحتوي على تجول الصفحة الأولي لأسفل الجانب بدلا من عبر أعلى الصفحة، و Plain.html، وهو يعد أبسط قالب نسق رئيسي يمكنك استخدامه كنقطة بداية والذي يمكن أن يكون مفيدا أيضا في بعض الحالات مثل ادارج portlet واحد في صفحة في iframe. يمكنك نسخ واعادة تسمية وتعديل ملفات قالب النسق الرئيسي وتكوين أي عدد تريده. عندئذ تحدد قالب النسق الرئيسي الذي يتم استخدامه في صفحة معينة من خلال تحديد خاصية صفحة
+com.ibm.portal.theme.template.file.name.html أو com.ibm.portal.theme.inherited.template.file.name.html
+في خصائص الصفحة. استخدم أول خاصية لتحديد قالب النسق الرئيسي لهذه الصفحة فقط، أو استخدم الخاصية الثانية لتحديد قالب النسق الرئيسي لهذه الصفحة ولكل الصفحات الفرعية الخاصة بها. يمكنك أيضا تحديد هذه الخصائص بواسطة xmlaccess من خلال تصدير xml للصفحة\\ واضافة قيمة الى المعامل
+com.ibm.portal.theme.template.file.name.html أو com.ibm.portal.theme.inherited.template.file.name.html
+بالقرب من معاملات الصفحة الأخرى، مثل:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+‏أو‏
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+واعادة استقبال الصفحة. 
+
+
++ modules
+
+أسهل طريقة لتكوين وحدات البرامج الخاصة بك، التي يتم الاشارة اليها بوحدات البرامج البسيطة، لتوصيل ملفات المصادر الخاصة بك توجد في الحافظة 'modules'. في هذه الحافظة توجد حافظة لكل وحدة برامج - قم بتكوين الحافظة الخاصة بك لوحدة البرامج الخاصة بك. توجد أيضا قيمة مفترضة 'getting_started_module' حتى يمكنك البدء. يمكنك ببساطة اضافة ملفات المصادر الخاصة بك، مثل، ملفات .css و .js، في getting_started_module للبدء بطريقة سريعة، أو استخدام getting_started_module كمثال لمعرفة كيفية تكوين حافظات وحدة البرامج المماثلة. 
+
+يتم تحديد نطاق وحدات البرامج البسيطة الى النسق الرئيسي الخاص بك. اذا كنت تريد استخدام بعض وحدات البرامج هذه في نسق رئيسية مختلفة، يجب أن تقوم بنسخ حافظات وحدات البرامج البسطية هذه من نسق رئيسي الى آخر.
+
+لمزيد من التعليمات الخاصة بوحدات البرامج البسيطة، قم بقراءة الملف readme.txt في الحافظة 'modules'.
+
+
++ contributions
+
+ثاني أسهل طريقة لتكوين وحدات البرامج الخاصة بك، التي يتم الاشارة اليها بوحدات برامج النسق الرئيسي، لتوصيل ملفات المصادر الخاصة بك توجد في الحافظة 'contributions'. في هذه الحافظة يوجد ملف .json واحد لكل وحدة برامج أو مجموعة وحدات برامج - قم بتكوين ملف .json الخاص بك لوحدة البرامج أو مجموعة وحدات البرامج الخاصة بك. يمكنك نسخ واعادة تسمية وتعديل أحد ملفات .json الموجودة حاليا حتى يمكن مشاهدة ومعرفة صيغة .json المطلوبة.
+
+يتم تحديد نطاق وحدات برامج النسق الرئيسي الى النسق الرئيسي الخاص بك. اذا كنت تريد استخدام بعض وحدات البرامج هذه في نسق رئيسية مختلفة، يجب أن تقوم بنسخ ملفات .json لتعريف وحدة البرامج من نسق رئيسي الى آخر.
+
+لمزيد من التعليمات الخاصة بوحدات برامج النسق الرئيسي، قم بقراءة الملف readme.txt في الحافظة 'contributions'.
+
+(الطريقة الثالثة لتكوين وحدات البرامج الخاصة بك، التي يتم الاشارة اليها بوحدات البرامج الشاملة، تكون من خلال ملفات plugin.xml التي توجد في حافظة 'WEB-INF' في مستودعات تخزين تطبيق الانترنت (.war). تتضمن هذه الطريقة معظم العمل، لذلك لن تقوم بذلك الا اذا كان لديك سبب جيد، مثل وحدة برامج تم اعادة استخدامها خلال نسق رئيسية متعددة ولا تريد تكرار تعريف وحدة البرامج في كل نسق رئيسي. وحدات البرامج الشاملة، حيث يتضمن الاسم، يتم تحديدها خلال كل النسق الرئيسية.)
+
+
++ profiles
+
+بمجرد تعريف وحدات البرامج الخاصة بك، يمكنك تشغيلهم وايقافهم باستخدام ملفات المواصفات في الحافظة 'profiles'.
+في هذه الحافظة يوجد ملف .json واحد لكل ملف مواصفات - قم بتكوين ملف .json الخاص بك لملف المواصفات الخاص بك. يمكنك نسخ واعادة تسمية وتعديل أحد ملفات .json الموجودة حاليا حتى يمكن مشاهدة ومعرفة صيغة .json المطلوبة. قم بتشغيل وحدة البرامج الخاصة بك أو أي وحدة برامج من خلال اضافتها الى كشف وحدات برامج ملف المواصفات. قم بايقاف تشغيل وحدة البرامج الخاصة بك أو أي وحدة برامج من خلال ازالتها من كشف وحدات برامج ملف المواصفات. 
+
+لمزيد من التعليمات الخاصة بملفات مواصفات النسق الرئيسي، قم بقراءة الملف readme.txt في الحافظة 'profiles'.
+
+
++ layout-templates
+
+يتم تخصيص قالب شكل عام لكل صفحة، مثل 3 Column Equal، 2 Column Right، الخ. يتم تعريف قوالب الشكل العام هذه  في الحافظة 'layout-templates'، مع تحديد حافظة فرعية لكل شكل عام. يمكنك تكوين الشكل العام المهيأ الخاص بك من خلال تكوين حافظة فرعية جديدة وملف layout.html في الحافظة الفرعية. 
+
+لمزيد من التعليمات الخاصة بقوالب الشكل العام، قم بقراءة الملف readme.txt في الحافظة 'layout-templates'.
+
+
+
+Visió general de recursos de tema estàtic (Anglès)
+*******************************
+
+La carpeta de tema principal de WebDAV es on es proporcionen els recursos estàtics del tema al servidor del Portal i a l'estructura de l'agregador de recursos.
+
+La definició de la pàgina principal del tema comença amb el fitxer de plantilla de tema, theme.html, en aquesta carpeta.
+Aquesta plantilla de tema conté l'etiquetatge HTML principal que el servidor del Portal servirà a les pàgines del tema, inclosos DOCTYPE, html, i les etiquetes head i body. A dins de la plantilla de tema, hi ha diverses àrees de contingut dinàmic que el servidor del portal processa, normalment a través de .jsp i substitueix amb un etiquetatge estàtica calculat dinàmicament per a la pàgina de representació final.
+
+
+A la part superior és necessari col·locar l'àrea de contingut dinàmic <link rel="dynamic-content" href="co:head"> que és on l'estructura de l'agregador de recursos processa totes les contribucions dels mòduls en ús, com ara els fitxers .css i .js files, i els combina en una única sol·licitud de recurs per oferir un rendiment òptim.
+Per tant, per tal d'obtenir un rendiment òptim, no heu d'enllaçar els recursos propis, com ara els fitxers .css i .js, a la plantilla de temes utilitzant les etiquetes d'enllaç directament a la capçalera, és preferible que els enllaceu a través dels mòduls.
+Consulteu els mòduls i els resums de cointribucions següents per obtenir més informació sobre els mòduls.
+
+
+A la part inferior del cos és necessari col·locar l'àrea de contingut dinàmic <link rel="dynamic-content" href="co:config"> que és on l'estructura de l'agregador de recursos processa totes les contribucions de configuració dels mòduls el ús, com ara els fitxers .js i .html, i els torna a combinar per oferir un rendiment òptim.
+En aquest cas, també heu de carregar els recursos a través dels mòduls. Consulteu els mòduls i els resums de cointribucions següents per obtenir més informació sobre els mòduls.
+
+
+A la resta de la plantilla de tema, hi ha altres àrees de contingut dinàmic que apunten a .jsp. Podeu afegir les àrees de contingut dinàmic on vulgueu per realitzar les pròpies personalitzacions de tema.
+I també podeu eliminar o substituir totalment determinades àrees de contingut dinàmic si necessiteu altres funcionalitats per al tema.
+
+
+La plantilla de tema té suport d'idioma nacional per defecte, la qual cosa vol dir que hi ha diverses versions traduïdes del fitxer a la carpeta 'nls'. El servidor del Portal només utilitza el fitxer theme.html principal en aquests moments per desviar-se a la versió del fitxer de la carpeta 'nls' amb l'entorn local que coincideix amb l'entorn local del client.
+Per tant, quan modifiqueu la plantilla de tema, assegureu-vos que el canvi inicial de la versió del fitxer a la carpeta 'nls' coincideixi amb l'entorn local en que esteu treballant, com ara el fitxer nls\theme_en.html. A continuació, apliqueu els canvis posteriors a la resta de fitxers d'idioma dels idiomes que necessiteu per al suport i passeu per alt els que no siguin necessaris.
+Si no necessiteu suport per a diversos idiomes i només necessiteu un idioma, el suport d'idioma nacional es pot desactivar eliminant els enllaços d'entorn local (el bloc <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) a la capçalera del fitxer theme.html principal; en aquest cas, el servidor del Portal no utilitzarà els fitxers de la carpeta 'nls' i només utilitzarà el fitxer theme.html principal.
+
+Només hi ha una plantilla de tema per defecte, theme.html, per a totes les pàgines d'un tema, però el fitxer per defecte es pot substituir per a determinades pàgines de manera que es pugui utilitzar una altra plantilla de tema.
+Altres dos plantilles de tema d'exemple que s'inclouen amb el Portal són theme_sidenav.html, que té la navegació de la pàgina principal al lateral inferior en lloc de tenir-lo a la part superior de la pàgina, i Plain.html, que és la plantilla més simple que podeu utilitzar com a punt de partida i que pot ser útil en determinades situacions, com ara per imbricar un únic portlet en una pàgina amb iframe. Podeu copiar, canviar el nom i modificar aquests fitxers de plantilla de tema i crear-ne tants com siguin necessaris. A continuació, podeu indicar quina plantilla de tema s'utilitza en una pàgina determinada establint la propietat de pàgina com.ibm.portal.theme.template.file.name.html o com.ibm.portal.theme.inherited.template.file.name.html a les propietats de la pàgina.
+Utilitzeu la primera propietat per establir la plantilla de tema exclusivament per aquesta pàgina o utilitzeu la segona propietat per establir la plantilla de tema per la pàgina i totes les pàgines descendents.
+També podeu establir aquestes propietats a través de xmlaccess exportant l'xml de la pàgina i afegint un valor al paràmetre com.ibm.portal.theme.template.file.name.html o com.ibm.portal.theme.inherited.template.file.name.html al costat de la resta de paràmetres de pàgina, per exemple:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+o bé
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+i tornant a importar la pàgina.
+
+
++ mòduls
+
+La manera més senzilla de crear els vostre propis mòduls, anomenada mòduls simples, per enllaçar-hi els fitxers de recurs propis és a la carpeta 'modules'. A dins d'aquesta carpeta hi ha una carpeta per mòdul. Creeu-ne una per al vostre mòdul.
+També disposeu d'un 'getting_started_module' per ajudar-vos a començar. Simplement heu d'afegir els fitxers de recurs, com ara .css i .js, a getting_started_module per començar ràpidament, o bé podeu utilitzar getting_started_module com a exemple per veure com crear les vostres carpetes de mòduls de manera semblant.
+
+Els mòduls simples estan enfocats al vostre tema. Si voleu utilitzar alguns d'aquests mòduls a diferents temes, heu de copiar aquestes carpetes de mòdul d'un tema a un altre.
+
+
+Per obtenir instruccions addicionals sobre mòduls simples, llegiu el fitxer readme.txt de la carpeta 'modules'.
+
+
++ contribucions
+
+La segona manera més senzilla de crear els vostre propis mòduls, anomenada mòduls de tema, per enllaçar-hi els fitxers de recurs propis és a la carpeta 'contributions'. A dins d'aquesta carpeta hi ha un fitxer .json per mòdul o conjunt de mòduls. Creeu el vostre propi fitxer .json per al mòdul o conjunt de mòduls. Podeu copiar, canviar el nom i modificar un dels fitxers .json existents per veure i aprendre la sintaxi de .json necessària.
+
+Els mòduls de tema estan enfocats al vostre tema. Si voleu utilitzar alguns d'aquests mòduls en diferents temes, heu de copiar aquests fitxers .json de definició des d'un tema a l'altre.
+
+Per obtenir instruccions addicionals sobre mòduls de tema, llegiu el fitxer readme.txt de la carpeta 'contributions'.
+
+(La tercera manera de crear els vostres mòduls, anomenada mòduls globals, és a través dels fitxers plugin.xml a dins de la carpeta 'WEB-INF' dels dipòsits d'aplicació web (.war). Aquest mètode és el que comporta més feina; per tant, no compensa dur-lo a terme sense una bona raó, com ara quan un mòdul es reutilitza a diversos temes i no voleu duplicar la definició de mòdul a cada tema.
+Els mòduls globals, com el seu nom indica, estan enfocats a tots els temes).
+
+
+
++ perfils
+
+Un cop hàgiu definit els mòduls, els podeu activar i desactivar utilitzant els perfils de la carpeta 'profiles'.
+A dins d'aquesta carpeta hi ha un fitxer .json per perfil. Creeu el vostre propi fitxer .json per al perfil. Podeu copiar, canviar el nom i modificar un dels fitxers .json existents per veure i aprendre la sintaxi de .json necessària. Activeu el vostre mòdul o qualsevol altre afegint-lo a la llista de perfils dels mòduls.  Desactiveu el vostre mòdul o qualsevol altre eliminant-lo de la llista de perfils dels mòduls. 
+
+Per obtenir instruccions addicionals sobre perfils de tema, llegiu el fitxer readme.txt de la carpeta 'profiles'.
+
+
++ plantilles de disseny
+
+Cada pàgina té assignada una plantilla de disseny, com ara 3 Column Equal, 2 Column Right, etc. Aquestes plantilles de disseny es defineixen a la carpeta 'layout-templates' amb una subcarpeta per disseny. Podeu crear els vostres propis dissenys personalitzats creant una nova subcarpeta i un fitxer layout.html a dins de la subcarpeta.
+
+Per obtenir instruccions addicionals sobre mòduls simples, llegiu el fitxer readme.txt de la carpeta 'layout-templates'.
+
+
+
+Přehled statických prostředků motivu (anglicky)
+*******************************
+
+V této hlavní složce motivu ve WebDAV jsou poskytovány statické prostředky vašeho motivu pro
+portálový server a rámec agregátoru prostředků. 
+
+Definice hlavní stránky vašeho motivu začíná souborem šablony motivu theme.html v této složce.
+Tato šablona motivu obsahuje hlavní markup HTML, který bude portálový server poskytovat pro stránky
+vašeho motivu, včetně známých značek DOCTYPE, html, head a body. V šabloně motivu pak
+existují různé dynamické obsahy, které portálový server zpracovává, zpravidla prostřednictvím
+souborů .jsp, a nahrazuje dynamicky vypočteným statickým obsahem pro konečné vykreslení stránky. 
+
+V horní části záhlaví je povinný dynamický obsah <link rel="dynamic-content" href="co:head">,
+ve kterém rámec agregátoru prostředků zpracovává všechny příspěvky záhlaví používaných modulů,
+jako jsou např. soubory .css a .js, a v zájmu optimálního výkonu je kombinuje do jediného požadavku na
+prostředky. Chcete-li se tedy účastnit této optimalizace výkonu, neměli byste v šabloně motivu odkazovat na
+vlastní prostředky, jako např. soubory .css a .js, pomocí značek odkazu přímo v záhlaví, ale spíše
+načítat vlastní prostředky prostřednictvím modulů. Další informace o modulech naleznete v níže uvedených souhrnech
+modulů a příspěvků. 
+
+V dolní části těla stránky je povinný dynamický obsah <link rel="dynamic-content" href="co:config">,
+ve kterém rámec agregátoru prostředků zpracovává všechny příspěvky konfigurace používaných modulů, jako např. soubory
+.js a .html, a opět je kombinuje v zájmu optimálního výkonu. Zde byste opět měli načítat vlastní prostředky
+prostřednictvím modulů. Další informace o modulech naleznete v níže uvedených souhrnech modulů a příspěvků.
+
+V rámci celé zbývající šablony motivu se nacházejí další dynamické obsahy, které ukazují na soubory .jsp. Přidáním
+vlastních dynamických obsahů na požadovaná místa můžete provést vlastní úpravy motivu. Pokud pro svůj motiv
+potřebujete jiné funkce, můžete samozřejmě také některé dynamické obsahy odebrat nebo zcela nahradit.
+
+Šablona motivu obsahuje při výchozím nastavení národní jazykovou podporu, což znamená, že ve složce 'nls' existuje
+několik přeložených verzí souboru. Portálový server ve skutečnosti používá hlavní soubor theme.html pouze
+k odbočení na verzi souboru ve složce 'nls', jejíž národní prostředí odpovídá národnímu prostředí
+klienta. Když tedy provedete změnu šablony motivu, nezapomeňte provést počáteční změnu ve verzi souboru
+ve složce 'nls', která se shoduje s národním prostředím, ve kterém pracujete, jako například v souboru
+nls\theme_en.html. Poté proveďte následné změny v dalších jazykových souborech pro jazyky, které potřebujete
+podporovat, a přeskočte jazyky, které podporovat nepotřebujete. Pokud podporu více jazyků nepotřebujete vůbec
+a potřebujete pouze jeden jazyk, lze národní jazykovou podporu vypnout odebráním odkazů na národní prostředí
+(blok <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) v záhlaví hlavního souboru theme.html. V tom případě
+portálový server nebude používat soubory ve složce 'nls' a namísto toho bude používat pouze jeden hlavní
+soubor theme.html.
+
+Pro všechny stránky motivu existuje jedna výchozí šablona motivu theme.html, toto výchozí nastavení však lze
+pro určité stránky přepsat, aby bylo možné použít jinou šablonu motivu. S portálem se dodávají další dvě
+ukázkové šablony motivu, a to šablona theme_sidenav.html, ve které není primární navigace stránky umístěna vodorovně v horní
+části stránky, ale svisle po boku stránky, a šablona Plain.html, což je nejjednodušší šablona motivu, kterou můžete použít jako výchozí
+bod a může být užitečná také v určitých situacích, jako je např. vložení jednoho portletu na stránku v rámci sekce
+iframe. Tyto soubory šablon motivu můžete zkopírovat, přejmenovat a upravit, a dle potřeby jich tak vytvořit libovolné množství. Šablonu
+motivu používanou na konkrétní stránce poté určíte nastavením vlastnosti stránky com.ibm.portal.theme.template.file.name.html
+nebo com.ibm.portal.theme.inherited.template.file.name.html ve Vlastnostech stránky. Pomocí první vlastnosti nastavíte šablonu motivu
+pouze pro danou jedinou stránku, pomocí druhé vlastnosti nastavíte šablonu motivu pro danou stránku a všechny její následné stránky.
+Tyto vlastnosti můžete také nastavit prostřednictvím xmlaccess, a to vyexportováním xml pro danou stránku, přidáním hodnoty pro
+parametr com.ibm.portal.theme.template.file.name.html nebo com.ibm.portal.theme.inherited.template.file.name.html
+v blízkosti dalších parametrů stránky:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+nebo
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+a novým naimportováním stránky.
+
+
++ modules (moduly)
+
+Nejjednodušším způsobem vytvoření vlastních modulů (označovaných jako jednoduché moduly) pro připojení vlastních souborů
+prostředků je jejich vytvoření ve složce 'modules'. V této složce se pro každý modul nachází jedna složka, pro vlastní modul
+tedy vytvořte vlastní složku. Nachází se zde rovněž jeden výchozí modul 'getting_started_module', který vám pomůže rychle začít. Chcete-li
+rychle začít pracovat, stačí přidat do modulu getting_started_module soubory s prostředky, např. soubory .css a .js. Případně můžete
+použít modul getting_started_module jako ukázku, jak vytvářet vlastní podobné složky modulů.
+
+Rozsah jednoduchých modulů je vymezen na jeden motiv. Chcete-li používat některé ze stejných modulů v jiných motivech,
+musíte zkopírovat tyto složky jednoduchých modulů z jednoho motivu do druhého.
+
+Další pokyny k jednoduchým modulům naleznete v souboru readme.txt ve složce 'modules'.
+
+
++ contributions (příspěvky)
+
+Druhým nejjednodušším způsobem vytvoření vlastních modulů (označovaných jako moduly s motivy) pro připojení vlastních souborů
+prostředků je jejich vytvoření ve složce 'contributions'. V této složce se pro každý modul nebo sadu modulů nachází
+jeden soubor .json, pro vlastní modul nebo sadu moulů tedy vytvořte vlastní soubor .json. Chcete-li
+si prohlédnout a pochopit požadovanou syntaxi souboru .json, můžete zkopírovat, přejmenovat a upravit některý
+z existujících souborů .json.
+
+Rozsah modulů s motivy je vymezen na jeden motiv. Chcete-li používat některé ze stejných modulů v jiných motivech,
+musíte zkopírovat tyto soubory .json s definicí modulu z jednoho motivu do druhého.
+
+Další pokyny k modulům s motivy naleznete v souboru readme.txt ve složce 'contributions'.
+
+(Třetím způsobem vytvoření vlastních modulů (označovaných jako globální moduly) je jejich vytvoření prostřednictvím
+souborů plugin.xml ve složce 'WEB-INF' v úložištích webové aplikace (.war). Tento způsob
+je nejpracnější, proto ho zřejmě nebudete používat, aniž byste k tomu měli dobrý důvod, jako např. modul používaný ve
+více motivech, jehož definici nechcete v každém z motivů duplikovat. Rozsah globálních modulů, jak již naznačuje
+jejich název, je vymezen na všechny motivy.)
+
+
++ profiles (profily)
+
+Po nadefinování modulů můžete tyto moduly zapínat a vypínat pomocí profilů ve složce 'profiles'.
+V této složce se pro každý profil nachází jeden soubor .json, pro vlastní profil tedy vytvořte vlastní soubor .json. Chcete-li
+si prohlédnout a pochopit požadovanou syntaxi souboru .json, můžete zkopírovat, přejmenovat a upravit některý
+z existujících souborů .json. Libovolný modul zapnete tím, že ho přidáte do seznamu modulů příslušného profilu. Libovolný modul
+vypnete tím, že ho odeberete ze seznamu modulů příslušného profilu.
+
+Další pokyny k profilům motivů naleznete v souboru readme.txt ve složce 'profiles'.
+
+
++ layout-templates (šablony rozvržení)
+
+Každé stránce je přiřazena šablona rozvržení, jako např. 3 Column Equal (3 sloupce, stejné), 2 Column Right (2 sloupce, vpravo)
+apod. Tyto šablony rozvržení jsou definovány ve složce 'layout-templates', ve které se pro každé rozvržení nachází jedna podsložka. 
+Svá vlastní rozvržení můžete vytvářet tak, že vytvoříte novou podsložku a v této podsložce vytvoříte soubor layout.html.
+
+Další pokyny k šablonám rozvržení naleznete v souboru readme.txt ve složce 'layout-templates'.
+
+
+
+Oversigt over statiske temaressourcer
+*************************************
+
+Denne primære temafolder i WebDAV er det sted, hvor statiske ressourcer til temaet leveres
+til Portal-serveren og ressourceaggregatorstrukturen. 
+
+Definitionen af den primære side i temaet starter med temaskabelonfilen, theme.html, i denne
+folder. Denne temaskabelon indeholder det primære HTML-markup-sprog, som Portal-serveren skal levere
+til siderne i dit tema, herunder de kendte DOCTYPE-, html-, head- og body-koder. I temaskabelonen
+er der så forskellige dynamiske indholdsspot, som Portal-serveren behandler, typisk via .jsp-filer,
+og erstatter med dynamisk beregnet statisk markup-sprog til den endelige, gengivne side.
+
+
+Øverst i head-afsnittet er den påkrævede dynamiske indholdsspot, <link rel="dynamic-content" href="co:head">,
+som er det sted, hvor ressourceaggregatorstrukturen behandler alle head-bidrag fra de anvendte moduler,
+f.eks. .css- og .js-filer, og kombinerer dem til en enkelt ressourceanmodning for at optimere
+ydeevnen. Så for at kunne medvirke til at optimere ydeevnen skal du ikke linke dine egne ressourcer,
+f.eks. .css- og .js-filer, i temaskabelonen via linkkoder direkte i head-afsnittet, men i stedet
+indlæse dine egne ressourcer via moduler. Der er flere oplysninger om moduler i oversigterne
+over moduler og bidrag nedenfor.
+
+
+Nederst i body-afsnittet er den påkrævede dynamiske indholdsspot, <link rel="dynamic-content" href="co:config">,
+som er det sted, hvor ressourceaggregatorstrukturen behandler alle config-bidrag fra de anvendte moduler,
+f.eks. .js og .html-filer, og igen kombinerer dem for at optimere
+ydeevnen. Igen skal du indlæse dine egne ressourcer via moduler. Der er flere oplysninger om moduler i oversigterne
+over moduler og bidrag nedenfor.
+
+
+I resten af temaskabelonen er der andre dynamiske indholdsspot, der peger på .jsp-filer. Du kan
+tilføje dine egne dynamiske indholdsspot, hvor du vil foretage dine egne tematilpasninger. Og du kan
+naturligvis også helt fjerne eller erstatte visse dynamiske indholdsspot, hvis du har behov for at ændre dit temas funktionalitet.
+
+
+Temaskabelonen understøtter som standard adskillige sprog, og der er faktisk mange oversatte versioner
+af filen i folderen 'nls'. Den primære theme.html-file bruges faktisk ikke af Portal-serveren til andet
+end at hoppe til den version af filen i 'nls'-folderen, der har samme sprogkonvention som klienten.
+Så når du foretager en ændring af temaskabelonen, skal du sørge for at foretage den første ændring
+i den version af filen i 'nls'-folderen, der svarer til den sprogkonvention, du arbejder i,
+f.eks. i filen nls\theme_da.html. Foretag derefter ændringer af de andre sprogfiler for de sprog, du vil
+understøtte, og spring de sprog over, du ikke vil understøtte. Hvis du slet ikke har brug for at
+understøtte flere sprog og kun har brug for ét sprog, kan du deaktivere national sprogunderstøttelse ved at fjerne
+sprogkonventionslink (blokken !--START LOCALE LINKS--><!--END LOCALE LINKS-->) i head-afsnittet i den primære
+theme.html-fil. I så fald vil Portal-serveren ikke bruge filerne i folderen 'nls', men i stedet blot bruge den
+ene primære theme.html-fil.
+
+Der er én standardtemaskabelon, theme.html, for alle sider i et tema, men standarden kan tilsidesættes for
+bestemte sider, så en anden temaskabelon kan bruges. To andre temaeksempelskabeloner, der leveres sammen med Portal,
+er theme_sidenav.html, hvor den primære sidenavigation er nedad i stedet for på tværs af sidens top, og Plain.html,
+som er den enkleste temaskabelon, du kan bruge som udgangspunkt, og som også kan være nyttig i visse situationer,
+f.eks. indlejring af en enkelt miniportal på en side i en iframe. Du kan kopiere, omdøbe og ændre disse temaskabelonfiler
+og oprette så mange, som du har brug for. Du kan derefter angive, hvilken temaskabelon der bruges på en bestemt side,
+ved at angive sideegenskaben com.ibm.portal.theme.template.file.name.html eller com.ibm.portal.theme.inherited.template.file.name.html
+i Sideegenskaber. Brug den første egenskab til at angive temaskabelonen for denne side alene, eller brug den anden egenskab til at
+angive temaskabelonen for denne side og alle dens underordnede sider. Du kan også angive disse egenskaber via xmlaccess ved
+at eksportere xml-koden for siden og tilføje en værdi for parameteren com.ibm.portal.theme.template.file.name.html eller
+com.ibm.portal.theme.inherited.template.file.name.html i nærheden af de andre sideparametre, f.eks.:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+eller
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+Importér derefter siden igen.
+
+
++ modules
+
+Den nemmeste måde at linke dine egne ressourcer på er ved at bruge folderen 'modules' til
+at oprette dine egne moduler (kaldet enkle moduler). I denne folder findes én folder for hvert modul.
+Opret din egen folder til dit eget modul.
+Der er også ét standardmodul, getting_started_module, du kan bruge som udgangspunkt til at komme i gang.
+Du kan blot tilføje dine ressourcefiler, f.eks. .css- og .js-filer, i getting_started_module
+for at komme hurtigt i gang eller bruge getting_started_module som et eksempel for at se,
+hvordan du opretter dine egne lignende modulfoldere.
+
+
+Omfanget af enkle moduler er begrænset til ét tema. Hvis du vil bruge nogle af de samme moduler i forskellige
+temaer, skal du kopiere disse enkle modulfiler til fra det ene tema til det andet.
+
+Der er flere oplysninger om enkle moduler i filen readme.txt i folderen 'modules'.
+
+
++ contributions
+
+Den næstnemmeste måde at linke dine egne ressourcer på er ved at bruge folderen 'contributions' til
+at oprette dine egne moduler (kaldet temamoduler). I denne folder er der en .json-fil pr. modul eller modulsæt.
+Opret din egen .json-fil til dit eget modul eller modulsæt. Du kan kopiere, omdøbe og ændre en af
+de eksisterende .json-filer for at se og lære den .json-syntaks, der kræves. 
+
+Omfanget af temamoduler er begrænset til ét tema. Hvis du vil bruge nogle af de samme moduler i forskellige
+temaer, skal du kopiere .json-filerne til moduldefinition fra det ene tema til det andet.
+
+Der er flere oplysninger om temamoduler i filen readme.txt i folderen 'contributions'.
+
+Den tredje metode til at oprette dine egne moduler (kaldet globale moduler) er via
+plugin.xml-filerne i folderen 'WEB-INF' i webprogrammets opbevaringssteder (.war-filer). Denne metode
+er mest arbejdskrævende, så brug den kun, hvis du har gode grunde, f.eks. til et modul, der genbruges på
+tværs af flere temaer, hvor du ikke vil duplikere moduldefinitionen i hvert af temaerne. Omfanget af globale
+moduler, er, som navnet antyder, alle temaer. 
+
+
++ profiles
+
+Når du har defineret dine moduler, aktiverer og deaktiverer du dem med profiler i folderen 'profiles'.
+I denne folder er der en .json-fil pr. profil - opret din egen.json fil til din egen profil. Du kan kopiere,
+omdøbe og ændre en af de eksisterende .json-filer for at se og lære den .json-syntaks, der kræves.
+Aktivér dit eget modul eller et hvilket som helst andet ved at tilføje det til profilens liste over moduler.
+Deaktivér dit eget modul eller et hvilket som helst andet ved at fjerne det fra profilens liste over moduler.
+
+
+Der er flere oplysninger om temaprofiler i filen readme.txt i folderen 'profiles'. 
+
+
++ layout-templates
+
+Hver side er tildelt en layoutskabelon, f.eks. 3 kolonner lige store, 2 kolonner højre osv. Disse layoutskabeloner
+er defineret i folderen 'layout-templates' med én underfolder pr. layout. Du kan oprette dine egne tilpassede layout
+ved at oprette en ny underfolder og en layout.html-fil i underfolderen.
+
+Der er flere oplysninger om layoutskabeloner i filen readme.txt i folderen 'layout-templates'. 
+
+
+
+Überblick über statische Motivressourcen (Deutsch)
+*******************************
+
+In diesem Hauptordner für Motive in WebDAV werden statische Ressourcen für den Portal-Server und das Ressourcenaggregatorframework bereitgestellt. 
+
+Die Hauptseitendefinition Ihres Motivs beginnt mit der Motivschablonendatei, theme.html, in diesem Ordner. Diese Motivschablone enthält die HTML-Haupt-Markups, die der Portal-Server für die Seiten Ihres Motivs bereitstellt, einschließlich den bekannten Tags "DOCTYPE", "html", "head" und "body". Innerhalb der Motivschablone gibt es verschiedene dynamische Inhaltsbereiche, die der Portal-Server verarbeitet - in der Regel über JSP-Dateien - und durch dynamisch berechnete statische Markups für die endgültig dargestellte Seite ersetzt. 
+
+Ganz oben im Abschnitt "head" befindet sich der Bereich für den erforderlichen dynamischen Inhalt <link rel="dynamic-content" href="co:head">. In diesem Bereich verarbeitet das Ressourcenaggregatorframework alle Kopfzeilenbeiträge der verwendeten Module, wie CSS- und JS-Dateien, und kombiniert sie zu einer einzelnen Ressourcenanforderung, um die Leistung zu optimieren. Um also diese optimale Leistung zu erhalten, dürfen Sie in der Motivschablone Ihre eigenen Ressourcen, wie CSS- und JS-Dateien, nicht mithilfe von Link-Tags direkt in der Kopfzeile verknüpfen. Laden Sie stattdessen Ihre eigenen Ressourcen über Module. Weitere Informationen zu Modulen finden Sie in den folgenden Zusammenfassungen zu den Ordnern "modules" und "contributions". 
+
+Ganz unten im Hauptteil befindet sich der Bereich für den erforderlichen dynamischen Inhalt <link rel="dynamic-content" href="co:config">. In diesem Bereich verarbeitet das Ressourcenaggregatorframework alle Konfigurationsbeiträge der verwendeten Module wie JS- und HTML-Dateien, und kombiniert sie erneut, um die Leistung zu optimieren. Auch hier sollten Sie Ihre eigenen Ressourcen über Module laden. Weitere Informationen zu Modulen finden Sie in den folgenden Zusammenfassungen zu den Ordnern "modules" und "contributions". 
+
+Im übrigen Teil der Motivschablone befinden sich weitere dynamische Inhaltsbereiche, die auf JSP-Dateien verweisen. Sie können Ihre eigenen dynamischen Inhaltsbereiche hinzufügen, wenn Sie Ihr Motiv individuell anpassen möchten. Und natürlich haben Sie die Möglichkeit, bestimmte dynamische Inhaltsbereiche zu entfernen oder vollständig zu ersetzen, wenn Sie für Ihr Motiv andere Funktionen benötigen.
+
+Die Motivschablone bietet standardmäßig Unterstützung in der Landessprache, was bedeutet, dass momentan tatsächlich mehrere übersetzte Versionen der Datei im Ordner "nls" vorliegen. Die Hauptdatei theme.html wird vom Portal-Server nur dazu verwendet, die Version der Datei im Ordner "nls" mit der Ländereinstellung zu verzweigen, die mit der Ländereinstellung des Clients übereinstimmt. Wenn Sie also die Motivschablone ändern, müssen Sie die ursprüngliche Änderung in der Datei im Ordner "nls" ändern, die mit der Ländereinstellung übereinstimmt, mit der Sie arbeiten, z. B. in der Datei nls\theme_en.html. Anschließend können Sie an den Sprachdateien für die zu unterstützenden Sprachen weitere Änderungen vornehmen und die Sprachen überspringen, die nicht unterstützt werden sollen. Wenn Sie keine Unterstützung verschiedener Landessprachen benötigen und eine Sprache ausreicht, kann die Unterstützung landessprachlicher Versionen inaktiviert werden, indem Sie die Ländereinstellungslinks (der Block <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) am Anfang der Hauptdatei theme.html entfernen. In diesem Fall verwendet der Portal-Server nicht die Dateien im Ordner "nls", sondern einfach nur die eine Hauptdatei theme.html.
+
+Es gibt eine Standardmotivschablone, theme.html, für alle Seiten eines Motivs, doch Sie können den Standardwert für bestimmte Seiten außer Kraft setzen, damit eine andere Motivschablone verwendet werden kann. Zwei weitere Beispiele für Motivschablonen, die mit WebSphere Portal geliefert werden, sind theme_sidenav.html (bei dieser Schablone befindet sich die primäre Seitennavigation seitlich und nicht am oberen Rand der Seite) und Plain.html (dies ist die einfachste Motivschablone, die Sie als Ausgangspunkt verwenden können und die in bestimmten Situationen wie beim Integrieren eines einzelnen Portlets auf einer Seite innerhalb eines I-Frames hilfreich sein kann). Sie können diese Motivschablonendateien kopieren, umbenennen und ändern und beliebig viele dieser Dateien erstellen. Anschließend bestimmen Sie, welche Motivschablone auf einer bestimmten Seite verwendet wird, indem Sie die Eigenschaft "com.ibm.portal.theme.template.file.name.html" oder "com.ibm.portal.theme.inherited.template.file.name.html" im Dialog "Seiteneigenschaften" festlegen. Verwenden Sie die erste Eigenschaft, um die Motivschablone für nur diese eine Seite festzulegen. Oder verwenden Sie die zweite Eigenschaft, um die Motivschablone für diese Seite und für alle nachfolgenden Seiten festzulegen. Sie können diese Eigenschaften auch über "xmlaccess" festlegen, indem Sie die XML-Datei für die Seite exportieren und den Wert für den Parameter "com.ibm.portal.theme.template.file.name.html" oder "com.ibm.portal.theme.inherited.template.file.name.html" in der Nähe der anderen Seitenparameter festlegen. Beispiel:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+oder
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+Anschließend müssen Sie die Seite erneut importieren.
+
+
++ modules
+
+Die einfachste Möglichkeit, Ihre eigenen Module (so genannte "einfache Module") zu erstellen, um sie mit Ihren eigenen Ressourcendateien zu verknüpfen, ist die Verwendung des Ordners "modules". In diesem Ordner befindet sich ein Ordner pro Modul. Erstellen Sie einen separaten Ordner für Ihr eigenes Modul. Außerdem enthält er ein so genanntes Einführungsmodul ("getting_started_module"), das Ihnen die ersten Schritte erleichtern soll. Für schnelle Ergebnisse können Sie Ihre Ressourcendateien wie CSS- und JS-Dateien einfach in das Einführungsmodul "getting_started_module" einfügen. Alternativ verwenden Sie das  Modul "getting_started_module" als Beispiel, um zu sehen, wie Sie Ihre eigenen ähnlichen Modulordner erstellen können.
+
+Einfache Module beziehen sich auf ein bestimmtes Motiv. Wenn Sie einige dieser Module in verschiedenen Motiven verwenden möchten, müssen Sie diese einfachen Modulordner aus einem Motiv in ein anderes kopieren.
+
+Weitere Anweisungen für einfache Module finden Sie in der Datei readme.txt im Ordner "modules".
+
+
++ contributions
+
+Eine weitere einfache Methode zum Erstellen Ihrer eigenen Module (so genannter Motivmodule), um diese mit Ihren eigenen Ressourcendateien zu verknüpfen, ist die Verwendung des Ordners "contributions". In diesem Ordner befindet sich für jedes Modul oder jede Modulgruppe eine JSON-Datei - erstellen Sie Ihre eigene JSON-Datei für Ihr eigenes Modul oder Ihre eigene Modulgruppe. Sie können eine der bestehenden JSON-Dateien kopieren, umbenennen und ändern, um die erforderliche JSON-Syntax anzuzeigen und zu erlernen.
+
+Motivmodule orientieren sich an einem bestimmten Motiv. Wenn Sie einige dieser Module in verschiedenen Motiven verwenden möchten, müssen Sie diese JSON-Dateien der Moduldefinition von einem Motiv in ein anderes kopieren.
+
+Weitere Anweisungen zu Motivmodulen finden Sie in der Datei readme.txt im Ordner "contributions".
+
+(Die dritte Möglichkeit zum Erstellen Ihrer eigenen Module (so genannte globale Module) ist die Verwendung der Dateien plugin.xml im Ordner "WEB-INF" innerhalb der Webanwendungsrepositorys (.war). Diese Methode ist mit dem größten Arbeitsaufwand verbunden, sodass Sie nur dann auf sie zurückgreifen werden, wenn Sie gute Gründe dafür haben. Beispielsweise bei einem Modul, das in vielen Motiven wiederverwendet wird und dessen Moduldefinition Sie nicht in jedem Motiv duplizieren möchten. Globale Module finden, wie der Name schon sagt, in allen Motiven Anwendung.)
+
+
++ profiles
+
+Sobald Sie Ihre Module definiert haben, können Sie sie mithilfe von Profilen im Ordner "profiles" aktivieren und inaktivieren.
+In diesem Ordner befindet sich eine JSON-Datei pro Profil - erstellen Sie Ihre eigene JSON-Datei für Ihr eigenes Profil. Sie können eine der bestehenden JSON-Dateien kopieren, umbenennen und ändern, um die JSON-Syntax anzuzeigen und zu erlernen. Sie aktivieren Ihr Modul oder ein beliebiges anderes Modul, indem Sie es in die Modulliste des Profils einfügen. Sie inaktivieren Ihr Modul oder ein beliebiges anders Modul, indem Sie es aus der Modulliste des Profils entfernen.
+
+Weitere Anweisungen zu Motivprofilen finden Sie in der Datei readme.txt im Ordner "profiles".
+
+
++ layout-templates
+
+Jeder Seite ist eine Layoutschablone zugeordnet wie z. B. "3 Column Equal" für drei gleiche Spalten oder "2 Column Right" für zwei Spalten rechts. Diese Layoutschablonen sind im Ordner "layout-templates" mit jeweils einem Unterordner pro Layout definiert. Sie können Ihre eigenen benutzerdefinierten Layouts erstellen, indem Sie einen neuen Unterordner und im Unterordner die Datei layout.html erstellen.
+
+Weitere Anweisungen zu Layoutschablonen finden Sie in der Datei readme.txt im Ordner "layout-templates".
+
+
+
+Συνοπτική παρουσίαση στατικών πόρων θέματος (Ελληνικά)
+*******************************************
+
+Αυτός ο κύριος φάκελος θέματος στο WebDAV περιέχει στατικούς πόρους για το θέμα σας οι οποίοι
+παρέχονται στον εξυπηρετητή πύλης και στο πλαίσιο συγκρότησης πόρων (resource aggregator framework). 
+
+Ο ορισμός κύριας σελίδας για το θέμα σας ξεκινά με το αρχείο προτύπου θέματος, theme.html, σε αυτόν
+το φάκελο. Αυτό το πρότυπο θέματος περιέχει τον κύριο κώδικα μορφοποίησης HTML που θα παρέχει ο
+εξυπηρετητής πύλης για τις σελίδες του θέματος, συμπεριλαμβανομένων των γνωστών προσδιοριστικών
+DOCTYPE, html, head και body. Στο πρότυπο θέματος υπάρχουν επίσης διάφορα δυναμικά σημεία περιεχομένου
+τα οποία επεξεργάζεται ο εξυπηρετητής πύλης, συνήθως μέσω αρχείων .jsp, και τα αντικαθιστά με δυναμικά
+υπολογιζόμενο στατικό κώδικα μορφοποίησης για την τελική εμφάνιση της σελίδας. 
+
+Στο πάνω μέρος του προσδιοριστικού head υπάρχει το απαιτούμενο σημείο δυναμικού περιεχομένου
+<link rel="dynamic-content" href="co:head">, στο οποίο το πλαίσιο συγκρότησης πόρων επεξεργάζεται όλες
+τις συνεισφορές head των χρησιμοποιούμενων λειτουργικών μονάδων, όπως αρχείων .css και .js, και τις
+συνδυάζει σε μια ενιαία αίτηση πόρου για βέλτιστη απόδοση. Συνεπώς, για να επιτύχετε τη βέλτιστη απόδοση,
+δεν θα πρέπει να διασυνδέετε τους δικούς σας πόρους, όπως αρχεία .css και .js, στο πρότυπο θέματος μέσω
+προσδιοριστικών link απευθείας στο head, αλλά να φορτώνετε αυτούς τους πόρους μέσω λειτουργικών μονάδων. 
+Ανατρέξτε στις περιγραφές στις παρακάτω ενότητες "modules" και "contributions" για περισσότερες πληροφορίες. 
+
+Στο κάτω μέρος του προσδιοριστικού body υπάρχει το απαιτούμενο σημείο δυναμικού περιεχομένου
+<link rel="dynamic-content" href="co:config">, στο οποίο το πλαίσιο συγκρότησης πόρων επεξεργάζεται
+όλες τις συνεισφορές config των χρησιμοποιούμενων λειτουργικών μονάδων, όπως αρχείων .js και .html,
+και ξανά τις συνδυάζει για βέλτιστη απόδοση. Και σε αυτή την περίπτωση, θα πρέπει να φορτώνετε
+τους δικούς σας πόρους μέσω λειτουργικών μονάδων. 
+Ανατρέξτε στις περιγραφές στις παρακάτω ενότητες "modules" και "contributions" για περισσότερες πληροφορίες. 
+
+Στο υπόλοιπο πρότυπο θέματος υπάρχουν άλλα σημεία δυναμικού περιεχομένου που παραπέμπουν σε αρχεία
+.jsp. Μπορείτε να προσθέσετε δικά σας σημεία δυναμικού περιεχομένου εκεί που θέλετε να κάνετε
+προσαρμογές στο θέμα. Επίσης, μπορείτε να αφαιρέσετε ή να αντικαταστήσετε σημεία δυναμικού περιεχομένου
+αν θέλετε το θέμα σας να περιέχει διαφορετικές λειτουργίες.
+
+Το πρότυπο θέματος παρέχει υποστήριξη εθνικών γλωσσών, το οποίο σημαίνει ότι υπάρχουν πολλές
+μεταφρασμένες εκδοχές του αρχείου στο φάκελο 'nls'. Το κύριο αρχείο theme.html χρησιμοποιείται από
+τον εξυπηρετητή πύλης μόνο για να εντοπίσει στο φάκελο 'nls' την εκδοχή του αρχείου που περιέχει τη
+γλώσσα που αντιστοιχεί στη γλώσσα του πελάτη. Συνεπώς, αν κάνετε μια αλλαγή στο πρότυπο θέματος, θα
+πρέπει να κάνετε την αρχική αλλαγή στο αρχείο στο φάκελο 'nls' που αντιστοιχεί στη γλώσσα με την οποία
+εργάζεστε, π.χ. nls\theme_el.html. Στη συνέχεια, κάντε την αλλαγή στα αρχεία για τις άλλες γλώσσες που
+θέλετε να υποστηρίζονται, και παραλείψτε τις γλώσσες που δεν χρειάζονται. Αν δεν χρειάζεστε υποστήριξη
+πολλαπλών γλωσσών και χρειάζεστε μία μόνο γλώσσα, μπορείτε να απενεργοποιήσετε την υποστήριξη εθνικών
+γλωσσών αφαιρώντας τις διασυνδέσεις locale (ενότητα <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) στο
+προσδιοριστικό head του κύριου αρχείου theme.html. Σε αυτή την περίπτωση, ο εξυπηρετητής πύλης δεν θα
+χρησιμοποιήσει τα αρχεία στο φάκελο 'nls' και θα χρησιμοποιήσει μόνο το κύριο αρχείο theme.html.
+
+Υπάρχει ένα προεπιλεγμένο πρότυπο θέματος, το theme.html, για όλες τις σελίδες του θέματος, αλλά αυτό
+μπορεί να αντικατασταθεί για συγκεκριμένες σελίδες από ένα διαφορετικό πρότυπο θέματος. Δύο άλλα παραδείγματα
+προτύπων θέματος που παρέχονται με το Portal είναι το theme_sidenav.html, στο οποίο οι επιλογές πλοήγησης
+εμφανίζονται κατακόρυφα στη μια πλευρά της σελίδας και όχι οριζόντια στην κορυφή της, και το Plain.html, το
+οποίο είναι το απλούστερο πρότυπο θέματος που μπορείτε να χρησιμοποιήσετε για να ξεκινήσετε, και μπορεί
+επίσης να είναι χρήσιμο σε ορισμένες περιπτώσεις, όπως για την ενσωμάτωση μιας μικροεφαρμογής πύλης σε μια
+σελίδα μέσα σε ένα iframe. Μπορείτε να αντιγράψετε, να μετονομάσετε και να τροποποιήσετε αυτά τα αρχεία
+προτύπου θέματος και να δημιουργήσετε όσα χρειάζεστε. Στη συνέχεια, μπορείτε να ορίσετε ποιο πρότυπο θέματος
+χρησιμοποιείται σε κάθε σελίδα ρυθμίζοντας την ιδιότητα com.ibm.portal.theme.template.file.name.html ή
+com.ibm.portal.theme.inherited.template.file.name.html στις ιδιότητες της σελίδας. Η πρώτη ιδιότητα
+καθορίζει το πρότυπο θέματος για μία μόνο σελίδα, ενώ η δεύτερη καθορίζει το πρότυπο θέματος για μια
+σελίδα και όλες τις θυγατρικές της σελίδες. Μπορείτε επίσης να ορίσετε αυτές τις ιδιότητες μέσω του
+xmlaccess εξάγοντας τον κώδικα xml της σελίδας και προσθέτοντας μια τιμή για την παράμετρο
+com.ibm.portal.theme.template.file.name.html ή com.ibm.portal.theme.inherited.template.file.name.html
+κοντά στις άλλες παραμέτρους στη σελίδα, για παράδειγμα:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+ή
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+Στη συνέχεια, εισαγάγετε ξανά τη σελίδα.
+
+
++ modules
+
+Ο πιο εύκολος τρόπος να δημιουργήσετε δικές σας λειτουργικές μονάδες, που αναφέρονται ως απλές λειτουργικές
+μονάδες, για τη διασύνδεση των δικών σας αρχείων πόρων, είναι μέσω του φακέλου 'modules'. Σε αυτόν το
+φάκελο υπάρχει ένας φάκελος για κάθε λειτουργική μονάδα και μπορείτε να δημιουργήσετε δικούς σας φακέλους για
+τις δικές σας λειτουργικές μονάδες. Υπάρχει επίσης ένας προεπιλεγμένος φάκελος 'getting_started_module' που
+σας βοηθά να ξεκινήσετε. Μπορείτε απλά να προσθέσετε τα αρχεία πόρων σας, π.χ. αρχεία .css και .js, στο φάκελο
+getting_started_module για να ξεκινήσετε γρήγορα, ή να τον χρησιμοποιήσετε ως παράδειγμα για να δείτε πώς να
+δημιουργήσετε δικούς σας φακέλους λειτουργικών μονάδων.
+
+Οι απλές λειτουργικές μονάδες χρησιμοποιούνται μόνο σε ένα θέμα. Αν θέλετε να χρησιμοποιήσετε κάποιες από
+αυτές σε διαφορετικά θέματα, πρέπει να τις αντιγράψετε από το ένα θέμα στο άλλο.
+
+Για περισσότερες οδηγίες σχετικά με τις απλές λειτουργικές μονάδες, διαβάστε το αρχείο readme.txt
+στο φάκελο 'modules'.
+
+
++ contributions
+
+Ο δεύτερος εύκολος τρόπος να δημιουργήσετε δικές σας λειτουργικές μονάδες, που αναφέρονται ως λειτουργικές
+μονάδες θέματος, για τη διασύνδεση των δικών σας αρχείων πόρων, είναι μέσω του φακέλου 'contributions'. Σε
+αυτόν το φάκελο υπάρχει ένα  αρχείο .json για κάθε λειτουργική μονάδα ή σύνολο λειτουργικών μονάδων και
+μπορείτε να δημιουργήσετε δικά σας αρχεία .json για τις δικές σας λειτουργικές μονάδες και τα δικά σας
+σύνολα λειτουργικών μονάδων. Μπορείτε να αντιγράψετε, να μετονομάσετε και να τροποποιήσετε ένα από τα
+υπάρχοντα αρχεία .json για να μάθετε την απαιτούμενη σύνταξη των αρχείων json.
+
+Οι λειτουργικές μονάδες θέματος χρησιμοποιούνται μόνο σε ένα θέμα. Αν θέλετε να χρησιμοποιήσετε κάποιες από
+αυτές σε διαφορετικά θέματα, πρέπει να αντιγράψετε τα αρχεία .json που περιέχουν τον ορισμό των λειτουργικών
+μονάδων από το ένα θέμα στο άλλο.
+
+Για περισσότερες οδηγίες σχετικά με τις λειτουργικές μονάδες θέματος, διαβάστε το αρχείο readme.txt
+στο φάκελο 'contributions'.
+
+(Ο τρίτος τρόπος για τη δημιουργία δικών σας λειτουργικών μονάδων, που αναφέρονται ως γενικές λειτουργικές
+μονάδες, είναι μέσω αρχείων plugin.xml στο φάκελο 'WEB-INF' των αρχείων αποθήκευσης διαδικτυακών εφαρμογών
+(.war). Αυτός ο τρόπος είναι πιο πολύπλοκος, συνεπώς δεν χρειάζεται να τον χρησιμοποιήσετε εκτός αν υπάρχει
+συγκεκριμένος λόγος, π.χ. αν κάποια λειτουργική μονάδα χρησιμοποιείται σε πολλά θέματα και δεν θέλετε να
+αντιγράψετε τον ορισμό της σε κάθε ένα από τα θέματα. Οι γενικές λειτουργικές μονάδες, όπως φαίνεται από
+το όνομά τους, χρησιμοποιούνται σε όλα τα θέματα.)
+
+
++ profiles
+
+Αφού ορίσετε τις λειτουργικές μονάδες, μπορείτε να τις ενεργοποιήσετε και να τις απενεργοποιήσετε
+χρησιμοποιώντας τα προφίλ στο φάκελο 'profiles'. Σε αυτόν το φάκελο υπάρχει ένα  αρχείο .json για
+κάθε προφίλ και μπορείτε να δημιουργήσετε δικά σας αρχεία .json για τα δικά σας προφίλ. Μπορείτε
+να αντιγράψετε, να μετονομάσετε και να τροποποιήσετε ένα από τα υπάρχοντα αρχεία .json για να μάθετε
+την απαιτούμενη σύνταξη των αρχείων json. Για να ενεργοποιήσετε μια λειτουργική μονάδα προσθέστε την
+στη λίστα λειτουργικών μονάδων του προφίλ. Για να την απενεργοποιήσετε, αφαιρέστε την από τη λίστα
+λειτουργικών μονάδων του προφίλ. 
+
+Για περισσότερες οδηγίες σχετικά με τα προφίλ θέματος, διαβάστε το αρχείο readme.txt στο φάκελο 'profiles'.
+
+
++ layout-templates
+
+Κάθε σελίδα αντιστοιχίζεται με ένα πρότυπο διάταξης, όπως 3 στήλες ίσες, 2 στήλες δεξιά κλπ. Αυτά τα πρότυπα
+διάταξης ορίζονται στο φάκελο 'layout-templates', ο οποίος περιέχει έναν υποφάκελο για κάθε διάταξη. Μπορείτε
+να δημιουργήσετε δικές σας διατάξεις δημιουργώντας έναν νέο υποφάκελο και ένα αρχείο layout.html σε αυτόν
+το φάκελο.
+
+Για περισσότερες οδηγίες σχετικά με τα πρότυπα διάταξης, διαβάστε το αρχείο readme.txt στο
+φάκελο 'layout-templates'.
+
+
+
+Visión general de recursos de tema estáticos
+********************************************
+
+Esta carpeta de tema principal de WebDAV es donde se suministran recursos estáticos para un tema al servidor de portal y a la infraestructura del agregador de recursos. 
+
+La definición de página principal del tema comienza con el archivo de plantillas del tema, theme.html, de esta carpeta. Esta plantilla de tema contiene la marcación HTML principal que el servidor de portal utilizará para las páginas del tema, incluidos los códigos DOCTYPE, html, head y body. En la plantilla del tema hay varias áreas de contenido dinámico que el servidor de portal procesa, generalmente mediante jsp, y sustituye por marcación estática calculada dinámicamente para representar finalmente la página. 
+
+En la parte superior de la cabecera está el área de contenido dinámico <link rel="dynamic-content" href="co:head"> obligatorio, que es donde la infraestructura del agregador de recursos procesa todas las contribuciones de cabecera de los módulos que se utilizan, como los archivos .css y .js, y las combina en una sola solicitud de recurso para optimizar el rendimiento. Por lo tanto, para poder participar en este rendimiento óptimo, no debe enlazar sus propios recursos, como los archivos .css y .js, en la plantilla de tema utilizando códigos de enlace directamente en la cabecera, sino que debe cargar sus propios recursos mediante módulos. Consulte los resúmenes de módulos y contribuciones siguientes para obtener más información sobre los módulos. 
+
+En la parte inferior del cuerpo está el área de contenido dinámico <link rel="dynamic-content" href="co:config"> obligatorio, que es donde la infraestructura del agregador de recursos procesa todas las contribuciones de configuración de los módulos que se utilizan, como los archivos .js y .html, y las combina para optimizar el rendimiento. Aquí de nuevo debe cargar sus propios recursos mediante módulos. Consulte los resúmenes de módulos y contribuciones siguientes para obtener más información sobre los módulos. 
+
+En el resto de la plantilla de tema hay otras áreas de contenido dinámico que apuntan a archivos .jsp. Puede añadir sus propias áreas de contenido dinámico en las que desee realizar personalizaciones de tema. Y, por supuesto, puede eliminar o sustituir por completo determinadas áreas de contenido dinámico si necesita otras funciones para su tema.
+
+La plantilla de tema tiene soporte multilingüístico de forma predeterminada, lo que significa que en realidad hay varias versiones traducidas del archivo en la carpeta 'nls'. EN realidad el servidor de portal no utiliza el archivo theme.html principal más que para obtener la versión del archivo en la carpeta 'nls' que contiene el entorno local que coincide con el entorno local del cliente. Por lo tanto, cuando modifique la plantilla de tema, asegúrese de realizar el cambio inicial en la versión del archivo de la carpeta 'nls' que coincida con el entorno local con el que está trabajando, por ejemplo en el archivo nls\theme_en.html. A continuación, realice los cambios posteriores en los otros archivos de idiomas correspondientes a los idiomas a los que desea dar soporte y omita los idiomas a los que no necesite dar soporte. Si no necesita el soporte multilingüístico en absoluto y solo necesita un idioma, el soporte multilingüístico se puede desactivar eliminando los enlaces de entorno local
+(el bloque <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) que hay en la cabecera del archivo theme.html principal, en cuyo caso el
+servidor de portal no utilizará los archivos de la carpeta 'nls' y utilizará simplemente el archivo theme.html principal. 
+
+Hay una plantilla de tema predeterminada, theme.html, para todas las páginas de un tema, pero el valor predeterminado se puede alterar temporalmente para determinadas páginas a fin de utilizar otra plantilla de tema. Hay otras dos plantillas de tema de ejemplo que vienen con el portal, theme_sidenav.html, que tiene la navegación principal de la página a un lado en lugar de estar en la parte superior de la página, y Plain.html, que es la plantilla de tema más sencilla que puede utilizar como punto de partida y que también puede resultar útil en determinadas situaciones, como por ejemplo para incluir un único portlet en una página dentro de un iframe. Puede copiar, cambiar el
+nombre y modificar estos archivos de plantilla de tema y crear tantos como necesite. Luego puede decidir qué plantilla de tema se utiliza
+en una determinada página definiendo la propiedad de página
+com.ibm.portal.theme.template.file.name.html o com.ibm.portal.theme.inherited.template.file.name.html en Propiedades de página. Utilice la primera propiedad para definir la plantilla de tema para una sola página o utilice la segunda propiedad para definir la plantilla de tema para dicha página y todas sus páginas descendientes. También puede definir estas propiedades mediante xmlaccess exportando el archivo xml correspondiente a la página, añadiendo un valor para el parámetro com.ibm.portal.theme.template.file.name.html o com.ibm.portal.theme.inherited.template.file.name.html junto a otros parámetros de página, como en el siguiente ejemplo: 
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+o
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+y volviendo a importar la página. 
+
+
++ módulos
+
+La forma más sencilla de crear sus propios módulos, a los que se denomina módulos simples, para enlazar sus propios archivos de recursos se encuentra en la carpeta 'modules'. En dicha carpeta hay una carpeta por módulo; cree su propia carpeta para su propio módulo. También hay un módulo predeterminado 'getting_started_module' que puede utilizar como punto de partida. Puede simplemente añadir sus archivos de recursos, como los archivos .css y .js,a getting_started_module para empezar a trabajar con rapidez o puede utilizar getting_started_module como ejemplo para ver cómo crear sus propias carpetas de módulos similares. 
+
+Los módulos simples se limitan a un tema. Si desea utilizar algunos de estos mismos módulos en distintos temas, tiene que copiar estas
+carpetas de módulos simples de un tema a otro. 
+
+Para ver más instrucciones sobre los módulos simples, consulte el archivo readme.txt de la carpeta 'modules'. 
+
+
++ contribuciones
+
+La segunda forma más sencilla de crear sus propios módulos, a los que se denomina módulos de tema, para enlazar sus propios archivos de recursos se encuentra en la carpeta 'contributions'. Dentro de esta carpeta hay un archivo .json por módulo o conjunto de módulos - cree su propio archivo .json para su propio módulo o conjunto de módulos. Puede copiar, cambiar el
+nombre y modificar uno de los archivos .json existentes para ver la sintaxis de .json que hay que utilizar. 
+
+Estos módulos se limitan a un tema. Si desea utilizar algunos de estos mismos módulos en distintos temas, tiene que copiar estos
+archivos .json de definición del módulo de un tema a otro. 
+
+Para ver más instrucciones sobre los módulos de tema, consulte el archivo readme.txt de la carpeta 'contributions'. 
+
+(La tercera forma de crear sus propios módulos, a los que se denomina módulos globales, es mediante los archivos plugin.xml de la carpeta 'WEB-INF' de los repositorios de aplicaciones web (archivos .war). Este sistema es el que requiere más trabajo, por lo que no deseará utilizarlo a no ser que tenga un buen motivo, como por ejemplo en el caso de un módulo que se reutiliza en varios temas y no desea duplicar la definición del módulo en cada uno de los temas. Los módulos globales, tal como sugiere el nombre, se adaptan a todos los temas.)
+
+
++ perfiles
+
+Una vez haya definido sus módulos, debe activarlos y desactivarlos mediante los perfiles de la carpeta 'profiles'.
+Dentro de esta carpeta hay un archivo .json por perfil; cree su propio archivo .json para su propio perfil. Puede copiar, cambiar el
+nombre y modificar uno de los archivos .json existentes para ver la sintaxis de .json que hay que utilizar. Para activar cualquier módulo, añádalo a la lista de perfiles de módulos. Para desactivar cualquier módulo, elimínelo de la lista de perfiles de módulos. 
+
+Para ver más instrucciones sobre los perfiles de tema, consulte el archivo readme.txt de la carpeta 'profiles'. 
+
+
++ plantillas de diseño
+
+Cada página tiene asignada una plantilla de diseño, como por ejemplo 3 columnas iguales, 2 columnas derecha, etc. Estas plantillas de diseño están definidas en la carpeta 'layout-templates', con una subcarpeta por diseño. Puede crear sus propios diseños personalizados creando una nueva subcarpeta y un archivo layout.html dentro de la subcarpeta.
+
+Para ver más instrucciones sobre las plantillas de diseño, consulte el archivo readme.txt de la carpeta 'layout-templates'. 
+
+
+
+Staattisten teemaresurssien yleiskuvaus
+*******************************
+
+Tämä WebDAV-pääkansio sisältää teeman staattiset resurssit, jotka toimitetaan
+portaalipalvelimeen ja resurssikoostimeen. 
+
+Teeman pääsivun määritys alkaa teeman tässä kansiossa olevalla teeman theme.html-
+mallipohjatiedostolla. Tämä teeman mallipohja sisältää HTML-merkinnät, jotka portaalipalvelin antaa
+teeman sivuille, mukaan lukien DOCTYPE-, html-, head- ja body -tunnisteet. Teemamallipohjassa
+on useita dynaamisia sisältöpisteitä, joita portaalipalvelin käyttää,
+yleensä .jsp-tiedostojen avulla, ja joilla se korvaa dynaamisesti lasketut staattiset merkinnät
+hahmonnetulla sivulla. 
+
+Otsikon yläreunassa on pakollinen <link rel="dynamic-content" href="co:head"> dynaaminen sisältöpiste,
+jossa resurssikoostin käsittelee kaikki käytettävien moduulien otsikkotason lisäykset, kuten.css- ja .js-tiedostot, jotka se yhdistää yhdeksi resurssipyynnöksi suorituskyvyn
+optimoimiseksi. Saavutat parhaan mahdollisen suorituskyvyn, kun et
+linkitä omia resurssejasi, kuten .css- ja .js-tiedostoja, teemamallipohjaan otsikkotason linkkitunnisteilla, vaan
+lataat omat resurssit moduulien avulla. Lisätietoja moduuleista on
+moduulien ja lisäyksien yleiskuvauksissa. 
+
+Tekstiosan alareunassa on pakollinen <link rel="dynamic-content" href="co:config"> dynaaminen sisältöpiste,
+jossa resurssikoostin käsittelee kaikki käytettävien moduulien määrityslisäykset, kuten .js ja .html-tiedostot, jotka se yhdistää suorituskyvyn
+optimoimiseksi. Suosittelemme omien resurssien lataamista moduulien avulla. Lisätietoja moduuleista on
+moduulien ja lisäyksien yleiskuvauksissa. 
+
+Muut teemamallipohjan dynaamiset sisältöpisteet viittaavat .jsp-tiedostoihin Voit
+lisätä omia dynaamisia sisältöpisteitä, jos haluat mukauttaa omaa teemaasi. Voit myös
+poistaa tiettyjä dynaamisia sisältöpisteitä, jos haluat muuttaa teemasi
+toiminnallisuutta.
+
+Teemamallipohjassa on oletuksena kansallisen kielen tuki, joten nls-kansiossa on useita
+käännettyjä tiedostoversioita. Portaalipalvelin käyttää theme.html-tiedostoa ainoastaan
+työaseman kieliasetusta vastaavan tiedostoversion etsimiseen
+nls-kansiosta. Varmista tehdessäsi muutoksia teemamallipohjaan, että teet muutokset nls-kansion
+tiedostoversioon, jonka kieli vastaa omaa kieliasetustasi, esimerkiksi
+nls\theme_en.html-tiedosto. Voit tehdä myöhemmin muutoksia muiden kielien tiedostoihin
+ja ohittaa kielet, joita et tarvitse. Jos et enää tarvitse usean kielen tukea
+ja käytät vain yhtä kieltä, voit poistaa kansallisen kielen tuen käytöstä poistamalla
+kielilinkit (<!--START LOCALE LINKS--><!--END LOCALE LINKS-->) theme.html-tiedoston otsikko-osasta,
+jolloin portaalipalvelin ei käytä nls-kansion tiedostoja, vaan käyttää vain
+yhtä theme.html-tiedosto.
+
+Kaikilla teeman sivuilla on sama oletusmallipohja (theme.html), mutta oletusmalli voidaan korvata
+tietyillä sivuilla toisella teemamallipohjalla. Portaalissa on kaksi muutakin valmista mallipohjaa:
+heme_sidenav.html, jossa sivun siirtymistoiminnot ovat sivun laidassa (ei sivun yläreunassa),
+ja Plain.html, yksinkertainen mallipohja, jota voidaan käyttää mallipohjien luomiseen
+ja joka on hyödyllinen tietyissä tilanteissa, kuten yksittäisen portaalisovelman upottaminen iframe-kehyksessä
+olevalle sivulle. Voit kopioida, nimetä uudelleen ja muokata näitä mallipohjatiedostoja, ja luoda uusia tarpeesi mukaan. Voit
+määrittää tietyllä sivulla käytettävän teemamallipohjan valitsemalla
+com.ibm.portal.theme.template.file.name.html- tai com.ibm.portal.theme.inherited.template.file.name.html-
+ominaisuuden Sivun ominaisuuksissa. Ensimmäisellä ominaisuudella voit valita yhden tietyn sivun mallipohjan
+ja toisella ominaisuudella voit valita mallipohjan kyseiselle sivulle ja kaikille sen
+alisivuille. Voit määrittää nämä ominaisuudet myös xmlaccess-toiminnolla viemällä sivun xml-tiedoston, lisäämällä
+com.ibm.portal.theme.template.file.name.html- tai com.ibm.portal.theme.inherited.template.file.name.html-
+parametrin sivun muihin ominaisuuksiin, esimerkiksi seuraavalla tavalla:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+tai
+
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+ja tuomalla sivun uudelleen.
+
+
++ modules
+
+Helpoin tapa luoda omia moduuleja (yksinkertaisia moduuleja) on linkittää omat resurssitiedostot
+Moduulit-kansioon. Tässä kansiossa on yksi kansio jokaista moduulia kohti. Luo oma kansio
+omaa moduuliasi varten. Käytettävissä on myös ennalta määritetty getting_started_module-moduuli. Pääset alkuun helposti
+lisäämällä resurssitiedostoja, kuten .css- ja .js-tiedostoja, getting_started_module-moduuliin
+tai käyttämällä getting_started_module-moduulia mallina luodessasi vastaavia moduulikansioita.
+
+Yksinkertaiset moduulit rajataan yhteen teemaasi. Jos haluat käyttää jotakin näistä moduuleista toisessa teemassa,
+sinun täytyy kopioida moduulien kansiot toiseen teemaan.
+
+Lisätietoja yksinkertaisista moduuleista on Moduulit-kansion readme-tiedostossa.
+
+
++ contributions
+
+Toiseksi helpoin tapa luoda omia moduuleja (teemamoduuleja) on linkittää omat resurssitiedostot
+Lisäykset-kansioon. Tässä kansiossa on yksi .json-tiedosto jokaista moduulia tai moduulijoukkoa kohti.
+Luo oma .json-tiedoston omalle moduulillesi tai moduulijoukolle.Voit kopioida,
+nimetä uudelleen ja muokata aiemmin luotuja .json-tiedostoja ja niistä näet myös .json-tiedostojen syntaksin.
+
+Teemamoduulit rajataan yhteen teemaasi. Jos haluat käyttää jotakin näistä moduuleista toisessa teemassa,
+sinun täytyy kopioida moduulien .json-määritystiedostot toiseen teemaan.
+
+Lisätietoja teemamoduuleista on Lisäykset-kansion readme-tiedostossa.
+
+(Järjestelmässä on kolmaskin tapa luoda omia moduuleja: voit luoda yleisiä moduuleja plugin.xml-tiedostoilla
+Web-sovellussäilöjen (.war) WEB-INF-kansiossa. Tämä tapa vaatii eniten toimenpiteitä, joten
+sen käyttämistä suositellaan vain erityistapauksissa, kuten moduuleissa, joita käytetään useassa eri
+teemassa ja jota ei haluta kopioida kaksoiskappaleena erikseen jokaisen teeman moduulimääritykseen. Yleisiä moduuleja voidaan
+nimensä mukaisesti käyttää kaikissa teemoissa.)
+
+
++ profiles
+
+Kun omat moduulit on määritetty, ne voidaan ottaa käyttöön ja poistaa käytöstä käyttämällä Profiilit-kansion profiileja.
+Kansiossa on yksi .json-tiedosto jokaista profiilia kohti. Luo oma .json-tiedosto omalle profiilillesi. Voit kopioida,
+nimetä uudelleen ja muokata aiemmin luotuja .json-tiedostoja ja niistä näet myös .json-tiedostojen syntaksin. Ota moduuli käyttöön lisäämällä se profiilin moduuliluetteloon. Poista moduuli käytöstä poistamalla se profiilin moduuliluettelosta. 
+
+Lisätietoja teemaprofiileista on Profiilit-kansion readme-tiedostossa.
+
+
++ layout-templates
+
+Jokaiseen sivuun on liitetty asettelumallipohja, kuten 3 tasattua saraketta tai 2 saraketta oikealla. Nämä asettelumallipohjat
+määritetään Asettelumallipohjat-kansioon. Jokaiselle asettelulle luodaan oma alikansio. Voit luoda oman
+asettelun luomalla uuden alikansion ja tallentamalla siihen layout.html-tiedoston.
+
+Lisätietoja asettelumallipohjista on Asettelumallipohjat-kansion readme-tiedostossa.
+
+
+
+Présentation des ressources de thème statiques
+*******************************
+
+Le dossier 'main theme' dans WebDAV contient les ressources statiques de votre thème et les fournit au serveur Portal et au framework de regroupeur de ressources. 
+
+La définition de page principale de votre thème commence par le fichier de modèle de thème, theme.html, dans ce dossier. Ce modèle de thème contient le marquage HTML principal que le serveur Portal va utiliser pour les pages de votre thème, y compris les balises connues DOCTYPE, html, head et body. Dans le modèle de thème, il existe ensuite différentes zones de contenu dynamique traitées par le serveur Portal, généralement via des fichiers .jsp et remplacées par un marquage statique calculé dynamiquement pour le rendu final de la page. 
+
+Avant la section head se trouve la zone de contenu dynamique obligatoire <link rel="dynamic-content" href="co:head"> où le framework de regroupeur de ressources traite toutes les contributions head des modules en cours d'utilisation, telles que les fichiers .css et .js, et les combine en une seule demande de ressource pour garantir des performances optimales. Ainsi, afin de contribuer à cette optimisation des performances, vous ne devez pas relier vos propres ressources, telles que des fichiers .css et .js, dans le modèle de thème à l'aide de balises link directement dans head, mais, il est préférable de charger vos ressources via des modules. Voir les récapitulatifs des modules et des contributions ci-dessous pour plus d'informations sur les modules. 
+
+Après la section body se trouve la zone de contenu dynamique obligatoire <link rel="dynamic-content" href="co:config"> où le framework de regroupeur de ressources traite toutes les contributions config des modules en cours d'utilisation, telles que les fichiers .js et .html, et les combine à nouveau pour garantir des performances optimales. Ici encore, vous devez charger vos propres ressources via des modules. Voir les récapitulatifs des modules et des contributions ci-dessous pour plus d'informations sur les modules. 
+
+Tout au long du modèle de thème, d'autres zones de contenu dynamique pointent vers des fichiers .jsp. Vous pouvez ajouter vos propres zones de contenu dynamique où vous voulez effectuer vos personnalisations de thème. Et vous pouvez bien entendu également supprimer ou remplacer entièrement certaines zones de contenu dynamique si vous avez besoin de fonctionnalités différentes pour votre thème.
+
+Le modèle de thème contient un support de langue nationale par défaut, ce qui signifie qu'il existe en fait plusieurs versions traduites du fichier dans le dossier 'nls'. Le fichier theme.html principal n'est en fait utilisé par le serveur Portal que pour connecter à la version du fichier dans le dossier 'nls' contenant les paramètres régionaux correspondant à l'environnement local du client. Ainsi, lorsque vous modifiez le modèle de thème, veillez à faire la première modification dans la version du fichier se trouvant dans le dossier 'nls' qui correspond à la langue que vous utilisez, par exemple dans le fichier nls\theme_en.html. Ensuite, effectuez les modifications ultérieures sur les autres fichiers de langue pour les langues que vous avez besoin de prendre en charge, et ignorez les langues que vous n'avez pas besoin de prendre en charge. Si vous n'avez pas besoin de plusieurs supports de langue mais d'une seule langue, vous pouvez désactiver le support de langue nationale en supprimant les liens d'environnement linguistique (bloc <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) dans la section head du fichier theme.html principal, auquel cas, le serveur Portal n'utilisera pas les fichiers du dossier 'nls' et utilisera à la place le fichier theme.html principal.
+
+Il existe un modèle de thème par défaut, theme.html, pour toutes les pages d'un thème, mais la valeur par défaut peut être remplacée pour certaines pages afin qu'un autre modèle de thème puisse être utilisé. Deux autres exemples de modèles de thème fournis avec Portal sont theme_sidenav.html, dont la navigation de la page principale est sur le côté plutôt que dans la partie supérieure de la page, et Plain.html, qui est le modèle de thème le plus simple que vous pouvez utiliser comme point de départ et qui peut également être utile dans certaines situations comme l'incorporation d'un portlet dans une page dans un iframe. Vous pouvez copier, renommer et modifier ces fichiers de modèle de thème et en créer autant que vous le souhaitez. Vous pouvez ensuite indiquer quel modèle de thème est en cours d'utilisation sur une certaine page en définissant la propriété de page com.ibm.portal.theme.template.file.name.html ou com.ibm.portal.theme.inherited.template.file.name.html dans les propriétés de page. Utilisez la première propriété pour définir le modèle de thème pour cette unique page, ou utilisez la deuxième propriété pour définir le modèle de thème pour cette page et toutes ses pages enfants. Vous pouvez également définir ces propriétés par xmlaccess, en exportant le fichier XML de la page, en ajoutant une valeur pour le paramètre com.ibm.portal.theme.template.file.name.html ou com.ibm.portal.theme.inherited.template.file.name.html près des autres paramètres de page, tels que:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+ou
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+et en réimportant la page.
+
+
++ modules
+
+La façon la plus facile de créer vos propres modules, désignés par modules simples, pour associer vos propres fichiers de ressources est d'utiliser le dossier 'modules'. Dans ce dossier, se trouve un dossier par module - créer votre propre dossier pour votre propre module. Il existe également un module par défaut 'getting_started_module' pour vous aider à démarrer. Vous pouvez simplement ajouter votre fichier de ressources, tel que les fichiers .css et .js, dans le module de démarrage pour commencer rapidement, ou utiliser le module de démarrage comme exemple pour voir comment créer vos propres dossiers de module similaires.
+
+Les modules simples sont uniquement utilisés avec votre thème. Si vous souhaitez utiliser certains de ces modules dans d'autres thèmes, vous devez copier ces dossiers de modules simples d'un thème à l'autre.
+
+Pour des instructions complémentaires sur les modules simples, lisez le fichier readme.txt situé dans le dossier 'modules'.
+
+
++ contributions
+
+Une deuxième façon facile de créer vos propres modules, désignés par modules de thème, pour associer vos propres fichiers de ressources est d'utiliser le dossier 'contributions'. Ce dossier contient un fichier .json par module ou ensemble de modules - créez votre propre fichier .json pour votre module ou ensemble de modules. Vous pouvez copier, renommer et modifier l'un des fichiers .json existants pour connaître et apprendre la syntaxe .json nécessaire.
+
+Ces modules sont uniquement utilisés avec votre thème. Si vous souhaitez utiliser certains de ces modules dans d'autres thèmes, vous devez copier ces fichiers .json de définition de module d'un thème à l'autre.
+
+Pour des instructions complémentaires sur les modules de thème, lisez le fichier readme.txt situé dans le dossier 'contributions'.
+
+(La troisième façon de créer vos propres modules, appelés modules globaux, est d'utiliser les fichiers plugin.xml du dossier 'WEB-INF', situé dans des référentiels d'applications Web (fichiers .war). Cette méthode implique beaucoup de travail, de sorte qu'il est préférable de ne pas l'appliquer, excepté si vous avez une bonne raison pour cela, par exemple pour un module qui est réutilisé dans plusieurs thèmes et si vous ne voulez pas dupliquer la définition du module dans chacun des thèmes. Les modules globaux, comme leur nom l'indique, peuvent être utilisés sur tous les thèmes.)
+
+
++ profils
+
+Une fois que vous avez défini vos modules, vous pouvez les activer et les désactiver à l'aide des profils du dossier 'profils'. Ce dossier contient un fichier .json pour chaque profil - créez votre propre fichier .json pour votre profil. Vous pouvez copier, renommer et modifier l'un des fichiers .json existants pour connaître et apprendre la syntaxe .json nécessaire. Activez votre module ou n'importe quel module en l'ajoutant à la liste de modules du profil. Désactivez votre module ou n'importe quel module en le retirant de la liste de modules du profil. 
+
+Pour des instructions complémentaires sur les profils de thème, lisez le fichier readme.txt situé dans le dossier 'profiles'.
+
+
++ modèles de présentation 
+
+A chaque page est affecté un modèle de présentation, comme 3 Column Equal, 2 Column Right, etc. Ces modèles de présentation sont définis dans le dossier 'layout-templates', avec un sous-dossier par présentation. Vous pouvez créer vos propres présentations personnalisées en créant un sous-dossier et un fichier layout.html dans le sous-dossier.
+
+Pour des instructions complémentaires sur les modèles de thème, lisez le fichier readme.txt situé dans le dossier 'layout-templates'.
+
+
+
+Pregled statičkih resursa teme (hrvatski)
+*******************************
+
+U ovom glavnom folderu teme unutar WebDAV-a nalaze se statički resursi vaše teme za poslužitelj
+portala i framework skupljača resursa. 
+
+Početak definicije glavne stranice vaše teme je datoteka predloška teme, theme.html, u ovom
+folderu. Ovaj predložak teme sadrži glavni HTML markup koji će poslužitelj portala dostavljati za
+stranice vaše teme, uključujući poznate oznake DOCTYPE, html, head i body. Unutar predloška teme
+nalaze se različite dinamičke točke sadržaja koje poslužitelj portala obrađuje, obično koristeći
+.jsp-ove i zamjenjuje dinamički izračunatim statičkim markupom za konačan prikaz
+stranice. 
+
+Na vrhu zaglavlja nalazi se obavezna dinamička točka sadržaja <link rel="dynamic-content" href="co:head">,
+gdje framework skupljača resursa obrađuje sve doprinose zaglavlja korištenih modula, kao što
+su .css i .js datoteke i spaja ih u jedan zahtjev za resurse da bi se postigle optimalne
+performanse. Da biste postigli te optimalne performanse, ne smijete povezati svoje resurse
+poput .css i .js datoteka u predlošku teme koristeći oznake povezivanja izravno u
+zaglavlju, nego trebate učitati resurse pomoću modula. Više informacija o modulima
+možete pogledati u sažecima o modulima i doprinosima navedenim niže.
+
+Na dnu tijela nalazi se obavezna dinamička točka sadržaja <link rel="dynamic-content" href="co:config">,
+gdje framework skupljača resursa obrađuje sve konfiguracijske doprinose korištenih modula,
+kao što su .js i .html datoteke i ponovno ih spaja da bi se postigle optimalne
+performanse. Ovdje isto tako trebate učitati svoje resurse pomoću modula. Više informacija o modulima
+možete pogledati u sažecima o modulima i doprinosima navedenim niže.
+
+U ostalim dijelovima predloška teme nalaze se druge dinamičke točke sadržaja koje ukazuju na .jsp-ove. Na mjestima
+gdje želite postaviti vlastite prilagodbe teme možete dodati svoje dinamičke točke sadržaja. Isto tako
+možete i ukloniti ili u cijelosti zamijeniti određene dinamičke točke sadržaja ako vam je potrebna drugačija
+funkcionalnost teme.
+
+Ovaj predložak teme po defaultu ima podršku za nacionalne jezike, što znači da u folderu 'nls' postoji više
+prevedenih verzija datoteke. Poslužitelj portala zapravo koristi glavnu datoteku theme.html samo za
+prelazak na verziju datoteke u folderu 'nls' koja ima istu lokalizaciju kao
+klijent. Kada radite promjene u predlošku teme, svakako napravite promjene u verziji datoteke u
+folderu 'nls' koja je odgovarajuća za vašu lokalizaciju, na primjer u datoteci
+nls\theme_en.html. Zatim napravite promjene i u datotekama drugih jezika koje trebate podržavati i
+preskočite jezike koji vam nisu potrebni. Ako ne trebate podršku za više jezika i potreban vam je
+samo jedan jezik, možete isključiti podršku za nacionalne jezike tako da uklonite veze lokalizacije
+(blok <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) iz zaglavlja glavne datoteke theme.html,
+što znači da poslužitelj portala neće koristiti datoteke u folderu 'nls', nego će jednostavno koristiti
+jednu glavnu datoteku theme.html.
+
+Postoji jedan default predložak teme za sve stranice teme, theme.html, ali se taj default može promijeniti
+za određene stranice tako da one mogu koristiti drugi predložak teme. Druga dva primjera teme koja dolaze uz
+portal su theme_sidenav.html, koji ima primarnu navigaciju stranice sa strane, a ne na vrhu stranice i Plain.html, najjednostavniji predložak teme koji možete koristiti kao početnu točku i
+koji može biti koristan u određenim situacijama, na primjer za umetanje jednog portleta na stranicu unutar
+iframea. Ove datoteke predložaka teme možete kopirati, mijenjati im nazive, modificirati ih i na taj način kreirati onoliko predložaka koliko vam je potrebno. Zatim
+možete odrediti koji će se predložak stranice koristiti za određenu stranicu
+postavljanjem svojstva stranice com.ibm.portal.theme.template.file.name.html ili com.ibm.portal.theme.inherited.template.file.name.html u
+Svojstvima stranice. Upotrijebite prvo svojstvo ako želite postaviti predložak teme samo za jednu
+stranicu ili upotrijebite drugo svojstvo ako želite postaviti predložak teme za tu stranicu i njezine podređene
+stranice. Ova svojstva možete postaviti i pomoću xmlaccessa, eksportiranjem xml-a za stranicu, dodavanjem vrijednosti za
+parametar com.ibm.portal.theme.template.file.name.html ili com.ibm.portal.theme.inherited.template.file.name.html
+pored ostalih parametara stranice, na primjer:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+ili
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+i ponovnim importiranjem stranice.
+
+
++ modules
+
+Najlakši način kreiranja vlastitih modula (koji se nazivaju jednostavni moduli) za povezivanje datoteka
+resursa je folder 'modules'. U tom folderu je po jedan folder za modul - kreirajte folder za svoj
+modul. Tamo se nalazi i default 'getting_started_module' koji će vam pomoći da započnete. Možete jednostavno
+dodati svoje datoteke resursa, na primjer .css i .js datoteke, u getting_started_module ako želite ubrzati proces ili
+možete upotrijebiti getting_started_module kao primjer za kreiranje vlastitih foldera modula.
+
+Opseg jednostavnih modula je jedna tema. Ako želite koristiti neke od modula u različitim temama, morate kopirati
+foldere tih jednostavnih modula iz jedne teme u drugu. 
+
+Za dodatne upute o jednostavnim modulima pročitajte datoteku readme.txt u folderu 'modules'.
+
+
++ contributions
+
+Drugi najlakši način kreiranja vlastitih modula (koji se nazivaju moduli teme) za povezivanje datoteka
+resursa je folder 'contributions'. Unutar tog foldera se nalazi jedna .json datoteka po modulu ili skupu
+modula - kreirajte vlastitu .json datoteku za svoj modul ili skup modula. Možete kopirati, preimenovati i
+modificirati jednu od postojećih .json datoteka da biste mogli pregledati i doznati potrebnu .json sintaksu. 
+
+Opseg modula teme obuhvaća jednu vašu temu. Ako želite koristiti neke od modula u različitim temama, morate kopirati
+.json datoteke definicija tih modula iz jedne teme u drugu. 
+
+Za dodatne upute o modulima teme pročitajte datoteku readme.txt u folderu 'contributions'.
+
+(Treći način kreiranja modula, koji se nazivaju globalni moduli, koristi datoteke plugin.xml unutar foldera
+'WEB-INF' u spremištima web aplikacija (.war-ovima). Ovaj način zahtijeva najviše rada pa
+ga koristite samo ako imate dobar razlog, na primjer ako imate modul koji se koristi u više tema, a ne želite duplicirati
+definiciju modula u svakoj od tih tema. Globalni moduli, kao što njihovo ime govori,
+obuhvaćaju sve teme.)
+
+
++ profiles
+
+Kada ste definirali module, možete ih uključiti i isključiti koristeći profile u folderu 'profiles'.
+U tom folderu nalazi se jedna .json po profilu - kreirajte .json datoteku za svoj profil. Možete kopirati,
+preimenovati i modificirati jednu od postojećih .json datoteka da biste mogli pregledati i doznati potrebnu
+.json sintaksu. Uključite bilo koji modul dodavanjem na listu modula profila. Isključite bilo koji
+modul uklanjanjem s liste modula profila.
+
+Za dodatne upute o profilima teme pročitajte datoteku readme.txt u folderu 'profiles'.
+
+
++ layout-templates
+
+Svakoj stranici se dodjeljuje predložak izgleda, kao što je 3 jednaka stupca, 2 stupca desno itd. Ti predlošci
+izgleda definirani su u folderu 'layout-templates', gdje svaki izgled ima svoj podfolder. Možete kreirati
+vlastite prilagođene izglede kreiranjem novog podfoldera i datoteke layout.html u podfolderu.
+
+Za dodatne upute o predlošcima izgleda pročitajte datoteku readme.txt u folderu 'layout-templates'.
+
+
+
+Statikus témaerőforrások bemutatása (magyar)
+*******************************
+
+Ez a fő téma mappa a WebDAV mappán belül az a hely, amely biztosítja a
+témához tartozó statikus erőforrásokat a Portal kiszolgáló és az
+erőforrásösszesítő keretrendszer számára. 
+
+A téma fő oldalmeghatározása a témasablon-fájlból (theme.html) indul ki,
+mely ebben a mappában található. Ez a témasablon tartalmazza a fő HTML
+kódot, amelyet a Portal kiszolgáló szolgáltatni fog a téma oldalaihoz,
+beleértve a közismert DOCTYPE, html, head és body címkéket. A témasablonon
+belül vannak különféle dinamikus tartalomhelyek is - jellemzően .jsp
+fájlokban -, amelyeket a Portal kiszolgáló feldolgoz és dinamikusan
+előállított statikus kódra cserél a végül előállított oldalban. 
+
+A head rész tetején van a kötelező  <link rel="dynamic-content"
+href="co:head"> dinamikus tartalomhely. Az erőforrásösszesítő
+keretrendszer itt dolgozza fel a használatban lévő modulok összes head
+hozzájárulását, például .css és .js fájlokat, és egyetlen erőforráskéréssé
+kombinálja őket az optimális teljesítmény érdekében. Ezért az optimális
+teljesítmény érdekében ne közvetlenül hivatkozzon a saját erőforrásaira -
+például .css és .js fájlokra - link címkékkel a head szakaszban, hanem
+inkább modulokon keresztül töltse be őket. A modulokkal kapcsolatos
+további információkat a modulok és hozzájárulások összefoglalásából tudhat
+meg alább. 
+
+A body szakasz alján van a kötelező <link rel="dynamic-content"
+href="co:config"> dinamikus tartalomhely. Az erőforrásösszesítő
+keretrendszer itt dolgozza fel a használatban lévő modulok összes config
+hozzájárulását, például .js és .html fájlokat, és szintén kombinálja őket
+az optimális teljesítmény érdekében. Itt is modulokon keresztül érdemes
+betölteni a saját erőforrásokat. A modulokkal kapcsolatos további
+információkat a modulok és hozzájárulások összefoglalásából tudhat meg
+alább. 
+
+A témasablon további részeiben egyéb dinamikus tartalomhelyek
+vannak, melyek .jsp fájlokra mutatnak. Tetszőleges helyre felvehet saját
+dinamikus tartalomhelyeket, hogy személyre szabja a témát. Valamint
+természetesen el is távolíthat vagy teljesen kicserélhet bizonyos
+dinamikus tartalomhelyeket, amennyiben más funkcionalitásra van szüksége a
+témában. 
+
+A témasablon alapértelmezésben rendelkezik nemzeti nyelvi támogatással,
+ami azt jelenti, hogy valójában több, lefordított fájlváltozat található
+az 'nls' mappában. A Portal kiszolgáló a fő theme.html fájlt csak arra
+használja, hogy az 'nls' mappában található megfelelő fájlváltozatra
+lépjen, melynek ugyanaz a területi beállítása, mint az ügyfélé. Ezért a
+témasablon módosításakor figyeljen rá, hogy az 'nls' mappában tárolt
+fájlok közül abban a változatban végezze el a kezdeti módosítást, amelyik
+megfelel a kezelt területi beállításnak, például magyar esetén az
+nls\theme_hu.html fájlban. Ezután végezze el a módosításokat mindazoknak a
+nyelveknek a fájljában, amelyekhez támogatást akar biztosítani, és hagyja
+ki a többi nyelvet. Ha egyáltalán nincs szüksége több nyelv támogatására,
+csak egy nyelv kell, akkor ki lehet kapcsolni a nemzeti nyelv támogatást.
+Ehhez távolítsa el a területi beállítás hivatkozásokat ( a <!--TERÜLETI
+BEÁLLÍTÁS HIVATKOZÁSOK KEZDETE--><!--TERÜLETI BEÁLLÍTÁS HIVATKOZÁSOK
+VÉGE--> blokkot) a fő theme.html fájl head részéből, így a Portal
+kiszolgáló nem fogja használni az 'nls' mappában található fájlokat,
+hanem egyszerűen csak az egyetlen fő theme.html fájlt fogja használni. 
+
+Egy téma összes oldalához egyetlen alapértelmezett témasablon, a
+theme.html tartozik, de lehetőség van az alapértelmezés felülbírálására
+bizonyos oldalaknál, s így másik témasablon használatára. A Portal
+termékkel két további példa témasablont is szállítunk. A
+theme_sidenav.html esetén az elsődleges oldalnavigáció nem vízszintesen az
+oldal tetején van, hanem függőlegesen a szélén. A Plain.html pedig a
+legegyszerűbb témasablon, melyet kiindulópontként használhat és bizonyos
+helyzetekben is jól jöhet, például amikor egyetlen portál kisalkalmazást
+akar beágyazni egy oldalon egy iframe keretbe. Ezeket a témafájlokat
+tetszés szerint másolhatja, átnevezheti és módosíthatja, valamint igény
+szerinti számút létrehozhat belőlük. Ezután úgy határozhatja meg, hogy
+melyik témasablon legyen használatban egy adott oldalon, hogy beállítja a
+com.ibm.portal.theme.template.file.name.html vagy a
+com.ibm.portal.theme.inherited.template.file.name.html oldaltulajdonságot
+az Oldaltulajdonságok ablakban. Az első tulajdonsággal csak ahhoz az
+egyetlen egy oldalhoz állítja be a témasablont, míg a másodikkal az adott
+oldalhoz és annak összes leszármazott oldalához is. Az xmlaccess útján is
+beállíthatja ezeket a tulajdonságokat. Ehhez exportálja az oldal XML
+kódját, és vegye fel a com.ibm.portal.theme.template.file.name.html vagy a
+com.ibm.portal.theme.inherited.template.file.name.html paramétert a többi
+oldalparaméter közelébe: 
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+vagy
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+Ezután importálja újra az oldalt. 
+
+
++ modules
+
+A saját modulok létrehozásának legegyszerűbb módja, hogy felveszi őket a
+'modules' mappában. Ezekben az egyszerű modulokban hivatkozhat a saját
+erőforrásfájljaira. A 'modules' mappán belül modulonként egy-egy almappa
+van; hozza létre a saját almappáját a saját moduljához. Valamint van egy
+alapértelmezett 'getting_started_module' is a kezdeti lépések
+megtételéhez. A gyors elinduláshoz nem kell mást tennie, mint felvenni a
+saját erőforrásfájljait (például .css és .js fájlokat) a
+getting_started_module modulba. A getting_started_module példaként is
+használható annak tanulmányozásához, hogy hogyan kell létrehozni a saját
+hasonló modulmappáit. 
+
+Az egyszerű modulok hatóköre egy téma. Ha különféle témákban akarja
+használni ugyanazokat a modulokat, akkor át kell másolnia ezeket az
+egyszerű modul mappákat az egyik témából a másikba. 
+
+Az egyszerű modulokkal kapcsolatos további útmutatást a 'modules' mappában
+található readme.txt fájl tartalmaz. 
+
+
++ contributions
+
+A saját modulok létrehozásának második legegyszerűbb módja, hogy felveszi
+őket a 'contributions' mappában. Ezekben a témamodulokban hivatkozhat a
+saját erőforrásfájljaira. A mappán belül modulonként vagy
+modulkészletenként egy .json fájl található. A felhasználó létrehozhatja a
+saját .json fájlját a saját moduljához vagy modulkészletéhez. Megteheti,
+hogy lemásolja, átnevezi, majd módosítja valamelyik meglévő .json fájlt,
+hogy lássa és megismerje a szükséges .json szintaxist. 
+
+A téma modulok hatóköre egy téma. Ha különféle témákban akarja használni
+ugyanazokat a modulokat, akkor át kell másolnia ezeket a modulmeghatározás
+.json fájlokat az egyik témából a másikba. 
+
+A témamodulokkal kapcsolatos további útmutatást a 'contributions' mappában
+található readme.txt fájl tartalmaz. 
+
+(A saját modulok létrehozásának harmadik módja, ha globális modulokat hoz
+létre a webalkalmazás-lerakatok (.war fájlok) 'WEB-INF' mappájában
+található plugin.xml fájlok útján. Ez a legmunkaigényesebb, ezért csak
+akkor érdemes választani, ha jó oka van rá, például több témában
+újrafelhasználja a modult és nem akarja minden egyes témában külön
+szerepeltetni a modulmeghatározást. A globális modulok, mint nevükben is
+benne van, az összes témára hatnak.)
+
+
++ profiles
+
+Miután meghatározta a modulokat, a 'profiles' mappában található profilok
+használatával tudja be-, illetve kikapcsolni őket. A mappán belül
+profilonként egy .json fájl található. A felhasználó létrehozhatja a saját
+.json fájlját a saját profiljához. Megteheti, hogy lemásolja, átnevezi,
+majd módosítja valamelyik meglévő .json fájlt, hogy lássa és megismerje a
+szükséges .json szintaxist. Valamely modul bekapcsolásához vegye fel azt a
+profil modullistájába. Valamely modul kikapcsolásához távolítsa el azt a
+profil modullistájából. 
+
+A témaprofilokkal kapcsolatos további útmutatást a 'profiles' mappában
+található readme.txt fájl tartalmaz. 
+
+
++ layout-templates
+
+Minden egyes oldalhoz hozzá van rendelve egy elrendezéssablon, például
+Három egyenlő oszlop, Két oszlop - jobb oldali széles stb. Lehetősége van
+saját egyéni elrendezések létrehozására úgy, hogy létrehoz egy új almappát
+és benne egy layout.html fájlt. 
+
+Az elrendezéssablonokkal kapcsolatos további útmutatást a
+'layout-templates' mappában található readme.txt fájl tartalmaz. 
+
+
+
+Panoramica Risorsa tema statico
+*******************************
+
+Questa cartella del tema principale in WebDAV è dove le risorse statiche per il tema sono fornite in Portal Server e nel framework dell'aggregatore di risorse. 
+
+La definizione della pagina principale del tema inizia con il file template del tema, theme.html, in questa
+cartella. Questo template del tema contiene la markup HTML principale che Portal Server fornirà
+per le pagine del tema, incluso le tag familiari DOCTYPE, html, head e body. Nel template del
+tema, esistono diversi content spot dinamici che Portal Server elabora,
+in genere attraverso .jsp e sostituisce con una markup statica calcolata a livello dinamico per la pagina di renderining finale.
+
+All'inizio dell'intestazione è presente il content spot dinamico <link rel="dynamic-content" href="co:head">
+che è dove il framework dell'aggregatore di risorse elabora tutti i contributi dell'intestazione dei moduli in uso,
+come ad esempio i file .css e .js e li combina in una richiesta di risorse singola per
+prestazioni ottimali. Quindi, per poter partecipare alle prestazioni ottimali, non bisogna collegare le proprie
+risorse, come ad esempio i file .css e .js, nel template del tema utilizzando tag di link direttamente
+nell'intestazione, ma, piuttosto, è necessario caricare le proprie risorse attraverso i moduli. Consultare i riepiloghi dei contributi e dei moduli per
+ulteriori informazioni sui moduli. 
+
+Alla fine del corpo è presente il content spot dinamico <link rel="dynamic-content" href="co:config">
+che è dove il framework dell'aggregatore di risorse elabora tutti i contributi di config
+dei moduli in uso, come ad esempio i file .js e .html e di nuovo li combina per prestazioni
+ottimali. Anche qui, è necessario caricare le proprie risorse attraverso i moduli. Consultare i riepiloghi dei contributi e dei moduli per
+ulteriori informazioni sui moduli.
+
+Nel resto del template del tema esistono altri content spot dinamici che puntano a .jsp. È possibile
+aggiungere i content spot dinamici in cui si desidera creare le personalizzazioni tema. Ed è possibile
+sicuramente rimuovere o sostituire completamente i content spot dinamici se sono necessarie diverse
+funzioni per il tema.
+
+Il template del tema dispone del supporto lingua nazionale per impostazione predefinita, il che significa che esistono più versioni
+tradotte del file nella cartella 'nls'. Il file theme.html principale non è effettivamente utilizzato da Portal Server,
+piuttosto si distacca dalla versione del file nella cartella 'nls' che ha la locale corrispondente
+alla locale del client. Quindi, quando si apporta una modifica al template del tema, assicurarsi di apportare la modifica iniziale
+nella versione del file nella cartella 'nls' che corrisponde alla locale in cui si sta lavorando, come ad esempio nel file
+nls\theme_en.htm. Quindi apportare le modifiche successive agli altri file della lingua per le lingue che bisogna supportare e
+ignorare le lingue che non è necessario supportare. Se non è necessario il supporto lingua multiplo ed è
+necessaria solo una lingua, il supporto lingua nazionale può essere disattivato rimuovendo i link della
+locale (il blocco <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) nell'intestazione del file theme.html principale,
+nel cui caso Portal Server non utilizzerà i file nella cartella 'nls' e semplicemente utilizzerà invece il solo file
+theme.html principale.
+
+Esiste solo un template di tema predefinito, theme.html, per tutte le pagine di un tema, ma il valore predefinito può essere
+sovrascritto per alcune pagine in modo da poter utilizzare un template di tema diverso. Due altri template di tema di esempio forniti
+con il portale sono theme_sidenav.html, che presenta la navigazione della pagina primaria al lato della pagina invece che
+all'inizio, e Plain.html, che è il template di tema più semplice da utilizzare come punto di partenza
+e che può anche essere utile in alcune situazioni come ad esempio l'integrazione di un portlet singolo su una pagina in un
+iframe. È possibile copiare, ridenominare e modificare questi file template di tema e crearne quanti se ne desidera. Quindi dire quale template
+di tema è in uso in una certa pagina impostando la proprietà della pagina
+com.ibm.portal.theme.template.file.name.html o com.ibm.portal.theme.inherited.template.file.name.html in
+Proprietà della pagina. Utilizzare la prima proprietà per impostare il template di tema per una sola pagina o utilizzare la seconda
+proprietà per impostare il template di tema per quella pagina e tutte le pagine
+derivanti. È anche possibile impostare queste proprietà attraverso xmlaccess esportando l'xml per la pagina, aggiungendo un valore per il parametro
+com.ibm.portal.theme.template.file.name.html o com.ibm.portal.theme.inherited.template.file.name.html
+vicino altri altri parametri pagina, come ad esempio:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+o
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+e reimportando la pagina.
+
+
++ modules
+
+Il modo più facile per creare i propri moduli, chiamati moduli semplici, per collegare i file di risorse si trova
+nella cartella 'modules'. In quella cartella si trova una cartella per modulo - creare la propria cartella per il
+proprio modulo. Esiste anche un 'getting_started_module' predefinito per iniziare. È possibile semplicemente aggiungere i file di
+risorsa, come ad esempio i file .css e .js, in getting_started_module per iniziare rapidamente o
+utilizzare getting_started_module come un esempio per vedere come creare cartelle di moduli simili.
+
+I moduli semplici si trovano nell'ambito di un tema. Se si desidera utilizzare alcuni di questi stessi moduli in diversi temi, è necessario
+copiare queste cartelle modulo semplici da un tema a un altro.
+
+Per ulteriori informazioni sui moduli semplici leggere il file readme.txt nella cartella 'modules'.
+
+
++ contributions
+
+Il secondo modo più facile per creare i propri moduli, chiamati moduli temi, per collegare i file di risorse si trova
+nella cartella 'contributions'. In questa cartella è presente un file .json per modulo o insieme di
+moduli - creare il proprio file .json per il modulo o la serie di moduli. È possibile copiare, ridenominare e modificare uno dei file
+.json esistenti per visualizzare e conoscere la sintassi .json richiesta.
+
+Questi moduli si trovano nell'ambito di un tema. Se si desidera utilizzare alcuni degli stessi moduli in diversi temi,
+è necessario copiare questi file .json di definizione modulo da un tema a un altro.
+
+Per ulteriori informazioni sui moduli tema leggere il file readme.txt nella cartella 'contributions'.
+
+(Il terzo modo per creare i propri moduli, chiamati moduli globali, è attraverso i file plugin.xml nella
+cartella 'WEB-INF' nei repository delle applicazioni web (.war). Questo modo implica molto lavoro,
+quindi si consiglia di utilizzarlo solo se ci sono buoni motivi, come ad esempio per un modulo riutilizzato in più
+temi e non si desidera duplicare la definizione del modulo in ciascuno dei temi. I moduli globali, come indica il
+nome, si trovano nell'ambito di tutti i temi.)
+
+
++ profiles
+
+Una volta definiti i moduli, attivarli e disattivarli utilizzando i profili nella cartella 'profiles'.
+In quella cartella è presente un file .json per profilo - creare il proprio file .json per il proprio profilo. È possibile copiare, ridenominare e modificare uno dei file
+.json esistenti per visualizzare e conoscere la sintassi .json richiesta. Attivare qualsiasi modulo aggiungendolo all'elenco dei moduli del profilo. Disattivare un modulo
+rimuovendolo dall'elenco dei moduli del profilo.
+
+Per ulteriori istruzioni sui profili tema, leggere il file readme.txt nella cartella 'profiles'.
+
+
++ layout-templates
+
+A ciascuna pagina viene assegnato un template di layout, come ad esempio 3 Column Equal, 2 Column Right, ecc. Questo template di layout
+sono definiti nella cartella 'layout-templates', con una cartella secondaria per layout. È possibile creare i propri
+layout personalizzati creando una nuova cartella secondaria e un file layout.html nella cartella secondaria.
+
+Per ulteriori informazioni sui template di layout leggere il file readme.txt nella cartella 'layout-templates'.
+
+
+
+Static Theme Resources Overview (English)
+*******************************
+
+This main theme folder within WebDAV is where static resources for your theme are provided
+to the Portal server and resource aggregator framework. 
+
+The main page definition of your theme starts with the theme template file, theme.html, in this 
+folder. This theme template contains the main HTML markup that the Portal server will serve up 
+for your theme's pages, including the familiar DOCTYPE, html, head and body tags. Within the
+theme template, there are then various dynamic content spots which the Portal server processes,
+typically through .jsp's, and replaces with dynamically-calculated static markup for the finally 
+rendering page. 
+
+At the top of the head is the required <link rel="dynamic-content" href="co:head"> dynamic content
+spot which is where the resource aggregator framework processes all of the head contributions of the
+modules in use, such as .css and .js files, and combines them into a single resource request for
+optimal performance. So, in order to participate in this optimal performance, you should not
+link your own resources, such as .css and .js files, in the theme template using link tags directly
+in the head, but, rather, you should load your own resources through modules. See the modules and
+contributions summaries below for more information on modules. 
+
+At the bottom of the body is the required <link rel="dynamic-content" href="co:config"> dynamic 
+content spot which is where the resource aggregator framework processes all of the config 
+contributions of the modules in use, such as .js and .html files, and again combines them for
+optimal performance. Here again, you should load your own resources through modules. See the modules and
+contributions summaries below for more information on modules.
+
+Throughout the rest of the theme template are other dynamic content spots that point to .jsp's. You
+can add your own dynamic content spots where you want to make your own theme customizations. And
+you can of course also remove or entirely replace certain dynamic content spots if you need different
+functionality for your theme.
+
+The theme template has national language support by default, meaning there are actually multiple translated
+versions of the file in the 'nls' folder. The main theme.html file is actually not used by the Portal server 
+other than to branch off to the version of the file in the 'nls' folder that has the locale that matches the
+client's locale. So, when making a change to the theme template, be sure to make the initial change in the
+version of the file in the 'nls' folder that matches the locale you are working in, such as in the 
+nls\theme_en.html file. Then make subsequent changes to the other language files for the languages you need
+to support, and skip the languages you do not need to support. If you do not need multiple language support at
+all and only need one language, then the national language support can be turned off by removing the locale
+links (the <!--START LOCALE LINKS--><!--END LOCALE LINKS--> block) in the head of the main theme.html file,
+in which case the Portal server will not use the files in the 'nls' folder and will instead simply use the
+one main theme.html file.
+
+There is one default theme template, theme.html, for all pages of a theme, but the default can be overridden
+for certain pages so that a different theme template can be used. Two other example theme templates that
+come with Portal are theme_sidenav.html, which has the primary page navigation down the side rather than
+across the top of the page, and Plain.html, which is the simplest theme template you can use as a starting
+point and that can also be useful in certain situations such as embedding a single portlet on a page within
+an iframe. You can copy, rename and modify these theme template files and create as many as you need. You
+then say which theme template is in use on a certain page by setting the 
+com.ibm.portal.theme.template.file.name.html or com.ibm.portal.theme.inherited.template.file.name.html page 
+property in Page Properties. Use the first property for setting the theme template for just that one and only
+one page, or use the second property for setting the theme template for that page and all of its descendant
+pages. You can also set these properties via xmlaccess by exporting the xml for the page, adding a value for 
+the com.ibm.portal.theme.template.file.name.html or com.ibm.portal.theme.inherited.template.file.name.html 
+parameter near the other page parameters, such as:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+or
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+and re-importing the page.
+
+
++ modules
+
+The easiest way to create your own modules, referred to as simple modules, for linking your own resource
+files is in the 'modules' folder. Within that folder is one folder per module - create your own folder for 
+your own module. There is also one default 'getting_started_module' to get you started. You can simply add 
+your resource files, such as .css and .js files, into the getting_started_module to get started quickly, 
+or use the getting_started_module as an example to see how to create your own similar module folders.
+
+Simple modules are scoped to your one theme. If you want to use some of these same modules in different themes,
+you have to copy these simple module folders from one theme to the other.
+
+For further instructions on simple modules read the readme.txt file within the 'modules' folder.
+
+
++ contributions
+
+The second-easiest way to create your own modules, referred to as theme modules, for linking your own 
+resource files is in the 'contributions' folder. Within that folder is one .json file per module or set of
+modules - create your own .json file for your own module or set of modules. You can copy, rename and
+modify one of the existing .json files in order to see and learn the .json syntax that is required.
+
+Theme modules are scoped to your one theme. If you want to use some of these same modules in different themes,
+you have to copy these module definition .json files from one theme to the other.
+
+For further instructions on theme modules read the readme.txt file within the 'contributions' folder.
+
+(The third way to create your own modules, referred to as global modules, is via plugin.xml files within
+the 'WEB-INF' folder within web application repositories (.war's). This way involves the most work, so you would 
+not do it unless you have good reason, such as for a module that is reused across multiple themes and you 
+don't want to duplicate the module definition in each of the themes. Global modules, as the name implies,
+are scoped across all themes.)
+
+
++ profiles
+
+Once you have your modules defined, you turn them on and off using profiles in the 'profiles' folder.
+Within that folder is one .json file per profile - create your own .json file for your own profile. You
+can copy, rename and modify one of the existing .json files in order to see and learn the .json syntax that
+is required. Turn your or any module on by adding it into the profile's list of modules. Turn your or any
+module off by removing it from the profile's list of modules.
+
+For further instructions on theme profiles read the readme.txt file within the 'profiles' folder.
+
+
++ layout-templates
+
+Each page is assigned a layout template, such as 3 Column Equal, 2 Column Right, etc. These layout
+templates are defined in the 'layout-templates' folder, with one subfolder per layout. You can create
+your own custom layouts by creating a new subfolder and a layout.html file within the subfolder.
+
+For further instructions on layout templates read the readme.txt file within the 'layout-templates' folder.
+
+
+
+静的なテーマ・リソースの概要 (日本語)
+*******************************
+
+WebDAV 内のこのメインの theme フォルダーは、テーマ用の静的リソースが、ポータル・サーバーと
+リソース統合機能フレームワークに提供される場所です。
+
+ユーザーのテーマのメインページ定義は、このフォルダー内のテーマ・テンプレート・ファイル theme.html を
+使用して開始されます。このテーマ・テンプレートには、ポータル・サーバーがテーマのページに提供するメインの HTML マークアップ (一般的な DOCTYPE、html、head、body タグなど) が
+格納されています。さらにテーマ・テンプレート内には
+様々な動的コンテンツ・スポットがあり、これらはポータル・サーバーによって、通常 .jsp を使用して処理され、
+最終的なページ・レンダリングのための動的に計算された静的マークアップで
+置換されます。
+
+head の先頭には、必須の <link rel="dynamic-content" href="co:head"> 動的コンテンツ・スポットが
+あり、これは、リソース統合機能フレームワークが .css や .js ファイルなどの使用中のモジュールのすべての
+head コントリビューションを処理し、最適なパフォーマンスを得るために、これらを単一リソース要求に
+結合する場所です。したがって、この最適なパフォーマンスを得るためには、テーマ・テンプレートにある
+.css や .js ファイルなどの独自のリソースを、リンク・タグを使用して head 内で直接リンクするのではなく、
+独自のリソースをモジュール経由でロードする必要があります。モジュールの詳細については、
+以下に記載されているモジュールとコントリビューションの要約を参照してください。
+
+body の末尾には、必須の <link rel="dynamic-content" href="co:config"> 動的コンテンツ・スポットが
+あり、これは、リソース統合機能フレームワークが .js や .html ファイルなどの使用中のモジュールのすべての
+config コントリビューションを処理し、再度、最適なパフォーマンスを得るために、これらを
+結合する場所です。ここでも、独自のリソースをモジュール経由でロードする必要があります。モジュールの詳細については、
+以下に記載されているモジュールとコントリビューションの要約を参照してください。
+
+テーマ・テンプレートの残りのすべての部分は、.jsp を指す他の動的コンテンツ・スポットです。テーマの独自の
+カスタマイズを行う独自の動的コンテンツ・スポットを追加することができます。当然ながら、
+テーマについて別の機能が必要な場合は、特定の動的コンテンツ・スポットを削除したり、
+すべて置換したりすることも可能です。
+
+テーマ・テンプレートにはデフォルトで各国語サポートがあります。つまり、ファイルの複数の翻訳バージョンが
+「nls」フォルダーに実際にあることを意味します。メインの theme.html ファイルは、クライアントのロケールに一致する
+ロケールを持つ「nls」フォルダー内のファイルのバージョンに分岐する目的以外では、ポータル・サーバーによって
+実際に使用されることはありません。したがって、テーマ・テンプレートを変更する場合は、使用中のロケールに一致する、
+「nls」フォルダー内のファイルのバージョン (nls\theme_en.html など) に初期の変更を行うように注意
+してください。その後、サポートする必要がある他の言語の言語ファイルを変更し、
+サポートが不要な言語はスキップします。複数の言語サポートをまったく必要とせず、
+1 つの言語のみ必要な場合、メインの theme.html ファイルの先頭にあるロケール・リンク
+(<!--START LOCALE LINKS--><!--END LOCALE LINKS--> ブロック) を削除することで、各国語サポートをオフにできます。
+この場合、ポータル・サーバーは「nls」フォルダー内のファイルを使用せず、代わりに 1 つのメインの theme.html ファイルのみ
+使用します。
+
+テーマのすべてのページについて、1 つのデフォルト・テーマ・テンプレート theme.html が存在しますが、異なるテーマ・テンプレートを使用できるように、特定のページについてデフォルトを上書きすることができます。ポータルに付属するサンプル・テーマ・テンプレートは、他に次の 2 つがあります。
+theme_sidenav.html は、1 次ページ・ナビゲーションがページ上部の横方向ではなく、ページ側面の下方向になります。
+Plain.html は、開始点として使用できる最も単純なテーマ・テンプレートで、
+ページの iframe 内に単一ポートレットを埋め込むなどの特定の状況においても
+便利です。これらのテーマ・テンプレート・ファイルのコピー、名前変更、変更を行い、必要な数だけ作成することができます。また、
+ページ・プロパティーで com.ibm.portal.theme.template.file.name.html または
+com.ibm.portal.theme.inherited.template.file.name.html ページ・プロパティーを設定することによって、
+使用するテーマ・テンプレートを指定します。その 1 つのページのみにテーマ・テンプレートを設定する場合は最初のプロパティーを使用し、
+そのページとそのすべての下位ページにテーマ・テンプレートを設定する場合は 2 番目のプロパティーを
+使用します。また、このページの xml をエクスポートし、以下に示すように、他のページ・パラメーターの近くに、com.ibm.portal.theme.template.file.name.html または com.ibm.portal.theme.inherited.template.file.name.html パラメーターの値を
+追加することによって、xmlaccess 経由でこれらのプロパティーを設定することもできます。
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+または
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+その後、ページを再インポートします。
+
+
++ modules
+
+ユーザー独自のリソース・ファイルをリンクするための、単純モジュールと呼ばれるユーザー独自のモジュールを作成する最も簡単な方法は、
+「modules」フォルダーを使用することです。そのフォルダー内にはモジュールにつき 1 つのフォルダーがあります。ユーザー独自のモジュールに対して独自の
+フォルダーを作成します。また、開始に使用できるデフォルトの「getting_started_module」も 1 つあります。.css や .js ファイルなどの
+リソース・ファイルを単純に getting_started_module に追加して素早く開始するか、同様の独自のモジュール・フォルダーを作成する方法を理解するための例として getting_started_module を使用することもできます。
+
+単純モジュールは、ユーザーの 1 つのテーマにスコープ設定されます。これらの同じモジュールの一部を別のテーマで使用する場合、
+これらの単純モジュール・フォルダーを 1 つのテーマから別のテーマにコピーする必要があります。
+
+単純モジュールの詳しい説明については、「modules」フォルダー内の readme.txt ファイルを参照してください。
+
+
++ contributions
+
+ユーザー独自のリソース・ファイルをリンクするための、テーマ・モジュールと呼ばれるユーザー独自のモジュールを作成する 2 番目に簡単な方法は、
+「contributions」フォルダーを使用することです。そのフォルダー内には、モジュールまたはモジュールのセットにつき 1 つの .json ファイルがあります。ユーザー独自のモジュールまたはモジュールのセットに対して独自の .json ファイルを作成します。既存の .json ファイルの 1 つをコピー、名前変更、変更して、必要な .json 構文を参照したり学習したりできます。
+
+テーマ・モジュールは、ユーザーの 1 つのテーマにスコープ設定されます。これらの同じモジュールの一部を別のテーマで使用する場合、これらの
+モジュール定義 .json ファイルを 1 つのテーマから別のテーマにコピーする必要があります。
+
+テーマ・モジュールの詳しい説明については、「contributions」フォルダー内の readme.txt ファイルを参照してください。
+
+(グローバル・モジュールと呼ばれる独自のモジュールを作成するための第 3 の方法は、Web アプリケーション・リポジトリー (.war) 内の
+「WEB-INF」フォルダー内にある plugin.xml ファイルを使用する方法です。この方法は作業量が最も多くなるため、モジュールが複数のテーマにわたって再使用され、モジュール定義をテーマごとに複製したくないなどの相当の理由がないかぎり、この方法を行うことはありません。グローバル・モジュールのスコープは、その名前が暗黙に示すように、
+すべてのテーマを含みます。)
+
+
++ profiles
+
+モジュールが定義されたら、「profiles」フォルダー内のプロファイルを使用して、モジュールのオン/オフを切り替えます。
+そのフォルダー内には、プロファイルにつき 1 つの .json ファイルがあります。ユーザー独自のプロファイルに対して独自の .json ファイルを作成します。既存の .json ファイルの 1 つをコピー、名前変更、変更して、必要な .json 構文を参照したり学習したりできます。独自または任意のモジュールをオンにするには、プロファイルのモジュール・リストにモジュールを追加します。独自または任意のモジュールをオフにするには、プロファイルのモジュール・リストからモジュールを削除します。
+
+テーマ・プロファイルの詳しい説明については、「profiles」フォルダー内の readme.txt ファイルを参照してください。
+
+
++ layout-templates
+
+各ページには、「3 列均等」や「2 列右」などのレイアウト・テンプレートが割り当てられています。これらの
+レイアウト・テンプレートは「layout-templates」フォルダー内で定義され、レイアウトごとに 1 つのサブフォルダーがあります。新しいサブフォルダーを
+作成し、サブフォルダー内に layout.html ファイルを作成することによって、独自のカスタム・レイアウトを作成できます。
+
+レイアウト・テンプレートの詳しい説明については、「layout-templates」フォルダー内の readme.txt ファイルを参照してください。
+
+
+
+Тұрақты Тақырып Ресурстарын шолу (Ағылшын)
+*******************************
+
+Бұл WebDAV ішіндегі негізгі тақырып қалтасы сіздің тақырыбыңызға арналған тұрақты ресурстардың Портал серверіне және ресурсты біріктірші құрылымына қамтамасыз етілген. 
+
+Тақырыбыңыздың негізгі бет анықтамасы осы қалтадағы тақырып үлгісінің файлысынан және theme.html файлынан
+басталады. Бұл тақырып үлгісі сіздің тақырыптар парақтарыңызда қызмет ететін, сонымен қатар таныс DOCTYPE, html, тегтердің тақырыбы мен мазмұнын кірістіретін негізгі HTML белгісін қамтиды. Тақырып үлгісі арқылы мұнда Портал сервері .jsp арқылы орындайтын әр түрлі динамикалық мазмұн орындары бар және олар бетті шығару үшін динамикалы есептелген тұрақты белгімен алмастырылады. 
+
+Тақырыптың жоғарғы жағында қолданыстағы модульдердің тақырып үлесінің барлығын ресурс бірігуінің құрылымында орындайтын және оларды оңтайлы көрсеті лім үшін жалғыз ресурс сұрауына біріктіру үшін талап етілетін <link rel="dynamic-content" href="co:head"> динамикалық мазмұн орны. Сондықтан, осы оңтайлы көрсетілімде қатысудың орнына өз ресурстарыңызды, мысалы .css және .js файлдарын тақырып үлгісінде байланыс тегтерін тікелей тақырыпта қолдану арқылы байланыстырмауыңыз керек, өз ресурстарыңызды модульдер арқылы жүктеп алуыңыз тиіс. Модульдер туралы қосымша ақпарат алу үшін төмендегі модульдер және үлестер қорытындыларын көріңіз. 
+
+Мазмұнның төменгі жағында қолданыстағы модульдердің конфигурация үлесінің барлығын ресурс бірігуінің құрылымында орындайтын және оларды сұрауға біріктіру үшін талап етілетін <link rel="dynamic-content" href="co:config"> динамикалық мазмұн орны.  Содан кейін қайтадан өз ресурстарыңызды модульдер арқылы жүктеуіңіз керек. Модульдер туралы қосымша ақпарат алу үшін төмендегі модульдер және үлестер қорытындыларын көріңіз. 
+
+Тақырып үлгісінің қалған бөлігінде .jsp файлдарын көрсететін басқа динамикалық мазмұн орындары болады. Тақырып теңшелімдерін
+жасауды қалаған жерге өзіңіздің динамикалық мазмұн орындарыңызды қоса аласыз. Содан кейін тақырыбыңыз үшін әр түрлі қызметті
+қаласаңыз ағымдағы мазмұн орындарын жоя аласыз немесе толығымен алмастыра аласыз.
+
+Тақырып үлгісі әдепкі бойынша 'nls' қалтасында файлдың бірнеше аударылған нұсқалары бар екенін білдіретін ұлттық
+тіл қолдауын иеленеді. Негізгі theme.html файлы тұтынушының тіліне сәйкес келетін тілді иеленетін 'nls' қалтадағы
+файлдың нұсқасына ажырату үшін Портал сервері арқылы қолданылмайды. Сондықтан тақырып үлгісіне өзгеріс енгізу кезінде nls\theme_en.html файлындағы сияқты жұмыс істеп жатқан тілге сәйкес болатын 'nls' қалтасындағы файлдың нұсқасындағы
+ішкі өзгерістерді орындау үшін сенімді болыңыз. Содан кейін басқа тіл файлдарына қолдау көрсету үшін қажетті тілдер үшін
+басқа тіл файлдарына сәйкес өзгерістерді енгізіп және қолдауды қажет етпейтін тілдерді тастап кетіңіз. Егер сіз бірнеше тіл қолдауын мүлдем қажет етпесеңіз және тек бір тілді қажет етсеңіз, онда ұлттық тіл қолдауы негізгі тақырыптың басындағы (the <!--START LOCALE LINKS--><!--END LOCALE LINKS--> block) тіл байланыстарын жою арқылы ажыратылады, онда Портал сервері файлдарды 'nls' қалтасында және бір негізгі theme.html файлда қолданбайды.
+
+Мұнда тақырыптың барлық беттері үшін бір әдепкі тақырып үлгісі theme.html бар, бірақ әдепкі арнайы беттер үшін қайта анықталады, сол арқылы әр түрлі тақырып үлгісі қолданылады. Порталмен бірге келетін екі басқа мысал тақырыбы үлгілері мынадай theme_sidenav.html, ол Plain.html және беттің жоғарғы жағынан төмен бастапқы бет шарлауын иеленеді, ол бастау нүктесі ретінде қолданылатын қарапайым тақырып үлгісі және сонымен қатар iframe арқылы беттегі жалғыз портлетті қою ретінде жағдайларда пайдалы болады. Осы тақырып үлгісі файлдарын көшіріп, атын өзгертіп және өңдей аласыз және қалағанынша құра аласыз. Содан кейін қай тақырып үлгісінің Бет сипаттарында com.ibm.portal.theme.template.file.name.html немесе com.ibm.portal.theme.inherited.template.file.name.html бет сипатын орнату арқылы ағымдағы бетте қолданылады. Тек бір бет үшін тақырып үлгісін орнату үшін бірінші сипатты қолданыңыз немесе сол бет үшін және барлық оның ішкі беттері үшін тақырып үлгісін орнату үшін қолданыңыз. Сонымен қатар осы сипаттарды xmlaccess файлына қарсы бет үшін xml файлын шығару арқылы, сонымен қатар басқа бет параметрлері жанындағы com.ibm.portal.theme.template.file.name.html немесе com.ibm.portal.theme.inherited.template.file.name.html
+параметрі үшін мәнді қосу арқылы орната аласыз, мысалы:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+немесе
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+және бетті қайта енгізу.
+
+
++ модульдер
+
+Модульдеріңізді құрудың жеңіл жолы 'модульдер' өрісіндегі жеке ресурс файлдарыңызды байланыстыру үшін қарапайым
+модульдер ретінде жазылған. Сол қалта ішінде модуль үшін бір қалта бар - өз модуліңіз үшін жеке қалтаңызды
+құрыңыз. Мұнда сонымен қатар бастайтын бір әдепкі 'getting_started_module' модуль бар. Ресурс файлдарыңызды
+мысалы .css және .js файлдары, жылдам қосылу үшін getting_started_module модуліне қоса аласыз немесе
+getting_started_module модулін өзіңіздің ұқсас модуль қалталарыңызды қалай құру керек екендігін көру үшін қолдана аласыз.
+
+Қарапайым модульдер сіздің бір тақырыбыңызға ауқымдалды. Егер осы қарапайым модульдердің кейбірін әр түрлі тақырыптарда қолданғыңыз келсе,
+онда оны бір тақырыптан басқасына көшіруіңіз керек. 
+
+Қарапайым модульдерге байланысты келесі нұсқаулықтарда readme.txt файлын 'модульдер' қалтасынан қараңыз.
+
+
++ үлестер
+
+Модульдеріңізді құрудың екінші жеңіл жолы 'үлестер' өрісіндегі жеке ресурс файлдарыңызды байланыстыру үшін тақырып
+модульдер ретінде жазылған. Сол қалта арқылы бір .json файл бір модуль үшін немесе модульдер жинағы үшін жеке
+.json файлын өзіңіздің модуліңіз немесе модуль жинағыңыз үшін құрыңыз. Талап етілетін .json синтаксисін білу және көрудің орнына
+бар .json файлдарының біреуін көшіріп, атын өзгертіп және өңдей аласыз.
+
+Тақырып модульдері сіздің бір тақырыбыңызға ауқымдалған. Егер осы модульдердің кейбірін әр түрлі тақырыптарда қолданғыңыз келсе,
+осы модуль анықтамасының .json файлдарын бір тақырыптан басқасына көшіруіңіз керек.
+
+Тақырып модульдеріне байланысты келесі нұсқаулықтарда readme.txt файлын 'үлестер' қалтасынан қараңыз. 
+
+(Модульдерді құрудың үшінші жолы, веб бағдарламасы репозиторийлері (.war's) арқылы 'WEB-INF' қалтасындағы plugin.xml файлдарын жаһандық модульдері түріне жатады.  Бұл жол көп жұмысты қамтиды, сондықтан сіз оны жақсы себепті иеленбейінше орындамайсыз, мысалы бірнеше тақырыптар ішінде қайта қолданылған модуль себебі үшін және әр бір тақырыптардағы модуль анықтамасын көшіргіңіз келмейді. Жаһандық модульдер көрсетілген ат сияқты барлық тақырыптар арқылы ауқымдалған.) 
+
+
++ профайлдар
+
+Модуліңізді бір рет анықтағаннан кейін, оларды 'профайлдар' қалтасындағы профайлдарды қолдану арқылы іске қосып және ажырата аласыз.
+Сол қалта арқылы бір .json файл бір профайл үшін өзіңіздің жеке .json файлыңызды құрыңыз. Талап етілетін .json синтаксисін білу және көрудің орнына
+бар .json файлдарының біреуін көшіріп, атын өзгертіп және өңдей аласыз.Өзіңіздің не кез келген модульді оны модульдердің профайл тізімдеріне қосу арқылы іске қоса аласыз. Өзіңіздің не кез келген модульді оны модульдердің профайл тізімдерінен жою арқылы ажырата аласыз. 
+
+Тақырып профайлдарына байланысты келесі нұсқаулықтарда readme.txt файлын 'профайлдар' қалтасынан қараңыз. 
+
+
++ орналасу үлгілері
+
+Әр бет 3 Тең бағана, 2 Оң бағана, т.с.с. орналасу үлгісіне тағайындалған. Бұл орналасу үлгілері бір орналасу үшін ішкі қалтамен бірге
+'layout-templates' қалтасында анықталады. Жаңа ішкі қалтаны және ішкі қалта ішіндегі
+layout.html файлын құру арқылы өзіндік жалпы орналасуларды құра аласыз.
+
+Орналасу үлгілеріне байланысты келесі нұсқаулықтарда readme.txt файлын 'орналасу үлгілері' қалтасынан қараңыз.  
+
+
+
+정적 테마 자원 개요
+*******************************
+
+WebDAV 내의 이 기본 테마 폴더는 테마의 정적 자원이 포털 서버와
+자원 수집자 프레임워크에 제공되는 위치입니다. 
+
+테마의 기본 페이지 정의가 이 폴더의 테마 템플리트 파일 theme.html에서
+시작합니다. 이 테마 템플리트에는 일반적인 DOCTYPE, html, 헤드와 본문 태그를
+포함해 포털 서버가 테마 페이지에 제공할 기본 HTML 마크업이 있습니다. 테마
+템플리트 내에는, 포털 서버가 일반적으로 .jsp를 통해 처리하고 최종 렌더링
+페이지에서 동적으로 계산된 정적 마크업으로 바꾸는 다양한 동적 컨텐츠 스팟이
+있습니다. 
+
+헤드의 맨 위에 필수 <link rel="dynamic-content" href="co:head"> 동적 컨텐츠
+스팟이 있고 이 동적 컨텐츠 스팟에서는 자원 수집자 프레임워크가 .css 및 .js 파일
+등의 사용 중인 모듈의 헤드 기고를 모두 처리하고 최적의 성능을 위해 단일 자원
+요청으로 결합합니다. 따라서 사용자는 이 최적의 성능을 위해서 헤드에 직접 링크 태그를
+사용하여 테마 템플리트에 .css 및 .js 파일과 같은 사용자 고유 자원을 링크하지 않고
+모듈을 통해 고유 자원을 로드해야 합니다. 모듈에 대한 자세한 정보는 아래
+모듈과 기고 요약을 참조하십시오. 
+
+본문의 맨 아래에 필수 <link rel="dynamic-content" href="co:config"> 동적 컨텐츠
+스팟이 있고 이 동적 컨텐츠 스팟에서는 자원 수집자 프레임워크가 .js 및 .html 파일
+등의 사용 중인 모듈의 config 기고를 모두 처리하고 최적의 성능을 위해 다시
+결합합니다. 여기서 다시 모듈을 통해 사용자 고유 자원을 로드해야 합니다. 모듈에 대한
+자세한 정보는 아래 모듈과 기고 요약을 참조하십시오.
+
+나머지 테마 템플리트 전체에 .jsp를 가리키는 다른 동적 컨텐츠 스팟이 있습니다. 테마
+사용자 정의를 작성할 사용자 고유의 동적 컨텐츠 스팟을 추가할 수 있습니다. 또한 여러
+테마 기능을 필요로 하는 경우 특정 동적 컨텐츠 스팟을 제거하거나 완전히 바꿀 수
+있습니다.
+
+테마 템플리트에는 기본적으로 자국어가 지원되며 이는 'nls' 폴더에 있는 파일이
+실제로 다양한 언어로 번역되어 있음을 의미합니다. 기본 theme.html 파일은 로케일이
+클라이언트의 로케일과 일치하는 'nls' 폴더의 파일 버전으로 분기하는 경우 외에는
+실제로 포털 서버에서 사용되지 않습니다. 따라서, 테마 템플리트를 변경할 때 작업
+중인 로케일과 일치하는 'nls' 폴더에 있는 파일 버전(예: nls\theme_en.html 파일)을
+처음에 변경하십시오. 그 다음, 계속해서 지원해야 하는 언어의 다른 언어 파일을
+변경하고 지원하지 않아도 되는 언어는 생략하십시오. 여러 언어를 지원하지 않고
+한 언어만 지원하면 되는 경우, 기본 theme.html 파일의 헤더에서 로케일 링크(<!--START
+LOCALE LINKS--><!--END LOCALE LINKS--> 블록)를 제거하여 자국어 지원을 끌 수
+있습니다. 이 경우 포털 서버가 'nls' 폴더에서 파일을 사용하지 않고 대신 하나의
+기본 theme.html 파일을 사용합니다.
+
+테마의 모든 페이지에 하나의 기본 테마 템플리트 theme.html이 있지만, 다른 테마 템플리트를
+사용할 수 있도록 특정 페이지에 대해 기본값을 대체할 수 있습니다. 포털에 수반되는
+두 개의 다른 예제 테마 템플리트는 theme_sidenav.html(페이지의 맨 위가 아닌 옆쪽에
+기본 페이지 탐색이 있음)과 Plain.html(시작점으로 사용할 수 있는 가장 단순한 테마
+템플리트이고 iframe 내 페이지에 단일 포틀릿을 임베드하는 등의 특정 상황에서
+유용함)입니다. 이 테마 템플리트 파일을 복사하고 이름 바꾸고 수정하고 필요에 따라 작성할 수 있습니다. 그 다음
+페이지 특성에 com.ibm.portal.theme.template.file.name.html 또는
+com.ibm.portal.theme.inherited.template.file.name.html 페이지 특성을
+설정하여 특정 페이지에 사용하는 테마 템플리트를 지정합니다. 첫 번째 특성을 사용하여 유일한 페이지에
+테마 템플리트를 설정하거나 두 번째 특성을 사용하여 해당 페이지와 그 하위 페이지에 테마 템플리트를
+설정하십시오. xmlaccess를 통해 이 특성을 설정하려면 페이지의 xml을 내보내고 다음과 같이 다른 페이지
+매개변수에 com.ibm.portal.theme.template.file.name.html 또는 com.ibm.portal.theme.inherited.template.file.name.html
+매개변수의 값을 추가하고
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+또는
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+페이지를 다시 가져와야 합니다.
+
+
++ modules
+
+사용자 고유 자원 파일을 링크하기 위해 단순 모듈이라고 하는 사용자 고유 모듈을 작성하는 가장 쉬운 방법이
+'modules' 폴더에 있습니다. 해당 폴더에 모듈당 하나의 폴더가 있습니다. 사용자 고유 모듈을 위한
+고유 폴더를 작성합니다. 또한 시작을 위한 하나의 기본 'getting_started_module'도 있습니다. .css 및
+.js 파일과 같은 자원 파일을 getting_started_module에 추가하여 빨리 시작하거나 getting_started_module을
+예제로 사용하여 유사한 사용자 고유 모듈 폴더를 작성하는 방법을 확인할 수 있습니다.
+
+단순 모듈 범위가 하나의 테마로 지정됩니다. 여러 테마에서 동일한 모듈 중 일부를 사용하려면
+하나의 테마에서 다른 테마로 이 단순 모듈 폴더를 복사해야 합니다.
+
+단순 모듈에 대한 자세한 지침은 'modules' 폴더에 있는 readme.txt 파일을 참조하십시오.
+
+
++ contributions
+
+사용자 고유 자원 파일을 링크하기 위해 테마 모듈이라고 하는 사용자 고유 모듈을 작성하는 두 번째로 쉬운 방법은
+'contributions' 폴더에 있습니다. 해당 폴더 내에 모듈 또는 모듈 세트당 하나의 .json 파일이
+있습니다. 사용자 고유 모듈 또는 모듈 세트를 위한 고유 .json 파일을 작성합니다. 필요한 .json 구문을
+보고 학습하기 위해 기존 .json 파일 중 하나를 복사하고, 이름을 바꾸고, 수정할 수 있습니다.
+
+테마 모듈 범위가 하나의 테마로 지정됩니다. 여러 테마에서 동일한 모듈 중 일부를 사용하려면
+하나의 테마에서 다른 테마로 이 모듈 정의 .json 파일을 복사해야 합니다.
+
+테마 모듈에 대한 자세한 지침은 'contributions' 폴더에 있는 readme.txt 파일을 참조하십시오.
+
+(또한 웹 애플리케이션 저장소(.war) 내 'WEB-INF' 폴더의 plugin.xml 파일을 통해 글로벌
+모듈이라고 하는 사용자 고유 모듈을 작성하는 세 번째 방법이 있습니다.) 이 방법에서는 가장 어려운
+작업을 수행해야 하므로 특별한 이유(예: 여러 테마에서 재사용되고 각 테마에서 모듈 정의가
+중복되지 않도록 하려는 모듈의 경우)가 있지 않은 한 수행하지 않습니다. (이름이 내포한 대로
+글로벌 모듈의 범위는 모든 테마로 지정됩니다.)
+
+
++ profiles
+
+모듈이 정의되면 'profiles' 폴더에서 프로파일을 사용하여 모듈을 켜고 끕니다.
+해당 폴더 내에 프로파일당 하나의 .json 파일이 있습니다. 사용자 고유 프로파일을 위한 고유 .json 파일을 작성합니다. 필요한
+.json 구문을 보고 학습하기 위해 기존 .json 파일 중 하나를 복사하고, 이름을 바꾸고, 수정할 수
+있습니다. 모듈의 프로파일 목록에 임의의 모듈을 추가하여 해당 모듈을 켜십시오. 모듈의 프로파일
+목록에서 임의의 모듈을 제거하여 해당 모듈을 끄십시오.
+
+테마 프로파일에 대한 자세한 지침은 'profiles' 폴더에 있는 readme.txt 파일을 참조하십시오.
+
+
++ layout-templates
+
+각 페이지는 레이아웃 템플리트에 지정됩니다(예: 3 Column Equal, 2 Column Right 등). 이 레이아웃
+템플리트는 레이아웃당 하나의 하위 폴더가 있는 'layout-templates' 폴더에 정의됩니다. 새 하위
+폴더와 하위 폴더의 layout.html 파일을 작성하여 사용자 정의 레이아웃을 작성할 수 있습니다.
+
+레이아웃 템플리트에 대한 자세한 지침은 'layout-templates' 폴더에 있는 readme.txt 파일을 참조하십시오.
+
+
+
+Statische themaresources - Overzicht
+************************************
+
+Deze hoofdthemamap binnen WebDAV is de plaats waar statische resources voor uw thema beschikbaar
+worden gesteld voor de Portal-server en het resourceaggregatorframework. 
+
+De hoofdpaginadefinitie van uw thema begint met het themasjabloonbestand, theme.html, in deze map.
+Deze themasjabloon bevat de belangrijkste HTML-markup die door de Portal-server wordt gebruikt voor de
+pagina's van uw thema, zoals de bekende DOCTYPE-, html-, head- en body-tags. Binnen de themasjabloon
+zijn er dan diverse dynamische contentspots die door de Portal-server worden verwerkt, gewoonlijk
+via .jsp's. Deze worden vervangen door dynamisch berekende statische markup voor de pagina die
+uiteindelijk wordt weergegeven. 
+
+Bovenaan de kop staat de verplichte dynamische contentspot <link rel="dynamic-content" href="co:head">.
+Dit is de plaats waar het resourceaggregatorframework alle head-contributions van de in gebruik zijnde
+modules verwerkt, zoals .css- en .js-bestanden, en deze combineert in één enkele resourceaanvraag voor
+een optimale performance. Om deze optimale performance mogelijk te maken, moet u uw eigen resources,
+zoals .css- en .js-bestanden, in de themasjabloon dus niet linken met behulp van link-tags rechtstreeks
+in de kop. U kunt uw eigen resources beter laden met behulp van modules. Zie de onderstaande overzichten
+van modules en contributions voor meer informatie over modules. 
+
+Onderaan de body staat de verplichte dynamische contentspot <link rel="dynamic-content" href="co:config">.
+Dit is de plaats waar het resourceaggregatorframework alle config-contributions van de in gebruik zijnde
+modules verwerkt, zoals .js en .html-bestanden, en deze ook hier combineert voor een optimale performance.
+Ook hier kunt u uw eigen resources het beste laden via modules. Zie de onderstaande overzichten
+van modules en contributions voor meer informatie over modules. 
+
+In de rest van de themasjabloon zijn er andere dynamische contentspots die verwijzen naar .jsp's. Het is
+mogelijk uw eigen dynamische contentspots toe te voegen als u zelf thema-aanpassingen wilt doorvoeren. En
+uiteraard kunt u bepaalde dynamische contentspots verwijderen of helemaal vervangen als u voor uw thema
+andere functionaliteit nodig hebt.
+
+De themasjabloon ondersteunt standaard verschillende (nationale) talen; dit betekent dat er feitelijk meerdere
+vertaalde versies van het bestand in de map 'nls' staan. Het hoofdbestand theme.html wordt door de Portal-
+server in feite nergens anders voor gebruikt dan voor afsplitsingen van het bestand in de map 'nls' met de
+locale die overeenkomt met de locale van de client. Als u dus een wijziging aanbrengt in de themasjabloon,
+vergeet dan niet om die wijziging in eerste instantie aan te brengen in de versie van het bestand (in de map
+'nls') die overeenkomt met de locale waar u in werkt, bijvoorbeeld het bestand nls\theme_nl.html. Breng
+vervolgens vergelijkbare wijzigingen aan in de bestanden in de andere talen die ondersteund moeten worden;
+de talen die u  niet ondersteunt, kunt u uiteraard overslaan. Als u geen behoefte hebt aan de ondersteuning van
+meerdere talen en slechts één taal gebruikt, kunt u de ondersteuning van nationale talen uitzetten door de
+links naar locales (het blok <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) in de header van het hoofdbestand
+theme.html te verwijderen. In dat geval maakt de Portal-server geen gebruik van de bestanden in de map 'nls' en
+wordt alleen het ene hoofdbestand theme.html gebruikt.
+
+Er is één standaard themasjabloon, theme.html, voor alle pagina's van een thema, maar de standaard kan voor
+bepaalde pagina's worden overschreven, zodat er een andere themasjabloon kan worden gebruikt. Bij Portal worden
+twee andere voorbeeld-themasjablonen meegeleverd: theme_sidenav.html, met de primaire paginanavigatie niet aan de
+bovenkant van de pagina, maar aan de zijkant, en Plain.html, de eenvoudigste sjabloon, die u kunt gebruiken als
+uitgangspunt en die zijn nut ook kan bewijzen in bepaalde situaties zoals het inbedden van een enkele portlet op
+een pagina binnen een iframe. U kunt deze sjabloonbestanden kopiëren, hernoemen en aanpassen en u kunt er zo veel
+maken als u er nodig hebt. Vervolgens geeft u aan welke sjabloon er voor een bepaalde pagina moet worden gebruikt
+door de pagina-eigenschap com.ibm.portal.theme.template.file.name.html of
+com.ibm.portal.theme.inherited.template.file.name.html in te stellen in de Pagina-eigenschappen. De eerste
+eigenschap gebruikt u om de themasjabloon in te stellen voor alleen die ene pagina, de tweede om de themasjabloon
+in te stellen voor die pagina en alle onderliggende pagina's. Het is ook mogelijk om deze eigenschappen in te
+stellen via xmlaccess, namelijk door de xml voor de pagina te exporteren en daarbij een waarde voor de parameter
+com.ibm.portal.theme.template.file.name.html of com.ibm.portal.theme.inherited.template.file.name.html in te stellen
+in de buurt van de andere paginaparameters, zoals:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+of
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+en de pagina weer te importeren.
+
+
++ modules
+
+De eenvoudigste manier om zelf modules te maken, is met eenvoudige of 'simple' modules in de map 'modules'. Daarmee
+kunt u uw eigen resourcebestanden linken. Binnen die map is er één map per module. U kunt dus uw eigen map maken
+voor uw eigen module. Verder is er één standaard 'getting_started_module' om u op gang te helpen. U kunt uw eigen
+resourcebestanden, zoals .css- en .js-bestanden gemakkelijk toevoegen aan de getting_started_module, zodat u snel
+aan de slag kunt, maar u kunt de getting_started_module ook gebruiken als voorbeeld van de manier waarop u zelf
+vergelijkbare modulemappen kunt maken.
+
+Eenvoudige modules zijn qua scope beperkt tot één thema. Als u dezelfde module wilt gebruiken in verschillende
+thema's, moet u de mappen van deze eenvoudige module kopiëren van het ene thema naar het andere. 
+
+Voor meer instructies voor eenvoudige modules raadpleegt u het bestand readme.txt binnen de map 'modules'.
+
+
++ contributions
+
+De op één na eenvoudigste manier om zelf modules te maken, is met 'themamodules' in de map 'contributions'.
+Daarmee kunt u uw eigen resourcebestanden linken. Die map bevat één .json-bestand per module of set van modules;
+maak uw eigen .json-bestand voor uw eigen module of set modules. U kunt een van de bestaande .json-bestanden kopiëren,
+hernoemen en wijzigen, om te kunnen zien hoe de vereiste syntaxis in een .json-bestand werkt.
+
+Themamodules worden gekoppeld aan een afzonderlijk thema. Als u dezelfde modules wilt gebruiken binnen verschillende
+thema's, moet u de .json-bestanden van deze moduledefinities kopiëren van het ene thema naar het andere. 
+
+Voor meer instructies voor themamodules raadpleegt u het bestand readme.txt binnen de map 'contributions'.
+
+(Er is ook nog een derde manier voor het maken van uw eigen modules, aangeduid als algemene of 'global' modules,
+via plugin.xml-bestanden binnen de map 'WEB-INF' voor bedrijfstoepassingen (.war's). Deze methode, die het meeste
+werk kost, dient u alleen te gebruiken als daar een goede reden voor is, bijvoorbeeld voor een module die wordt
+gebruikt voor meerdere thema's, waarvoor u niet de moduledefinitie wilt kopiëren naar elk van de thema's. Zoals
+de naam al aangeeft, hebben globale modules betrekking op alle thema's.)
+
+
++ profiles
+
+Als u uw modules eenmaal gedefinieerd hebt, zet u ze aan en uit met behulp van profielen in de map 'profiles'.
+Die map bevat één .json-bestand per profiel - maak uw eigen .json-bestand voor uw eigen profiel. U kunt een van
+de bestaande .json-bestanden kopiëren, hernoemen en wijzigen, om te kunnen zien hoe de vereiste syntaxis in een
+.json-bestand werkt. U zet uw eigen module (of welke module dan ook) aan door deze toe toe voegen aan de lijst
+van modules van het profiel. Wilt u uw eigen module (of een andere) uitzetten, dan verwijdert u deze uit de lijst
+van modules van het profiel. 
+
+Voor meer instructies voor themaprofielen raadpleegt u het bestand readme.txt binnen de map 'profiles'.
+
+
++ layout-templates
+
+Elke pagina wordt toegewezen aan een layoutsjabloon, zoals 3-kolommen gelijk, 2 kolommen rechts, etc. Deze layout-
+sjablonen worden gedefinieerd in de map 'layout-templates', met één submap per layout. U kunt zelf uw eigen
+layouts op maat maken door een nieuwe submap te maken en daar een bestand layout.html in te plaatsen.
+
+Voor meer instructies voor layoutsjablonen raadpleegt u het bestand readme.txt binnen de map 'layout-templates'.
+
+
+
+Oversikt over statiske temaressurser (norsk)
+*******************************
+
+Denne temahovedmappen i WebDAV inneholder de statiske ressursene for ditt tema som blir bidratt
+til portalserveren og Resource Aggregator-rammeverket. 
+
+Hovedsidedefinisjonen for temaet starter med temamalfilen, theme.html, i denne mappen. Denne
+temamalen inneholder HTML-kodingen som portalserveren bidrar med for ditt temas sider, inkludert
+de vanlige DOCTYPE-, html-, head- og body-kodene. I temamalen finnes det forskjellige dynamiske
+innholdspunkter som portalserveren behandler, vanligvis via .jsp-filer, og erstatter med dynamisk beregnet statisk koding for den endelige gjengivelsen av siden. 
+
+Øverst i sidehodet (head) er det obligatoriske dynamiske innholdspunktet
+<link rel="dynamic-content" href="co:head"> som er der Resource Aggregator-rammeverket behandler alle
+head-bidrag for modulene som er i bruk, for eksempel .css- og .js-filer, og kombinerer dem til en enkelt
+ressursforespørsel for optimal ytelse. Så for å oppnå denne optimale ytelsen bør du ikke linke dine
+egne ressurser, for eksempel .css- og .js-filer, i temamalen ved hjelp av link-koder direkte i head,
+men i stedet laste inn dine egne ressurser gjennom moduler. Se sammendragene for moduler og bidrag
+nedenfor hvis du ønsker mer informasjon om moduler. 
+
+Nederst i hoveddelen (body) er det obligatoriske dynamiske innholdspunktet
+<link rel="dynamic-content" href="co:config"> som er der Resource Aggregator-rammeverket behandler
+alle config-bidrag for modulene som er i bruk, for eksempel .js og .js-filer, og igjen kombinerer dem
+for optimal ytelse. her bør du også laste inn dine egne ressurser gjennom moduler. Se sammendragene
+for moduler og bidrag nedenfor hvis du ønsker mer informasjon om moduler.
+
+I resten av temamalen finnes det andre dynamiske innholdspunkter som peker til .jsp-filer. Du kan legge
+til dine egne dynamiske innholdspunkter der du vil gjøre dine egne tematilpasninger. Og du kan selvsagt
+også fjerne eller erstatte fullstendig bestemte dynamiske innholdspunkter hvis du trenger andre funksjoner
+for temaet.
+
+Temamalen har som standard språkstøtte, det vil si at det faktisk finnes flere oversatte versjoner av filen
+i mappen 'nls'. theme.html-hovedfilen brukes faktisk ikke av portalserveren til noe annet enn til å henvise
+til den versjonen av filen i mappen 'nls' som har språkmiljøet som samsvarer med klientens språkmiljø. Så
+når du endrer temamalen, må du sørge for å gjøre den første endringen i den versjonen av filen i mappen 'nls'
+som samsvarer med språkmiljøet du arbeider i, for eksempel i filen nls\theme_en.html. Gjør deretter påfølgende
+endringer i de andre språkfilene for språkene du trenger å støtte, og hopp over de du ikke trenger å støtte. Hvis
+du ikke trenger støtte for flere språk og bare trenger ett språk, kan du slå av støtten for flere språk ved å
+fjerne språkmiljølinkene (blokken <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) i head-delen i
+theme.html-hovedfilen. I så fall bruker ikke portalserveren filene i mappen 'nls' og bruker i stedet bare den
+ene theme.html-hovedfilen.
+
+Det fines en standard temamal, theme.html, for alle sider i et tema, men standardverdien kan overstyres
+for bestemte sider, slik at en annen temamal kan brukes. To andre eksempeltemamaler som leveres sammen med Portal,
+er theme_sidenav.html, som har den primære sidenavigeringen nedover siden i stedet for på tvers øverst på siden,
+og Plain.html, som er den enkleste temamalen du kan bruke som utgangspunkt og som også kan være nyttig i bestemte
+situasjoner, for eksempel for å bygge inn en enkelt portlett på en side i en iframe. Du kan kopiere, endre navn
+på og endre disse temamalfilene og opprette så mange du trenger. Deretter oppgir du hvilken temamal som brukes
+på en bestemt side ved å definere sideegenskapen com.ibm.portal.theme.template.file.name.html eller
+com.ibm.portal.theme.inherited.template.file.name.html i sideegenskapene. Bruk den første egenskapen hvis du vil angi
+temamalen bare for denne og ingen andre sider, eller bruk den andre egenskapen hvis du vil angi temamalen for denne
+siden og alle underordnede sider. Du kan også definere disse egenskapene via xmlaccess ved å eksportere xml for siden, legge til en verdi
+for parameteren com.ibm.portal.theme.template.file.name.html eller com.ibm.portal.theme.inherited.template.file.name.html
+ved siden av de andre sideparameterne, for eksempel
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+eller
+
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+og importere siden på nytt.
+
+
++ modules
+
+Den enkleste måten å opprette dine egne moduler på, kalt enkle moduler, for linking av dine egne ressursfiler,
+er i mappen 'resources'. I denne mappen finnes det en mappe per modul - opprett din egen mappe for din egen
+modul. Det finnes også en standard 'getting_started_module' som du kan bruke for å komme i gang. Du kan bare
+legge til dine ressursfiler, som .css- og .js-filer, i getting_started_module for å komme i gang raskt,
+eller bruke getting_started_module som et eksempel på hvordan du kan opprette dine egne modulmapper.
+
+Enkle moduler er definert for ett tema. Hvis du vil bruke noen av de samme modulene i forskjellige temaer,
+må du kopiere disse mappene for enkle moduler fra ett tema til et annet.
+
+For flere instruksjoner for enkle moduler kan du lese filen readme.txt i mappen 'modules'.
+
+
++ contributions
+
+Den nest enkleste måten å opprette dine egne moduler på, kalt temamoduler, for linking av dine egne ressursfiler,
+er i mappen 'contributions'. I den mappen finnes det en .json-fil per modul eller sett med moduler - opprett
+din egen .json-fil for din modul eller sett med moduler. Du kan kopiere,
+endre navn på og endre en av de eksisterende .json-filene for å se og lære den nødvendige .json-syntaksen.
+
+Temamoduler er definert for ett tema. Hvis du vil bruke noen av de samme modulene i forskjellige temaer, må du kopiere
+moduldefinisjonens .json-filer fra ett tema til et annet.
+
+For flere instruksjoner for temamoduler kan du lese filen readme.txt i mappen 'contributions'.
+
+(Den tredje metoden for å opprette dine egne moduler, kalt globale moduler, er via plugin.xml-filer i
+mappen 'WEB-INF' i webapplikasjonsdatalagre (.war-filer). Denne metoden innebærer mest arbeid,
+så den vil du nok ikke velge med mindre du har en god årsak, for eksempel hvis en modul brukes om igjen på tvers av flere temaer og du ikke vil duplisere moduldefinisjonen i hvert av temaene. Globale moduler,
+som navnet antyder, er definert for alle temaer.)
+
+
++ profiles
+
+Når modulene er definert, kan du slå dem på og av med profiler i mappen 'profiles'.
+I den mappen finnes det en .json-fil per profil - opprett din egen .json-fil for din profil. Du kan kopiere,
+endre navn på og endre en av de eksisterende .json-filene for å se og lære den nødvendige .json-syntaksen. Du
+slår på din egen eller andre moduler ved å legge dem til på profilens liste over moduler. Du
+slår av din egen eller andre moduler ved å fjerne dem fra profilens liste over moduler.
+
+For flere instruksjoner for temaprofiler kan du lese filen readme.txt i mappen 'profiles'.
+
+
++ layout-templates
+
+Hver side er tildelt til en layoutmal, som 3 kolonner likt, 2 kolonner likt eller 2 kolonner høyre. Disse
+layoutmalene er definert i mappen 'layout-templates' med en undermappe per layout. Du kan opprette dine
+egne tilpassede layouter ved å opprette en ny undermappe og en layout.html-fil i undermappen.
+
+For flere instruksjoner for layoutmaler kan du lese filen readme.txt i mappen 'layout-templates'.
+
+
+
+Przegląd zasobów statycznych kompozycji (polski)
+*******************************
+
+Ten główny folder kompozycji dostępny przez protokół WebDAV jest miejscem udostępniania zasobów
+statycznych kompozycji dla serwera portalu i środowiska agregatora zasobów. 
+
+Definicja strony głównej kompozycji rozpoczyna się od pliku szablonu kompozycji (theme.html)
+znajdującego się w tym folderze. Szablon kompozycji zawiera główny kod języka znaczników HTML,
+który serwer portalu udostępnia na potrzeby stron kompozycji, w tym powszechnie znane znaczniki
+DOCTYPE, html, head i body. W szablonie kompozycji występują różne dynamiczne obszary danych
+przetwarzane przez serwer portalu (zazwyczaj za pomocą plików .jsp), które są zastępowane przy
+użyciu dynamicznie obliczanego statycznego języka znaczników w celu ostatecznego wyświetlenia strony. 
+
+W górnej części nagłówka znajduje się wymagany dynamiczny obszar danych
+<link rel="dynamic-content" href="co:head">. Środowisko agregatora zasobów przetwarza tam wszystkie
+elementy wnoszone nagłówka dla używanych modułów, takie jak pliki .css i .js,
+które łączy w pojedyncze żądanie zasobu w celu zoptymalizowania wydajności. Aby korzystać ze
+zoptymalizowanej wydajności, nie można przywoływać własnych zasobów, takich jak pliki .css i .js, w
+szablonie kompozycji za pomocą znaczników odsyłaczy umieszczonych bezpośrednio w nagłówku, lecz
+raczej należy ładować własne zasoby przy użyciu modułów. Więcej informacji na temat modułów i
+elementów wnoszonych zawiera streszczenie poniżej. 
+
+W dolnej części treści znajduje się wymagany dynamiczny obszar danych <link rel="dynamic-content"
+href="co:config">. Środowisko agregatora zasobów przetwarza tam wszystkie
+elementy wnoszone konfiguracji używanych modułów, takie jak pliki .js i .html, które łączy ponownie w celu
+zoptymalizowania wydajności. W tym przypadku także należy ładować własne zasoby za pomocą
+modułów. Więcej informacji na temat modułów i elementów wnoszonych zawiera streszczenie
+poniżej. 
+
+Pozostała część szablonu kompozycji to inne dynamiczne obszary danych wskazujące na pliki .jsp. 
+Istnieje możliwość dodania własnych dynamicznych obszarów danych, gdzie można dostosowywać
+kompozycję. Oczywiście można również usunąć lub całkowicie zastąpić określone dynamiczne
+obszary danych, jeśli kompozycja powinna mieć inną funkcjonalność. 
+
+Szablon kompozycji domyślnie obsługuje języki narodowe, co oznacza, że w folderze nls znajduje się
+wiele przetłumaczonych wersji pliku. Główny plik theme.html jest
+używany przez serwer portalu tylko jako podstawa do utworzenia jego nowej wersji w folderze nls z
+ustawieniami narodowymi zgodnymi z ustawieniami narodowymi klienta. Dlatego w przypadku wprowadzania
+zmian w szablonie kompozycji należy wprowadzić początkową zmianę w wersji pliku w folderze nls
+zgodnym z roboczymi ustawieniami narodowymi, na przykład w pliku nls\theme_pl.html. Kolejne zmiany
+należy wprowadzić w innych plikach językowych dla języków, które mają być obsługiwane. Pliki
+dla pozostałych języków można pominąć. Jeśli obsługa wielu języków w ogóle nie jest potrzebna i
+wystarczy tylko jeden język, obsługę języków narodowych można wyłączyć, usuwając odsyłacze ustawień
+narodowych (blok <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) w nagłówku głównego pliku
+theme.html. W takim przypadku serwer portalu nie będzie używać plików w folderze nls, a zamiast
+tego będzie używać jednego głównego pliku theme.html. 
+
+Istnieje jeden domyślny szablon kompozycji (theme.html) dla wszystkich stron kompozycji, ale
+można go przesłonić dla określonych stron, dzięki czemu będą one używać innego szablonu kompozycji. 
+Dwa pozostałe szablony kompozycji dostarczane z portalem to theme_sidenav.html (z głównymi
+elementami nawigacyjnymi strony z boku zamiast na górze strony) i Plain.html (najprostszy szablon
+kompozycji, którego można użyć jako podstawy do modyfikacji i który może być także przydatny w
+niektórych sytuacjach, takich jak osadzanie pojedynczego portletu na stronie w i-ramce). Te pliki
+szablonów kompozycji można kopiować i modyfikować, zmieniać ich nazwy i tworzyć dowolną ilość
+szablonów na ich podstawie. Użycie szablonu kompozycji dla danej strony określa się,
+ustawiając właściwość strony com.ibm.portal.theme.template.file.name.html lub
+com.ibm.portal.theme.inherited.template.file.name.html na stronie Właściwości strony. Należy użyć
+pierwszej właściwości, aby ustawić szablon strony tylko dla danej strony, i drugiej właściwości,
+aby ustawić szablon kompozycji dla danej strony i wszystkich jej stron potomnych. Właściwości te
+można również ustawić za pomocą narzędzia xmlaccess, eksportując kod XML dla strony, dodając
+wartość dla parametru com.ibm.portal.theme.template.file.name.html lub
+com.ibm.portal.theme.inherited.template.file.name.html obok innych parametrów strony,
+takich jak: 
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+lub
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+i ponownie importując stronę. 
+
+
++ modules
+
+Najprostszym sposobem tworzenia własnych modułów, nazywanych modułami prostymi, jest utworzenie
+dowiązań do własnych plików zasobów w folderze modules. W tym folderze znajduje się jeden
+folder dla każdego modułu - należy utworzyć odrębny folder dla własnego modułu. Dostępny jest
+także jeden domyślny moduł getting_started_module, który ułatwia rozpoczęcie pracy. Istnieje
+możliwość dodania własnych plików zasobów, takich jak .css i .js, do modułu getting_started_module,
+co umożliwia szybkie rozpoczęcie pracy, lub użycia modułu getting_started_module jako przykładu -
+aby za jego pomocą dowiedzieć się, jak tworzyć własne, podobne foldery modułu. 
+
+Zasięgiem modułów prostych jest jedna kompozycja. Aby użyć niektórych z tych modułów w innych
+kompozycjach, należy skopiować ich foldery z jednej do drugiej kompozycji. 
+
+Dalsze instrukcje dotyczące modułów prostych zawiera plik readme.txt w folderze modules. 
+
+
++ contributions
+
+Kolejnym najprostszym sposobem tworzenia własnych modułów, nazywanych modułami kompozycji, jest
+utworzenie dowiązań do własnych plików zasobów w folderze contributions. W tym folderze znajduje
+się jeden plik .json dla każdego modułu lub zestawu modułów. Należy utworzyć własny plik .json dla
+własnego modułu lub zestawu modułów. Istniejący plik .json można skopiować, zmienić mu nazwę i
+zmodyfikować, aby poznać wymaganą składnię JSON. 
+
+Zasięgiem modułów kompozycji jest jedna kompozycja. Aby użyć niektórych z tych modułów w innych
+kompozycjach, należy skopiować ich pliki definicji .json między kompozycjami. 
+
+Dalsze instrukcje dotyczące modułów kompozycji zawiera plik readme.txt w folderze
+contributions. 
+
+Trzecim sposobem tworzenia własnych modułów, tak zwanych modułów globalnych, jest użycie plików
+plugin.xml w folderze WEB-INF w ramach repozytoriów aplikacji WWW (plików .war). Ta
+metoda wymaga najwięcej pracy, więc nie należy jej używać bez wyraźnej
+potrzeby, takiej jak ponowne użycie modułu w wielu kompozycjach bez
+duplikowania definicji modułu w każdej z tych kompozycji. Zasięgiem
+modułów globalnych są, jak wskazuje nazwa, wszystkie kompozycje.
+
+
++ profiles
+
+Po zdefiniowaniu modułów można je włączać i wyłączać przy użyciu profili w folderze
+profiles. W tym folderze znajduje się jeden plik .json dla każdego profilu. Należy utworzyć własny
+plik .json dla własnego profilu. Istniejący plik .json można skopiować, zmienić mu nazwę i
+zmodyfikować, aby poznać wymaganą składnię JSON. Dowolny moduł można włączyć, dodając go do listy
+modułów profilu. Dowolny moduł można wyłączyć, usuwając go z listy modułów profilu. 
+
+Dalsze instrukcje dotyczące profili kompozycji zawiera plik readme.txt w folderze profiles. 
+
+
++ layout-templates
+
+Do każdej strony jest przypisany szablon układu, na przykład 3 równe kolumny, 2 kolumny z prawej
+itp. Te szablony układu są zdefiniowane w folderze layout-templates, który zawiera jeden podfolder
+dla każdego układu. Istnieje możliwość utworzenia własnych niestandardowych układów przez
+utworzenie nowego podfolderu i pliku layout.html w tym podfolderze. 
+
+Dalsze instrukcje dotyczące szablonów układu zawiera plik readme.txt w folderze
+layout-templates. 
+
+
+
+Descrição geral de Recursos de tema estático (Português)
+*******************************
+
+Esta pasta de tema principal no WebDAV é onde os recursos estáticos para o tema são fornecidos
+ao servidor do Portal e à estrutura do agregador de recursos. 
+
+A definição de página principal do tema começa pelo ficheiro modelo de tema, theme.html, nesta
+pasta. Este modelo de tema contém a marcação HTML principal que o servidor do Portal irá distribuir
+para as páginas do tema, incluindo controlos DOCTYPE, html, head e body familiares. Dentro do
+modelo de tema, existem diversos pontos de conteúdo dinâmico que são processados pelo servidor do Portal,
+normalmente através de .jsp, e substitui por marcação estática calculada de forma dinâmica para a página de apresentação final. 
+
+No início do controlo head encontra-se o ponto de conteúdo dinâmico <link rel="dynamic-content" href="co:head"> requerido,
+que corresponde ao local onde a estrutura do agregador de recursos processa todas as contribuições head dos
+módulos em utilização, tais como ficheiros .css e .js, e combina-os num único pedido de recurso para obter
+um excelente desempenho. Assim, para participar neste excelente desempenho, não deverá ligar
+os seus próprios recursos, tais como ficheiros .css e .js, no modelo de tema utilizando etiquetas de ligação directamente
+no controlo head, mas, em alternativa, deve carregar os seus recursos através de módulos. Consulte os resumos de módulos e
+contribuições abaixo para obter mais informações sobre módulos. 
+
+Na parte inferior do controlo body encontra-se o ponto de conteúdo dinâmico <link rel="dynamic-content" href="co:config"> requerido,
+que corresponde ao local onde a estrutura do agregador de recursos processa todas as contribuições config
+dos módulos em utilização, tais como ficheiros .js e .html, e volta a combiná-los para obter
+um excelente desempenho. Também aqui deverá carregar os seus recursos através de módulos. Consulte os resumos de módulos e
+contribuições abaixo para obter mais informações sobre módulos. 
+
+Ao longo do restante modelo de tema existem outros pontos de conteúdo dinâmico que remetem para .jsps. Pode
+adicionar os seus próprios pontos de conteúdo dinâmico onde pretende efectuar as personalizações de tema. Além disso, também pode
+remover ou substituir por completo determinados pontos de conteúdo dinâmico se necessitar de uma
+funcionalidade diferente para o seu tema.
+
+O modelo de tema possui suporte de idioma nacional por predefinição, o que significa que existem efectivamente várias versões
+traduzidas do ficheiro na pasta 'nls'. Na verdade, o ficheiro theme.html principal não é utilizado pelo servidor do Portal sem ser
+para ramificar-se para a versão do ficheiro na pasta 'nls' que inclui a configuração regional que corresponde à
+configuração regional do cliente. Assim, ao efectuar uma alteração ao modelo de tema, certifique-se de que efectua a alteração inicial da
+versão do ficheiro na pasta 'nls' que corresponda à configuração regional em que está a trabalhar, tal como no
+ficheiro nls\theme_en.html. Em seguida, efectue alterações subsequentes aos outros ficheiros de idioma para os idiomas que necessita
+de suportar e ignore os idiomas de que não necessita de suporte. Se não necessitar de suporte de vários idiomas e
+necessitar apenas de um idioma, pode desactivar o suporte de idioma nacional, removendo as ligações de configuração
+regional (o bloco <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) no início do ficheiro theme.html principal,
+e, neste caso, o servidor do Portal não utilizará os ficheiros na pasta 'nls', utilizando, em alternativa, simplesmente o
+ficheiro theme.html principal.
+
+Existe um modelo de tema predefinido, theme.html, para todas as páginas de um tema, mas a predefinição pode ser substituída
+para determinadas páginas, de modo a que possa ser utilizado um modelo de tema diferente. Outros dois exemplos de modelos de tema
+incluídos no Portal são theme_sidenav.html, que tem a navegação de página principal na parte lateral em vez de ter
+no início da página, e Plain.html, que consiste no modelo de tema mais simples que poderá utilizar como ponto de
+partida e que também poderá ser útil em determinadas situações como, por exemplo, ao incorporar uma única portlet numa página dentro de um
+iframe. Pode copiar, mudar o nome e modificar estes ficheiros modelo de temas e criar todos aqueles de que necessitar. Em seguida,
+indica o modelo de tema que se encontra em utilização numa determinada página, definindo a propriedade
+da página com.ibm.portal.theme.template.file.name.html ou com.ibm.portal.theme.inherited.template.file.name.html em
+Propriedades da página. Utilize a primeira propriedade para definir o modelo de tema apenas para essa página ou
+utilize a segunda propriedade para definir o modelo de tema para essa página e todas as respectivas páginas
+descendentes. Também pode definir estas propriedades através de xmlaccess, exportando o xml para a página, adicionando um valor para
+o parâmetro com.ibm.portal.theme.template.file.name.html ou com.ibm.portal.theme.inherited.template.file.name.html
+próximo dos outros parâmetros da página, como, por exemplo:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+ou
+
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+e reimportando a página.
+
+
++ modules
+
+A forma mais fácil de criar os seus próprios modelos, designados por módulos simples, para ligar os seus ficheiros de
+recursos é na pasta 'modules'. Dentro desta pasta encontra-se uma pasta por módulo - crie a sua própria pasta para
+o seu módulo. Existe também um módulo predefinido, 'getting_started_module', para iniciar o seu trabalho. Pode, simplesmente, adicionar
+os ficheiros de recursos, tais como os ficheiros .css e .js, ao módulo getting_started_module para começar a trabalhar rapidamente,
+ou utilizar o módulo getting_started_module como um exemplo para ver como criar as suas pastas de módulos semelhantes.
+
+O âmbito dos módulos simples abrange o seu tema. Se pretender utilizar alguns destes mesmos módulos em temas diferentes,
+terá de copiar estas pastas de módulos simples de um tema para o outro.
+
+Para obter mais instruções sobre módulos simples, leia o ficheiro readme.txt que se encontra na pasta 'modules'.
+
+
++ contributions
+
+A segunda forma mais fácil de criar os seus próprios módulos, designados por módulos de tema, para ligar os seus
+ficheiros de recursos é na pasta 'contributions'. Dentro desta pasta existe um ficheiro .json por módulo ou conjunto
+de módulos - crie o seu próprio ficheiro .json para o seu próprio módulo ou conjunto de módulos. Pode copiar, mudar o nome e
+modificar um dos ficheiros .json existentes para consultar e aprender a sintaxe de .json necessária.
+
+O âmbito destes módulos de temas abrange o seu tema. Se pretender utilizar alguns destes mesmos módulos em temas diferentes,
+terá de copiar os ficheiros .json de definição destes módulos de um tema para o outro.
+
+Para obter mais instruções sobre módulos de tema, leia o ficheiro readme.txt que se encontra na pasta 'contributions'.
+
+(A terceira forma de criar os seus próprios módulos, designados por módulos globais, é através de ficheiros plugin.xml na
+pasta 'WEB-INF' nos repositórios de aplicações da Web (.war's). Este é o método que implica mais trabalho,
+pelo que só o deve utilizar se tiver um bom motivo, como para um módulo que é reutilizado em vários
+temas e não pretenda duplicar a definição do módulo em cada um dos temas. O âmbito dos módulos globais, como o
+nome indica, abrange todos os temas.)
+
+
++ profiles
+
+Após definir os seus módulos, pode activá-los e desactivá-los utilizando perfis na página 'profiles'.
+Dentro desta pasta existe um ficheiro .json por perfil - crie o seu próprio ficheiro .json para o seu próprio perfil. Pode copiar, mudar o nome e
+modificar um dos ficheiros .json existentes para consultar e aprender a sintaxe de .json necessária. Para activar o seu ou qualquer outro módulo, adicione-o à lista de módulos do perfil. Para desactivar o seu ou qualquer
+outro módulo, remova-o da lista de módulos do perfil.
+
+Para obter mais instruções sobre perfis de tema, leia o ficheiro readme.txt que se encontra na pasta 'profiles'.
+
+
++ layout-templates
+
+A cada página é atribuído um modelo de esquema como, por exemplo, Coluna 3 igual, Coluna 2 direita, etc. Estes modelos de
+esquema são definidos na pasta 'layout-templates', com uma subpasta por esquema. Pode criar
+os seus próprios esquemas personalizados, criando uma nova subpasta e um ficheiro layout.html dentro da subpasta.
+
+Para obter mais instruções sobre modelos de esquema, leia o ficheiro readme.txt que se encontra na pasta 'layout-templates'.
+
+
+
+Visão Geral de Recursos do Tema Estático (inglês) *******************************
+
+Este tema principal dentro da pasta WebDAV é onde os recursos estáticos de seu tema são fornecidos para o servidor de Portal e estrutura agregador de recursos. 
+
+A definição de página principal de seu tema inicia com o arquivo de modelo de tema, theme.html, nesta pasta. Esse modelo de tema contém a marcação HTML principal que o servidor do Portal entregará para as páginas do seu tema, incluindo as familiares tagsde DOCTYPE, html, cabeçalho e corpo. Dentro do modelo de tema, há vários pontos de conteúdo dinâmico, que os processos do servidor de Portal, geralmente por meio do .jsp e substitui com marcação estáticos dinamicamente calculado para a página finalmente renderização. 
+
+Ao cimo da cabeça é necessário <link rel="dynamic-content" href="co:head"> ponto de conteúdo dinâmico que é onde o quadro agregador de recurso processa todas as contribuições do cabeçote dos módulos em uso, como arquivos .css e .js, e os combina em um único pedido de recurso para um desempenho ideal. Portanto, a fim de participar deste desempenho otimizado, você não deve link seus próprios recursos, como arquivos .css e .js, no modelo de tema utilizando tags link diretamente na cabeça, mas, em vez disso, você deverá carregar seus próprios recursos através de módulos. Consulte os módulos e contribuições resumos abaixo para obter mais informações sobre os módulos. 
+
+Na parte inferior do corpo é necessário <link rel="dynamic-content" href="co:config"> ponto de conteúdo dinâmico que é onde o quadro agregador de recurso processa todos os contributos de configuração dos módulos em uso, como os arquivos .js e .html e os combina novamente para um desempenho ideal. Mais uma vez, você deverá carregar seus próprios recursos através de módulos. Consulte os módulos e contribuições resumos abaixo para obter mais informações sobre os módulos.
+
+No resto do modelo de tema são outros pontos de conteúdo dinâmico que aponte para o .jsp. É possível incluir seus próprios pontos de conteúdo dinâmico onde deseja fazer seu próprio tema customizações. E você pode também remover ou substituir inteiramente claro que alguns dos pontos de conteúdo dinâmico se você precisar funcionalidades diferentes para seu tema.
+
+O modelo de tema possui suporte ao idioma nacional por padrão, o que significa que existem efectivamente várias versões traduzidas do arquivo no 'nls' da pasta. O arquivo theme.html principal não é realmente utilizado pelo servidor de Portal além de ramificação off para a versão do arquivo no 'nls' pasta que possui o código do idioma que corresponda ao código do idioma do cliente. Portanto, ao fazer uma alteração para o modelo de tema, certifique-se de fazer a alteração inicial na versão do arquivo no 'nls' pasta que corresponde ao código do idioma que você está trabalhando, como no arquivo nls\theme_en.html. Depois, faça mudanças subsequenues para os outros arquivos de idioma para os idiomas que você precisa suportar e ignore os idiomas que você não precisa suportar. Se você não precisar suportar vários idiomas, todos precisam apenas um idioma, então o suporte ao idioma nacional pode ser desativado removendo os links do idioma (o <!--START LOCALE LINKS--><!--END LOCALE LINKS--> bloco) na cabeça do arquivo theme.html principal, no caso em que o servidor de Portal não utilizarão os arquivos no 'nls' da pasta e, em vez disso, utilize um arquivo theme.html principal.
+
+Há um modelo de tema padrão, theme.html, para todas as páginas de um tema, mas o padrão pode ser substituído para determinadas páginas de forma que um modelo de tema diferente pode ser utilizado. Dois outros modelos que vêm com o tema do Portal são exemplo theme_sidenav.html, que tem a navegação de página principal no lado em vez de através do início da página, e Plain.html, que é o modelo de tema mais simples que você pode utilizar como um ponto inicial e que também pode ser útil em determinadas situações, como integrar um portlet único em uma página em um iframe. Você pode copiar, renomear e modificar esses arquivos de modelo de tema e criar quantas forem necessárias. Depois informe qual modelo está em uso em uma determinada página configurando a propriedade de página
+com.ibm.portal.theme.template.file.name.html ou com.ibm.portal.theme.inherited.template.file.name.html em Propriedades da Página. Utilize a propriedade primeiro para definir o modelo de tema para que apenas uma, e somente uma página, ou utilize a segunda propriedade para configurar o modelo de tema para essa página e todos os seus descendentes páginas. Você também pode definir estas propriedades por meio de xmlaccess exportando o xml para a página, incluindo um valor para o parâmetro com.ibm.portal.theme.template.file.name.html ou com.ibm.portal.theme.inherited.template.file.name.html perto da página outros parâmetros, como:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+ou
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+e importar a página.
+
+
++ módulos
+
+A maneira mais fácil de criar seus próprios módulos, referidos como módulos simples, para vincular seus próprios arquivos de recursos está no ' Módulos' da pasta. Na de pasta é uma pasta por módulo, criar sua própria pasta para seu próprio módulo. Há também um padrão 'getting_started_module' para iniciar. Você pode simplesmente incluir seus arquivos de recursos, como arquivos .css e .js, para o getting_started_module para começar rapidamente, ou utilize o getting_started_module como um exemplo para ver como criar seu próprio módulo pastas semelhantes.
+
+Os módulos são com escopo definido para seu um tema. Se você deseja utilizar alguns destes módulos mesmo em diferentes temas, você tem que copiar estas pastas simples a partir de um módulo de tema para o outro.
+
+Para obter instruções adicionais sobre módulos simples ler o arquivo readme.txt dentro dos módulos' da pasta.
+
+
++ Contribuições
+
+A segunda maneira-mais fácil para criar seus próprios módulos, referidos como módulos de tema, para vincular seus próprios arquivos de recursos está no "contributos " da pasta. Na de pasta é um arquivo .json por módulo ou conjunto de módulos, criar seu próprio arquivo .json para seu próprio módulo ou conjunto de módulos. Você pode copiar, renomear e modificar um dos arquivos .json existentes para ver e aprender a sintaxe .json que é necessário.
+
+os módulos são com escopo definido para seu Tema um tema. Se você deseja utilizar alguns destes módulos mesmo em diferentes temas, você tem que copiar esses arquivos .json definição de módulo a partir de um tema para o outro.
+
+Para obter instruções adicionais sobre os módulos de tema ler o arquivo readme.txt no "contributos " da pasta.
+
+(A terceira forma de criar seus próprios módulos, referidos como módulos global, é através de arquivos plugin.xml na pasta ' ' WEB-INF dentro de repositórios de aplicativos da Web (da .war). Dessa forma envolve o trabalho mais, portanto você não faria isso a menos que você tenha uma boa razão, como para um módulo que é reutilizada em vários temas e você não deseja duplicar a definição do módulo em cada um dos temas. módulos Global, como o nome implica, são com escopo em todos os temas.)
+
+
++ perfis
+
+Depois de ter seus módulos definidos, você ligue e desligue os utilizando perfis no 'perfis' da pasta.
+Na de pasta é um arquivo .json por perfil de criar seu próprio arquivo .json para seu próprio perfil. Você pode copiar, renomear e modificar um dos arquivos .json existentes para ver e aprender a sintaxe .json que é necessário. Desligue o ou qualquer módulo, incluindo-o na lista de perfil de módulos. Desligue o ou qualquer módulo desligar, removendo-o da lista do perfil de módulos.
+
+Para obter instruções adicionais sobre perfis de tema ler o arquivo readme.txt no 'perfis' da pasta.
+
+
++ modelos de layout
+
+Cada página é designada a um modelo de layout, como 3 Column Equal, 2 Coluna Direita, etc. Estes modelos de layout são definidos no 'layout-templates' pasta, com uma subpasta por layout. Você pode criar seus próprios layouts customizados criando uma nova subpasta e um arquivo layout.html dentro da subpasta.
+
+Para obter instruções adicionais sobre modelos de layout ler o arquivo readme.txt na 'layout-templates' da pasta.
+
+
+
+Privire generală resurse temă statice (Engleză)
+*******************************
+
+Acest folder temă principal din WebDAV este unde resursele pentru tema dumneavoastră sunt furnizate
+la serverul Portal şi cadrul de lucru agregator resursă. 
+
+Definiţia paginii principale a temei dumneavoastră începe cu fişierul şablon temă, theme.html, din acest
+folder. Acest şablon temă conţine marcajul principal HTML pe care serverul Portal îl va servi
+paginilor temei dumneavoastră, inclusiv tag-urile familiare DOCTYPE, html, head şi body. În acest
+şablon temă, există diverse spoturi de conţinut dinamice pe care le procesează serverul Portal,
+tipic prin .jsp's şi le înlocuieşte cu marcaj static calculate dinamic pentru pagina
+de randare finală. 
+
+În partea de sus a head-ului este necesar spotul dinamic de conţinut <link rel="dynamic-content" href="co:head">
+care este unde cadrul de lucru agregator resursă procesează toate contribuţiile head ale
+modulelor din utilizare, cum ar fi fişierele .css şi .js şi le combină într-o cerere resursă singulară pentru
+performanţă optimă. Deci, pentru a obţine această performanţă optimă, nu trebuie să legaţi
+resursele dumneavoastră proprii, cum ar fi fişlierele .css şi .js, în şablonul temă utilizând tag-uri legătură direct
+în head, ci, mai degrabă, trebuie să încărcaţi resursele proprii prin module. Vedeţi sumarele module şi
+contribuţii mai jos pentru informaţii suplimentare despre module. 
+
+În partea de jos a body-ului este necesar spotul dinamic de conţinut <link rel="dynamic-content" href="co:config">
+care este unde cadtul de lucru agregator resursă procesează toate contribuţiile config ale
+modulelor din utilizare, cum ar fi fişierele .js şi .html şi le combină din nou pentru
+performanţă optimă. Aici din nou, trebuie să încărcaţi resursele proprii prin module. Vedeţi sumarele module şi
+contribuţii mai jos pentru informaţii suplimentare despre module. 
+
+Prin restul şablonului temă sunt spoturi de conţinut dinamice care arată la .jsp's. Puteţi adăuga
+spoturile de conţinut dinamice unde doriţi să faceţi propriile dumneavoastră personalizări temă. Şi puteţi
+de asemenea să înlăturaţi sau să înlocuiţi total spoturile de conţinut dinamice dacă funcţionalitate diferită
+pentru tema dumneavoastră.
+
+Şablonul temă are suport limbă naţională implicit, ceea ce înseamnă că există versiuni multiple traduse
+a fişierului din folderul 'nls'. Fişierul principal theme.html nu este utilizat de serverul Portal
+altul decât pentru a ramifica la versiunea fişierului din folderul 'nls' care are locale-ul care se potriveşte cu locale-ul clientului. Deci, când faceţi o modificare la şablonul temă, asiguraşi-vă că  faceţi modificarea iniţială în versiune afişierului din folderul 'nls' care se potriveşte cu locale-ul în care lucraţi, cum ar fi
+în fişierul nls\theme_en.html. Apoi faceţi modificările următoare la alte fişiere limbă pentru limbile pe care aveţi nevoie să le
+suportaţi şi săriţi peste limbile pe care nu le suportaţi. Dacă nu aveţi nevoie să suportaţi mai multe limbi
+deloc şi aveţi nevoie doar de o limbă, atunci suportul limbă naţională poate fi oprit prin înlăturarea legăturilor locale-ului
+(blocul <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) din head-ul fişierului principal theme.html,
+în care caz serverul Portal nu va utiliza fişierele din folderul 'nls' şi va utiliza simplu în loc
+un singur fişier principal theme.html.
+
+Există un singur şablon implicit, theme.html, pentru toate paginile temei, dar valoarea implicită poate fi înlocuită
+pentru anumite pagini asfel încât poate fi utilizat un şablon temă diferit pentru anumite pagini. Alte două şabloane temă exemple care
+vin cu Portalul sunt theme_sidenav.html, care are navigarea paginii primare în josul părţii mai degrabă decât
+prin partea de sus a paginii şi Plain.html, care este cel mai simplu şablon temă  pe care îl puteţi utiliza ca punct de plecare şi care de asemenea poate fi folositor în anumite situaţii cum ar fi înglobarea unui singur portlet dintr-o pagină dintr-un
+iframe. Puteţi copia, redenumi sau modifica aceste fişiere şabloane temă şi puteţi crea câte aveţi nevoie. Apoi spuneţi ce
+şablon temă este în folosire pe o anumită pagină prin setarea proprietăţii paginii
+com.ibm.portal.theme.template.file.name.html sau com.ibm.portal.theme.inherited.template.file.name.html
+în Proprietăţi pagină. Utilizaţi prima proprietate pentru setarea şablonului temă doar pentru acela şi doar o pagină sau
+utilizaţi a doua proprietate pentru setarea şablonului temă pentru acea pagină şi pentru toţi descendenţii pagină
+ai săi. Puteţi de asemenea seta aceste proprietăţi prin xmlaccess prin exportarea xml-ului pentru pagină, adăugând o valoare pentru
+parametrul com.ibm.portal.theme.template.file.name.html sau com.ibm.portal.theme.inherited.template.file.name.html
+de lângă alţi parametrii pagină, cum ar fi:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+sau
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+şi reimportarea paginii.
+
+
++ modules
+
+Cel mai uşor mod de a crea propriile dumneavoastră module, referite ca module simple, pentru legarea fişierelor
+resursă ale dumneavoastră este în folderul 'modules'. În acel folder este un foler pe modul - creaţi propriul dumneavoastră folder pentru modulul dumneavoastră. Există de asemenea un  'getting_started_module' implicit pentru a vă porni. Puteţi adăuga simplu
+fişierele dumneavoastră resursă, cum ar fi fişierele .css şi .js, în getting_started_module pentru a porni rapid,
+sau utilizaţi getting_started_module ca un exemplu pentru a vedea cum să creaţi folderele dumneavoastră proprii similare.
+
+Modulele simple au ca domeniu o temă a dumneavoastră proprie. Dacă doriţi să utilizaţi unele dintre aceleaşi module din teme diferite,
+trebuie să copiaţi aceste foldere modul simple de la o temă la alta.
+
+Pentru alte instrucţiuni despre modulele simple citiţi fişierul readme.txt din folderul 'module'.
+
+
++ contributions
+
+Al doilea cel mai uşor mod de a crea propriile dumneavoastră module, referite ca module temă, pentru legarea fişierelor
+resursă ale dumneavoastră este în folderul 'contributions'. În acel folder este câte un fişier .json pe modul sau set
+de module - creaţi fişierul dumneavoastră propriu .json pentru propriul dumneavoastră modul sau set de module. Puteţi copia, redenumi şi
+modifica unul dintre fişierle existente .json pentru a vedea şi învăţa sintaxa .json care este necesară.
+
+Modulele temă au ca domeniu doar o temă a dumneavoastră. Dacă doriţi să utilizaţi unele dintre aceleaşi module din teme diferite,
+trebuie să copiaţi aceste fişiere .json de definiţie a modulului de la o temă la alta.
+
+Pentru alte instrucţiuni despre modulele temă citiţi fişierul readme.txt din folderul 'module'.
+
+(Cel de-al treilea mod de a crea propriile dumneavoastră module, referite ca module globale, prin fişierele plugin.xml
+din folderul 'WEB-INF' în magaziile aplicaţii web (.war's). Acest mod implică lucru cel mai mult,
+deci să nu îl faceţi decât dacă aveţi un motiv bun, cum ar fi pentru un modul care este reutilizat în teme multiple
+şi nu doriţi să duplicaţi definiţia modulului în fiecare dintre teme. Modulele globale, după cum le spune
+numele, au ca domeniu toate temele.)
+
+
++ profiles
+
+O dată ce aveţi modulele dumneavoastră definite, le puteţi porni şi opri utilizând profiluri din folderul 'profiles'.
+În acel folder este câte un fişier .json pe
+profil - creaţi fişierul dumneavoastră propriu .json pentru propriul dumneavoastră profil. Puteţi copia, redenumi şi
+modifica unul dintre fişierele existente .json pentru a vedea şi învăţa sintaxa .json care este necesară. Porniţi modulul dumneavoastră sau orice modul prin adăugarea lui la lista de profiluri a modulelor. Opriţi modulul dumneavoastră sau orice modul prin înlăturarea lui din lista de profiluri a modulelor. 
+
+Pentru alte instrucţiuni despre profiluri temă citiţi fişierul readme.txt din folderul 'profiles'.
+
+
++ layout-templates
+
+Fiecare pagină este alocată la un şablon dispunere, cum ar fi 3 coloane egale, 2 coloane dreapta etc. Aceste şabloane
+dispunere sunt definite în folderul 'layout-templates', cu un subfolder pe dispunere. Puteţi crea
+dispunerile dumneavoastră proprii personalizate prin crearea unui nou subfolder şi a unui fişier layout.html în subfolder.
+
+Pentru alte instrucţiuni despre şabloanele dispunere citiţi fişierul readme.txt din folderul 'layout-templates'.
+
+
+
+Обзор статических ресурсов темы
+*******************************
+
+Основная папка темы WebDAV содержит статические ресурсы темы для среды агрегатора
+ресурсов и сервера портала. 
+
+Определение главной страницы темы начинается с файла шаблона темы
+theme.html в этой папке. Шаблон темы содержит текст на языке
+описания HTML, предоставляемый сервером портала страницам темы,
+включая теги DOCTYPE, html, head и body. Кроме того, шаблон темы
+содержит различные динамические области материалов, которые сервер
+портала обрабатывает (как правило, с помощью .jsp) и заменяет
+динамически создаваемым текстом на языке описания при выводе страницы. 
+
+В верхней части заголовка расположена обязательная
+динамическая область материалов <link rel="dynamic-content" href="co:head">,
+в которой среда агрегатора ресурсов обрабатывает все
+дополнения применяемых модулей, такие как файлы .css и .js, и
+объединяет их в один запрос ресурсов для оптимизации
+производительности. Таким образом, для обеспечения
+оптимальной производительности не следует связывать собственные
+ресурсы, такие как файлы .css и .js, в шаблоне темы с помощью тегов
+link непосредственно в заголовке; такие ресурсы следует
+загружать через модули. Дополнительная информация о модулях
+приведена ниже в обзорах модулей и дополнений. 
+
+В нижней части тела расположена обязательная динамическая
+область материалов <link rel="dynamic-content" href="co:config">, в
+которой среда агрегатора ресурсов обрабатывает все дополнения
+конфигурации применяемых модулей, такие как файлы .js и .html, и
+снова объединяет их для оптимизации производительности. Аналогичным
+образом, собственные ресурсы следует загружать с помощью модулей.
+Дополнительная информация о модулях приведена ниже в обзорах модулей
+и дополнений.
+
+Кроме того, в шаблоне темы расположены другие динамические области
+материалов, указывающие на файлы .jsp. Для дополнительной
+настройки темы можно добавить собственные динамические области
+материалов. Кроме того, динамические области материалов можно
+удалить или полностью заменить с учетом особенностей темы. 
+
+Шаблон темы по умолчанию поддерживает национальные языки (папка 'nls'
+содержит переведенные версии файла). Основной файл theme.html
+физически применяется сервером портала только для выбора файла в
+папке 'nls' с учетом локали клиента. Таким образом, при внесении
+изменений в шаблон темы следует изменить версию файла в папке 'nls'
+для применяемой локали, например nls\theme_en.html. Затем измените
+файлы для остальных поддерживаемых языков и пропустите языки,
+поддержка которых не требуется. Если поддерживаться будет
+только один язык, то поддержку национальных языков можно
+выключить, удалив строки локалей (блок <!--START LOCALE
+LINKS--><!--END LOCALE LINKS-->) в заголовке основного файла
+theme.html. В этом случае сервер портала не будет использовать
+файлы из папки 'nls', загружая только основной файл theme.html. 
+
+Для всех страницы темы применяется один шаблоны темы по
+умолчанию (theme.html), который при необходимости можно
+переопределить для отдельных страниц. Кроме того, в состав портала
+входят два примера шаблонов темы: theme_sidenav.html (основная
+боковая панель навигации) и Plain.html (самый простой шаблон темы, который можно
+использовать в качестве начальной точки, а также в таких
+ситуациях, как встраивание отдельного портлета на странице в iframe).
+Эти файлы шаблонов можно скопировать, переименовать
+и изменить для создания собственных шаблонов. Шаблон темы для
+конкретной страницы можно указать с помощью свойства
+com.ibm.portal.theme.template.file.name.html или
+com.ibm.portal.theme.inherited.template.file.name.html. Первое
+свойство позволяет указать шаблон темы только для текущей страницы,
+а второе свойство - для текущей страницы и всех ее дочерних
+страницы. Кроме того, эти свойства можно указать с помощью xmlaccess,
+экспортировав файл xml страницы и добавив значение параметра
+com.ibm.portal.theme.template.file.name.html или
+com.ibm.portal.theme.inherited.template.file.name.html
+рядом с другими элементами страницы. Пример: 
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+или
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+затем следует заново импортировать страницу. 
+
+
++ modules
+
+Самый простой способ создания собственных модулей (простые
+модули). Позволяет связать собственные ресурсы в папке 'modules'.
+В ней расположена одна папка для каждого модуля - создайте новую папку для
+своего модуля. Кроме того, эта папка содержит папку по умолчанию
+'getting_started_module', позволяющую быстро начать работу. Добавьте
+файлы ресурсов, такие как .css и .js, в папку getting_started_module
+или создайте на ее основе аналогичные папки модулей. 
+
+Простые модули относятся к одной теме. Для применения этих модулей в
+других темах необходимо скопировать соответствующие папки из одной
+темы в другие. 
+
+Дополнительные инструкции по работе с простыми модулями приведены в
+файле readme.txt, расположенном в папке 'modules'.
+
+
++ contributions
+
+Второй по сложности способ создания собственных модулей
+(модули темы). Позволяет связать собственные ресурсы в папке 'contributions'.
+В ней расположен один файл .json для каждого модуля - создайте новый файл
+.json для своего модуля или набора модулей. Можно скопировать,
+переименовать и изменить один из существующих файлов .json, чтобы
+получить общее представление о применяемом синтаксисе .json.
+
+Эти модули относятся к одной теме. Для применения модулей в
+других темах необходимо скопировать соответствующие файлы определений
+.json из одной темы в другие.
+
+Дополнительные инструкции по работе с простыми модулями приведены в
+файле readme.txt, расположенном в папке 'contributions'.
+
+(Кроме того, существует третий способ создания собственных
+(глобальных) модулей с помощью файлов plugin.xml в папке 'WEB-INF'
+хранилищ веб-приложений .war). Поскольку это самый трудоемкий способ, его рекомендуется
+использовать только в исключительных случаях, например для
+создания модуля, применяемого в нескольких темах, без дублирования
+его определения в каждой теме. Глобальные модули доступны во
+всех темах.)
+
+
++ profiles
+
+Существующие модули можно включить и выключить с помощью
+профайлов в папке 'profiles'. В ней расположен один файл .json для
+каждого профайла - создайте новый файл .json для своего профайла. Можно скопировать,
+переименовать и изменить один из существующих файлов .json, чтобы
+получить общее представление о применяемом синтаксисе .json. Для
+включения модуля добавьте его в список модулей в профайле. Для
+выключения модуля удалите его из списка модулей в профайле.
+
+Дополнительные инструкции по работе с профайлами темы приведены в файле
+readme.txt, расположенном в папке 'profiles'.
+
+
++ layout-templates
+
+Каждой странице присваивается шаблон макета, такой как 3 Column
+Equal, 2 Column Right и т. д. Шаблоны макетов расположены в папке
+'layout-templates'. Каждый макет соответствует отдельной подпапке.
+Для создания собственного макета создайте новую подпапку и добавьте
+в нее файл layout.html. 
+
+Дополнительные инструкции по работе с шаблонами макетов приведены в файле
+readme.txt, расположенном в папке 'layout-templates'.
+
+
+
+Prehľad statických prostriedkov témy (slovenčina)
+*******************************
+
+Toto je hlavná zložka témy vo WebDAV, kde sa statické prostriedky pre vašu tému poskytujú serveru Portal a kostre agregátora prostriedkov. 
+
+Definícia hlavnej strany vašej témy začína súborom šablóny témy, theme.html, v tejto zložke. Táto šablóna témy obsahuje hlavné značky HTML, ktoré server Portal poskytne pre strany vašej témy, vrátane známych značiek DOCTYPE, html, head a body. V šablóne témy sú potom rôzne miesta dynamického obsahu, ktoré spracúva server Portal, zvyčajne prostredníctvom súborov .jsp, a nahradí ich dynamicky vypočítanými statickými značkami pre konečné renderovanie strany. 
+
+Na začiatku sekcie head je povinné miesto dynamického obsahu <link rel="dynamic-content" href="co:head">, kde kostra agregátora prostriedkov spracúva všetky kontribúcie pre head z použitých modulov, napríklad súborov .css a .js, a skombinuje ich do jednej požiadavky o prostriedok kvôli optimálnemu výkonu. Ak sa chcete podieľať na tomto optimálnom výkone, svoje vlastné prostriedky, ako sú súbory .css a .js, by ste nemali prepájať v téme pomocou značiek link priamo v sekcii head, ale mali by ste ich načítať cez moduly. Pozrite si súhrn modulov a kontribúcií nižšie, kde nájdete viac informácií o moduloch. 
+
+Naspodku sekcie body je povinné miesto dynamického obsahu <link rel="dynamic-content" href="co:config">, kde kostra agregátora prostriedkov spracúva všetky kontribúcie pre config z použitých modulov, ako sú súbory .js a .html, a znova ich skombinuje kvôli optimálnemu výkonu. Aj tu platí, že vlastné prostriedky by ste mali načítavať pomocou modulov. Pozrite si súhrn modulov a kontribúcií nižšie, kde nájdete viac informácií o moduloch.
+
+Vo zvyšku šablóny témy sú iné miesta dynamického obsahu, ktoré ukazujú na súbory .jsp. Môžete pridať vlastné miesta dynamického obsahu na miesta, kde chcete spraviť vlastné prispôsobenia témy. Máte tiež možnosť odstrániť alebo úplne nahradiť niektoré miesta dynamického obsahu, ak pre svoju tému požadujete inú funkčnosť. 
+
+Šablóna témy má predvolene národnú jazykovú podporu. Znamená to, že v zložke 'nls' existuje viacero preložených verzií súboru. Server Portal v skutočnosti používa hlavný súbor theme.html iba na nasmerovanie k verzii súboru v zložke 'nls' s miestnymi nastaveniami, ktoré sa zhodujú s miestnymi nastaveniami klienta. Pri robení zmeny v šablóne témy musíte spraviť počiatočnú zmenu vo verzii súboru v zložke 'nls' s miestnymi nastaveniami, ktoré sa zhodujú s miestnymi nastaveniami, s ktorými pracujete, napríklad v súbore nls\theme_sk.html. Potom spravte ďalšie zmeny v ostatných súborov jazyka pre jazyky, ktoré potrebujete podporovať. Jazyky, ktoré nemusíte podporovať, preskočte. Ak vôbec nepotrebujete podporu viacerých jazykov a stačí vám jeden jazyk, národnú jazykovú podporu možno vypnúť odstránením odkazov locale (blok <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) v sekcii head hlavného súboru theme.html. V takomto prípade server Portal nebude používať súbory v zložke 'nls' a namiesto toho použije jeden hlavný súbor theme.html.
+
+Existuje jedna predvolená šablóna témy, theme.html, pre všetky strany témy, ale predvolené nastavenie možno pre niektoré strany nahradiť, aby mohli použiť inú šablónu témy. Dva ďalšie príklady šablón témy, ktoré sú dodané s produktom Portal, sú theme_sidenav.html, ktorá má primárnu navigáciu strany umiestnenú zvislo, nie cez šírku v hornej časti strany, a Plain.html, čo je najjednoduchšia šablóna témy, ktorú môžete použiť ako začiatočný bod a ktorá tiež môže pomôcť v situáciách, ako je vkladanie jednoduchého portletu na stranu v elemente iframe. Tieto súbory šablón témy môžete skopírovať, premenovať a upraviť a vytvoriť ľubovoľný počet šablón. Šablónu témy, ktorá sa použije na určitej strane, potom nastavíte pomocou vlastnosti strany com.ibm.portal.theme.template.file.name.html alebo com.ibm.portal.theme.inherited.template.file.name.html vo Vlastnostiach strany. Prvú vlastnosť použite na nastavenie šablóny témy pre jednu jedinú stranu. Druhú vlastnosť môžete použiť na nastavenie šablóny témy pre danú stranu a všetky jej dcérske strany. Tieto vlastnosti tiež môžete nastaviť cez xmlaccess exportovaním kódu xml pre stranu, pridaním hodnoty pre parameter com.ibm.portal.theme.template.file.name.html alebo com.ibm.portal.theme.inherited.template.file.name.html pri ostatných parametroch strany, napríklad: 
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+alebo
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+a opätovným importom strany.
+
+
++ modules
+
+Najjednoduchší spôsob, ako vytvárať vlastné moduly (nazýva sa jednoduché moduly) pre prepájanie vlastných súborov prostriedkov, je využitie zložky 'modules'. V tejto zložke existuje jedna zložka pre každý modul - vytvorte vlastnú zložku pre vlastný modul. Existuje aj jedna predvolená zložka 'getting_started_module', ktorá vám pomôže v začiatkoch. Ak chcete rýchlo začať, stačí skopírovať vaše súbory prostriedkov, ako sú súbory .css a .js, do zložky getting_started_module. Zložku getting_started_module tiež môžete použiť ako príklad a zistiť, ako vytvoriť vlastné podobné zložky modulu. 
+
+Jednoduché moduly majú nastavený rozsah na vašu jednu tému. Ak chcete niektoré z týchto modulov použiť v iných témach, musíte skopírovať tieto zložky jednoduchých modulov z jednej témy do druhej.
+
+Podrobný návod k jednoduchým modulom nájdete v súbore readme.txt v zložke 'modules'.
+
+
++ contributions
+
+Druhý najjednoduchší spôsob, ako vytvárať vlastné moduly (nazýva sa moduly témy) pre prepájanie vlastných súborov prostriedkov, je využitie zložky 'contributions'. V tejto zložke existuje jeden súbor .json pre každý modul alebo množinu modulov - vytvorte vlastný súbor .json pre svoj vlastný modul alebo množinu modulov. Ak si chcete pozrieť vyžadovanú syntax súboru .json a oboznámiť sa s ňou, môžete skopírovať, premenovať a upraviť jeden z existujúcich súborov .json.
+
+Moduly témy majú nastavený rozsah na vašu jednu tému. Ak chcete niektoré z týchto modulov použiť v iných témach, musíte skopírovať súbory .json s definíciou týchto modulov z jednej témy do druhej.
+
+Podrobný návod k modulom témy nájdete v súbore readme.txt v zložke 'contributions'.
+
+(Tretí spôsob vytvárania vlastných modulov, ktorý sa nazýva globálne moduly, využíva súbory plugin.xml v zložke 'WEB-INF' v podnikových aplikáciách (súbory .war. Tento spôsob obnáša najviac práce a nemali by ste ho použiť, ak na to nemáte dobrý dôvod. Vhodný scenár použitia je ten, ak máte modul, ktorý sa opakovane používa vo viacerých témach a nechcete duplikovať definíciu modulu v každej z tém. Globálne moduly majú rozsah na všetky témy, ako implikuje ich názov.)
+
+
++ profiles
+
+Keď definujete svoje moduly, pomocou profilov v zložke 'profiles' ich môžete aktivovať a deaktivovať. V tejto zložke existuje jeden súbor .json pre každý profil - vytvorte vlastný súbor .json pre svoj vlastný profil. Ak si chcete pozrieť vyžadovanú syntax súboru .json a oboznámiť sa s ňou, môžete skopírovať, premenovať a upraviť jeden z existujúcich súborov .json. Ak chcete aktivovať svoj alebo ľubovoľný modul, pridajte ho do zoznamu modulov profilu. Ak chcete deaktivovať svoj alebo ľubovoľný modul, odstráňte ho zo zoznamu modulov profilu.
+
+Podrobný návod k profilom témy nájdete v súbore readme.txt v zložke 'profiles'.
+
+
++ layout-templates
+
+Každá strana má priradenú šablónu rozloženia, napríklad Tri rovnaké stĺpce, Dva stĺpce vpravo atď. Tieto šablóny rozloženia sú definované v zložke 'layout-templates', pričom každé rozloženie má jednu podzložku. Ak chcete vytvoriť vlastné rozloženia, vytvorte novú podzložku a súbor layout.html v tejto podzložke. 
+
+Podrobný návod k šablónam rozloženia nájdete v súbore readme.txt v zložke 'layout-templates'.
+
+
+
+Pregled virov statičnih tem (slovenščina)
+*******************************
+
+Glavna mapa teme v WebDAV je tista mapa, ki zagotavlja statične vire za vašo temo
+portalskemu strežniku in ogrodju zruževalnika virov.
+
+Definicija glavne strani vaše teme se začne z datoteko predloge za temo, theme.html, ki je v tej
+mapi. Ta predloga za temo vsebuje glavno označbo HTML, ki jo bo strežnik predložil za strani vaše teme, vključno
+z običajnimi oznakami za DOCTYPE, html, glavo in telo. Znotraj predloge za temo so različne
+točke dinamične vsebine, ki jih obdeluje portal (običajno z datotekami .jsp) in jih
+nadomešča z dinamično izračunanimi statičnimi označbami, ko končno upodobi stran. 
+
+Na vrhu glave je zahtevana točka dinamične vsebine <link rel="dynamic-content" href="co:head">,
+kjer ogrodje združevalnika virov obdela vse prispevke "head" uporabljenih modulov, kot so
+na primer datoteke .css in .js, ter jih zaradi optimiziranja zmogljivosti združi v eno samo zahtevo
+za vire. To pomeni, da zaradi optimalne zmogljivosti v predlogo teme ne smete povezovati
+lastnih virov (npr. datoteke .css in .js) z uporabo oznak za povezave neposredno v razdelku
+"head", ampak morate namesto tega svoje vire naložiti s pomočjo modulov. Za več informacij o modulih
+glejte povzetke modulov in prispevkov spodaj.
+
+Na dnu telesa je zahtevana točka dinamične vsebine <link rel="dynamic-content" href="co:config">,
+kjer ogrodje združevalnika virov obdela vse prispevke config uporabljenih modulov, kot so
+datoteke .js in .html, in tudi te združi zaradi optimiziranja zmogljivosti.
+Tudi tu velja, da morate svoje vire naložiti prek modulov. Za več informacij o modulih
+glejte povzetke modulov in prispevkov spodaj.
+
+Po drugih delih predloge teme so porazdeljene še druge točke dinamične vsebine, ki kažejo na datoteke .jsp. Svoje
+točke dinamične vsebine lahko dodate na želena mesta in po meri prirejate teme. Seveda lahko odstranite ali v celoti
+nadomestite določene točke dinamične vsebine, če potrebujete drugačne funkcije za
+svojo temo.
+
+Predloga teme privzeto vsebuje jezikovno podporo za domači jezik, kar pomeni, da v mapi 'nls' obstaja več prevedenih
+različic datoteke. Glavne datoteke theme.html portalski strežnik dejansko ne uporablja, razen za razvejitev izvajanja
+na različico datoteke v mapi 'nls', ki ima področno nastavitev, ki se ujema z odjemalčevo področno nastavitvijo.
+Ko torej spreminjate predlogo teme, poskrbite, da v različici datoteke v mapi 'nls', ki se ujema s področno
+nastavitvijo, s katero delate, naredite začetno spremembo, enako kot na primer v datoteki
+nls\theme_en.html. Spremembe nato naredite še v ostalih datotekah za jezike, za katere želite zagotoviti podporo,
+in preskočite jezike, za katere podpore ne potrebujete. Če sploh ne potrebujete večjezikovne podpore in boste potrebovali podporo za le en jezik,
+lahko izklopite podporo za lokalni jezik tako, da odstranite povezave področnih nastavitev
+(blok <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) v razdelku "head" glavne datoteke theme.html,
+kar pomeni, da portalski strežnik ne bo uporabljal datotek v mapi 'nls' in bo namesto tega uporabljal
+eno glavno datoteko theme.html.
+
+Za vse strani teme je na voljo ena privzeta predloga teme, theme.html, vendar jo je mogoče preglasiti za določene strani
+in namesto nje uporabiti drugo predlogo teme . Dva primera drugačnih tem, ki sta vključena v paket s portalom,
+sta theme_sidenav.html, ki ima primarno navigacijo ob strani in ne čez celo stran na vrhu,
+ter Plain.html, ki je najpreprostejša predloga teme in jo lahko uporabite za začetek dela, uporabna pa
+je tudi v primeru, da želite v stran vdelati en sam portalski programček
+zmotraj okvira iFrame. Te datoteke predlog za teme lahko po potrebi prekopirate, preimenujete in jih
+izdelujete. Predlogo teme, ki bo uporabljena na določeni strani, določite tako, da v Lastnostih strani nastavite lastnosti com.ibm.portal.theme.template.file.name.html in com.ibm.portal.theme.inherited.template.file.name.html.
+Prvo omenjeno lastnost uporabite za nastavitev predloge teme za eno samo stran ter drugo lastnost
+uporabite za nastavitev predloge teme za določeno stran in vse njene podrejene strani.
+Ti lastnosti lahko nastavite tudi s pomočjo xmlaccess, in sicer tako, da izvozite xml za stran, dodate vrednost za
+parameter com.ibm.portal.theme.template.file.name.html oziroma com.ibm.portal.theme.inherited.template.file.name.html
+ob drugih parametrih za stran, npr.:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+ali
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+in stran potem spet uvozite.
+
+
++ modules
+
+Najlažji način za izdelavo lastnih modulov (preprosti moduli) za povezovanje lastnih datotek virov
+je s pomočjo mape 'modules'. V tej mapi za vsak modul obstaja ena mapa – izdelajte svojo mapo za lastni modul.
+Za lažji začetek je pripravljena privzeta mapa 'getting_started_module'. Vanjo preprosto dodate svoje datoteke virov,
+na primer datoteke .css in .js, in na ta način hitro začnete delati, lahko pa mapo
+getting_started_module uporabite kot primer, kako ustvarite svoje podobne mape za module.
+
+Obseg preprostih modulov je omejen na eno temo. Če želite nekaj istih modulov uporabiti v drugih temah,
+morate mape s preprostimi moduli prekopirati iz ene teme v drugo.
+
+Več navodil v zvezi s preprostimi moduli je na voljo v datoteki readme.txt v mapi 'modules'.
+
+
++ contributions
+
+Drugi najlažji način, da ustvarite lastne module (muduli tem) za povezovenje lastnih
+daotek virov je s pomočjo mape 'contributions'. V tej mapi je ena datoteka .json za vsak modul ali
+niz modulov – ustvarite svojo datoteko .json za svoj modul ali niz modulov. Eno od obstoječih datotek
+.json lahko prekopirate, preimenujete ali spremenite ter si tako ogledate in spoznate zahtevano skladnjo datotek .json.
+
+
+Obseg modulov tem je omejen na eno temo. Če želite nekaj istih modulov uporabiti v drugih temah,
+morate definicijske datoteke .json za module prekopirati iz ene teme v drugo.
+
+Več navodil v zvezi z moduli tem je na voljo v datoteki readme.txt v mapi 'contributions'.
+
+(Tretji način, da ustvarite lastne module (globalni moduli) je z datotekami plugin.xml v mapi
+'WEB-INF' v repozitorijih spletne aplikacije (datotekah .war). Ta način zahteva največ dela, ato ga boste verjetno uporabili le
+v primeru tehtnih razlogov, npr. za modul, ki se uporablja v več različnih temah,
+pri čemer definicije modula ne želite podvajati vsaki posamezni temi. Kot nakazuje ime, imajo globalni moduli
+doseg čez vse teme.) 
+
+
++ profiles
+
+Ko imate module definirane, jih vklapljate in izklapljate s profili v mapi 'profiles'.
+V tej mapi obstaja ena datoteka .json za vsak profil – za svoj profil izdelajte svojo datoteko .json. Eno od obstoječih datotek .json lahko prekopirate, preimenujete ali spremenite
+ter si tako ogledate in spoznate zahtevano skladnjo datotek .json.
+Lastne oziroma katere koli module vklopite tako, da jih dodate v seznam modulov profila. Lastne
+oziroma katere koli module izklopite tako, da jih odstranite iz seznama modulov profila.
+
+Več navodil v zvezi s profili tem je na voljo v datoteki readme.txt v mapi 'profiles'.
+
+
++ layout-templates
+
+Vsaki strani je dodeljena predloga postavitve, npr. 3 enaki stolpci, 2 stolpca desno ipd. Te predloge
+postavitev so definirane v mapi 'layout-templates', pri čemer ima vsaka postavitev svojo podmapo. Izdelate
+lahko postavitve po meri in sicer tako, da ustvarite novo podmapo in v njej datoteko layout.html.
+
+Več navodil v zvezi s predlogami postavitev je na voljo v datoteki readme.txt v mapi 'layout-templates'.
+
+
+
+Statiska temaresurser - Översikt (svenska)
+*******************************
+
+Denna huvudtemamapp i WebDAV är den plats där statiska resurser för temat tillhandahålls för portalservern och ramverket för resursaggregering. 
+
+Temats huvudsidsdefinition börjar med temamallfilen, theme.html, i den här mappen. Den här temamallen innehåller HTML-huvudmärkkoden som portalservern tillhandahäller för dina temasidor, inklusive de välkända märkorden DOCTYPE, html, head och body. Inom dessa temamallar finns olika dynamiska innehållspunkter som portalservern bearbetar, oftast via .jsp, och ersätter med dynamiskt beräknad statisk märkkod för den slutliga renderingssidan. 
+
+Överst i head-delen finns den obligatoriska dynamiska innehållspunkten <link rel="dynamic-content" href="co:head">, där ramverket för resursaggregering bearbetar alla head-bidrag för de moduler som används, exempelvis .css- och .js-filer, och kombinerar dem till en enda resursbegäran för optimala prestanda. För att delta i dessa optimala prestanda behöver du alltså inte länka dina egna resurser, t.ex. .css- och .js-filer till temamallen med hjälp av länkmärkorden i head-delen, utan du bör i stället läsa in dina egna resurser via moduler. Mer information om modulerna och bidragssammanfattningar finns nedan. 
+
+Längst ned i body-delen finns den obligatoriska dynamiska innehållspunkten <link rel="dynamic-content" href="co:config">, som är det ramverk för resursaggregering som bearbetar alla config-bidrag i de använda modulerna, t.ex. .js- och .html-filer, och kombinerar dem på nytt för optimala prestanda. Även här bör du läsa in egna resurser via moduler. Mer information om modulerna och bidragssammanfattningar finns nedan. 
+
+I resten av temamodulen finns andra dynamiska innehållspunkter som pekar på .jsp. Du kan lägga till egna dynamiska innehållspunkter där du vill göra egna temaanpassningar. Och du kan naturligtvis också ta bort eller helt och hållet ersätta vissa dynamiska innehållspunkter om du behöver andra funktioner för ditt tema. 
+
+Temamallen har nationellt språk som standard, vilket innebär att det finns flera översatta versioner av filen i mappen nls. Huvudfilen theme.html används inte i praktiken av portalservern annat än för att avgrena den version av filen som finns i mappen nls och som har den språkmiljö som stämmer med klientens språkmiljö. När du ändrar en temamall ska du därför se till att den inledande ändringen av filen i mappen nls matchar den språkmiljö som du arbetar i, t.ex. i filen
+nls\theme_en.html. Gör sedan efterföljande ändringar av andra språkfiler för det språk som du vill stödja, eller hoppa över de språk som du inte stöder. Om du inte behöver stöd för flera språk överhuvud taget, kan du stänga av stödet för nationella språk genom att ta bort språkmiljölänkarna (blocket <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) i head-delen av huvudfilen theme.html, och i så fall använder inte portalservern filerna i mappen nls utan endast en theme.html-fil.
+
+Det finns en standardtemamall, theme.html, för alla sidor i ett tema, men standarden kan åsidosättas för vissa sidor så att en annan temamall kan användas. Två andra exempeltemamallar som följer med i portalen är theme_sidenav.html, som har den primära navigeringen utmed sidan i stället för tvärs över sidan, och Plain.html, som är den enklaste temamallen som du kan använda som startpunkt och som även kan vara användbar i vissa situationer som vid integrering av en enda portlet på sidan inom en i-ram. Du kan kopiera, byta namn på och ändra dessa temamallfiler och skapa så många som du behöver. Därefter anger du vilken temamall som används för en viss sida genom att ställa in sidegenskapen com.ibm.portal.theme.template.file.name.html eller com.ibm.portal.theme.inherited.template.file.name.html i sidegenskaperna. Med den första egenskapen ställer du in temamallen för endast denna sida och med den andra egenskapen ställer du in temamallen för den sidan och alla dess underordnade sidor. Du kan även ställa in dessa egenskaper via xmlaccess genom att exportera xml för sidan, lägga till ett värde för parametern com.ibm.portal.theme.template.file.name.html eller com.ibm.portal.theme.inherited.template.file.name.html intill de andra sidparametrarna. Exempel: 
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+eller
+
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+och därefter importera sidan på nytt.
+
+
++ modules
+
+Det enklaste sätet att skapa egna moduler, kallas för enkla moduler, för länkning av egna resursfiler i mappen modules. I den mappen finns det en mapp per modul - skapa din egen mapp för din egen modul. Det finns också en förvald getting_started_module så att du kan komma igång. Du kan helt enkelt lägga dina resursfiler, t.ex. .css- och .js-filer, i getting_started_module för att snabbt komma igång eller använda modulen getting_started_module som ett exempel för att se hur du skapar egna modulmappar. 
+
+Enkla moduler används bara för ditt eget tema. Om du vill använda vissa av dessa moduler i andra teman måste du kopiera dessa enkla modulmappar från ett tema till ett annat.
+
+Läs filen readme.txt i modulmappen om du vill ha ytterligare anvisningar för enkla moduler. 
+
+
++ contributions
+
+Den näst enklaste sättet är att skapa egna moduler, som kallas temamoduler, för länkning av egna resursfiler i mappen contributions. Iden mappen finns det en .json-fil per modul eller uppsättning av moduler - skapa din egen .json-fil för din modul eller moduluppsättning. Du kan kopiera, byta namn på och ändra någon av de befintliga .json-filerna för att se och lära dig den .json-syntax som krävs. 
+
+Temamoduler omfattar ett tema. Om du vill använda en del av dessa moduler i olika teman,
+måste du kopiera .json-filerna med moduldefinitionen från ett tema till ett annat. 
+
+I filen readme.txt i mappen contributions finns ytterligare anvisningar för temamoduler.
+
+(Det tredje sättet att skapa egna moduler, s.k. globala moduler, är genom att använda plugin.xml-filer i mappen WEB-INF i webbprogramlagren (.war). Det här sättet är det mest arbetskrävande och är därför inget som du gör utan att ha ett bra skäl, t.ex. för en modul som återanvänds i flera teman och där du inte vill upprepa moduldefinitionen i vart och ett av dessa teman. Globala moduler omfattar som namnet antyder alla teman.
+
+
++ profiles
+
+När du har definierat dina moduler kan du aktivera/avaktivera dem genom att använda profiler i mappen profiles.
+I den mappen finns den en .json-fil per profil - skapa en egen .json-fil för din egen profil. Du kan kopiera, byta namn på och ändra någon av de befintliga .json-filerna för att se och lära dig den .json-syntax som krävs. Aktivera en modul genom att lägga till den i din profils modullista. Avaktivera en modul genom att ta bort den från modulens profillista. 
+
+I filen readme.txt i mappen profiles finns ytterligare anvisningar om temaprofiler.
+
+
++ layout-templates
+
+Varje sida tilldelas en layoutmall som består av tre kolumner lika breda kolumner, 2 kolumner till höger etc. Dessa layoutmallar definieras i mappen layout-templates, med en undermapp per layout. Du kan skapa egna anpassade layouter genom att skapa en ny undermapp och en layout.html-fil i varje undermapp. 
+
+I filen readme.txt i mappen layout-templates finns ytterligare anvisningar om layoutmallar.
+
+
+
+Static Theme Resources Overview (English)
+*******************************
+
+This main theme folder within WebDAV is where static resources for your theme are provided
+to the Portal server and resource aggregator framework. 
+
+The main page definition of your theme starts with the theme template file, theme.html, in this
+folder. This theme template contains the main HTML markup that the Portal server will serve up
+for your theme's pages, including the familiar DOCTYPE, html, head and body tags. Within the
+theme template, there are then various dynamic content spots which the Portal server processes,
+typically through .jsp's, and replaces with dynamically-calculated static markup for the finally
+rendering page. 
+
+At the top of the head is the required <link rel="dynamic-content" href="co:head"> dynamic content
+spot which is where the resource aggregator framework processes all of the head contributions of the
+modules in use, such as .css and .js files, and combines them into a single resource request for
+optimal performance. So, in order to participate in this optimal performance, you should not
+link your own resources, such as .css and .js files, in the theme template using link tags directly
+in the head, but, rather, you should load your own resources through modules. See the modules and
+contributions summaries below for more information on modules. 
+
+At the bottom of the body is the required <link rel="dynamic-content" href="co:config"> dynamic
+content spot which is where the resource aggregator framework processes all of the config
+contributions of the modules in use, such as .js and .html files, and again combines them for
+optimal performance. Here again, you should load your own resources through modules. See the modules and
+contributions summaries below for more information on modules.
+
+Throughout the rest of the theme template are other dynamic content spots that point to .jsp's. You
+can add your own dynamic content spots where you want to make your own theme customizations. And
+you can of course also remove or entirely replace certain dynamic content spots if you need different
+functionality for your theme.
+
+The theme template has national language support by default, meaning there are actually multiple translated
+versions of the file in the 'nls' folder. The main theme.html file is actually not used by the Portal server
+other than to branch off to the version of the file in the 'nls' folder that has the locale that matches the
+client's locale. So, when making a change to the theme template, be sure to make the initial change in the
+version of the file in the 'nls' folder that matches the locale you are working in, such as in the
+nls\theme_en.html file. Then make subsequent changes to the other language files for the languages you need
+to support, and skip the languages you do not need to support. If you do not need multiple language support at
+all and only need one language, then the national language support can be turned off by removing the locale
+links (the <!--START LOCALE LINKS--><!--END LOCALE LINKS--> block) in the head of the main theme.html file,
+in which case the Portal server will not use the files in the 'nls' folder and will instead simply use the
+one main theme.html file.
+
+There is one default theme template, theme.html, for all pages of a theme, but the default can be overridden
+for certain pages so that a different theme template can be used. Two other example theme templates that
+come with Portal are theme_sidenav.html, which has the primary page navigation down the side rather than
+across the top of the page, and Plain.html, which is the simplest theme template you can use as a starting
+point and that can also be useful in certain situations such as embedding a single portlet on a page within
+an iframe. You can copy, rename and modify these theme template files and create as many as you need. You
+then say which theme template is in use on a certain page by setting the
+com.ibm.portal.theme.template.file.name.html or com.ibm.portal.theme.inherited.template.file.name.html page
+property in Page Properties. Use the first property for setting the theme template for just that one and only
+one page, or use the second property for setting the theme template for that page and all of its descendant
+pages. You can also set these properties via xmlaccess by exporting the xml for the page, adding a value for
+the com.ibm.portal.theme.template.file.name.html or com.ibm.portal.theme.inherited.template.file.name.html
+parameter near the other page parameters, such as:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+or
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+and re-importing the page.
+
+
++ modules
+
+The easiest way to create your own modules, referred to as simple modules, for linking your own resource
+files is in the 'modules' folder. Within that folder is one folder per module - create your own folder for
+your own module. There is also one default 'getting_started_module' to get you started. You can simply add
+your resource files, such as .css and .js files, into the getting_started_module to get started quickly,
+or use the getting_started_module as an example to see how to create your own similar module folders.
+
+Simple modules are scoped to your one theme. If you want to use some of these same modules in different themes,
+you have to copy these simple module folders from one theme to the other.
+
+For further instructions on simple modules read the readme.txt file within the 'modules' folder.
+
+
++ contributions
+
+The second-easiest way to create your own modules, referred to as theme modules, for linking your own
+resource files is in the 'contributions' folder. Within that folder is one .json file per module or set of
+modules - create your own .json file for your own module or set of modules. You can copy, rename and
+modify one of the existing .json files in order to see and learn the .json syntax that is required.
+
+Theme modules are scoped to your one theme. If you want to use some of these same modules in different themes,
+you have to copy these module definition .json files from one theme to the other.
+
+For further instructions on theme modules read the readme.txt file within the 'contributions' folder.
+
+(The third way to create your own modules, referred to as global modules, is via plugin.xml files within
+the 'WEB-INF' folder within web application repositories (.war's). This way involves the most work, 
+so you would not do it unless you have good reason, such as for a module that is reused across multiple 
+themes and you don't want to duplicate the module definition in each of the themes. Global modules, as the 
+name implies, are scoped across all themes.)
+
+
++ profiles
+
+Once you have your modules defined, you turn them on and off using profiles in the 'profiles' folder.
+Within that folder is one .json file per profile - create your own .json file for your own profile. You can copy, rename
+and modify one of the existing .json files in order to see and learn the .json syntax that is required. Turn your or any module on by adding it into the profile's list of modules. Turn your or any
+module off by removing it from the profile's list of modules.
+
+For further instructions on theme profiles read the readme.txt file within the 'profiles' folder.
+
+
++ layout-templates
+
+Each page is assigned a layout template, such as 3 Column Equal, 2 Column Right, etc. These layout
+templates are defined in the 'layout-templates' folder, with one subfolder per layout. You can create
+your own custom layouts by creating a new subfolder and a layout.html file within the subfolder.
+
+For further instructions on layout templates read the readme.txt file within the 'layout-templates' folder.
+
+
+
+Statik Tema Kaynaklarına Genel Bakış (Türkçe)
+*********************************************
+
+WebDAV içindeki bu ana tema klasörü, temanıza ilişkin statik kaynakların
+Portal sunucusuna ve kaynak toplayıcı çerçevesine sağlandığı yerdir. 
+
+Temanızın ana sayfa tanımlaması, bu klasördeki theme.html adlı tema şablonu dosyasıyla
+başlar. Bu tema şablonu, Portal sunucunuzun temanızın sayfalarına sunacağı ana HTML
+biçimlemesini içerir (bilinen DOCTYPE, html, head ve body etiketleri de içinde olmak üzere).
+Tema şablonunda, Portal sunucusunun tipik olarak .jsp'lerle işlediği ve son görüntüleme
+sayfası için dinamik olarak hesaplanan statik biçimlemelerle değiştirdiği çeşitli dinamik
+dinamik içerik noktaları vardır.  
+
+Baş kısmın (head) tepesinde, gerekli <link rel="dynamic-content" href="co:head"> dinamic içerik
+noktası bulunur; burada kaynak toplayıcı çerçevesi kullanılan modüllerin (.css ve .js dosyaları
+gibi) tüm 'head' katkılarını işler ve bunları en uygun performans için ek bir kaynak isteğinde
+birleştirir. Bu en uygun performansa katkıda bulunmak için, tema şablonundaki .css ve .js dosyaları
+gibi kendi kaynaklarınızı bağlantı (link) etiketlerini kullanarak baş kısma (head) doğrudan
+bağlamamalı, kendi kaynaklarınızı modüller aracılığıyla yüklemelisiniz. Modüllerle ilgili ek bilgi
+için aşağıdaki modül ve katkı özetlerine bakın. 
+
+Gövdenin (body) alt kısmında, gerekli olan <link rel="dynamic-content" href="co:config">
+dinamik içerik noktası vardır; burada kaynak toplayıcı çerçevesi, kullanılan modüllerin
+(.js ve .html sayfaları gibi) 'config' katkılarını işler ve en uygun performans için bunları
+birleştirir. Burada da, kendi kaynaklarınızı modüller aracılığıyla yüklemelisiniz. Modüllerle
+ilgili ek bilgi için, aşağıdaki modül ve katkı özetlerine bakın.
+
+Tema şablonunun geri kalan kısımlarında, .jsp'leri gösteren diğer dinamik içerik noktaları vardır. 
+Kendi tema uyarlamalarınızı yapmak istediğinizde kendi dinamik içerik noktalarınızı ekleyebilirsiniz. 
+Ayrıca, temanızın farklı şekilde işlev görmesine gerek duyuyorsanız, belirli dinamik içerik noktalarını
+kaldırabilir ya da bunların yerine başkalarını koyabilirsiniz. 
+
+Tema desteğinde varsayılan olarak ulusal dil desteği vardır; yani, 'nls' klasöründe dosyanın
+çevrilmiş sürümleri bulunur. Ana theme.html dosyası, Portal sunucusu tarafından yalnızca,
+'nls' klasöründe istemcinin ülke değeriyle eşleşen dosya sürümünü saptamak için kullanılır.
+Dolayısıyla, tema şablonunda değişiklik yaparken, ilk değişikliği, 'nls' klasöründe
+çalıştığınız ülke değeriyle eşleşen dosya sürümünde (nls\theme_tr.html dosyası gibi) yapın. 
+Sonra, desteklemeniz gereken diğer dil dosyalarında değişiklik yapın, desteklemeniz gerekmeyen
+dilleri atlayın. Birden çok dili desteklemeniz gerekmiyorsa ve tek bir dile gereksiniminiz varsa,
+ana theme.html dosyasının baş kısmındaki ülke değeri bağlantılarını kaldırarak
+(<!--START LOCALE LINKS--><!--END LOCALE LINKS--> öbeği) ulusal dil desteğini kapatabilirsiniz;
+bu durumda Portal sunucusu 'nls' klasöründeki dosyaları kullanmaz ve tek bir ana theme.html
+dosyasını kullanır.
+
+Bir temanın tüm sayfaları için tek bir varsayılan tema şablonu (theme.html) vardır; belirli sayfalar
+için varsayılan şablon geçersiz kılınarak farklı bir tema şablonu kullanılabilir. Portal ile iki de
+örnek tema şablonu verilir: Bunlardan biri olan theme_sidenav.html'deki birincil sayfa dolaşma kısmı
+sayfanın tepesi boyunca değil, yan tarafta yukarıdan aşağı doğru uzanır. İkincisi olan Plain.html ise,
+başlanma noktası olarak kullanabileceğiniz en yalın tema şablonudur ve bir iframe içinde bir sayfaya
+tek bir portal uygulamacığını yerleştirme gibi bazı durumlarda da yararlı olabilir. Bu tema şablonu
+dosyalarını kopyalayabilir, yeniden adlandırabilir, değiştirebilir ve gerek duyduğunuz sayıda
+şablon dosyası yaratabilirsiniz. Sayfa Özellikleri'nde com.ibm.portal.theme.template.file.name.html
+ya da com.ibm.portal.theme.inherited.template.file.name.html sayfa özelliğini ayarlayarak, belirli
+bir sayfada hangi tema şablonunun kullanılmakta olduğunu belirleyebilirsiniz. Birinci özelliği,
+tema şablonunu yalnızca o tek sayfa için ayarlamak üzere kullanın; ikinci özelliği ise, tema
+şablonunu o sayfa ve tüm alt sayfaları için ayarlamak üzere kullanın. Bu özellikleri xmlaccess
+yoluyla da ayarlayabilirsiniz; bunun için sayfanın xml'ini dışa aktarın ve diğer sayfa
+değiştirgelerinin yanındaki com.ibm.portal.theme.template.file.name.html değiştirgesi ya da
+com.ibm.portal.theme.inherited.template.file.name.html değiştirgesi için bir değer ekleyin: 
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+Ya da
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+Bundan sonra, sayfayı yeniden içe aktarın.
+
+
++ modüller
+
+Kendi kaynak dosyalarınızı bağlamak amacıyla kendi modüllerinizi yaratmanın en kolay yolu
+'modules' klasörünü kullanmaktır (yalın modüller). O klasörde modül başına bir klasör vardır; kendi
+modülünüz için kendi klasörünüzü yaratın. Başlamanız için, 'getting_started_module' adlı varsayılan
+bir modül de vardır. .css ve .js dosyaları gibi kendi kaynak dosyalarınızı getting_started_module'e
+ekleyerek hızla başlayabilir ya da getting_started_module'ü örnek olarak kullanarak benzeri modül
+klasörleri yaratabilirsiniz. 
+
+Yalın modüller tek temanızı kapsar. Bu modüllerden bazılarını farklı temalarda kullanmak
+isterseniz, bu yalın modül klasörlerini bir temadan diğerine kopyalamanız gerekir. 
+
+Yalın modüllerle ilgili ek yönergeler için 'modules' klasöründeki readme.txt dosyasını okuyun.
+
+
++ katkılar
+
+Kendi kaynak dosyalarınızı bağlamak amacıyla kendi modüllerinizi yaratmanın en kolay ikinci
+yolu 'contributions' klasörünü kullanmaktır (tema modülleri). O klasörde modül başına ya da
+bir modül kümesi başına tek bir .json dosyası vardır; kendi modülünüz ya da modül kümeniz
+için kendi .json dosyanızı yaratın. Gereken .json sözdizimini görmek ve öğrenmek için, var olan
+.json dosyalarından birini kopyalayabilir, yeniden adlandırabilir ve değiştirebilirsiniz. 
+
+Tema modülleri tek temanızı kapsar. Bu modüllerden bazılarını farklı temalarda kullanmak
+isterseniz, bu modül tanımlaması .json dosyalarını bir temadan diğerine kopyalamalısınız. 
+
+Tema modülleriyle ilgili ek yönergeler için 'contributions' klasöründeki readme.txt dosyasını okuyun.
+
+Kendi modüllerinizi yaratmanın üçüncü yolu, web uygulaması havuzları (.war'lar) içindeki
+'WEB-INF' klasöründe bulunan plugin.xml dosyalarını kullanmaktır (genel modüller). En fazla
+çabayı gerektiren yol bu olduğundan, iyi bir nedeniniz olmadıkça (örneğin, birden çok temada
+kullanılan bir modül söz konusuysa ve modül tanımlamasını temaların her birinde yinelemek
+istemiyorsanız), bu yolu kullanmazsınız. Adından da anlaşılacağı gibi, genel modüller tüm
+temaları kapsar. 
+
+
++ profiller
+
+Modüllerinizi tanımladıktan sonra, 'profiles' klasöründeki profilleri kullanarak modülleri
+açıp kapatabilirsiniz. O klasörde profil başına tek bir .json dosyası vardır; kendi
+profiliniz için kendi .json dosyanızı yaratın. Gereken .json sözdizimini görmek ve öğrenmek
+için, var olan .json dosyalarından birini kopyalayabilir, yeniden adlandırabilir ve
+değiştirebilirsiniz. Herhangi bir modülü (sizin ya da diğer), profilin modüller listesine
+ekleyerek açabilirsiniz. Herhangi bir modülü (sizin ya da diğer) kapatmak için, profili
+modüller listesinden kaldırın. 
+
+Tema profilleriyle ilgili ek yönergeler için 'profiles' klasöründeki readme.txt dosyasını okuyun.
+
+
++ yerleşim düzeni şablonları
+
+Her sayfaya bir yerleşim düzeni şablonu atanır; örneğin, 3 Column Equal, 2 Column Right vb.
+Bu yerleşim düzeni şablonları 'layout-templates' klasöründe tanımlanır, yerleşim düzeni başına
+tek bir alt klasör vardır. Yeni bir alt klasör ve o alt klasörün altında bir layout.html
+dosyası yaratarak, yeni özel yerleşim düzenlerinizi oluşturabilirsiniz. 
+
+Yerleşim düzeni şablonlarıyla ilgili ek yönergeler için 'layout-templates' klasöründeki
+readme.txt dosyasını okuyun.
+
+
+
+Огляд статичних ресурсів теми (українська)
+*******************************
+
+З цієї головної папки теми у WebDAV статичні ресурси теми надаються до сервера порталу і середовища
+агрегатора ресурсів. 
+
+Визначення головної сторінки теми починається з файлу шаблонів теми, у цій папці - theme.html. Цей
+шаблон теми містить головну розмітку HTML, що її завантажуватиме сервер порталу для сторінок теми,
+включаючи знайомі теги DOCTYPE, html, head і body. Крім того, в шаблоні теми є різні області динамічного
+вмісту, які сервер порталу оброблятиме за допомогою .jsp і замінятиме на динамічно обчислювану статичну
+розмітку для виводу остаточної сторінки. 
+
+У верхній частині тегу head є обов'язкова область динамічного вмісту <link rel="dynamic-content"
+href="co:head">. У ній середовище агрегатора ресурсів обробляє всі доповнення head використовуваних
+модулів, наприклад файли .css і .js, і об'єднує їх в один запит ресурсів для досягнення оптимальної
+продуктивності. Таким чином, щоб користуватися цією оптимальною продуктивністю, потрібно не зв'язувати
+власні ресурси, наприклад файли .css і .js, у шаблоні теми за допомогою тегів link просто в head, а
+завантажувати їх через модулі. Додаткову інформацію про модулі наведено в узагальненій інформації про
+модулі та доповнення, наведеній нижче. 
+
+У нижній частині тегу body є обов'язкова область динамічного вмісту <link rel="dynamic-content"
+href="co:config">. У ній середовище агрегатора ресурсів обробляє всі доповнення config використовуваних
+модулів, наприклад файли .js і .html, і так само об'єднує їх для досягнення оптимальної
+продуктивності. У цьому випадку власні ресурси також потрібно завантажувати через модулі. Додаткову
+інформацію про модулі наведено в узагальненій інформації про модулі та доповнення, наведеній нижче. 
+
+В інших частинах шаблона теми є інші області динамічного вмісту, в яких вказано .jsp. У шаблон можна
+додавати власні області динамічного вмісту, щоб зробити тему індивідуальною. І звичайно, видаляти або
+повністю заміняти окремі області динамічного вмісту, якщо тема повинна мати інші функції.
+
+За замовчуванням шаблон теми передбачає підтримку національних мов; тобто в папці nls існують перекладені
+версії файлу багатьма мовами. Насправді головний файл theme.html використовується сервером порталу виключно
+для переходу до версії файлу в папці nls, локаль якої відповідає локалі клієнта. Отже, змінюючи шаблон теми,
+обов'язково внесіть початкові зміни у версію файлу з папки nls із тією локаллю, в якій ви працюєте, наприклад
+у файл nls\theme_en.html. Після цього внесіть подальші зміни у файли інших мов, які планується підтримувати,
+пропускаючи мови, підтримка яких буде не потрібною. Якщо багатомовна підтримка взагалі не потрібна, бо
+використовуватиметься лише одна мова, тоді можна вимкнути підтримку національних мов, видаливши зв'язки локалі
+(блок <!--START LOCALE LINKS--><!--END LOCALE LINKS-->) із верхньої частини головного файлу theme.html.
+Тоді сервер порталу користуватиметься не файлами з папки nls, а одним головним файлом theme.html.
+
+Для всіх сторінок теми шаблоном теми за замовчуванням є theme.html. Проте для деяких сторінок значення за
+замовчуванням можна змінити, щоб використовувати інший шаблон теми. Серед інших прикладів шаблонів теми, які
+надаються разом із порталом, можна назвати theme_sidenav.html, що передбачає головну навігацію сторінкою не
+вгорі сторінки, а на бічній панелі, і Plain.html - найпростіший шаблон теми для початку роботи, який може
+стати в нагоді в деяких випадках, наприклад вбудовування окремого портлету на сторінці в iframe. Ці файли
+шаблонів теми можна копіювати, перейменовувати і змінювати; кількість таких файлів не обмежена. Після
+створення файлів шаблонів необхідно вказати, який шаблон теми використовується на окремій сторінці. Це
+можна налаштувати у властивості сторінки com.ibm.portal.theme.template.file.name.html або
+com.ibm.portal.theme.inherited.template.file.name.html Властивостей сторінки. Перша властивість служить
+для налаштування шаблона теми лише для однієї окремої вибраної сторінки, а друга - для налаштування шаблона
+вибраної сторінки і всіх її сторінок-нащадків. Ці властивості можна задати також через xmlaccess. Для цього
+необхідно експортувати xml для сторінки, додати значення параметра com.ibm.portal.theme.template.file.name.html
+або com.ibm.portal.theme.inherited.template.file.name.html поряд із параметрами іншої сторінки, наприклад:
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+або
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+і ще раз імпортувати сторінку.
+
+
++ модулі
+
+Найпростішим способом створювати власні модулі, які називаються "прості модулі", для зв'язування власних
+файлів ресурсів, є створення за допомогою папки modules. У цій папці для кожного модуля є окрема папка.
+Вам потрібно створити власну папку для свого модуля. Розпочати роботу допоможе стандартна папка
+getting_started_module. Можна просто додати в неї файли ресурсів, наприклад файли .css і .js, і одразу
+починати працювати, або взяти getting_started_module за приклад для створення своїх папок модулів.
+
+Прості модулі призначено лише для однієї теми. Якщо деякі з них будуть потрібні також в інших темах,
+необхідно скопіювати ці папки простих модулів з однієї теми в іншу.
+
+Додаткові інструкції для роботи з простими модулями наведено у файлі readme.txt, що знаходиться в папці
+modules.
+
+
++ доповнення
+
+Другим із простих способів створювати власні модулі, які називаються "модулі теми", для зв'язування власних
+файлів ресурсів, є створення за допомогою папки contributions. У цій папці для кожного модуля або набору
+модулів є окремий файл .json. Вам потрібно створити власний файл .json для свого модуля або набору
+модулів. Для цього змініть один із існуючих файлів .json, щоб дізнатися, яким має бути формат файлу .json,
+і навчитися правильно форматувати його.
+
+Ці модулі призначено лише для однієї теми. Якщо деякі з них будуть потрібні також в інших темах,
+необхідно скопіювати файл .json визначення відповідного модуля з однієї теми в іншу.
+
+Додаткові інструкції для роботи з модулями теми наведено у файлі readme.txt, що знаходиться в папці
+contributions.
+
+(Створювати власні модулі можна ще одним способом - за допомогою файлів plugin.xml, що знаходяться в
+папці WEB-INF сховищ прикладних веб-програм (.war). Третім способом створюються "глобальні
+модулі". Це найбільш трудомісткий спосіб, тому користуватися ним слід лише тоді, коли існує реальна
+потреба в цьому. Наприклад, щоб не копіювати визначення модуля в кількох темах, якщо модуль
+використовуватиметься в кожному з них. Глобальні модулі, як випливає з їхньої назви, діють в усіх темах.)
+
+
++ профайли
+
+Після визначення модулів їх можна вмикати і вимикати за допомогою профайлів із папки profiles.
+У цій папці для кожного профайлу є окремий файл .json. Вам потрібно створити власний файл .json для
+свого профайлу. Для цього змініть один із існуючих файлів .json, щоб дізнатися, яким має бути формат
+файлу .json, і навчитися правильно форматувати його. Для того щоб увімкнути модуль (свій або будь-який
+інший), додайте його в список модулів профайлу; щоб вимкнути - видаліть його зі списку модулів профайлу.
+
+Додаткові інструкції для роботи з профайлами теми наведено у файлі readme.txt, що знаходиться в папці
+profiles.
+
+
++ шаблони макетів
+
+Кожній сторінці призначено шаблон макета, наприклад 3 Column-Equal (3 стовпчики однакової висоти), 2
+Column-Right (2 стовпчики з бічною панеллю праворуч) тощо. Ці шаблони макетів визначено в папці
+layout-templates, з однією вкладеною папкою на кожний макет. Для створення власних користувацьких
+макетів необхідно створити нову вкладену папку і в ній - файл layout.html.
+
+Додаткові інструкції для роботи з шаблонами макетів наведено у файлі readme.txt, що знаходиться в папці
+layout-templates.
+
+
+
+静态主题资源概述（中文版）
+*******************************
+
+WebDAV 中的此主要主题文件夹是向 Portal 服务器和资源聚集器框架提供主题动态资源的位置。
+
+主题的主要页面定义以该文件夹中的主题模板文件 theme.html 开始。该主题模板包含 Portal 服务器要为您的主题页面提供的主 HTML 标记（包括常见的 DOCTYPE、HTML、头标记和主体标记）。主题模板中有各种动态内容点（通常由 Portal 服务器通过 .jsp 文件进行处理），然后替换为以动态方式计算的静态标记，以呈现最终页面。
+
+头的顶部是必需的 <link rel="dynamic-content" href="co:head"> 动态内容点，资源聚集器框架在此处处理正在使用的模块（例如，.css 和 .js 文件）的所有头添加项，然后将其合并到单个资源请求中，以便对性能进行优化。因此，如果要实现性能优化，您不应该使用链接标记将主题模板中您自己的资源（例如，.css 和 .js 文件）直接链接到头中，而是应该通过模块装入您自己的资源。请参阅以下模块和添加项摘要，以获取有关模块的更多信息。
+
+主体底部是必需的 <link rel="dynamic-content" href="co:config"> 动态内容点，资源聚集器框架在此处处理正在使用的模块（例如，.js 和 .html 文件）的所有配置添加项，然后再次进行合并，以便对性能进行优化。在此处，您同样应该通过模块装入自己的资源。请参阅以下模块和添加项摘要，以获取有关模块的更多信息。
+
+主题模板的剩余部分是指向 .jsp 文件的其他动态内容点。您可以添加自己的动态内容点，并可在其中定制主题。当然，如果您需要其他功能的主题，也可以移除或完全替换特定的动态内容点。
+
+缺省情况下，主题模板支持本地语言，这说明实际上该文件在“nls”文件夹中有多个翻译版本。实际上，Portal 服务器未使用主 theme.html 文件，而是转至“nls”文件夹中与客户机语言环境相匹配的文件版本。因此，对主题模板进行更改时，请确保在“nls”文件夹内与操作语言环境相匹配的文件版本（例如，nls\theme_en.html 文件）中进行初始更改。然后继续更改其他需支持语言的语言文件，跳过无需支持的语言。如果根本不需要多语言支持，而只需要一种语言，您可移除主 theme.html 文件头中的语言环境链接（<!--START LOCALE LINKS--><!--END LOCALE LINKS--> 块）来关闭本地语言支持。在此情况下，Portal 服务器将不会使用“nls”文件夹中的文件，而仅使用一个主 theme.html 文件。
+
+主题的所有页面有一个缺省的主题模板 theme.html，但是可以覆盖特定页面的该缺省模板，以便使用其他主题模板。Portal 随附的其他两个示例主题模板是 theme_sidenav.html 和 Plain.html。前者的主页面导航为侧面纵向排列，而不是页面顶部横向排列。后者是可作为起始点的最简式主题模板，并且在某些情况下（例如，在 iframe 中的某个页面上嵌入单个 portlet）将非常有用。您可以复制、重命名和修改这些主题模板文件，并可创建任意多个所需的主题模板文件。接着，您可以在“页面属性”中设置 com.ibm.portal.theme.template.file.name.html 或 com.ibm.portal.theme.inherited.template.file.name.html 页面属性来指明特定页面上正在使用的主题模板。使用第一个属性可设置该页面的主题模板，并且只能设置一个页面，使用第二个属性可设置该页面及其所有后代页面的主题模板。您也可以通过 xmlaccess 来设置这些属性，方法是导出该页面的 XML、在其他页面参数旁添加 com.ibm.portal.theme.template.file.name.html 或 com.ibm.portal.theme.inherited.template.file.name.html 属性值，如下所示：
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+或
+
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+然后，重新导入该页面。
+
+
++ modules
+
+创建模块以链接到自己的资源文件的最简易方法（也称为简单模块）在“modules”文件夹中。在此文件夹中，每个模块有一个文件夹 - 为自己的模块创建文件夹。另外还有一个可使用的缺省模块“getting_started_module”。只需将资源文件（例如，.css 和 .js 文件）添加到 getting_started_module 中即可快速启动，或者可将 getting_started_module 作为示例以了解创建类似模块文件夹的方法。
+
+简单模块限于一个主题。如果要在其他主题中使用部分相同的模块，您必须将这些简单模块文件夹从一个主题复制到另一个主题。
+
+有关简单模块的更多指示信息，请阅读“modules”文件夹中的 readme.txt 文件。
+
+
++ contributions
+
+创建模块以链接到自己的资源文件的第二简易方法（也称为主题模块）在“contributions”文件夹中。在此文件夹中，每个模块或每个模块集有一个 .json 文件 - 为自己的模块或模块集创建 .json 文件。您可以对其中某个现有 .json 文件进行复制、重命名和修改，以便查看并了解所需的 .json 语法。
+
+主题模块限于一个主题。如果要在其他主题中使用部分相同的模块，必须将这些模块定义 .json 文件从一个主题复制到另一个主题。
+
+有关主题模块的更多指示信息，请阅读“contributions”文件夹中的 readme.txt 文件。
+
+（第三种创建模块的方法（也称为全局模块）是通过 Web 应用程序存储库 (.war) 的“WEB-INF”文件夹中的 plugin.xml 文件创建。此方法涉及的操作最多，因此，仅当有必要时才使用此方法（例如，多个主题中需要一个可复用的模块，而您又不想在每个主题中复制该模块定义）。顾名思义，全局模块适用于所有主题。）
+
+
++ profiles
+
+定义了模块之后，您可以使用“profiles”文件夹中的概要文件打开或关闭这些模块。
+在此文件夹中，每个概要文件有一个 .json 文件 - 为自己的概要文件创建 .json 文件。您可以对其中某个现有 .json 文件进行复制、重命名和修改，以便查看并了解所需的 .json 语法。通过将您自己的模块或任何模块添加到概要文件的模块列表中可打开相应的模块。通过将您自己的模块或任何模块从概要文件的模块列表中删除可关闭相应的模块。
+
+有关主题概要文件的更多指示信息，请阅读“profiles”文件夹中的 readme.txt 文件。
+
+
++ layout-templates
+
+为每个页面指定一个布局模板（例如，3 Column Equal 和 2 Column Right 等）。在“layout-templates”文件夹中定义这些布局模板，并且每个布局有一个子文件夹。通过在子文件夹中新建子文件夹以及 layout.html 文件，您可以创建自己的定制布局。
+
+有关布局模板的更多指示信息，请阅读“layout-templates”文件夹中的 readme.txt 文件。
+
+
+
+靜態佈景主題資源概觀（繁體中文）
+*******************************
+
+WebDAV 中的此主要佈景主題資料夾是向入口網站伺服器和資源聚集器架構提供佈景主題靜態資源的位置。
+
+佈景主題的主頁面定義以此資料夾中的佈景主題範本檔 theme.html 開頭。
+此佈景主題範本包含入口網站伺服器將針對您的佈景主題頁面顯示的主要 HTML 標記，
+包括熟悉的 DOCTYPE、html、head 和 body 標籤。在佈景主題範本中，
+含有入口網站伺服器一般透過 .jsp 處理並用最終呈現頁面之動態計算的靜態標記取代的各種動態內容點。
+
+head 頂端是必要的 <link rel="dynamic-content" href="co:head"> 動態內容點，資源聚集器架構在這裡處理使用中模組（例如
+.css 和 .js 檔案）的所有 head 要素項，並將它們結合到單個資源要求中以提高效能。因此，
+為了參與此最佳效能，您不應該使用 link 標籤直接在 head 中鏈結您的專屬資源（例如
+.css 和 .js 檔案），而是應該透過模組載入您的專屬資源。如需模組的相關資訊，
+請參閱下面的模組和要素項摘要。
+
+body 的底端是必要的 <link rel="dynamic-content" href="co:config">
+動態內容點，資源聚集器架構在這裡處理使用中模組（例如
+.js 和 .html 檔案）的所有 config 要素項，然後再次結合它們以取得最佳效能。
+也是在這裡，您應該透過模組載入您的專屬資源。如需模組的相關資訊，
+請參閱下面的模組和要素項摘要。
+
+佈景主題範本的其餘整個部分是指向 .jsp 的其他動態內容點。您可以在需要自訂您的專屬佈景主題的位置，
+新增您的專屬動態內容點。當然，如果您的佈景主題需要不同的功能，您也可以移除或整個取代某些動態內容點。
+
+依預設，佈景主題範本具有國家語言支援，這表示 'nls' 資料夾中實際上有檔案的多個翻譯版本。
+除了分開 'nls' 資料夾中語言環境與用戶端的語言環境相符的檔案版本之外，
+入口網站伺服器實際上不會使用主要 theme.html 檔案。因此，當對佈景主題範本進行變更時，
+請確保在與正在使用之語言環境相符的 'nls' 資料夾中的檔案版本中（例如在 nls\theme_en.html 檔案中）進行起始變更。
+然後對需要支援的其他語言檔案進行後續變更，並跳過不需要支援的語言。如果您根本不需要多種語言支援，
+只需要一種語言，則可透過在主要 theme.html 檔案的頂端移除語言環境鏈結（<!--START LOCALE LINKS--><!--END LOCALE LINKS-->
+區塊）來關閉國家語言支援，在這種情況下，入口網站伺服器不會使用
+'nls' 資料夾中的檔案，而是改為使用一個主要 theme.html 檔案。
+
+佈景主題的所有頁面有一個預設佈景主題範本 theme.html，
+但是可以置換某些頁面的已設佈景主題範本，以便可以使用其他佈景主題範本。
+入口網站隨附的另外兩個範例佈景主題範本是
+theme_sidenav.html（它具有向下而不是向頁面頂端的主要頁面導覽）和
+Plain.html（它是最簡單的佈景主題範本，您可以使用作為起始點，並且某些情況下也很有用，
+例如在頁面上資訊訊框中嵌入單個 Portlet。您可以複製、重新命名和修改這些佈景主題範本檔，
+也可以建立所需數目的佈景主題範本檔。然後，您可以透過在頁面內容中設定
+com.ibm.portal.theme.template.file.name.html 或 com.ibm.portal.theme.inherited.template.file.name.html
+頁面內容，指定哪些佈景主題範本在某些頁面上使用。
+第一個內容僅用於設定一個頁面的佈景主題範本，
+第二個內容用於設定頁面及其所有後代頁面的佈景主題範本。
+您還可以透過 xmlaccess 設定這些內容，方法是匯出頁面的
+xml，在其他頁面參數附近新增
+com.ibm.portal.theme.template.file.name.html 或
+com.ibm.portal.theme.inherited.template.file.name.html
+參數的值，例如：
+
+<parameter name="com.ibm.portal.theme.template.file.name.html" type="string" update="set"><![CDATA[Plain.html]]></parameter>
+
+或
+
+
+<parameter name="com.ibm.portal.theme.inherited.template.file.name.html" type="string" update="set"><![CDATA[theme_sidenav.html]]></parameter>
+
+然後重新匯入該頁面。
+
+
++ modules
+
+建立您的專屬模組（稱為簡式模組，用於鏈結您的專屬資源檔）的最簡單方法是在
+'modules' 資料夾中進行。在該資料夾中，包含每個模組的一個資料夾
+- 建立用於您的專屬模組的專屬資料夾。還有一個預設
+'getting_started_module' 可引導您開始使用。只要將您的資源檔（例如
+.css 和 .js 檔案）新增至 getting_started_module 即可快速開始使用，
+或者使用 getting_started_module 作為範例來瞭解如何建立您的專屬類似模組資料夾。
+
+簡式模組的範圍限制為您的一個佈景主題。如果您要在不同的佈景主題中使用某些相同的模組，
+則必須將這些簡式模組資料夾從一個佈景主題複製到另一個佈景主題。
+
+如需簡式模組的進一步指示，請閱讀 'modules' 資料夾中的 readme.txt 檔案。
+
+
++ contributions
+
+建立您的專屬模組（稱為佈景主題模組，用於鏈結您的專屬資源檔）的最簡單方法是在
+'contributions' 資料夾中進行。在該資料夾中，包含每個模組或模組集的一個
+.json 檔案 - 建立用於您的專屬模組或模組集的專屬 .json 檔案。您可以複製、重新命名和修改
+現有 .json 檔案之一，以便查看並瞭解所需的 .json 語法。
+
+佈景主題模組的範圍限定為您的一個佈景主題。如果您要在不同的佈景主題中
+使用這些相同模組中的某些模組，則必須將這些模組定義
+.json 檔案從該佈景主題複製到其他佈景主題。
+
+如需佈景主題模組的進一步指示，請閱讀 'contributions' 資料夾中的 readme.txt 檔案。
+
+（另一種建立您的專屬模組（稱為廣域模組）的方法是透過
+Web 應用程式 (.war) 內 'WEB-INF' 資料夾中的 plugin.xml
+檔進行。此方法的工作量最大，因此，除非您有充分的理由
+（例如對於要在多個佈景主題中重複使用的模組，您不想在每個佈景主題中複製模組定義），
+否則您不會採用該方法。顧名思義，廣域模組的範圍設定為所有G佈景主題之間。）
+
+
++ profiles
+
+定義模組之後，可使用 'profiles' 資料夾中的設定檔開啟和關閉這些模組。
+在該資料夾中，包含每個設定檔的一個
+.json 檔案 - 建立用於您的專屬設定檔的專屬 .json 檔案。 您可以複製、重新命名和修改
+現有 .json 檔案之一，以便查看並瞭解所需的 .json 語法。將您的模組或任何模組新增至設定檔的模組清單，即可將其開啟。從設定檔的模組清單移除您的模組或任何模組，即可將其關閉。
+
+如需佈景主題設定檔的進一步指示，請閱讀 'profiles' 資料夾中的 readme.txt 檔案。
+
+
++ layout-templates
+
+系統會為每個頁面指派一個佈置範本，例如 3 直欄相等、2 直欄靠右等等。
+這些佈置範本在 'layout-templates' 資料夾中定義，每個佈置一個子資料夾。
+您可以建立您的專屬自訂佈置，方法是建立新的子資料夾並在該子資料夾中建立 layout.html 檔案。
+
+如需佈置範本的進一步指示，請閱讀 'layout-templates' 資料夾中的 readme.txt 檔案。
+
+
+

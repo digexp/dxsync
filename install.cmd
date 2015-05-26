@@ -1,0 +1,1 @@
+npm -g --production --no-optional install

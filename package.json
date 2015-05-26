@@ -1,0 +1,68 @@
+{
+  "name" : "dxsync",
+  "version": "1.0.0",
+  "description": "IBM Digital Experience File Sync - This utility synchronizes theme resources with an IBM WebSphere Portal instance to a local directory.",
+  "homepage" : "https://github.com/digexp/dxsync",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digexp/dxsync.git"
+  },
+  "bugs": {
+    "url": "https://github.com/digexp/dxsync/issues"
+  },
+  "author" : "IBM Corporation",
+  "contributors": [{
+    "name": "Stephan Hesmer",
+    "email": "stephan.hesmer@us.ibm.com"
+  }],
+  "licenses": [{
+    "type": "ILAN (non-warranted)",
+    "url": "https://github.com/digexp/dxsync/raw/master/LICENSE.md"
+  }],
+  "bin": {
+    "dxsync": "bin/dxsync"
+  },
+  "main" : "./main.js",
+  "dependencies": {
+      "graceful-fs": "3.0.6",
+      "unzip": "0.1.11",
+      "q": "1.2.0",
+      "prompt": "0.2.14",
+      "xml2js" : "0.4.6",
+      "request" : "2.54.0",
+      "node-notifier" : "4.1.2",
+      "colors" : "1.0.3",
+      "tracer" : "0.7.4",
+      "throat" : "2.0.2"
+  },
+  "optionalDependencies" : {
+      "pathwatcher": "4.3.1"
+  },
+  "devDependencies": {
+      "grunt": "latest",
+      "grunt-contrib-compress": "latest",
+      "mocha": "latest",
+      "should": "latest",
+      "istanbul": "latest",
+      "jshint": "latest",
+      "jshint-full-path" : "latest",
+      "jscs" : "latest",
+      "rewire" : "latest",
+      "mock-stdin" : "latest",
+      "jsDAV" : "latest",
+      "rimraf" : "latest"
+  },
+  "scripts" : {
+    "postinstall" : "node postinstall.js",
+    "lint"        : "./node_modules/.bin/jshint . --reporter=./node_modules/jshint-full-path/index.js",
+    "checkStyle"  : "./node_modules/.bin/jscs .",
+    "pretest"     : "npm run-script checkStyle",
+    "test"        : "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- --recursive -R spec -r should",
+    "posttest"    : "./node_modules/.bin/istanbul check-coverage"
+  },
+  "engines" : {
+    "node" : "~0.12"
+  },
+  "engine-strict": true,
+  "engineStrict": true
+}

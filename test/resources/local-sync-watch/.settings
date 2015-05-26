@@ -1,0 +1,9 @@
+{
+    "username": "wpsadmin",
+    "password": "96d2ad96f3fac505",
+    "secure": false,
+    "port": "10039",
+    "contenthandlerPath": "/",
+    "host": "127.0.0.1",
+    "theme": "Theme One"
+}

@@ -1,0 +1,277 @@
+{
+	"moduleIDs": [
+		"getting_started_module",
+		"wp_theme_portal_85",
+		"wp_dynamicContentSpots_85",
+		"wp_toolbar_ghost",
+		"wp_portlet_css",
+		"wp_client_ext",
+		"wp_status_bar",
+		"wp_theme_menus",
+		"wp_theme_skin_region",
+		"wp_high_contrast",
+		"wp_layout_windowstates",
+		"dojo",
+		"wp_draft_page_ribbon"
+	],
+	"titles": [
+		{
+			"value":"وحدات برامج بسيطة من Dojo",
+			"lang":"ar"
+		},
+		{
+			"value":"Lightweight amb Dojo",
+			"lang":"ca"
+		},
+		{
+			"value":"Odlehčeno se sadou nástrojů Dojo",
+			"lang":"cs"
+		},
+		{
+			"value":"Letvægt med Dojo",
+			"lang":"da"
+		},
+		{
+			"value":"Einfach mit Dojo",
+			"lang":"de"
+		},
+		{
+			"value":"Μειωμένων λειτουργιών με Dojo",
+			"lang":"el"
+		},
+		{
+			"value":"Lightweight with Dojo",
+			"lang":"en"
+		},
+		{
+			"value":"Lightweight con Dojo",
+			"lang":"es"
+		},
+		{
+			"value":"Kevyt Dojon kanssa",
+			"lang":"fi"
+		},
+		{
+			"value":"Simple avec Dojo",
+			"lang":"fr"
+		},
+		{
+			"value":"קל עם Dojo",
+			"lang":"he"
+		},
+		{
+			"value":"Jednostavno uz Dojo",
+			"lang":"hr"
+		},
+		{
+			"value":"Egyszerűsített Dojo-val",
+			"lang":"hu"
+		},
+		{
+			"value":"Semplificato con Dojo",
+			"lang":"it"
+		},
+		{
+			"value":"Dojo を使用した軽量版",
+			"lang":"ja"
+		},
+		{
+			"value":"Dojo элементімен бірге оңай",
+			"lang":"kk"
+		},
+		{
+			"value":"Lightweight(Dojo 포함)",
+			"lang":"ko"
+		},
+		{
+			"value":"Lightweight met Dojo",
+			"lang":"nl"
+		},
+		{
+			"value":"Lightweight med Dojo",
+			"lang":"no"
+		},
+		{
+			"value":"Uproszczony z technologią Dojo",
+			"lang":"pl"
+		},
+		{
+			"value":"Simples com o Dojo",
+			"lang":"pt"
+		},
+		{
+			"value":"Lightweight com o Dojo",
+			"lang":"pt_BR"
+		},
+		{
+			"value":"De categorie uşoară cu Dojo",
+			"lang":"ro"
+		},
+		{
+			"value":"Простые - Dojo",
+			"lang":"ru"
+		},
+		{
+			"value":"Zjednodušené s Dojo",
+			"lang":"sk"
+		},
+		{
+			"value":"Poenostavljena različica s kompletom orodij Dojo",
+			"lang":"sl"
+		},
+		{
+			"value":"Enkel med Dojo",
+			"lang":"sv"
+		},
+		{
+			"value":"Lightweight with Dojo",
+			"lang":"th"
+		},
+		{
+			"value":"Dojo İle Hafif",
+			"lang":"tr"
+		},
+		{
+			"value":"Спрощений із Dojo",
+			"lang":"uk"
+		},
+		{
+			"value":"轻量级 Dojo",
+			"lang":"zh"
+		},
+		{
+			"value":"使用 Dojo 的小型",
+			"lang":"zh_TW"
+		}
+	],
+	"descriptions": [
+		{
+			"value":"يحتوي ملف المواصفات هذا على وحدات البرامج المطلوبة لمشاهدة الصفحات التي يوجد بها portlets. وحدات البرامج المطلوبة الى iWidgets ووحدات البرامج المطلوبة بواسطة المستخدمين لتغيير الصفحات غير متضمنة.  ملف المواصفات هذا يتضمن dojo.",
+			"lang":"ar"
+		},
+		{
+			"value":"Aquest perfil conté els mòduls necessaris per visualitzar les pàgines amb portlets. No s'inclouen els mòduls necessaris per a iWidgets ni els mòduls necessaris perquè els usuaris canviïn pàgines.  Aquest perfil inclou dojo.",
+			"lang":"ca"
+		},
+		{
+			"value":"Tento profil má moduly nutné pro zobrazování stránek s portlety. Moduly nutné pro objekty iWidgets a moduly, které potřebují uživatelé ke změnám stránek, součástí nejsou. Tento profil zahrnuje sadu nástrojů dojo.",
+			"lang":"cs"
+		},
+		{
+			"value":"Denne profil har de moduler, der skal bruges til at vise sider med miniportaler. Moduler, der skal bruges til iWidget, og moduler, som brugerne skal anvende for at ændre sider, er ikke inkluderet. Profilen indeholder Dojo.",
+			"lang":"da"
+		},
+		{
+			"value":"Dieses Profil enthält Module, die für die Anzeige von Seiten mit Portlets erforderlich sind. Es sind keine Module enthalten, die für iWidgets erforderlich sind und von Benutzern zum Ändern von Seiten benötigt werden. Dieses Profil umfasst Dojo.  ",
+			"lang":"de"
+		},
+		{
+			"value":"Αυτό το προφίλ περιέχει τις λειτουργικές μονάδες που απαιτούνται για την προβολή σελίδων με μικροεφαρμογές πύλης. Οι λειτουργικές μονάδες που απαιτούνται για iWidgets και για την αλλαγή σελίδων από χρήστες δεν περιλαμβάνονται.  Αυτό το προφίλ περιλαμβάνει dojo.",
+			"lang":"el"
+		},
+		{
+			"value":"This profile has modules necessary for viewing pages with portlets. Modules necessary for iWidgets and modules needed by users to change pages are not included.  This profile includes dojo.",
+			"lang":"en"
+		},
+		{
+			"value":"Este perfil tiene los módulos necesarios para ver páginas con portlets. Los módulos necesarios para iWidgets y los módulos necesarios para que los usuarios cambien páginas no se incluyen.  Este perfil incluye dojo.",
+			"lang":"es"
+		},
+		{
+			"value":"Tämä profiili sisältää moduulit, joita tarvitaan portaalisovelmien sivujen tarkasteluun. Moduulit, joita tarvitaan iWidget-objektien käyttöön ja sivujen vaihtoon, eivät sisälly tähän profiiliin.  Tämä profiili sisältää dojo-ominaisuuksia.",
+			"lang":"fi"
+		},
+		{
+			"value":"Ce profil contient les modules requis pour l'affichage de pages avec des portlets. Les modules requis pour iWidgets et les modules requis par les utilisateurs pour changer les pages ne sont pas inclus.  Ce profil inclut Dojo.",
+			"lang":"fr"
+		},
+		{
+			"value":"פרופיל זה כולל מודולים הדרושים להצגת דפים עם פורטלטים. מודולים הדרושים עבור פקדי iWidgets ומודולים הדרושים למשתמשים לצורך שינוי דפים אינם כלולים.  פרופיל זה כולל את dojo.‏",
+			"lang":"he"
+		},
+		{
+			"value":"Ovaj profil ima module potrebne za pregled stranica u portletima. Nisu uključeni moduli potrebni za iWidgets i moduli potrebni korisnicima ta mijenjanje stranica.  Ovaj profil uključuje dojo.",
+			"lang":"hr"
+		},
+		{
+			"value":"Ez a profil az oldalak portál kisalkalmazások segítségével végzett megtekintéséhez szükséges modulokat tartalmazza. Az iWidgets elemekhez és az oldalak módosításához szükséges modulokat nem tartalmazza.  A profil dojo-t tartalmaz.",
+			"lang":"hu"
+		},
+		{
+			"value":"Questo profilo ha i moduli necessari per la visualizzazione delle pagine con i portlet. I moduli necessari per gli iWidget e quelli necessari agli utenti per modificare le pagine non sono inclusi.  Questo profilo include dojo.",
+			"lang":"it"
+		},
+		{
+			"value":"このプロファイルには、ポートレットを使用してページを表示するために必要なモジュールがあります。 iWidget にとって必要なモジュールや、ユーザーがページを変更するために必要なモジュールは含まれていません。  このプロファイルには Dojo が含まれています。",
+			"lang":"ja"
+		},
+		{
+			"value":"Осы профайлда беттерді портлеттермен көру үшін қажетті модульдер бар. Беттерді өзгерту үшін пайдаланушыларға қажет iWidgets және модульдерге арналған қажетті модульдер қосылмаған.  Бұл профайл dojo элементін қамтиды.",
+			"lang":"kk"
+		},
+		{
+			"value":"이 프로파일에 포틀릿으로 페이지를 보기 위해 필요한 모듈이 있습니다. iWidgets에 필요한 모듈과 사용자가 페이지를 변경하는 데 필요한 모듈이 포함되지 않습니다.  이 프로파일에는 Dojo가 포함됩니다.",
+			"lang":"ko"
+		},
+		{
+			"value":"Dit profiel heeft modules die nodig zijn voor het bekijken van pagina's met portlets. Modules die nodig zijn voor iWidgets en modules die de gebruikers nodig hebben om pagina's te wijzigen, zijn niet opgenomen.  Dit profiel bevat dojo.",
+			"lang":"nl"
+		},
+		{
+			"value":"Denne profilen har modulene som kreves for å vise sider med portletter. Moduler som kreves for iWidgets og moduler som kreves av brukere for å endre sider, er ikke inkludert.  Denne profilen inkluderer dojo.",
+			"lang":"no"
+		},
+		{
+			"value":"Ten profil zawiera moduły konieczne do wyświetlania stron z portletami. Nie dołączono modułów niezbędnych dla elementów iWidget ani modułów potrzebnych użytkownikom do modyfikowania stron.  Ten profil zawiera technologię Dojo.",
+			"lang":"pl"
+		},
+		{
+			"value":"Este perfil tem os módulos necessários para visualizar páginas com portlets. Os módulos necessários para iWidgets e para que os utilizadores alterem páginas não estão incluídos.  Este perfil inclui o dojo.",
+			"lang":"pt"
+		},
+		{
+			"value":"Esse perfil tem os módulos necessários para visualizar páginas com portlets. Os módulos necessários para iWidgets e os módulos necessários para os usuários alterarem páginas não estão incluídos.  Esse perfil inclui dojo.",
+			"lang":"pt_BR"
+		},
+		{
+			"value":"Acest profil are module necesare pentru vizualizare pagini cu portleturi. Modulele necesare pentru iWidgets şi modulele necesitate de utilizatori pentru a modifica paginile nu sunt incluse.  Acest profil inlude dojo.",
+			"lang":"ro"
+		},
+		{
+			"value":"Этот профайл содержит модули, необходимые для просмотра страниц с портлетами. Модули, необходимые для iWidget, а также модули, позволяющие пользователям внести изменения в страницы, отсутствуют.  В состав этого профайла входит dojo.",
+			"lang":"ru"
+		},
+		{
+			"value":"Tento profil má moduly potrebné na prezeranie stránok s portletmi. Nie sú zahrnuté moduly potrebné pre iWidgety a moduly, ktoré potrebujú užívatelia na zmenu stránok.  Tento profil zahŕňa dojo.",
+			"lang":"sk"
+		},
+		{
+			"value":"Ta profil vsebuje module, ki so potrebni za ogledovanje strani s portalskimi programčki. Moduli, potrebni za gradnike iWidget, in moduli, ki jih uporabniki potrebujejo za spreminjanje strani, niso vključeni.  Ta profil vključuje komplet orodij Dojo.",
+			"lang":"sl"
+		},
+		{
+			"value":"Profil med moduler som krävs för att visa sidor med portletar. Moduler som krävs för iwidgetar och moduler som användarna behöver för att ändra sidor ingår inte.  Innehåller Dojo.",
+			"lang":"sv"
+		},
+		{
+			"value":"โปรไฟล์นี้มีโมดูลที่จำเป็นสำหรับการดูเพจที่มีพอร์ตเล็ต โมดูลที่จำเป็นสำหรับ iWidgets และโมดูลที่ผู้ใช้ต้องใช้เพื่อเปลี่ยนเพจไม่ถูกรวมอยู่ด้วย  โปรไฟล์นี้มี dojo",
+			"lang":"th"
+		},
+		{
+			"value":"Bu profil, portal uygulamacıkları olan sayfaları görüntülemek için gereken modülleri içerir. iWidget'lar için gereken modülleri ve sayfaları değiştirmek için kullanıcıların gerek duyduğu modülleri içermez.  Bu profil Dojo'yu içerir.",
+			"lang":"tr"
+		},
+		{
+			"value":"Цей профайл містить модулі, необхідні для перегляду сторінок з портлетами. До нього не входять модулі, необхідні для iWidgets, а також для зміни сторінок.  Цей профайл включає dojo.",
+			"lang":"uk"
+		},
+		{
+			"value":"此概要文件具有查看带有 Portlet 的页面所必需的模块。 未包括 iWidget 的必需模块以及用户更改页面时所需的模块。此概要文件包含 Dojo。",
+			"lang":"zh"
+		},
+		{
+			"value":"這個設定檔具有透過 portlet 檢視頁面必要的模組。 iWidget 必要的模組和使用者變更頁面所需的模組不包含在內。此設定檔併入 dojo。",
+			"lang":"zh_TW"
+		}
+	]
+}

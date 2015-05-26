@@ -1,0 +1,9 @@
+{
+    "username": "whatever",
+    "password": "96d2ad96f3fac505",
+    "secure": false,
+    "port": "500",
+    "contenthandlerPath": "/wps/special/contenthandler",
+    "host": "somewhere.on.the.globe",
+    "theme": "Test Theme"
+}
