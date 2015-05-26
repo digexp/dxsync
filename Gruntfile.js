@@ -16,7 +16,7 @@ module.exports = function( grunt )
                     {
                         expand: true,
                         cwd: ".",
-                        src: [ "index.js", "install.cmd", "install.sh", "install.txt", "package.json", "postinstall.js", "precompiled_modules.zip", "readme.md", "readme.txt" ],
+                        src: [ "index.js", "install.cmd", "install.sh", "install.txt", "package.json", "postinstall.js", "precompiled_modules.zip", "readme.md", "readme.txt", "LICENSE", "NOTICE" ],
                         dest: "/",
                         filter: "isFile"
                     },
