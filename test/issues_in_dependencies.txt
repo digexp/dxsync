@@ -1,0 +1,41 @@
+1. jsDAV - gnu-tools not working in node 0.12
+	Fix is being discussed on git: https://github.com/mikedeboer/jsDAV/issues/119
+	Not yet available as new released version
+
+	Temp fix added in /node_modules/jsDAV/lib/DAV/server.js
+    * Replace content of this function "Fs.readdirSync(__dirname + "/plugins").forEach(function(filename){"
+    * with this:
+        Fs.readdirSync(__dirname + "/plugins").forEach(function(filename){
+            if (/\.js$/.test(filename)) {
+                var name = filename.substr(0, filename.lastIndexOf("."));
+                try {
+                var pluginCls = require("./plugins/" + name);
+                exports.DEFAULT_PLUGINS[pluginCls.name || name] = pluginCls;
+                }
+                catch (e) {}
+            }
+        });
+
+2. jsDAV - https://github.com/mikedeboer/jsDAV/issues/125
+
+    Temp fix added in /node_modules/jsDAV/lib/DAV/server.js
+    * Search for "this.setBaseUri(this.guessBaseUri());" (at the end of function Server(options))
+    * Wrap it in an if like below
+        if (!options.baseUri) { // TEMP-FIX
+            this.setBaseUri(this.guessBaseUri());
+        }
+
+3. jsDAV - splitPath doesn't work on Windows
+    The path that is passed in contains backslashes and the built in
+    matching function doesn't split in this case
+
+    Temp fix added in /node_modules/jsDAV/lib/shared/utils.js
+    * Search for function "exports.splitPath" and add in the beginning of the function the following line
+        // Windows Bug: Path contains Backslashes, the matching code below can't handle it
+        path = path.replace( /\\/g, "/" ); // TEMP-FIX
+
+4. jsDav - asyncjs dependency - Latest release doesn't run on node 0.12
+	File fs-node.js uses Path.exists
+    The latest version 0.0.9 does not fix the issue, but the latest master branch works.
+	Simply replace the master branch with the local version in /node_modules/jsDAV/node_modules/asyncjs
+    https://github.com/fjakobs/async.js/archive/master.zip
