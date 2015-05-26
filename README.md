@@ -8,7 +8,7 @@ The tool supports full 2-way synchronization and can recognize when a file has b
 ## Installation
 1. Download and install node.js ([link](http://nodejs.org/))
  * On Linux please use the Node Version Manager (https://github.com/creationix/nvm) to install node.
-2. Download the latest stable DXSync release [here](https://git.design.ibm.com/stephan.hesmer/themesync/tree/master/release).
+2. Download the latest stable DXSync release [here](https://github.com/digexp/dxsync/tree/master/release).
 3. Unzip the file and run the following command in the unzipped directory
     * Linux/OSX
     `sudo ./install.sh`
