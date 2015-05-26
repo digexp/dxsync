@@ -16,8 +16,8 @@
     "email": "stephan.hesmer@us.ibm.com"
   }],
   "licenses": [{
-    "type": "ILAN (non-warranted)",
-    "url": "https://github.com/digexp/dxsync/raw/master/LICENSE.md"
+    "type": "Apache v2",
+    "url": "https://github.com/digexp/dxsync/raw/master/LICENSE"
   }],
   "bin": {
     "dxsync": "bin/dxsync"
