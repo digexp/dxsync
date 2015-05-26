@@ -1,0 +1,11 @@
+/node_modules/grunt
+/frontend/cache
+/precompiled_modules
+/build
+/frontend/node_modules
+/node_modules/grunt-contrib-compress
+/frontend/app/node_modules
+/coverage
+/frontend/build
+dxsync.sublime-project
+dxsync.sublime-workspace

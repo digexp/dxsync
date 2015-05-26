@@ -1,0 +1,124 @@
+IBM Digital Experience File Sync
+(c) Copyright IBM Corp. 2015
+
+This product is licensed under the terms of the Apache 2.0 license.
+
+The project includes the following third party packages
+
+pathwatcher 4.3.1
+Licensed under MIT
+http://atom.github.io/node-pathwatcher
+
+async 0.2.10
+Licensed under MIT
+https://github.com/caolan/async
+
+amdefine 0.1.0
+Licensed under MIT
+http://github.com/jrburke/amdefine
+
+coffee-script 1.8.0
+Licensed under MIT
+http://coffeescript.org
+
+coffeestack 1.1.1
+Licensed under MIT
+https://github.com/kevinsawicki/coffeestack
+
+d 0.1.1
+Licensed under MIT
+https://github.com/medikoo/d
+
+emissary 1.3.3
+Licensed under MIT
+http://atom.github.io/emissary
+
+es5-ext 0.10.6
+Licensed under MIT
+https://github.com/medikoo/es5-ext
+
+es6-iterator 0.1.3
+Licensed under MIT
+https://github.com/medikoo/es6-iterator
+
+es6-symbol 2.0.1
+Licensed under MIT
+https://github.com/medikoo/es6-symbol
+
+es6-weak-map 0.1.2
+Licensed under MIT
+https://github.com/medikoo/es6-weak-map
+
+event-kit 1.0.3
+Licensed under MIT
+https://github.com/atom/event-kit
+
+fs-plus 2.6
+Licensed under MIT
+http://atom.github.io/fs-plus
+
+grim 1.2
+Licensed under MIT
+https://github.com/atom/grim
+
+iConv-lite 0.4.7
+Licensed under MIT
+https://github.com/ashtuchkin/iconv-lite
+
+mixto 1.0
+Licensed under MIT
+https://github.com/atom/mixto
+
+mkdirp 0.3.5
+Licensed under MIT
+https://github.com/substack/node-mkdirp
+
+nan 1.6.1
+Licensed under MIT
+https://github.com/rvagg/nan
+
+property-accessors 1.1.3
+Licensed under MIT
+http://atom.github.io/property-accessors
+
+rimraf 2.2.8
+Licensed under MIT
+https://github.com/isaacs/rimraf
+
+runas 2.0
+Licensed under MIT
+https://github.com/atom/node-runas
+
+source-map 0.1.43
+Licensed under MIT
+https://github.com/mozilla/source-map
+
+underscore 1.6.0
+Licensed under MIT
+http://underscorejs.org
+
+underscore-plus 1.6.6
+Licensed under MIT
+http://atom.github.io/underscore-plus
+
+
+
+The MIT License:
+Permission is hereby granted, free  of charge, to any person obtaining
+a  copy  of this  software  and  associated  documentation files  (the
+"Software"), to  deal in  the Software without  restriction, including
+without limitation  the rights to  use, copy, modify,  merge, publish,
+distribute,  sublicense, and/or sell  copies of  the Software,  and to
+permit persons to whom the Software  is furnished to do so, subject to
+the following conditions:
+
+The  above  copyright  notice  and  this permission  notice  shall  be
+included in all copies or substantial portions of the Software.
+
+THE  SOFTWARE IS  PROVIDED  "AS  IS", WITHOUT  WARRANTY  OF ANY  KIND,
+EXPRESS OR  IMPLIED, INCLUDING  BUT NOT LIMITED  TO THE  WARRANTIES OF
+MERCHANTABILITY,    FITNESS    FOR    A   PARTICULAR    PURPOSE    AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE,  ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
