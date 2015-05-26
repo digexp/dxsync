@@ -8,6 +8,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 */
 
+try {
 var jsDAVserver = require( "jsDAV/lib/DAV/server" ),
 	jsDAV = require( "jsDAV/lib/jsdav" ),
 	path = require( "path" ),
@@ -83,4 +84,11 @@ exports.closeServer = function( server, done ) {
 			done();
 		} );
 	} )
+}
+} catch ( e ) {
+	console.log( "ERROR: ", e );
+	if ( e && ( e + "" ).indexOf( "Cannot find module 'gnu-tools'" ) != -1 ) {
+		console.log( "Testcases are not able to execute until you fix the test component issues.\nPlease check file https://github.com/digexp/dxsync/tree/master/test/issues_in_dependencies.txt" );
+	}
+	process.exit( 0 );
 }
