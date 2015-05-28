@@ -16,6 +16,18 @@ The tool supports full 2-way synchronization and can recognize when a file has b
     `install.cmd`
 4. Done
 
+## First Steps
+After you successfully installed DXSync, you can start playing around with the default Portal 8.5 Theme. In order to do this ou need to:
+1. Create a new local directory. Lets call this `/themedev`
+2. Open a new command line and switch to this directory
+   `cd /themedev`
+3. Initialize the dxsync tool in this directory
+   `dxsync init`
+4. Follow the prompts and enter all information about your remote host.
+5. Once done start the tool
+   `dxsync run`
+6. Since your local directory is empty the tool will download all files from the remote server to `/themedev`. After it is finished you can change the files locally in your favorite editor and the files will be automatically uploaded under the covers.
+
 ## Usage
 DXSync is a command line tool that needs to be run from within the directory where you want to synchronize your sources to.
 Open a terminal and change into this directoy. Calling 'dxsync' will print out a help screen that provides more information.
