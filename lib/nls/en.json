@@ -1,5 +1,4 @@
 {
-    // Do not translate "IBM Digital Experience File Sync" as this is the legal name and must stay the same 
     "program_title" : "IBM Digital Experience File Sync v%s",
     "program_help_1" : "This utility synchronizes WebDAV resources for an IBM WebSphere Portal Theme with a local directory.",
     "program_help_2" : "This allows a theme developer to easily work with those files locally using your own favorite editor.",
