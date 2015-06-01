@@ -30,9 +30,13 @@ Digital Experience File Sync pulls the theme files to your work station and uplo
 
 ## First Steps
 When you create a new theme for WebSphere Portal, you can edit your files locally. You can choose which directory you want to synchronize with your server. You must initialize DXSync to synchronize with a directory.
+
 1. Create a new local directory, for example, `/themedev`
+
 2. In the command line, change to your new directory, for example, `cd /themedev`
+
 3. Run the `dxsync init` command to initialize a theme with your new directory.
+
 4. Respond to the following prompts to connect to your server:
 	* Hostname: Defines the hostname of your server
 	* Username: Defines your user name
@@ -41,7 +45,9 @@ When you create a new theme for WebSphere Portal, you can edit your files locall
 	* Secure connection: Defines whether DXSync connects to the server securely or unsecurely
 	* Port: Defines your port. The default for a secure connection is `10041`. The default for an unsecure connection is `10039`.
 	* Theme: Defines the theme that you are synchronizing. DXSync provides a numbered list of available themes. Choose the number that corresponds to the theme that you want to synchronize.
+
 5. Start DXSync by running the following command: `dxsync run`
+
 6. Because your local directory is empty, DXSync will download all files from the remote server to `/themedev`. After it is finished, you can change the files locally in your favorite editor, and the files will automatically upload in the background.
 
 For more information, please see the [IBM Digital Experience File Sync wiki] (https://github.com/digexp/dxsync/wiki).
