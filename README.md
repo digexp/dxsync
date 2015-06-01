@@ -1,51 +1,47 @@
 # IBM Digital Experience File Sync
-Allows to connect to a theme stored on any IBM WebSphere Portal Server and synchronize its WebDAV content to your local harddrive. When the tool is running in the background it will watch all file and directory changes locally and synchronize all changes into the remote repository.
+Digital Experience File Sync synchronizes any WebDAV-based WebSphere® Portal themes with your local workstation. It replaces your existing WebDAV client and watches file system changes in the background.
 
-The tool supports full 2-way synchronization and can recognize when a file has been changed locally or on the remote server. It will automatically upload or download the file as well as recognize file conflicts that one has to merge manually and then resolve the conflict. Remote changes are recognized through a background download which runs at a fixed interval (default 5 minutes).
+Digital Experience File Sync pulls the theme files to your work station and uploads any changes you make. It runs on Windows, OSX, and Linux. Digital Experience File Sync is unsupported and can be used on WebSphere Portal version 8.5.
 
-> Only WebDAV resources can be synchronized. If you configured your theme as a WAR file, then you will not be able to use this tool.
+# Installation
+1. Install node.js. You must have Node V0.12 to install Digital Experience File Sync.  
 
-## Installation
-1. Download and install node.js ([link](http://nodejs.org/))
- * On Linux please use the Node Version Manager (https://github.com/creationix/nvm) to install node.
-2. Download the latest stable DXSync release [here](https://github.com/digexp/dxsync/blob/master/release/DXSyncCLI-1.0.0.zip?raw=true).
-3. Unzip the file and run the following command in the unzipped directory
-    * Linux/OSX
-    `sudo ./install.sh`
-    * Windows
-    `install.cmd`
-4. Done
+    If you are using Windows or OSX, [download node.js](https://nodejs.org/download/) and use the appropriate installer for your system.  
+
+    If you are using Linux, find the appropriate installation script on Github. If you are not a root user, add sudo to the beginning of the command. For example, the following command calls the installation script as a root user:  
+
+     `sudo curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash`
+
+2. Then, run the following command to install node.js:  
+
+     `nvm install 0.12`
+
+3. Verify that node.js is installed by running the following commands:
+
+     `node -v`
+
+     `npm -v`
+
+4. Download the newest stable release of [Digital Experience File Sync](https://github.com/digexp/dxsync).  
+
+5. Extract the file.  
+
+6. Change to the extracted directory and run `install.cmd` if you are using Windows or `install.sh` for Linux or OSX.
 
 ## First Steps
-After you successfully installed dxsync, you can start playing around with the default Portal 8.5 Theme. In order to do this you need to:
+When you create a new theme for WebSphere Portal, you can edit your files locally. You can choose which directory you want to synchronize with your server. You must initialize DXSync to synchronize with a directory.
+1. Create a new local directory, for example, `/themedev`
+2. In the command line, change to your new directory, for example, `cd /themedev`
+3. Run the `dxsync init` command to initialize a theme with your new directory.
+4. Respond to the following prompts to connect to your server:
+	* Hostname: Defines the hostname of your server
+	* Username: Defines your user name
+	* Password: Defines your password
+	* Path to the content handler servlet: Defines the path to your content handler servlet. The default is `/wps/mycontenthandler`
+	* Secure connection: Defines whether DXSync connects to the server securely or unsecurely
+	* Port: Defines your port. The default for a secure connection is `10041`. The default for an unsecure connection is `10039`.
+	* Theme: Defines the theme that you are synchronizing. DXSync provides a numbered list of available themes. Choose the number that corresponds to the theme that you want to synchronize.
+5. Start DXSync by running the following command: `dxsync run`
+6. Because your local directory is empty, DXSync will download all files from the remote server to `/themedev`. After it is finished, you can change the files locally in your favorite editor, and the files will automatically upload in the background.
 
-1. Create a new local directory, such as `/themedev`
-2. Open a new command line and switch to this directory: `cd /themedev`
-3. Initialize the dxsync tool in this directory: `dxsync init`
-4. Follow the prompts and enter all information about your remote host.
-5. Once done start the tool: `dxsync run`
-6. Since your local directory is empty the tool will download all files from the remote server to `/themedev`. After it is finished you can change the files locally in your favorite editor and the files will be automatically uploaded under the covers.
-
-## Usage
-DXSync is a command line tool that needs to be run from within the directory where you want to synchronize your sources to.
-Open a terminal and change into this directoy. Calling 'dxsync' will print out a help screen that provides more information.
-> If the command `dxsync` is not found, then you either did not install the tool globally or something went wrong during the installation. Please make sure it is installed globally or `dxsync` is part of your PATH.
-
-There are 4 main commands available
-
- * init
-    - Initializes the synchornization point inside of the current directoy. A series of prompts will query all necessary information and once done saves it in the `.settings` file.
- * run
-     - This is the main command. Executes a full two way synchronization, watches files in the background and restarts a full sync every 5 minutes (configurable).
- * pull
-     - Executes a one time pull (download) from the remote server. **Local changes are overwritten without question**
- * push
-     - Executes a one time push (upload) from the remote server. **Remote changes are overwritten without question**
-
-## Uninstall
-
-Run the following command
-`npm -g uninstall dxsync`
-
-if you are not a root user you may have to run it like this:
-`sudo npm -g uninstall dxsync`
+For more information, please see the [IBM Digital Experience File Sync wiki] (https://github.com/digexp/dxsync/wiki).
