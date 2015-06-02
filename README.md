@@ -10,11 +10,7 @@ Digital Experience File Sync pulls the theme files to your work station and uplo
 
     If you are using Linux, find the appropriate installation script on [Github] (https://github.com/creationix/nvm). If you are not a root user, add sudo to the beginning of the command. 
 
-2. Then, run the following command to install node.js:  
-
-     `nvm install 0.12`
-
-3. Verify that node.js is installed by running the following commands:
+   Note: You can verify that node.js is installed by running the following commands:
 
      `node -v`
 
