@@ -16,7 +16,7 @@ Digital Experience File Sync pulls the theme files to your work station and uplo
 
      `npm -v`
 
-4. Download the newest stable release of [Digital Experience File Sync](https://github.com/digexp/dxsync).  
+4. Download the newest stable release of [Digital Experience File Sync](https://github.com/digexp/dxsync/blob/master/release/DXSyncCLI-1.0.0.zip?raw=true).  
 
 5. Extract the file.  
 
