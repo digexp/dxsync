@@ -8,9 +8,7 @@ Digital Experience File Sync pulls the theme files to your work station and uplo
 
     If you are using Windows or OSX, [download node.js](https://nodejs.org/download/) and use the appropriate installer for your system.  
 
-    If you are using Linux, find the appropriate installation script on Github. If you are not a root user, add sudo to the beginning of the command. For example, the following command calls the installation script as a root user:  
-
-     `sudo curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash`
+    If you are using Linux, find the appropriate installation script on [Github] (https://github.com/creationix/nvm). If you are not a root user, add sudo to the beginning of the command. 
 
 2. Then, run the following command to install node.js:  
 
