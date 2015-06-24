@@ -26,6 +26,7 @@
     "setup_connecting" : "S'està connectant amb el servidor remot...",
     "setup_themes_found" : "S'han trobat els següents temes. Seleccioneu el tema al qual us vulgueu connectar:",
     "setup_theme_desc" : "Introduïu un número entre 1 i %d",
+    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "S'estant obtenint els temes des de %s",
     "list_themes_none" : "No s'han trobat temes al servidor de destinació.",
     "setup_abort" : "S'està avortant la inicialització.",

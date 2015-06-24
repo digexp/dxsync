@@ -26,6 +26,7 @@
     "setup_connecting" : "Оқшау серверге қосылу...",
     "setup_themes_found" : "Келесі тақырыптар табылды. Қайсысын қосқыңыз келетінді таңдаңыз:",
     "setup_theme_desc" : "1 және %d мәнінің арасындағы санды енгізу",
+    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "%s мәнінен тақырыптарды шығарып алу",
     "list_themes_none" : "Ешқандай тақырып мақсаттық серверде табылмады.",
     "setup_abort" : "Баптандыруды болдырмау.",

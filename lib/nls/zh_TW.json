@@ -26,6 +26,7 @@
     "setup_connecting" : "正在連接至遠端伺服器...",
     "setup_themes_found" : "找到下列佈景主題。請選取您要連接的佈景主題：",
     "setup_theme_desc" : "輸入 1 與 %d 之間的數字",
+    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "正在從 %s 提取佈景主題",
     "list_themes_none" : "在目標伺服器上找不到佈景主題。",
     "setup_abort" : "正在中斷起始設定。",

@@ -26,6 +26,7 @@
     "setup_connecting" : "A estabelecer ligação ao servidor remoto...",
     "setup_themes_found" : "Foram localizados os seguintes temas. Seleccione o tema ao qual pretende estabelecer ligação:",
     "setup_theme_desc" : "Introduza um número entre 1 e %d",
+    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "A obter temas a partir de %s",
     "list_themes_none" : "Não foram localizados temas no servidor de destino.",
     "setup_abort" : "A cancelar inicialização.",

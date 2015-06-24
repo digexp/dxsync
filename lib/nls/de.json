@@ -26,6 +26,7 @@
     "setup_connecting" : "Verbindung zum fernen Server wird hergestellt...",
     "setup_themes_found" : "Die folgenden Motive wurden gefunden. Wählen Sie das Motiv aus, zu dem Sie eine Verbindung herstellen möchten:",
     "setup_theme_desc" : "Geben Sie eine Zahl zwischen 1 und %d ein.",
+    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "Motive werden von %s abgerufen",
     "list_themes_none" : "Es wurden keine Motive auf dem Zielserver gefunden.",
     "setup_abort" : "Initialisierung wird abgebrochen.",

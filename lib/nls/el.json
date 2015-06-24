@@ -26,6 +26,7 @@
     "setup_connecting" : "Σύνδεση στον απομακρυσμένο εξυπηρετητή...",
     "setup_themes_found" : "Βρέθηκαν τα ακόλουθα θέματα. Επιλέξτε εκείνο στο οποίο επιθυμείτε να συνδεθείτε:",
     "setup_theme_desc" : "Καταχωρήστε έναν αριθμό μεταξύ 1 και %d",
+    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "Ανάκτηση θεμάτων από: %s",
     "list_themes_none" : "Δεν βρέθηκαν θέματα στον εξυπηρετητή προορισμού. ",
     "setup_abort" : "Ματαίωση απόδοση αρχικών τιμών.",

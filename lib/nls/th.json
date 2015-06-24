@@ -26,6 +26,7 @@
     "setup_connecting" : "กำลังเชื่อมต่อกับรีโมตเซิร์ฟเวอร์...",
     "setup_themes_found" : "พบธีมต่อไปนี้ โปรดเลือกสิ่งที่คุณต้องการเชื่อมต่อ:",
     "setup_theme_desc" : "ป้อนตัวเลขระหว่าง 1 ถึง %d",
+    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "การดึงข้อมูลธีมจาก %s",
     "list_themes_none" : "ไม่พบธีมบนเซิร์ฟเวอร์เป้าหมาย",
     "setup_abort" : "การยกเลิกการเตรียมข้อมูลเบื้องต้น",

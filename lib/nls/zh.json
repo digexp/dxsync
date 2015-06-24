@@ -26,6 +26,7 @@
     "setup_connecting" : "正在连接到远程服务器...",
     "setup_themes_found" : "找到以下主题。请选择您要连接的对象：",
     "setup_theme_desc" : "输入 1 到 %d 之间的数字",
+    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "正在访存 %s 中的主题",
     "list_themes_none" : "目录服务器上未找到任何主题。",
     "setup_abort" : "正在异常中止初始化。",

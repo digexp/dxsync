@@ -26,6 +26,7 @@
     "setup_connecting" : "Uzak sunucuyla bağlantı kuruluyor...",
     "setup_themes_found" : "Aşağıdaki temalar bulunamadı. Lütfen hangisine bağlanmak istediğinizi seçin:",
     "setup_theme_desc" : "1 - %d arası bir sayı girin",
+    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "Temalar %s içinden getiriliyor",
     "list_themes_none" : "Hedef sunucuda herhangi bir tema bulunamadı.",
     "setup_abort" : "Kullanıma hazırlama durduruluyor.",

@@ -26,6 +26,7 @@
     "setup_connecting" : "Conectarea la serverul la distanţă...",
     "setup_themes_found" : "Au fost găsite următoarele teme. Vă rugăm să selectaţi tema la care doriţi să vă conectaţi:",
     "setup_theme_desc" : "Introduceţi un număr între 1 şi %d",
+    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "Aducerea temelor de la %s",
     "list_themes_none" : "Nu s-a găsit nicio temă pe serverul destinaţie.",
     "setup_abort" : "Renunţarea la iniţializare.",

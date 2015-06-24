@@ -26,6 +26,7 @@
     "setup_connecting" : "원격 서버에 연결 중...",
     "setup_themes_found" : "다음 테마를 찾았습니다. 연결하려는 테마를 선택하십시오.",
     "setup_theme_desc" : "1에서 %d 사이의 숫자 입력",
+    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "%s에서 테마 페치 중",
     "list_themes_none" : "대상 서버에서 테마를 찾을 수 없습니다.",
     "setup_abort" : "초기화를 중단합니다.",

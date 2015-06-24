@@ -26,6 +26,7 @@
     "setup_connecting" : "Łączenie się z serwerem zdalnym...",
     "setup_themes_found" : "Znaleziono następujące kompozycje. Wybierz, z którą z kompozycji się połączyć:",
     "setup_theme_desc" : "Wprowadź liczbę z zakresu od 1 do %d",
+    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "Pobieranie kompozycji z %s",
     "list_themes_none" : "Nie znaleziono kompozycji na serwerze docelowym.",
     "setup_abort" : "Przerywanie inicjowania.",

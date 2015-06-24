@@ -26,6 +26,7 @@
     "setup_connecting" : "Yhteyden muodostus etäpalvelimeen on meneillään...",
     "setup_themes_found" : "Järjestelmä löysi seuraavassa mainitut teemat. Valitse niistä se, johon haluat muodostaa yhteyden:",
     "setup_theme_desc" : "Anna numero 1 - %d",
+    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "Teemat noudetaan kohteesta %s",
     "list_themes_none" : "Kohdepalvelimesta ei löytynyt teemoja.",
     "setup_abort" : "Alustus peruuntuu.",
