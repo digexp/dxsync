@@ -1,5 +1,5 @@
 {
-    "program_title" : "Sincronización de archivos de IBM Digital Experience v%s",
+    "program_title" : "IBM Digital Experience File Sync v%s",
     "program_help_1" : "Este programa de utilidad sincroniza recursos WebDAV para un tema de IBM WebSphere Portal con un directorio local.",
     "program_help_2" : "Permite a un desarrollador de temas trabajar fácilmente con estos archivos de forma local utilizando su propio editor favorito.",
     "program_help_3" : "Los archivos se cargan automáticamente al servidor remoto cuando se actualizan localmente.",
@@ -26,7 +26,6 @@
     "setup_connecting" : "Conectando al servidor remoto...",
     "setup_themes_found" : "Se encontraron los siguientes temas. Seleccione con el que le gustaría conectarse:",
     "setup_theme_desc" : "Escriba un número entre 1 y %d",
-    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "Captando temas de %s",
     "list_themes_none" : "No se encontraron temas en el servidor de destino.",
     "setup_abort" : "Terminando anormalmente la inicialización.",
@@ -37,7 +36,10 @@
     "error_host" : "No se puede conectar con host.",
     "error_refused" : "Conexión rechazada.",
     "error_not_found" : "No se ha encontrado el elemento solicitado.",
-    "error_unauthorized" : "No autorizado. Nombre de usuario o contraseña incorrectos. ",
+    "error_unauthorized" : "No autorizado. Nombre de usuario o contraseña incorrectos.",
+    "error_wrong_protocol" : "Protocolo no correcto. Esto pasa si utiliza un puerto incorrecto cuando se conecta al servidor. Por ejemplo, con un puerto no-seguro (http) con una ubicación segura (url https).",
+    "error_connection_reset" : "Conexión reiniciada. Esto pasa si utiliza un puerto incorrecto cuando se conecta al servidor. Por ejemplo, con un puerto seguro (https) con una ubicación no-segura (url http).",
+    "error_probably_no_tai" : "No se ha podido autenticar con el sistema remoto. Podría ser debido a que se ha inhabilitado el Basic Auth TAI (Trust Association Intercepter) en el host destino. Consulte la documentación DXSync para determinar como conectarlo.",
 
     "config_section_basic" : "Básica",
     "config_section_advanced" : "Avanzada",
@@ -50,6 +52,7 @@
     "config_syncinterval_desc" : "Intervalo en minutos para la sincronización en segundo plano",
     "config_connections_desc" : "Número de conexiones remotas simultáneas",
     "config_filter_desc" : "Expresión regular para ignorar archivos",
+    "config_secure_desc" : "Conexión segura (https)?",
 
     "webdav_request_canceled" : "Se ha interrumpido la solicitud WebDAV debido a una solicitud de cancelación.",
     "webdav_retry_success" : "Anteriormente se ha encontrado un problema resuelto satisfactoriamente para '%s' después de intentar %s veces.",
@@ -65,7 +68,7 @@
     "watcher_unable_2" : "Proporcione comentarios al autor de este módulo acerca de las dependencias precompiladas que faltan.",
     "watcher_unable_3" : "Su información del sistema: %s (plataforma) / %s (arquitectura)\n",
     "watcher_win_toomany_folders" : "No se puede observar el directorio '%s' debido a un error no resuelto en un componente que es requisito previo.\nConsulte https://github.com/atom/node-pathwatcher/issues/70 para obtener más información.",
-    "watcher_win_toomany_folders_start" : "No se pueden observar los siguientes directorios debido a un error no resuelto en un componente de requisito previo. \nConsulte https://github.com/atom/node-pathwatcher/issues/70 para obtener más información.",
+    "watcher_win_toomany_folders_start" : "No se pueden observar los siguientes directorios debido a un error no resuelto en un componente de requisito previo.\nConsulte https://github.com/atom/node-pathwatcher/issues/70 para obtener más información.",
     "watcher_forcewatch_info" : "Si necesita que alguno de los directorios anteriores se observe en favor de los demás, puede utilizar el valor 'forceWatch'. Simplemente añada el elemento forceWatch al archivo de valores ubicado en %s. El valor es una matriz de directorios para forzar la observación. Ejemplo: \"forceWatch\": [\"/example/directory\"]",
 
     "sync_idle" : "Desocupado...",
@@ -136,9 +139,9 @@
     "sync_merge_help_deleted_locally_6" : "Esto hará que el sistema resuelva el conflicto.",
     "sync_conflict_local_deleted_1" : "Intervención manual requerida para %s",
     "sync_conflict_local_deleted_2" : "El archivo se ha suprimido localmente y se ha actualizado en el servidor remoto. No se puede determinar si se debe descargar el archivo remoto actualizarlo o suprimirlo.",
-    "sync_conflict_local_deleted_3" : "Descargando el archivo como %s",
+    "sync_conflict_local_deleted_3" : "Descargando archivo como %s",
     "sync_conflict_remote_deleted_1" : "Intervención manual requerida para %s",
-    "sync_conflict_remote_deleted_2" : "El archivo se ha suprimido de forma remota y se ha actualizado localmente. No se ha podido determinar si se debe cargar el archivo actualizado o suprimirlo. ",
+    "sync_conflict_remote_deleted_2" : "El archivo se ha suprimido de forma remota y se ha actualizado localmente. No se ha podido determinar si se debe cargar el archivo actualizado o suprimirlo.",
     "sync_conflict_both_1" : "Fusión manual requerida para %s",
     "sync_conflict_both_2" : "El archivo se ha actualizado localmente y en el servidor remoto.",
     "sync_conflict_both_3" : "Descargando archivo como %s",
@@ -152,6 +155,9 @@
     "sync_event_change_file" : "Cambio de archivo reconocido: %s",
     "sync_rename_skip" : "Omitiendo cambio de nombre del archivo local debido a un conflicto de fusión pendiente: %s",
     "sync_start_watching" : "Observando si hay cambios en archivos en '%s'...",
+
+    "sync_ignore_rename" : "Se ignora el cambio de nombre de archivo porque el archivo destino '%s' coincide con el criterio de archivo oculto.",
+    "watcher_ignore_delete" : "Se ignora la eliminación de archivo porque el archivo destino '%s' coincide con el criterio de archivo oculto.",
 
     "sync_report" : "Informe de sincronización:\nTotal      : %d\nCargado   : %d\nDescargado : %d\nSuprimido  : %d / %d (Local/Remoto)\nConflictos  : %d / %d (Resuelto)\nNinguna acción  : %d\nErrores    : %d\n",
     "sync_error_happened" : "Se han producido errores durante la sincronización."

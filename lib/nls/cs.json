@@ -26,7 +26,6 @@
     "setup_connecting" : "Připojování ke vzdálenému serveru...",
     "setup_themes_found" : "Byly nalezeny následující motivy. Vyberte motiv, ke kterému se chcete připojit:",
     "setup_theme_desc" : "Zadejte číslo od 1 do %d",
-    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "Načítání motivů z %s",
     "list_themes_none" : "Na cílovém serveru nebyly nalezeny žádné motivy.",
     "setup_abort" : "Předčasné ukončení inicializace.",
@@ -38,6 +37,9 @@
     "error_refused" : "Připojení odmítnuto.",
     "error_not_found" : "Požadovaná položka nebyla nalezena.",
     "error_unauthorized" : "Neautorizováno. Chybné jméno uživatele nebo heslo.",
+    "error_wrong_protocol" : "Nesprávný protokol. K tomuto obvykle dochází, použijete-li nesprávný port k připojení serveru. Například nezabezpečený (http) port pro zabezpečené umístění (https url).",
+    "error_connection_reset" : "Reset připojení. K tomuto obvykle dochází, použijete-li nesprávný port k připojení serveru. Například zabezpečený port (https) pro nezabezpečené umístění (http url).",
+    "error_probably_no_tai" : "Nelze provést ověření se vzdáleným systémem. Nejpravděpodobnější příčinou je skutečnost, že byl na cílovém hostiteli deaktivován TAI (Trust Association Intercepter) základního ověření. Pokyny k aktivaci TAI naleznete v dokumentaci DXSync.",
 
     "config_section_basic" : "Základní",
     "config_section_advanced" : "Rozšířené",
@@ -50,6 +52,7 @@
     "config_syncinterval_desc" : "Interval v minutách pro synchronizaci na pozadí",
     "config_connections_desc" : "Počet souběžných vzdálených připojení",
     "config_filter_desc" : "Regulární výraz k ignorování souborů",
+    "config_secure_desc" : "Zabezpečené připojení (https)?",
 
     "webdav_request_canceled" : "Požadavek WebDAV byl přerušen v důsledku požadavku na stornování.",
     "webdav_retry_success" : "Problém, který byl dříve zjištěn pro '%s', byl úspěšně vyřešen po %s pokusech.",
@@ -152,6 +155,9 @@
     "sync_event_change_file" : "Rozpoznána změna souboru: %s",
     "sync_rename_skip" : "Přejmenování lokálního souboru přeskočeno v důsledku nevyřešeného konfliktu sloučení: %s",
     "sync_start_watching" : "Sledování změn souborů v '%s'...",
+
+    "sync_ignore_rename" : "Přejmenování souboru je ignorováno, protože cílový soubor '%s' splňuje kritéria pro skrytý soubor.",
+    "watcher_ignore_delete" : "Odstranění souboru je ignorováno, protože cílový soubor '%s' splňuje kritéria pro skrytý soubor.",
 
     "sync_report" : "Sestava synchronizace:\nCelkem      : %d\nOdesláno    : %d\nStaženo     : %d\nOdstraněno  : %d / %d (lokální/vzdálené)\nKonflikty   : %d / %d (vyřešeno)\nŽádná akce  : %d\nChyby       : %d\n",
     "sync_error_happened" : "Během synchronizace nastaly chyby!"

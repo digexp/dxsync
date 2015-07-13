@@ -26,7 +26,6 @@
     "setup_connecting" : "正在连接到远程服务器...",
     "setup_themes_found" : "找到以下主题。请选择您要连接的对象：",
     "setup_theme_desc" : "输入 1 到 %d 之间的数字",
-    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "正在访存 %s 中的主题",
     "list_themes_none" : "目录服务器上未找到任何主题。",
     "setup_abort" : "正在异常中止初始化。",
@@ -37,7 +36,10 @@
     "error_host" : "无法连接到主机。",
     "error_refused" : "连接已遭到拒绝。",
     "error_not_found" : "找不到所请求的项。",
-    "error_unauthorized" : "未经授权。用户名或密码不正确。",
+    "error_unauthorized" : "未授权。用户名或密码不正确。",
+    "error_wrong_protocol" : "协议错误。该情况通常在连接至服务器时使用了错误的端口时发生。例如，将非安全端口 (http) 和安全位置 (https url) 同时使用时。",
+    "error_connection_reset" : "连接已重置。该情况在连接至服务器时使用了错误的端口时发生。例如，将安全端口 (https) 和非安全位置 (https url) 同时使用时。",
+    "error_probably_no_tai" : "无法认证远程系统。如果基本认证 TAI（信任关联拦截器）在目标主机上已禁用，那么便经常发生该情况。请参考 DXSync 文档以获取如何开启的信息。",
 
     "config_section_basic" : "基本",
     "config_section_advanced" : "高级",
@@ -50,6 +52,7 @@
     "config_syncinterval_desc" : "后台同步的时间间隔（以分钟为单位）",
     "config_connections_desc" : "并发远程连接数",
     "config_filter_desc" : "忽略文件的正则表达式",
+    "config_secure_desc" : "安全连接 (https)？",
 
     "webdav_request_canceled" : "由于取消请求，因此 WebDAV 请求中断。",
     "webdav_retry_success" : "尝试 %s 次后成功解决早期针对“%s”发现的问题。",
@@ -81,7 +84,7 @@
     "sync_notification_subtitle" : "请稍等片刻再进行进一步更新。",
     "sync_phase2" : "第 2 阶段...",
     "sync_complete" : "同步完成。",
-    "sync_complete_subtitle" : "再次安全地进行文件更改。",
+    "sync_complete_subtitle" : "再次进行文件更改很安全。",
     "sync_complete_subtitle2" : "\n查看文件更改...",
     "sync_notification_generic_error" : "错误 %s 发生于尝试 %s [%s] 时 ",
     "sync_notification_multiple_error" : "多个错误 %s 发生于尝试 %s [%s] 时 ",
@@ -129,7 +132,7 @@
     "sync_merge_help_deleted_remotely_5" : "   这可通过将“%s”重命名为“%s”实现。",
     "sync_merge_help_deleted_remotely_6" : "这将使系统解决冲突。",
     "sync_merge_help_deleted_locally_1" : "要解决冲突，您有两个选项：",
-    "sync_merge_help_deleted_locally_2" : "1) 通过删除解决 - 还删除本地文件。",
+    "sync_merge_help_deleted_locally_2" : "1) 通过删除解决 - 还在本地删除文件。",
     "sync_merge_help_deleted_locally_3" : "   这可通过将“%s”重命名为“%s”实现。",
     "sync_merge_help_deleted_locally_4" : "2) 借助远程解决 - 下载远程文件。",
     "sync_merge_help_deleted_locally_5" : "   这可通过将“%s”重命名为“%s”实现。",
@@ -151,7 +154,10 @@
     "sync_event_rename_file" : "已识别文件重命名/移动：%s",
     "sync_event_change_file" : "已识别文件更改：%s",
     "sync_rename_skip" : "由于存在未解决的合并冲突 %s，因此跳过重命名本地文件",
-    "sync_start_watching" : "查看“%s”中文件更改...",
+    "sync_start_watching" : "正在查看“%s”中文件的更改...",
+
+    "sync_ignore_rename" : "正在忽略文件重命名，因为目标文件“%s”满足隐藏文件的条件。",
+    "watcher_ignore_delete" : "正在忽略文件删除，因为目标文件“%s”满足隐藏文件的条件。",
 
     "sync_report" : "同步报告：\n总计：%d\n已上载：%d\n已下载：%d\n已删除：%d / %d（本地/远程）\n冲突：%d / %d（已解决）\n无操作：%d\n错误：%d\n",
     "sync_error_happened" : "同步期间出现错误！"

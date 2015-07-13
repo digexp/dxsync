@@ -4,7 +4,7 @@
     "program_help_2" : "Det giver en temadesigner mulighed for nemt at arbejde lokalt med filer med sin foretrukne editor.",
     "program_help_3" : "Filerne uploades automatisk til den eksterne server, når de bliver opdateret lokalt.",
     "program_help_4" : "Der er flere oplysninger i vedhæftede fil ved navn readme.txt.\n",
-    "program_help_5" : "Kommandohjælp:\ndxsync.sh <parametre> <command>\n",
+    "program_help_5" : "Kommandohjælp:\ndxsync.sh <parametre> <kommando>\n",
     "program_help_6" : "Tilgængelige kommandoer:",
     "program_help_7" : "init\n    Initialiserer et tema i det aktuelle lokale bibliotek",
     "program_help_8" : "run\n     Kører en tovejssynkronisering og holder processen aktiv i baggrunden for at kunne registrere filændringer",
@@ -22,11 +22,10 @@
     "too_many_commands" : "For mange kommandoer: %s",
     "setup_1" : "Brug denne kommando til at oprette et nyt temasynkroniseringspunkt i",
     "setup_2" : "det aktuelle bibliotek '%s'.\n",
-    "setup_3" : "Følg vejledningen for at oprette forbindelse til det eksterne IBM WebSphere Portal-forekomst.",
+    "setup_3" : "Følg vejledningen for at oprette forbindelse til den eksterne IBM WebSphere Portal-forekomst.",
     "setup_connecting" : "Opretter forbindelse til den eksterne server...",
-    "setup_themes_found" : "Der er fundet følgende temaer. Vælg, hvilket du vil bruge oprette forbindelse til:",
+    "setup_themes_found" : "Der er fundet følgende temaer. Vælg den, du vil bruge oprette forbindelse til:",
     "setup_theme_desc" : "Indtast et tal mellem 1 og %d",
-    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "Henter temaer fra %s",
     "list_themes_none" : "Der er ingen temaer på målserveren.",
     "setup_abort" : "Afbryder initialisering.",
@@ -38,6 +37,9 @@
     "error_refused" : "Forbindelse afvist.",
     "error_not_found" : "Det ønskede element findes ikke.",
     "error_unauthorized" : "Uautoriseret. Forkert brugernavn eller kodeord.",
+    "error_wrong_protocol" : "Forkert protokol. Det sker, hvis du bruger en forkert port til at oprette forbindelse til serveren. Eksempel: En port, der ikke er sikker (http), med en sikker placering (https url).",
+    "error_connection_reset" : "Nulstilling af forbindelse. Det sker, hvis du bruger en forkert port til at oprette forbindelse til serveren. Eksempel: En sikker port (https) med en placering, der ikke er sikker (http url).",
+    "error_probably_no_tai" : "Kan ikke validere med det eksterne system. Det er højst sandsynligt tilfældet, hvis Basic Auth TAI (Trust Association Intercepter) er blevet deaktiveret på målværten. DXSync-dokumentationen indeholder oplysninger om, hvordan den kan aktiveres.",
 
     "config_section_basic" : "Grundlæggende",
     "config_section_advanced" : "Udvidet",
@@ -50,6 +52,7 @@
     "config_syncinterval_desc" : "Interval i minutter for baggrundssynkroniseringen",
     "config_connections_desc" : "Antal samtidige eksterne forbindelser",
     "config_filter_desc" : "Regulært udtryk til ignorering af filer",
+    "config_secure_desc" : "Sikker forbindelse (https)?",
 
     "webdav_request_canceled" : "WebDAV-anmodning afbrudt pga. annullering.",
     "webdav_retry_success" : "Det tidligere fundne problem for '%s' er løst efter %s forsøg.",
@@ -152,6 +155,9 @@
     "sync_event_change_file" : "Ændring af genkendt fil: %s",
     "sync_rename_skip" : "Springer omdøbning af lokal fil over pga. en uløst flettekonflikt: %s",
     "sync_start_watching" : "Overvåger filer i '%s' for ændringer...",
+
+    "sync_ignore_rename" : "Ignorerer omdøbning af fil, fordi målfilen '%s' opfylder kriterierne for en skjult fil.",
+    "watcher_ignore_delete" : "Ignorerer sletning af fil, fordi målfilen '%s' opfylder kriterierne for en skjult fil.",
 
     "sync_report" : "Synkroniseringsrapport:\nTotal      : %d\nUploadet   : %d\nDownloadet : %d\nSlettet    : %d / %d (Lokal/Ekstern)\nKonflikter : %d / %d (løst)\nIngen handling : %d\nFejl     : %d\n",
     "sync_error_happened" : "Der opstod fejl under synkroniseringen."

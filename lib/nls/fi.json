@@ -20,13 +20,12 @@
     "unrecognized_command" : "Tuntematon komento: %s",
     "unrecognized_option" : "Tuntematon valitsin: %s",
     "too_many_commands" : "Liian monta komentoa: %s",
-    "setup_1" : "Tämä komennon avulla luot teeman uuden synkronointikohdan",
+    "setup_1" : "Tämän komennon avulla luot teeman uuden synkronointikohdan",
     "setup_2" : "nykyiseen hakemistoon %s.\n",
     "setup_3" : "Muodosta yhteys IBM WebSphere Portal -etäilmentymään noudattamalla kehotteiden ohjeita.",
     "setup_connecting" : "Yhteyden muodostus etäpalvelimeen on meneillään...",
     "setup_themes_found" : "Järjestelmä löysi seuraavassa mainitut teemat. Valitse niistä se, johon haluat muodostaa yhteyden:",
     "setup_theme_desc" : "Anna numero 1 - %d",
-    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "Teemat noudetaan kohteesta %s",
     "list_themes_none" : "Kohdepalvelimesta ei löytynyt teemoja.",
     "setup_abort" : "Alustus peruuntuu.",
@@ -38,6 +37,9 @@
     "error_refused" : "Yhteys on hylätty.",
     "error_not_found" : "Pyydettyä objektia ei löytynyt.",
     "error_unauthorized" : "Ei käyttöoikeuksia. Käyttäjätunnus tai salasana on virheellinen.",
+    "error_wrong_protocol" : "Väärä käytäntö. Tämä ilmenee yleensä, jos yhteyden muodostuksessa palvelimeen käytetään väärää porttia. Esimerkki: suojaamaton (http) portti ja suojattu sijainti (https url).",
+    "error_connection_reset" : "Yhteys on nollattu. Tämä ilmenee yleensä, jos yhteyden muodostuksessa palvelimeen käytetään väärää porttia. Esimerkki: suojattu (https) portti ja suojaamaton sijainti (http url).",
+    "error_probably_no_tai" : "Etäjärjestelmän todennus ei onnistu. Tämä ilmenee yleensä, jos Basic Auth TAI (Trust Association Intercepter) ei ole käytössä kohdepääkoneessa. Lisätietoja todennuksen käyttöönotosta on DXSync-ohjeissa.",
 
     "config_section_basic" : "Perusasetukset",
     "config_section_advanced" : "Lisäasetukset",
@@ -50,12 +52,13 @@
     "config_syncinterval_desc" : "Taustasynkronoinnin aikaväli minuutteina",
     "config_connections_desc" : "Samanaikaisten etäyhteyksien määrä",
     "config_filter_desc" : "Tiedostojen ohituksessa käytettävä säännöllinen lauseke",
+    "config_secure_desc" : "Suojattu yhteys (https)?",
 
     "webdav_request_canceled" : "WebDAV-pyyntö on keskeytynyt peruutuspyynnön takia.",
     "webdav_retry_success" : "Kohteeseen %s liittyvä aiempi ongelma on ratkennut %s yrityskerran jälkeen.",
     "webdav_invalid_url" : "URL-osoite (%s) on virheellinen - skeemaa ei löydy",
 
-    "watcher_restart" : "Aloita teeman synkronointi uudelleen (nimeä uudelleen kohteeseen %s liittyvä epäonnistunut komento)",
+    "watcher_restart" : "Aloita teeman synkronointi uudelleen (kohteen %s uudelleennimeämiskomento epäonnistui)",
     "watcher_restart2" : "Aloita teeman synkronointi uudelleen (käsittelytoimintoa ei löytynyt polusta numero 1 ? %s)",
     "watcher_restart3" : "Aloita teeman synkronointi uudelleen (käsittelytoimintoa ei löytynyt polusta numero 2 ? %s)",
     "watcher_stateexception" : "Tuntematon tilaan liittyvä poikkeus:\npolku: %s\ntarkkailtava polku: %\naloitushakemisto: %s",
@@ -152,6 +155,9 @@
     "sync_event_change_file" : "Havaittu tiedoston muutos: %s",
     "sync_rename_skip" : "Paikallisen tiedoston uudelleennimeäminen ohitetaan selvittämättömän yhdistämisristiriidan takia: %s",
     "sync_start_watching" : "Kohteen %s tiedostojen tarkkailu muutosten varalta on meneillään...",
+
+    "sync_ignore_rename" : "Tiedoston uudelleennimeäminen ohitetaan, koska kohdetiedosto %s täyttää piilotetulle tiedostolle annetut ehdot.",
+    "watcher_ignore_delete" : "Tiedoston poisto ohitetaan, koska kohdetiedosto %s täyttää piilotetulle tiedostolle annetut ehdot.",
 
     "sync_report" : "Synkronointiraportti:\nYhteensä: %d\nSiirretty palvelimeen: %d\nLadattu: %d\nPoistettu: %d / %d (paikallinen/etäkohde)\nRistiriitoja: %d/%d (selvitetty)\nEi toimia: %d\nVirheitä: %d\n",
     "sync_error_happened" : "Synkronoinnissa on ilmennyt virheitä."

@@ -2,14 +2,14 @@
     "program_title" : "IBM Digital Experience File Sync v%s",
     "program_help_1" : "Este utilitário sincroniza os recursos do WebDAV para um tema do IBM WebSphere Portal com um directório local.",
     "program_help_2" : "Permite que um programador de tema trabalhe facilmente com esses ficheiros localmente, utilizando o editor favorito.",
-    "program_help_3" : "Os ficheiros são transferidos automaticamente para o servidor remoto ao transferir localmente.",
+    "program_help_3" : "Os ficheiros são transferidos automaticamente para o servidor remoto ao actualizar localmente.",
     "program_help_4" : "Poderá obter informações adicionais no ficheiro readme.txt em anexo\n",
-    "program_help_5" : "Ajuda para comandos:\ndxsync.sh <options> <command>\n",
+    "program_help_5" : "Ajuda para comandos:\ndxsync.sh <opções> <comando>\n",
     "program_help_6" : "Comandos disponíveis:",
     "program_help_7" : "init\n    Inicializa um tema no directório local actual",
     "program_help_8" : "run\n    Executa uma sincronização bidireccional e mantém o processo activo em segundo plano para verificar alterações de ficheiros",
-    "program_help_9" : "pull\n    Faz com que um uma sincronização unidireccional descarregue todos os ficheiros actualizados a partir do sistema remoto",
-    "program_help_10" : "push\n    Faz com que um uma sincronização unidireccional transfira todos os ficheiros actualizados (substituindo as alterações remotas) no sistema remoto\n",
+    "program_help_9" : "pull\n    Faz com que uma sincronização unidireccional descarregue todos os ficheiros actualizados a partir do sistema remoto",
+    "program_help_10" : "push\n    Faz com que uma sincronização unidireccional transfira todos os ficheiros actualizados (substituindo as alterações remotas) no sistema remoto\n",
     "program_help_11" : "Opções disponíveis:",
     "program_help_12" : "--debug\n    Activa o modo de depuração com predefinições (nível: melhor, todos os métodos e ficheiros)",
     "program_help_13" : "--debug-finest\n    Define o nível de rastreio para melhor\n",
@@ -20,13 +20,12 @@
     "unrecognized_command" : "Comando não reconhecido: %s",
     "unrecognized_option" : "Opção não reconhecida: %s",
     "too_many_commands" : "Demasiados comandos: %s",
-    "setup_1" : "Com este comando, está a criar um novo ponto de sincronização de temas em",
+    "setup_1" : "nCom este comando, está a criar um novo ponto de sincronização de temas no",
     "setup_2" : "directório actual '%s'.\n",
     "setup_3" : "Siga os pedidos de informação para estabelecer ligação à ocorrência remota do IBM WebSphere Portal.",
     "setup_connecting" : "A estabelecer ligação ao servidor remoto...",
     "setup_themes_found" : "Foram localizados os seguintes temas. Seleccione o tema ao qual pretende estabelecer ligação:",
     "setup_theme_desc" : "Introduza um número entre 1 e %d",
-    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "A obter temas a partir de %s",
     "list_themes_none" : "Não foram localizados temas no servidor de destino.",
     "setup_abort" : "A cancelar inicialização.",
@@ -38,6 +37,9 @@
     "error_refused" : "Ligação recusada.",
     "error_not_found" : "Item solicitado não encontrado.",
     "error_unauthorized" : "Não autorizado. Nome do utilizador ou palavra-passe incorrecta.",
+    "error_wrong_protocol" : "Protocolo incorrecto. Normalmente ocorre se utilizou a porta incorrecta ao ligar ao servidor. Por exemplo, porta não segura (http) em conjunto com localização segura (https url).",
+    "error_connection_reset" : "Ligação reposta. Normalmente ocorre se utilizou a porta incorrecta ao ligar ao servidor. Por exemplo, porta segura (https) em conjunto com localização não segura (https url).",
+    "error_probably_no_tai" : "Não foi possível efectuar a autenticação no sistema remoto. É a situação mais provável se a Autenticação Básica TAI (Trust Association Intercepter) foi desactivada no sistema central remoto. Consulte a documentação DXSync para saber como activar esta função.",
 
     "config_section_basic" : "Básico",
     "config_section_advanced" : "Avançadas",
@@ -50,6 +52,7 @@
     "config_syncinterval_desc" : "Intervalo em minutos para a sincronização em segundo plano",
     "config_connections_desc" : "Número de ligações remotas concorrentes",
     "config_filter_desc" : "Expressão global para ignorar ficheiros",
+    "config_secure_desc" : "Ligação segura (https)?",
 
     "webdav_request_canceled" : "Pedido de WebDAV interrompido devido a pedido de cancelamento.",
     "webdav_retry_success" : "O problema anteriormente localizado para '%s' foi resolvido com êxito após %s tentativas.",
@@ -153,7 +156,10 @@
     "sync_rename_skip" : "A ignorar mudança do nome do ficheiro local devido a um conflito de intercalação pendente: %s",
     "sync_start_watching" : "A visualizar alterações nos ficheiros em '%s'...",
 
-    "sync_report" : "Relatórios de sincronização:\nTotal      : %d\nTransferido   : %d\nDescarregado : %d\nEliminado    : %d / %d (Local/Remoto)\nConflitos  : %d / %d (Resolvido)\nNenhuma acção  : %d\nErros     : %d\n",
+    "sync_ignore_rename" : "A ignorar a mudança de nome de ficheiro, porque o ficheiro destino '%s' obedece aos critérios para um ficheiro oculto.",
+    "watcher_ignore_delete" : "A ignorar a eliminação do ficheiro, porque o ficheiro destino '%s' obedece aos critérios para um ficheiro oculto.",
+
+    "sync_report" : "Relatório de sincronização:\nTotal         : %d\nTransferido   : %d\nDescarregado  : %d\nEliminado     : %d / %d (Local/Remoto)\nConflitos     : %d / %d (Resolvido)\nNenhuma acção : %d\nErros         : %d\n",
     "sync_error_happened" : "Ocorreram erros durante a sincronização!"
 
 }

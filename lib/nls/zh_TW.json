@@ -9,7 +9,7 @@
     "program_help_7" : "init\n    在現行本端目錄內起始設定佈景主題",
     "program_help_8" : "run\n    執行雙向同步化，並使處理程序在背景中保持作用中狀態，以監看檔案變更",
     "program_help_9" : "pull\n    執行單向同步化，以從遠端系統下載所有更新檔案",
-    "program_help_10" : "push\n    執行單向同步化，以上傳遠端系統上的所有更新檔案（改寫遠端變更）\n",
+    "program_help_10" : "push\n    執行單向同步化，以將所有更新檔案上傳至遠端系統（改寫遠端變更）\n",
     "program_help_11" : "可用的選項：",
     "program_help_12" : "--debug\n    使用預設值啟用除錯模式（層次：較細微，所有方法和檔案）",
     "program_help_13" : "--debug-finest\n    將追蹤層次設為最細微\n",
@@ -26,7 +26,6 @@
     "setup_connecting" : "正在連接至遠端伺服器...",
     "setup_themes_found" : "找到下列佈景主題。請選取您要連接的佈景主題：",
     "setup_theme_desc" : "輸入 1 與 %d 之間的數字",
-    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "正在從 %s 提取佈景主題",
     "list_themes_none" : "在目標伺服器上找不到佈景主題。",
     "setup_abort" : "正在中斷起始設定。",
@@ -38,6 +37,9 @@
     "error_refused" : "連線遭拒。",
     "error_not_found" : "找不到要求的項目。",
     "error_unauthorized" : "未獲授權。使用者名稱或密碼不正確。",
+    "error_wrong_protocol" : "通訊協定錯誤。如果您使用錯誤的埠來連接至伺服器經常會發生這個問題。例如，將不安全的 (http) 埠搭配安全位置 (https URL) 使用。",
+    "error_connection_reset" : "連線重設。如果您使用錯誤的埠來連接至伺服器經常會發生這個問題。例如，將安全的 (https) 埠搭配不安全位置 (http URL) 使用。",
+    "error_probably_no_tai" : "無法向遠端系統進行鑑別。這種情況最有可能是已在目標主機上停用基本鑑別 TAI（信任關聯攔截程式）。請查閱 DXSync 文件，以瞭解如何加以啟用。",
 
     "config_section_basic" : "基本",
     "config_section_advanced" : "進階",
@@ -50,6 +52,7 @@
     "config_syncinterval_desc" : "背景同步化的間隔（分鐘）",
     "config_connections_desc" : "並行遠端連線數目",
     "config_filter_desc" : "忽略檔案的正規表示式",
+    "config_secure_desc" : "安全連線 (https)？",
 
     "webdav_request_canceled" : "WebDAV 要求因取消要求而岔斷。",
     "webdav_retry_success" : "已在嘗試 %s 次後順利解決先前發現的 '%s' 相關問題。",
@@ -153,7 +156,10 @@
     "sync_rename_skip" : "因為合併衝突尚未解決而略過本端檔案重新命名：%s",
     "sync_start_watching" : "正在監看 '%s' 中的檔案是否有所變更...",
 
-    "sync_report" : "同步化報告：\n總計：%d\n已上傳：%d\n已下載：%d\n已刪除：%d / %d（本端/遠端）\n衝突：%d / %d（已解決）\n無動作：%d\n錯誤：%d\n",
+    "sync_ignore_rename" : "忽略檔案重新命名，因為目標檔案 '%s' 符合隱藏式檔案的準則。",
+    "watcher_ignore_delete" : "忽略檔案刪除，因為目標檔案 '%s' 符合隱藏式檔案的準則。",
+
+    "sync_report" : "同步化報告：\n總計：%d\n上傳數：%d\n下載數：%d\n刪除數：%d / %d（本端/遠端）\n衝突數：%d / %d（已解決）\n無動作數：%d\n錯誤數：%d\n",
     "sync_error_happened" : "同步化期間發生錯誤！"
 
 }

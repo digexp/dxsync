@@ -26,7 +26,6 @@
     "setup_connecting" : "Підключення до віддаленого сервера...",
     "setup_themes_found" : "Знайдено наступні теми. Виберіть сервер, до якого потрібно підключитись:",
     "setup_theme_desc" : "Введіть число від 1 та %d",
-    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "Витяг тем з %s",
     "list_themes_none" : "На цільовому сервері не знайдено жодної теми.",
     "setup_abort" : "Ініціалізація припиняється.",

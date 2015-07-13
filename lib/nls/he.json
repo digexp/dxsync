@@ -26,7 +26,6 @@
     "setup_connecting" : "Connecting to the remote server...",
     "setup_themes_found" : "The following themes were found. Please select which one you would like to connect to:",
     "setup_theme_desc" : "Enter a number between 1 and %d",
-    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "Fetching themes from %s",
     "list_themes_none" : "No themes found on the target server.",
     "setup_abort" : "Aborting initialization.",
@@ -38,6 +37,9 @@
     "error_refused" : "Connection refused.",
     "error_not_found" : "Requested item not found.",
     "error_unauthorized" : "Unauthorized. Incorrect username or password.",
+    "error_wrong_protocol" : "Wrong protocol. This usually happens if you use the wrong port when connecting to the server. For instance, none-secure (http) port with secure location (https url).",
+    "error_connection_reset" : "Connection reset. This usually happens if you use the wrong port when connecting to the server. For instance, secure (https) port with none-secure location (https url).",
+    "error_probably_no_tai" : "Unable to authenticate with the remote system. This is most likely the case if the Basic Auth TAI (Trust Association Intercepter) has been disabled on the target host. Please consult the DXSync documentation on how to turn this on.",
 
     "config_section_basic" : "Basic",
     "config_section_advanced" : "Advanced",
@@ -50,6 +52,7 @@
     "config_syncinterval_desc" : "Interval in minutes for the background synchronization",
     "config_connections_desc" : "Number of concurrent remote connections",
     "config_filter_desc" : "Regular expression to ignore files",
+    "config_secure_desc" : "Secure Connection (https)?",
 
     "webdav_request_canceled" : "WebDAV Request interrupted due to cancel request.",
     "webdav_retry_success" : "Successfully resolved problem found earlier for '%s' after trying %s times.",
@@ -152,6 +155,9 @@
     "sync_event_change_file" : "Recognized file change: %s",
     "sync_rename_skip" : "Skipping renaming local file due to an outstanding merge conflict: %s",
     "sync_start_watching" : "Watching files in '%s' for changes...",
+
+    "sync_ignore_rename" : "Ignoring file rename because the target file '%s' meets the criteria for a hidden file.",
+    "watcher_ignore_delete" : "Ignoring file delete because the target file '%s' meets the criteria for a hidden file.",
 
     "sync_report" : "Synchronization Report:\nTotal      : %d\nUploaded   : %d\nDownloaded : %d\nDeleted    : %d / %d (Local/Remote)\nConflicts  : %d / %d (Resolved)\nNo Action  : %d\nErrors     : %d\n",
     "sync_error_happened" : "Errors happened during synchronization!"

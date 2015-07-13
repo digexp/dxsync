@@ -1,5 +1,5 @@
 {
-    "program_title" : "IBM Digital Experience ファイル同期 v%s",
+    "program_title" : "IBM Digital Experience File Sync v%s",
     "program_help_1" : "このユーティリティーは、IBM WebSphere Portal テーマの WebDAV リソースをローカル・ディレクトリーと同期します。",
     "program_help_2" : "これにより、テーマ開発者は、お気に入りのエディターを使用して、これらのファイルに対する作業をローカルで簡単に行うことができます。",
     "program_help_3" : "ローカルで更新すると、ファイルが自動的にリモート・サーバーにアップロードされます。",
@@ -26,7 +26,6 @@
     "setup_connecting" : "リモート・サーバーに接続中...",
     "setup_themes_found" : "次のテーマが見つかりました。 接続先のテーマを選択してください。",
     "setup_theme_desc" : "1 から %d の間の数を入力してください",
-    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "%s からテーマを取り出し中",
     "list_themes_none" : "ターゲット・サーバー上にテーマが見つかりません。",
     "setup_abort" : "初期化を中止しています。",
@@ -37,7 +36,10 @@
     "error_host" : "ホストに接続できません。",
     "error_refused" : "接続が拒否されました。",
     "error_not_found" : "要求された項目が見つかりません。",
-    "error_unauthorized" : "許可されていません。 誤ったユーザー名またはパスワードです。",
+    "error_unauthorized" : "許可されていません。誤ったユーザー名またはパスワードです。",
+    "error_wrong_protocol" : "プロトコルが誤っています。これは通常、サーバーへの接続時に誤ったポートを使用した場合に起こります。例えば、非セキュアな (http) ポートがセキュアな場所 (https URL) に対して使用された場合などです。",
+    "error_connection_reset" : "接続がリセットされました。これは通常、サーバーへの接続時に誤ったポートを使用した場合に起こります。例えば、セキュアな (https) ポートが非セキュアな場所 (http URL) に対して使用された場合などです。",
+    "error_probably_no_tai" : "リモート・システムでの認証ができません。基本認証 TAI (トラスト・アソシエーション・インターセプター) がターゲット・ホストで無効になっている可能性があります。これを有効にする方法については、DXSync 資料を参照してください。",
 
     "config_section_basic" : "基本",
     "config_section_advanced" : "拡張",
@@ -50,6 +52,7 @@
     "config_syncinterval_desc" : "バックグラウンド同期の間隔 (分)",
     "config_connections_desc" : "同時リモート接続の数",
     "config_filter_desc" : "ファイルを無視するための正規表現",
+    "config_secure_desc" : "セキュア接続 (https)?",
 
     "webdav_request_canceled" : "キャンセル要求により WebDAV 要求が中断されました。",
     "webdav_retry_success" : "「%s」について以前に見つかった問題は、%s 回の試行後に正常に解決されました。",
@@ -83,8 +86,8 @@
     "sync_complete" : "同期が完了しました。",
     "sync_complete_subtitle" : "再度のファイル更新を安全に行うことができます。",
     "sync_complete_subtitle2" : "\nファイルの変更を監視中...",
-    "sync_notification_generic_error" : "エラー %s が %s [%s] の試行中に発生しました",
-    "sync_notification_multiple_error" : "複数のエラー %s が %s [%s] の試行中に発生しました",
+    "sync_notification_generic_error" : "エラー %s が %s の試行中に発生しました [%s]",
+    "sync_notification_multiple_error" : "複数のエラー %s が %s の試行中に発生しました [%s]",
     "sync_error_command_create" : "作成",
     "sync_error_command_delete" : "削除",
     "sync_error_command_update" : "更新",
@@ -152,6 +155,9 @@
     "sync_event_change_file" : "ファイル変更を認識しました: %s",
     "sync_rename_skip" : "未解決のマージ競合があるため、ローカル・ファイルの名前変更をスキップします: %s",
     "sync_start_watching" : "'%s' 内のファイルの変更を監視中...",
+
+    "sync_ignore_rename" : "ターゲット・ファイル '%s' が非表示ファイルの基準を満たしているため、ファイルの名前変更を無視しています。",
+    "watcher_ignore_delete" : "ターゲット・ファイル '%s' が非表示ファイルの基準を満たしているため、ファイルの削除を無視しています。",
 
     "sync_report" : "同期レポート:\n合計      : %d\nアップロード   : %d\nダウンロード : %d\n削除    : %d / %d (ローカル/リモート)\n競合  : %d / %d (解決済み)\nアクションなし  : %d\nエラー     : %d\n",
     "sync_error_happened" : "同期中にエラーが発生しました。"

@@ -26,7 +26,6 @@
     "setup_connecting" : "S'està connectant amb el servidor remot...",
     "setup_themes_found" : "S'han trobat els següents temes. Seleccioneu el tema al qual us vulgueu connectar:",
     "setup_theme_desc" : "Introduïu un número entre 1 i %d",
-    "setup_theme_exists" : "Interrupting setup process as your synchronization point is already connected to a theme. If you wish to synchronize another theme please create a new directory and start the setup process there, or copy the .settings file manually.",
     "list_themes" : "S'estant obtenint els temes des de %s",
     "list_themes_none" : "No s'han trobat temes al servidor de destinació.",
     "setup_abort" : "S'està avortant la inicialització.",
@@ -38,6 +37,9 @@
     "error_refused" : "S'ha rebutjat la connexió.",
     "error_not_found" : "No s'ha trobat l'element sol·licitat.",
     "error_unauthorized" : "No autoritzat. Nom d'usuari o contrasenya incorrectes.",
+    "error_wrong_protocol" : "Protocol no correcte. Això passa quan s'utilitza un port incorrecte quan es connecta al servidor. Per exemple, un port no-segur (http) amb una ubicació segura (d'url https).",
+    "error_connection_reset" : "Connexió reiniciada. Això passa si utilitza un port incorrecte quan es connecta al servidor. Per exemple, un port segur (https) amb una ubicació no-segura (d'url https).",
+    "error_probably_no_tai" : "No s'ha pogut autenticar amb el sistema remot. És el cas en el que s'ha inhabilitat la Basic Auth TAI (Trust Association Intercepter) en el host destí. Consulteu la documentació DXSync per saber com connectar-ho.",
 
     "config_section_basic" : "Bàsic",
     "config_section_advanced" : "Avançat",
@@ -50,6 +52,7 @@
     "config_syncinterval_desc" : "Interval en minuts de la sincronització en segon pla",
     "config_connections_desc" : "Nombre de connexions remotes simultànies",
     "config_filter_desc" : "Expressió regular per ignorar fitxers",
+    "config_secure_desc" : "Connexió segura (https)?",
 
     "webdav_request_canceled" : "Sol·licitud WebDAV interrompuda a causa d'una sol·licitud de cancel·lació.",
     "webdav_retry_success" : "S'ha resolt correctament el problema detectat prèviament per a '%s' després de provar-ho %s vegades.",
@@ -152,6 +155,9 @@
     "sync_event_change_file" : "Canvi de fitxer reconegut: %s",
     "sync_rename_skip" : "S'està ometent el canvi de nom del fitxer local a causa d'un conflicte de fusió pendent: %s",
     "sync_start_watching" : "S'estan comprovant els fitxers a '%s' per cercar-hi canvis...",
+
+    "sync_ignore_rename" : "S'ignora el canvi de nom perquè el fitxer destí '%s' coincideix amb els criteris de fitxer ocult.",
+    "watcher_ignore_delete" : "S'ignora l'eliminació de fitxer perquè el fitxer destí '%s' coincideix amb els criteris de fitxer ocult.",
 
     "sync_report" : "Informe de sincronització:\nTotal      : %d\nCarregat   : %d\nDescarregat : %d\nSuprimit    : %d / %d (Local/Remot)\nConflictes  : %d / %d (Resolt)\nSense acció  : %d\nErrors     : %d\n",
     "sync_error_happened" : "S'han produït errors durant la sincronització."
