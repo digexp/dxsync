@@ -1,6 +1,6 @@
 {
   "name" : "dxsync",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "IBM Digital Experience File Sync - This utility synchronizes theme resources with an IBM WebSphere Portal instance to a local directory.",
   "homepage" : "https://github.com/digexp/dxsync",
   "repository": {
