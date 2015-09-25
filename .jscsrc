@@ -5,6 +5,7 @@
         "precompiled_modules/**",
         "build/**",
         "lib/**",
+        "test/**",
         "coverage"
     ],
     "preset": "jquery",
